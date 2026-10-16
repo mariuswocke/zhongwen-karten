@@ -460,6 +460,7 @@
   }
   .ch-hero::before { content: ""; position: absolute; width: 200px; height: 200px; border-radius: 50%; right: -60px; top: -80px; background: rgba(255,255,255,.15); }
   .ch-hero.s-a12 { background: var(--g-purple); box-shadow: 0 8px 0 #4a3db8, 0 18px 36px rgba(108,92,231,.25); }
+  .ch-hero.s-a22 { background: linear-gradient(135deg, #1fc98a 0%, #0f9d6a 100%); box-shadow: 0 8px 0 #0b7a52, 0 18px 36px rgba(15,157,106,.25); }
   .ch-hero.s-a21 { background: var(--brand); box-shadow: 0 8px 0 var(--edge-brand), 0 18px 36px rgba(255,90,95,.28); }
   .ch-hero-main { position: relative; display: flex; align-items: center; gap: 16px; }
   .ch-hero .ring { width: 88px; height: 88px; }
@@ -745,7 +746,9 @@
 <script src="hanzi-meta.js"></script>
 <script src="decks.js"></script>
 <script src="decks-en.js"></script>
+<script src="decks-a2.js"></script>
 <script src="curriculum.js"></script>
+<script src="curriculum-a2.js"></script>
 <script src="trad2simp.js"></script>
 <script>
 // ---------------------------------------------------------------
@@ -891,7 +894,7 @@ syncMyWordsDeck();
 const ALL_MODES = ["de-cn", "cn-pinyin-de", "cnpinyin-de", "schreiben"];
 const DEFAULT_MODES = ["de-cn", "cn-pinyin-de", "cnpinyin-de"]; // Schreiben bewusst einschalten
 const DEFAULT_ACTIVE = Object.keys(DECKS).filter(id =>
-  DECKS[id].stufe !== "a21" || ["a21-l01", "a21-l02", "a21-l03"].includes(id));
+  ["a11", "a12"].includes(DECKS[id].stufe) || ["a21-l01", "a21-l02", "a21-l03"].includes(id));
 
 function loadSettings() {
   const s = readJson(SETTINGS_KEY) || {};
@@ -1118,6 +1121,7 @@ const STUFEN = [
   { id: "a11", label: "A1.1" },
   { id: "a12", label: "A1.2" },
   { id: "a21", label: "A2.1" },
+  { id: "a22", label: "A2.2" },
   { id: "eigen", label: tr("Meine Wörter", "My words") }
 ];
 function stufeHasCards(id) { return Object.values(DECKS).some(d => d.stufe === id); }
