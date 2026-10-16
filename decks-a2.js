@@ -1,61 +1,3409 @@
 // Automatisch erzeugt von scripts/build-a2-decks.mjs aus scripts/content-a2/ — nicht von Hand bearbeiten.
-// Zusätzliche Kapitel für A2.1 (Ergänzung) und A2.2: Wörter + Sätze. Eigene Auswahl (HSK 2–3), nicht aus dem Lehrbuch.
+// Lehrbuch 成功之路 起步篇 2 (Lektion 13–28) + Zusatz-Kapitel (eigene Auswahl, HSK 2–3).
 Object.assign(DECKS, {
- "a21-x1": {
+ "a21-l13": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Wetter & Jahreszeiten",
+  "title": "A2.1 Buch 2 · L13 我们在食堂门口见面 — Verabreden & Treffpunkt; Alltag mit 在/给/跟",
   "cards": [
    {
-    "hanzi": "春天",
-    "pinyin": "chūntiān",
-    "de": "Frühling",
-    "level": "leicht",
-    "example": {
-     "hanzi": "春天花开了。",
-     "pinyin": "Chūntiān huā kāi le."
-    }
+    "hanzi": "喂",
+    "pinyin": "wèi",
+    "de": "hallo (am Telefon)",
+    "level": "leicht"
    },
    {
-    "hanzi": "夏天",
-    "pinyin": "xiàtiān",
-    "de": "Sommer",
-    "level": "leicht",
-    "example": {
-     "hanzi": "夏天太热了。",
-     "pinyin": "Xiàtiān tài rè le."
-    }
+    "hanzi": "一些",
+    "pinyin": "yìxiē",
+    "de": "einige; ein paar",
+    "level": "mittel"
    },
    {
-    "hanzi": "秋天",
-    "pinyin": "qiūtiān",
-    "de": "Herbst",
+    "hanzi": "些",
+    "pinyin": "xiē",
+    "de": "einige",
     "level": "leicht",
-    "example": {
-     "hanzi": "秋天很舒服。",
-     "pinyin": "Qiūtiān hěn shūfu."
-    }
+    "note": "Zählwort."
    },
    {
-    "hanzi": "冬天",
-    "pinyin": "dōngtiān",
-    "de": "Winter",
+    "hanzi": "这些",
+    "pinyin": "zhèxiē",
+    "de": "diese",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "那些",
+    "pinyin": "nàxiē",
+    "de": "jene",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "帮",
+    "pinyin": "bāng",
+    "de": "helfen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "一下儿",
+    "pinyin": "yíxiàr",
+    "de": "einmal; mal kurz",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "饭",
+    "pinyin": "fàn",
+    "de": "Mahlzeit; Essen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "早饭",
+    "pinyin": "zǎofàn",
+    "de": "Frühstück",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "午饭",
+    "pinyin": "wǔfàn",
+    "de": "Mittagessen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "晚饭",
+    "pinyin": "wǎnfàn",
+    "de": "Abendessen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "一起",
+    "pinyin": "yìqǐ",
+    "de": "zusammen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "食堂",
+    "pinyin": "shítáng",
+    "de": "Kantine; Mensa",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "门口",
+    "pinyin": "ménkǒu",
+    "de": "Eingang; Tür",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "图书馆",
+    "pinyin": "túshūguǎn",
+    "de": "Bibliothek",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "电视",
+    "pinyin": "diànshì",
+    "de": "Fernsehen; Fernseher",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "或者",
+    "pinyin": "huòzhě",
+    "de": "oder (in Aussagen)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "跟",
+    "pinyin": "gēn",
+    "de": "mit",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "同屋",
+    "pinyin": "tóngwū",
+    "de": "Zimmergenosse",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "聊天儿",
+    "pinyin": "liáo tiānr",
+    "de": "plaudern; sich unterhalten",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "聊",
+    "pinyin": "liáo",
+    "de": "plaudern",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "见面",
+    "pinyin": "jiàn miàn",
+    "de": "sich treffen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "常",
+    "pinyin": "cháng",
+    "de": "oft",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "常常",
+    "pinyin": "chángcháng",
+    "de": "oft",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "打",
+    "pinyin": "dǎ",
+    "de": "(Telefonat) führen; anrufen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "信",
+    "pinyin": "xìn",
+    "de": "Brief",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "回电话",
+    "pinyin": "huí diànhuà",
+    "de": "zurückrufen",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a21-l13-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L13 我们在食堂门口见面 — Verabreden & Treffpunkt; Alltag mit 在/给/跟 — Sätze",
+  "cards": [
+   {
+    "hanzi": "我有一些汉语问题。",
+    "pinyin": "Wǒ yǒu yìxiē Hànyǔ wèntí.",
+    "de": "Ich habe ein paar Fragen zum Chinesischen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "请你帮我一下儿，行吗？",
+    "pinyin": "Qǐng nǐ bāng wǒ yíxiàr, xíng ma?",
+    "de": "Bitte hilf mir mal kurz, geht das?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你什么时候有空儿？",
+    "pinyin": "Nǐ shénme shíhou yǒu kòngr?",
+    "de": "Wann hast du Zeit?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你中午在哪儿吃饭？",
+    "pinyin": "Nǐ zhōngwǔ zài nǎr chī fàn?",
+    "de": "Wo isst du mittags?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们一起吃午饭吧。",
+    "pinyin": "Wǒmen yìqǐ chī wǔfàn ba.",
+    "de": "Lass uns zusammen zu Mittag essen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "咱们十二点半在食堂门口见。",
+    "pinyin": "Zánmen shí'èr diǎn bàn zài shítáng ménkǒu jiàn.",
+    "de": "Wir treffen uns um halb eins am Kantineneingang.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我在北京学汉语。",
+    "pinyin": "Wǒ zài Běijīng xué Hànyǔ.",
+    "de": "Ich lerne in Peking Chinesisch.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "晚上在宿舍看电视，或者跟同屋聊天儿。",
+    "pinyin": "Wǎnshang zài sùshè kàn diànshì, huòzhě gēn tóngwū liáo tiānr.",
+    "de": "Abends sehe ich im Wohnheim fern oder plaudere mit meinem Zimmergenossen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "今天中午我跟一个中国朋友一起吃饭。",
+    "pinyin": "Jīntiān zhōngwǔ wǒ gēn yí ge Zhōngguó péngyou yìqǐ chī fàn.",
+    "de": "Heute Mittag esse ich mit einem chinesischen Freund zusammen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我常想家，常给爸爸妈妈打电话。",
+    "pinyin": "Wǒ cháng xiǎng jiā, cháng gěi bàba māma dǎ diànhuà.",
+    "de": "Ich vermisse oft meine Heimat und rufe oft Papa und Mama an.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我不常给他们写信。",
+    "pinyin": "Wǒ bù cháng gěi tāmen xiě xìn.",
+    "de": "Ich schreibe ihnen nicht oft Briefe.",
+    "level": "mittel",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l14": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L14 我不能去看电影 — Einladen, Absagen; Wünsche & Können (想/要/能)",
+  "cards": [
+   {
+    "hanzi": "电影",
+    "pinyin": "diànyǐng",
+    "de": "Film; Kino",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "票",
+    "pinyin": "piào",
+    "de": "Eintrittskarte; Ticket",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "考试",
+    "pinyin": "kǎoshì",
+    "de": "eine Prüfung ablegen; prüfen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "考",
+    "pinyin": "kǎo",
+    "de": "prüfen; eine Prüfung machen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "复习",
+    "pinyin": "fùxí",
+    "de": "wiederholen; lernen für",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "舒服",
+    "pinyin": "shūfu",
+    "de": "bequem; sich wohl fühlen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "医院",
+    "pinyin": "yīyuàn",
+    "de": "Krankenhaus",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "一定",
+    "pinyin": "yídìng",
+    "de": "bestimmt; auf jeden Fall",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "语言",
+    "pinyin": "yǔyán",
+    "de": "Sprache",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "大学",
+    "pinyin": "dàxué",
+    "de": "Universität",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "中学",
+    "pinyin": "zhōngxué",
+    "de": "Mittelschule; weiterführende Schule",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "小学",
+    "pinyin": "xiǎoxué",
+    "de": "Grundschule",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "留学生",
+    "pinyin": "liúxuéshēng",
+    "de": "ausländischer Student; Austauschstudent",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "一般",
+    "pinyin": "yìbān",
+    "de": "normalerweise; gewöhnlich; allgemein",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "休息",
+    "pinyin": "xiūxi",
+    "de": "sich ausruhen; Pause machen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "有时候",
+    "pinyin": "yǒushíhou",
+    "de": "manchmal",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "逛",
+    "pinyin": "guàng",
+    "de": "bummeln; spazieren",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "公园",
+    "pinyin": "gōngyuán",
+    "de": "Park",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a21-l14-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L14 我不能去看电影 — Einladen, Absagen; Wünsche & Können (想/要/能) — Sätze",
+  "cards": [
+   {
+    "hanzi": "马丁，我有两张电影票，你想不想去看？",
+    "pinyin": "Mǎdīng, wǒ yǒu liǎng zhāng diànyǐng piào, nǐ xiǎng bù xiǎng qù kàn?",
+    "de": "Martin, ich habe zwei Kinokarten. Möchtest du hingehen?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "对不起，下个星期考试，我要复习，不能去。",
+    "pinyin": "Duìbuqǐ, xià ge xīngqī kǎoshì, wǒ yào fùxí, bù néng qù.",
+    "de": "Tut mir leid, nächste Woche ist Prüfung, ich muss lernen und kann nicht gehen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你问一下儿山本能不能去。",
+    "pinyin": "Nǐ wèn yíxiàr Shānběn néng bù néng qù.",
+    "de": "Frag mal Yamamoto, ob er gehen kann.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "山本明天晚上有事，也不能去。",
+    "pinyin": "Shānběn míngtiān wǎnshang yǒu shì, yě bù néng qù.",
+    "de": "Yamamoto hat morgen Abend etwas vor und kann auch nicht gehen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "安妮不舒服，她要去医院。",
+    "pinyin": "Ānnī bù shūfu, tā yào qù yīyuàn.",
+    "de": "Anni fühlt sich nicht wohl, sie muss ins Krankenhaus.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "大卫没有事，他一定能去。",
+    "pinyin": "Dàwèi méiyǒu shì, tā yídìng néng qù.",
+    "de": "David hat nichts vor, er kann bestimmt gehen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我是语言大学的留学生。",
+    "pinyin": "Wǒ shì Yǔyán Dàxué de liúxuéshēng.",
+    "de": "Ich bin Austauschstudent an der Sprachuniversität.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "这个周末学校有电影，小明有票，他问我想不想去看。",
+    "pinyin": "Zhège zhōumò xuéxiào yǒu diànyǐng, Xiǎomíng yǒu piào, tā wèn wǒ xiǎng bù xiǎng qù kàn.",
+    "de": "Dieses Wochenende gibt es an der Uni einen Film; Xiaoming hat Karten und fragt mich, ob ich hingehen möchte.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "下星期一考试，周末我要复习，不能去。",
+    "pinyin": "Xià xīngqīyī kǎoshì, zhōumò wǒ yào fùxí, bù néng qù.",
+    "de": "Nächsten Montag ist Prüfung, am Wochenende muss ich lernen und kann nicht gehen.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l15": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L15 我从星期一到星期三有课 — Stundenplan, Wegbeschreibung & Post (从…到…)",
+  "cards": [
+   {
+    "hanzi": "时间",
+    "pinyin": "shíjiān",
+    "de": "Zeit",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "从",
+    "pinyin": "cóng",
+    "de": "von; ab",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "到",
+    "pinyin": "dào",
+    "de": "ankommen; erreichen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "一块儿",
+    "pinyin": "yíkuàir",
+    "de": "zusammen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "车站",
+    "pinyin": "chēzhàn",
+    "de": "Haltestelle; Bahnhof",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "站",
+    "pinyin": "zhàn",
+    "de": "Station; Haltestelle",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "邮局",
+    "pinyin": "yóujú",
+    "de": "Post; Postamt",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "寄",
+    "pinyin": "jì",
+    "de": "(mit der Post) schicken",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "封",
+    "pinyin": "fēng",
+    "de": "Zähleinheitswort für Briefe",
     "level": "leicht",
-    "example": {
-     "hanzi": "冬天会下雪。",
-     "pinyin": "Dōngtiān huì xià xuě."
-    }
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "门",
+    "pinyin": "mén",
+    "de": "Zähleinheitswort für Fächer/Kurse",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "语音",
+    "pinyin": "yǔyīn",
+    "de": "Aussprache; Phonetik",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "语法",
+    "pinyin": "yǔfǎ",
+    "de": "Grammatik",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "汉字",
+    "pinyin": "Hànzì",
+    "de": "chinesisches Schriftzeichen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "口语",
+    "pinyin": "kǒuyǔ",
+    "de": "gesprochene Sprache; Sprechen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "从……到……",
+    "pinyin": "cóng……dào……",
+    "de": "von … bis …",
+    "level": "schwer"
+   },
+   {
+    "hanzi": "节",
+    "pinyin": "jié",
+    "de": "Zähleinheitswort für Unterrichtsstunden",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "第",
+    "pinyin": "dì",
+    "de": "Präfix für Ordnungszahlen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "教",
+    "pinyin": "jiāo",
+    "de": "unterrichten; lehren",
+    "level": "leicht"
+   }
+  ]
+ },
+ "a21-l15-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L15 我从星期一到星期三有课 — Stundenplan, Wegbeschreibung & Post (从…到…) — Sätze",
+  "cards": [
+   {
+    "hanzi": "马丁，这个星期五你有时间吗？",
+    "pinyin": "Mǎdīng, zhège xīngqīwǔ nǐ yǒu shíjiān ma?",
+    "de": "Martin, hast du diesen Freitag Zeit?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我星期五没有课，有时间。",
+    "pinyin": "Wǒ xīngqīwǔ méiyǒu kè, yǒu shíjiān.",
+    "de": "Freitags habe ich keinen Unterricht, ich habe Zeit.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "一块儿去林月家玩儿吧。",
+    "pinyin": "Yíkuàir qù Lín Yuè jiā wánr ba.",
+    "de": "Lass uns zusammen zu Lin Yue nach Hause gehen und Spaß haben.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "从学校去她家坐几路公共汽车？",
+    "pinyin": "Cóng xuéxiào qù tā jiā zuò jǐ lù gōnggòng qìchē?",
+    "de": "Welchen Bus nimmt man von der Schule zu ihr nach Hause?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "林月说，386路、952路都到她家。",
+    "pinyin": "Lín Yuè shuō, sān bā liù lù, jiǔ wǔ èr lù dōu dào tā jiā.",
+    "de": "Lin Yue sagt, die Linien 386 und 952 fahren beide zu ihr nach Hause.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "咱们九点从学校出发。",
+    "pinyin": "Zánmen jiǔ diǎn cóng xuéxiào chūfā.",
+    "de": "Wir brechen um neun Uhr von der Schule auf.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我在南门等你，一块儿从南门去车站。",
+    "pinyin": "Wǒ zài nánmén děng nǐ, yíkuàir cóng nánmén qù chēzhàn.",
+    "de": "Ich warte am Südtor auf dich, und wir gehen zusammen vom Südtor zur Haltestelle.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我要去邮局寄封信。",
+    "pinyin": "Wǒ yào qù yóujú jì fēng xìn.",
+    "de": "Ich muss zur Post, um einen Brief aufzugeben.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们有4门课：语音、语法、汉字和口语课。",
+    "pinyin": "Wǒmen yǒu sì mén kè: yǔyīn, yǔfǎ, Hànzì hé kǒuyǔ kè.",
+    "de": "Wir haben 4 Fächer: Aussprache, Grammatik, Schriftzeichen und Sprechen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们有两个老师，一个姓丁，一个姓王。",
+    "pinyin": "Wǒmen yǒu liǎng ge lǎoshī, yí ge xìng Dīng, yí ge xìng Wáng.",
+    "de": "Wir haben zwei Lehrer, einer heißt Ding, einer Wang.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "丁老师教我们语音、语法，王老师教我们汉字、口语。",
+    "pinyin": "Dīng lǎoshī jiāo wǒmen yǔyīn, yǔfǎ, Wáng lǎoshī jiāo wǒmen Hànzì, kǒuyǔ.",
+    "de": "Lehrer Ding unterrichtet uns Aussprache und Grammatik, Lehrer Wang Schriftzeichen und Sprechen.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l16": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L16 我在操场踢球呢 — Sport & laufende Handlungen (在…呢)",
+  "cards": [
+   {
+    "hanzi": "作业",
+    "pinyin": "zuòyè",
+    "de": "Hausaufgaben",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "操场",
+    "pinyin": "cāochǎng",
+    "de": "Sportplatz; Schulhof",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "踢",
+    "pinyin": "tī",
+    "de": "treten; (Fußball) spielen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "球",
+    "pinyin": "qiú",
+    "de": "Ball",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "足球",
+    "pinyin": "zúqiú",
+    "de": "Fußball",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "乒乓球",
+    "pinyin": "pīngpāngqiú",
+    "de": "Tischtennis",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "啊",
+    "pinyin": "a",
+    "de": "Modalpartikel (Ausruf, Abmilderung)",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "运动",
+    "pinyin": "yùndòng",
+    "de": "Sport treiben; Sport",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "有的",
+    "pinyin": "yǒude",
+    "de": "manche",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "跑步",
+    "pinyin": "pǎo bù",
+    "de": "joggen; laufen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "跑",
+    "pinyin": "pǎo",
+    "de": "rennen; laufen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "体育馆",
+    "pinyin": "tǐyùguǎn",
+    "de": "Sporthalle",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "游泳",
+    "pinyin": "yóuyǒng",
+    "de": "schwimmen; Schwimmen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "篮球",
+    "pinyin": "lánqiú",
+    "de": "Basketball",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "比赛",
+    "pinyin": "bǐsài",
+    "de": "einen Wettkampf austragen; Wettkampf; Spiel",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "喊",
+    "pinyin": "hǎn",
+    "de": "rufen; schreien",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "加油",
+    "pinyin": "jiā yóu",
+    "de": "anfeuern; los, weiter so",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a21-l16-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L16 我在操场踢球呢 — Sport & laufende Handlungen (在…呢) — Sätze",
+  "cards": [
+   {
+    "hanzi": "喂，山本，你在做什么呢？",
+    "pinyin": "Wèi, Shānběn, nǐ zài zuò shénme ne?",
+    "de": "Hallo, Yamamoto, was machst du gerade?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我在写作业呢。",
+    "pinyin": "Wǒ zài xiě zuòyè ne.",
+    "de": "Ich schreibe gerade Hausaufgaben.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我给你打电话，你不在宿舍。",
+    "pinyin": "Wǒ gěi nǐ dǎ diànhuà, nǐ bù zài sùshè.",
+    "de": "Ich habe dich angerufen, du warst nicht im Wohnheim.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我在操场踢球呢。",
+    "pinyin": "Wǒ zài cāochǎng tī qiú ne.",
+    "de": "Ich spiele gerade auf dem Sportplatz Fußball.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我想找你去打乒乓球。",
+    "pinyin": "Wǒ xiǎng zhǎo nǐ qù dǎ pīngpāngqiú.",
+    "de": "Ich möchte dich zum Tischtennisspielen abholen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "三点不行，我在上课呢。",
+    "pinyin": "Sān diǎn bù xíng, wǒ zài shàng kè ne.",
+    "de": "Um drei geht nicht, da habe ich gerade Unterricht.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "现在是运动时间。",
+    "pinyin": "Xiànzài shì yùndòng shíjiān.",
+    "de": "Jetzt ist Sportzeit.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "同学们有的在操场跑步，有的在体育馆游泳；有的在打篮球，有的在踢足球。",
+    "pinyin": "Tóngxuémen yǒude zài cāochǎng pǎo bù, yǒude zài tǐyùguǎn yóuyǒng; yǒude zài dǎ lánqiú, yǒude zài tī zúqiú.",
+    "de": "Manche Mitschüler laufen auf dem Sportplatz, manche schwimmen in der Sporthalle, manche spielen Basketball, manche Fußball.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我没踢球，我在打乒乓球呢。",
+    "pinyin": "Wǒ méi tī qiú, wǒ zài dǎ pīngpāngqiú ne.",
+    "de": "Ich spiele nicht Fußball, ich spiele gerade Tischtennis.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我在跟大卫比赛。",
+    "pinyin": "Wǒ zài gēn Dàwèi bǐsài.",
+    "de": "Ich messe mich gerade mit David.",
+    "level": "mittel",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l17": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L17 我不会汉字输入 — Können & Computer",
+  "cards": [
+   {
+    "hanzi": "客人",
+    "pinyin": "kèren",
+    "de": "Gast; Besuch",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "介绍",
+    "pinyin": "jièshào",
+    "de": "vorstellen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "公司",
+    "pinyin": "gōngsī",
+    "de": "Firma; Unternehmen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "输入",
+    "pinyin": "shūrù",
+    "de": "eingeben",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "那儿",
+    "pinyin": "nàr",
+    "de": "dort; da",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "查",
+    "pinyin": "chá",
+    "de": "nachschlagen; nachsehen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "拼音",
+    "pinyin": "pīnyīn",
+    "de": "Pinyin",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "法",
+    "pinyin": "fǎ",
+    "de": "Methode",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "法语",
+    "pinyin": "Fǎyǔ",
+    "de": "Französisch",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a21-l17-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L17 我不会汉字输入 — Können & Computer — Sätze",
+  "cards": [
+   {
+    "hanzi": "没关系。大卫，我介绍一下儿，这是我公司的同事田中。",
+    "pinyin": "Méi guānxi. Dàwèi, wǒ jièshào yíxiàr, zhè shì wǒ gōngsī de tóngshì Tiánzhōng.",
+    "de": "Macht nichts. David, ich stelle dir kurz vor: Das ist Tanaka, ein Kollege aus meiner Firma.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "认识你很高兴。",
+    "pinyin": "Rènshi nǐ hěn gāoxìng.",
+    "de": "Schön, dich kennenzulernen.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我去图书馆借书。",
+    "pinyin": "Wǒ qù túshūguǎn jiè shū.",
+    "de": "Ich gehe in die Bibliothek, um Bücher auszuleihen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我不会汉字输入，不会用那儿的电脑查书。你会不会？",
+    "pinyin": "Wǒ bú huì Hànzì shūrù, bú huì yòng nàr de diànnǎo chá shū. Nǐ huì bú huì?",
+    "de": "Ich kann keine chinesischen Schriftzeichen eingeben und kann dort den Computer nicht zum Nachschlagen von Büchern benutzen. Kannst du es?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我会拼音输入法。",
+    "pinyin": "Wǒ huì pīnyīn shūrù fǎ.",
+    "de": "Ich beherrsche die Pinyin-Eingabemethode.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你能不能教我？",
+    "pinyin": "Nǐ néng bù néng jiāo wǒ?",
+    "de": "Kannst du es mir beibringen?",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我是法国人，在北京学习汉语。",
+    "pinyin": "Wǒ shì Fǎguó rén, zài Běijīng xuéxí Hànyǔ.",
+    "de": "Ich bin Franzose und lerne in Peking Chinesisch.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我会骑自行车，不会用筷子；会写汉字，不会汉字输入。",
+    "pinyin": "Wǒ huì qí zìxíngchē, bú huì yòng kuàizi; huì xiě Hànzì, bú huì Hànzì shūrù.",
+    "de": "Ich kann Fahrrad fahren, aber nicht mit Stäbchen essen; ich kann Schriftzeichen schreiben, aber nicht am Computer eingeben.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "山本给我介绍他的同事田中。",
+    "pinyin": "Shānběn gěi wǒ jièshào tā de tóngshì Tiánzhōng.",
+    "de": "Yamamoto stellt mir seinen Kollegen Tanaka vor.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "田中会说汉语、英语，还会一点儿法语。",
+    "pinyin": "Tiánzhōng huì shuō Hànyǔ, Yīngyǔ, hái huì yìdiǎnr Fǎyǔ.",
+    "de": "Tanaka kann Chinesisch und Englisch sprechen und außerdem ein bisschen Französisch.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "他会拼音输入法，会用电脑输入汉字。",
+    "pinyin": "Tā huì pīnyīn shūrù fǎ, huì yòng diànnǎo shūrù Hànzì.",
+    "de": "Er beherrscht die Pinyin-Eingabemethode und kann am Computer Schriftzeichen eingeben.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l18": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L18 一直往前走 — Nach dem Weg fragen & Verkehr",
+  "cards": [
+   {
+    "hanzi": "一直",
+    "pinyin": "yìzhí",
+    "de": "geradeaus; immer weiter",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "往",
+    "pinyin": "wǎng",
+    "de": "nach; in Richtung",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "十字路口",
+    "pinyin": "shízì lùkǒu",
+    "de": "Kreuzung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "路口",
+    "pinyin": "lùkǒu",
+    "de": "Kreuzung; Straßenecke",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "拐",
+    "pinyin": "guǎi",
+    "de": "abbiegen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "大概",
+    "pinyin": "dàgài",
+    "de": "ungefähr; wahrscheinlich",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "米",
+    "pinyin": "mǐ",
+    "de": "Meter",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "方向",
+    "pinyin": "fāngxiàng",
+    "de": "Richtung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "马路",
+    "pinyin": "mǎlù",
+    "de": "Straße",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "附近",
+    "pinyin": "fùjìn",
+    "de": "nahe; Umgebung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "交通",
+    "pinyin": "jiāotōng",
+    "de": "Verkehr",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "方便",
+    "pinyin": "fāngbiàn",
+    "de": "bequem; praktisch",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "地铁",
+    "pinyin": "dìtiě",
+    "de": "U-Bahn",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "离",
+    "pinyin": "lí",
+    "de": "entfernt sein von",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "远",
+    "pinyin": "yuǎn",
+    "de": "weit",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "近",
+    "pinyin": "jìn",
+    "de": "nah",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "先",
+    "pinyin": "xiān",
+    "de": "zuerst",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "然后",
+    "pinyin": "ránhòu",
+    "de": "dann; danach",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "大使馆",
+    "pinyin": "dàshǐguǎn",
+    "de": "Botschaft",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "线",
+    "pinyin": "xiàn",
+    "de": "Linie",
+    "level": "leicht"
+   }
+  ]
+ },
+ "a21-l18-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L18 一直往前走 — Nach dem Weg fragen & Verkehr — Sätze",
+  "cards": [
+   {
+    "hanzi": "请问，743路汽车到西单吗？",
+    "pinyin": "Qǐngwèn, qī sì sān lù qìchē dào Xīdān ma?",
+    "de": "Entschuldigung, fährt der Bus Linie 743 nach Xidan?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "690路车站怎么走？",
+    "pinyin": "Liù jiǔ líng lù chēzhàn zěnme zǒu?",
+    "de": "Wie komme ich zur Haltestelle der Linie 690?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你从这儿一直往前走，到十字路口往右拐，往西走大概50米。",
+    "pinyin": "Nǐ cóng zhèr yìzhí wǎng qián zǒu, dào shízì lùkǒu wǎng yòu guǎi, wǎng xī zǒu dàgài wǔshí mǐ.",
+    "de": "Gehen Sie von hier immer geradeaus, biegen Sie an der Kreuzung rechts ab und gehen Sie dann ungefähr 50 Meter nach Westen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "西单方向的车站在马路南边还是北边？",
+    "pinyin": "Xīdān fāngxiàng de chēzhàn zài mǎlù nánbian háishi běibian?",
+    "de": "Liegt die Haltestelle in Richtung Xidan südlich oder nördlich der Straße?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你过马路，到路南边等车。",
+    "pinyin": "Nǐ guò mǎlù, dào lù nánbian děng chē.",
+    "de": "Überqueren Sie die Straße und warten Sie auf der Südseite auf den Bus.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们学校附近交通很方便，有公共汽车，还有地铁。",
+    "pinyin": "Wǒmen xuéxiào fùjìn jiāotōng hěn fāngbiàn, yǒu gōnggòng qìchē, hái yǒu dìtiě.",
+    "de": "In der Nähe unserer Schule ist der Verkehr sehr praktisch: Es gibt Busse und auch eine U-Bahn.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "公共汽车站离学校不远。",
+    "pinyin": "Gōnggòng qìchē zhàn lí xuéxiào bù yuǎn.",
+    "de": "Die Bushaltestelle ist nicht weit von der Schule entfernt.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "地铁站离学校大概有500米。",
+    "pinyin": "Dìtiě zhàn lí xuéxiào dàgài yǒu wǔbǎi mǐ.",
+    "de": "Die U-Bahn-Station ist ungefähr 500 Meter von der Schule entfernt.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "去天安门要先坐690路到西单，然后换37路公共汽车。",
+    "pinyin": "Qù Tiān'ān Mén yào xiān zuò liù jiǔ líng lù dào Xīdān, ránhòu huàn sānshíqī lù gōnggòng qìchē.",
+    "de": "Um zum Tian'anmen zu kommen, muss man zuerst mit der Linie 690 nach Xidan fahren und dann in die Buslinie 37 umsteigen.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l19": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L19 房间里可以上网 — Wohnen & Zimmer",
+  "cards": [
+   {
+    "hanzi": "听说",
+    "pinyin": "tīngshuō",
+    "de": "hören, dass; gehört haben",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "不错",
+    "pinyin": "búcuò",
+    "de": "nicht schlecht; ziemlich gut",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "觉得",
+    "pinyin": "juéde",
+    "de": "finden; meinen; sich fühlen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "挺……的",
+    "pinyin": "tǐng……de",
+    "de": "ziemlich; ganz schön",
+    "level": "schwer"
+   },
+   {
+    "hanzi": "上网",
+    "pinyin": "shàng wǎng",
+    "de": "ins Internet gehen; online sein",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "网",
+    "pinyin": "wǎng",
+    "de": "Internet; Netz",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "洗澡",
+    "pinyin": "xǐ zǎo",
+    "de": "baden; duschen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "洗",
+    "pinyin": "xǐ",
+    "de": "waschen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "做饭",
+    "pinyin": "zuò fàn",
+    "de": "kochen; das Essen zubereiten",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "层",
+    "pinyin": "céng",
+    "de": "Stockwerk; Etage",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "厨房",
+    "pinyin": "chúfáng",
+    "de": "Küche",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "只",
+    "pinyin": "zhǐ",
+    "de": "nur",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "厕所",
+    "pinyin": "cèsuǒ",
+    "de": "Toilette",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "浴室",
+    "pinyin": "yùshì",
+    "de": "Badezimmer; Dusche",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "房子",
+    "pinyin": "fángzi",
+    "de": "Haus; Wohnung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "自己",
+    "pinyin": "zìjǐ",
+    "de": "selbst; sich",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "卫生间",
+    "pinyin": "wèishēngjiān",
+    "de": "Toilette; Badezimmer",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a21-l19-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L19 房间里可以上网 — Wohnen & Zimmer — Sätze",
+  "cards": [
+   {
+    "hanzi": "听说6号楼的房间不错，是不是？",
+    "pinyin": "Tīngshuō liù hào lóu de fángjiān búcuò, shì bú shì?",
+    "de": "Ich habe gehört, dass die Zimmer in Gebäude 6 ziemlich gut sind, stimmt das?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我觉得挺好的。",
+    "pinyin": "Wǒ juéde tǐng hǎo de.",
+    "de": "Ich finde sie ziemlich gut.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "有。有电视、电话，还可以上网。",
+    "pinyin": "Yǒu. Yǒu diànshì, diànhuà, hái kěyǐ shàng wǎng.",
+    "de": "Ja. Es gibt Fernseher und Telefon, und man kann auch ins Internet.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "房间里可以洗澡吗？",
+    "pinyin": "Fángjiān li kěyǐ xǐ zǎo ma?",
+    "de": "Kann man im Zimmer duschen?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "不行。房间里不能做饭。",
+    "pinyin": "Bù xíng. Fángjiān li bù néng zuò fàn.",
+    "de": "Nein. Im Zimmer darf man nicht kochen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "楼里每层有一个公共厨房，可以在那儿做饭。",
+    "pinyin": "Lóu li měi céng yǒu yí ge gōnggòng chúfáng, kěyǐ zài nàr zuò fàn.",
+    "de": "Im Gebäude gibt es auf jeder Etage eine Gemeinschaftsküche, dort kann man kochen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你哪天有时间？我可以去你那儿看一下儿吗？",
+    "pinyin": "Nǐ nǎ tiān yǒu shíjiān? Wǒ kěyǐ qù nǐ nàr kàn yíxiàr ma?",
+    "de": "An welchem Tag hast du Zeit? Kann ich mal bei dir vorbeikommen und es mir ansehen?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的房间离教室很近，可以走路来上课。",
+    "pinyin": "Wǒ de fángjiān lí jiàoshì hěn jìn, kěyǐ zǒu lù lái shàng kè.",
+    "de": "Mein Zimmer ist sehr nah am Klassenzimmer, ich kann zu Fuß zum Unterricht kommen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "房间里只有厕所，没有浴室，不能洗澡，不方便。",
+    "pinyin": "Fángjiān li zhǐ yǒu cèsuǒ, méiyǒu yùshì, bù néng xǐ zǎo, bù fāngbiàn.",
+    "de": "Im Zimmer gibt es nur eine Toilette, aber kein Bad; man kann nicht duschen, das ist unpraktisch.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "学校里留学生太多了，我不喜欢在学校住。",
+    "pinyin": "Xuéxiào li liúxuéshēng tài duō le, wǒ bù xǐhuan zài xuéxiào zhù.",
+    "de": "An der Schule gibt es zu viele ausländische Studierende, ich wohne nicht gern auf dem Campus.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的房子里有卫生间，有厨房，可以做饭，很方便。",
+    "pinyin": "Wǒ de fángzi li yǒu wèishēngjiān, yǒu chúfáng, kěyǐ zuò fàn, hěn fāngbiàn.",
+    "de": "In meiner Wohnung gibt es ein Bad und eine Küche, ich kann kochen, das ist sehr praktisch.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-l20": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L20 请你帮我还他 — Bitten & Hobbys",
+  "cards": [
+   {
+    "hanzi": "知道",
+    "pinyin": "zhīdào",
+    "de": "wissen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "象棋",
+    "pinyin": "xiàngqí",
+    "de": "chinesisches Schach",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "一会儿",
+    "pinyin": "yíhuìr",
+    "de": "eine Weile; kurz",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "让",
+    "pinyin": "ràng",
+    "de": "lassen; auffordern; erlauben",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "发",
+    "pinyin": "fā",
+    "de": "senden; schicken",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "短信",
+    "pinyin": "duǎnxìn",
+    "de": "SMS; Kurznachricht",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "告诉",
+    "pinyin": "gàosu",
+    "de": "sagen; mitteilen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "爱好",
+    "pinyin": "àihào",
+    "de": "Hobby; gern mögen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "下棋",
+    "pinyin": "xià qí",
+    "de": "Schach spielen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "棋",
+    "pinyin": "qí",
+    "de": "Schach; Brettspiel",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "非常",
+    "pinyin": "fēicháng",
+    "de": "sehr; außerordentlich",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "有意思",
+    "pinyin": "yǒu yìsi",
+    "de": "interessant; unterhaltsam",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "书法",
+    "pinyin": "shūfǎ",
+    "de": "Kalligrafie",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "画儿",
+    "pinyin": "huàr",
+    "de": "Bild; Gemälde",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "画",
+    "pinyin": "huà",
+    "de": "malen; zeichnen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "太极拳",
+    "pinyin": "tàijíquán",
+    "de": "Taijiquan (Tai-Chi)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "围棋",
+    "pinyin": "wéiqí",
+    "de": "Go-Spiel",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a21-l20-s": {
+  "stufe": "a21",
+  "title": "A2.1 Buch 2 · L20 请你帮我还他 — Bitten & Hobbys — Sätze",
+  "cards": [
+   {
+    "hanzi": "你知道他在哪儿吗？",
+    "pinyin": "Nǐ zhīdào tā zài nǎr ma?",
+    "de": "Weißt du, wo er ist?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我来还他象棋。",
+    "pinyin": "Wǒ lái huán tā xiàngqí.",
+    "de": "Ich komme, um ihm sein Schach zurückzugeben.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你在这儿等一会儿吧。",
+    "pinyin": "Nǐ zài zhèr děng yíhuìr ba.",
+    "de": "Warte doch hier eine Weile.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我还有事。请你帮我还他，行吗？",
+    "pinyin": "Wǒ hái yǒu shì. Qǐng nǐ bāng wǒ huán tā, xíng ma?",
+    "de": "Ich habe noch etwas zu tun. Kannst du es bitte für mich an ihn zurückgeben?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "这是我的手机号码，也请你给他。",
+    "pinyin": "Zhè shì wǒ de shǒujī hàomǎ, yě qǐng nǐ gěi tā.",
+    "de": "Das ist meine Handynummer, bitte gib sie ihm auch.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "下午你不在，你朋友马丁来还你象棋。",
+    "pinyin": "Xiàwǔ nǐ bú zài, nǐ péngyou Mǎdīng lái huán nǐ xiàngqí.",
+    "de": "Nachmittags warst du nicht da, dein Freund Martin kam, um dir dein Schach zurückzugeben.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "他让我谢谢你。",
+    "pinyin": "Tā ràng wǒ xièxie nǐ.",
+    "de": "Er hat mich gebeten, dir zu danken.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "他叫你给他发个短信，告诉他你的email。",
+    "pinyin": "Tā jiào nǐ gěi tā fā ge duǎnxìn, gàosu tā nǐ de email.",
+    "de": "Er sagt, du sollst ihm eine SMS schicken und ihm deine E-Mail-Adresse mitteilen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的爱好是下棋，我觉得中国的象棋非常有意思。",
+    "pinyin": "Wǒ de àihào shì xià qí, wǒ juéde Zhōngguó de xiàngqí fēicháng yǒu yìsi.",
+    "de": "Mein Hobby ist Schach spielen, ich finde das chinesische Schach sehr interessant.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我还喜欢书法和中国画儿，想请一位中国老师教我。",
+    "pinyin": "Wǒ hái xǐhuan shūfǎ hé Zhōngguó huàr, xiǎng qǐng yí wèi Zhōngguó lǎoshī jiāo wǒ.",
+    "de": "Ich mag außerdem Kalligrafie und chinesische Malerei und möchte einen chinesischen Lehrer bitten, mich zu unterrichten.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我也爱好运动，现在在学打太极拳。",
+    "pinyin": "Wǒ yě àihào yùndòng, xiànzài zài xué dǎ tàijíquán.",
+    "de": "Ich treibe auch gern Sport und lerne gerade Taijiquan.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l21": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L21 你怎么了 — Krankheit & Arzt",
+  "cards": [
+   {
+    "hanzi": "怎么了",
+    "pinyin": "zěnme le",
+    "de": "was ist los; was hast du",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "感冒",
+    "pinyin": "gǎnmào",
+    "de": "sich erkälten; Erkältung; Grippe",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "了",
+    "pinyin": "le",
+    "de": "Partikel für Zustandsänderung",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "头",
+    "pinyin": "tóu",
+    "de": "Kopf",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "疼",
+    "pinyin": "téng",
+    "de": "schmerzhaft; wehtun",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "流",
+    "pinyin": "liú",
+    "de": "fließen; laufen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "鼻涕",
+    "pinyin": "bítì",
+    "de": "Nasenschleim; Rotz",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "咳嗽",
+    "pinyin": "késou",
+    "de": "husten",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "嗓子",
+    "pinyin": "sǎngzi",
+    "de": "Hals; Kehle; Stimme",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "发烧",
+    "pinyin": "fā shāo",
+    "de": "Fieber haben",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "热",
+    "pinyin": "rè",
+    "de": "heiß; warm",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "量",
+    "pinyin": "liáng",
+    "de": "messen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "体温",
+    "pinyin": "tǐwēn",
+    "de": "Körpertemperatur",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "度",
+    "pinyin": "dù",
+    "de": "Grad",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "打针",
+    "pinyin": "dǎ zhēn",
+    "de": "eine Spritze geben; spritzen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "开",
+    "pinyin": "kāi",
+    "de": "ausstellen; verschreiben",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "药",
+    "pinyin": "yào",
+    "de": "Medizin; Medikament",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "病",
+    "pinyin": "bìng",
+    "de": "krank sein; Krankheit",
+    "level": "leicht"
+   }
+  ]
+ },
+ "a22-l21-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L21 你怎么了 — Krankheit & Arzt — Sätze",
+  "cards": [
+   {
+    "hanzi": "大夫，我感冒了，头疼，流鼻涕。",
+    "pinyin": "Dàifu, wǒ gǎnmào le, tóu téng, liú bítì.",
+    "de": "Herr Doktor, ich habe mich erkältet, habe Kopfschmerzen und eine laufende Nase.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我觉得头很热。",
+    "pinyin": "Wǒ juéde tóu hěn rè.",
+    "de": "Mein Kopf fühlt sich sehr heiß an.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "量一下儿体温吧。",
+    "pinyin": "Liáng yíxiàr tǐwēn ba.",
+    "de": "Messen wir mal die Temperatur.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "不用打针，我给你开点儿药。",
+    "pinyin": "Bú yòng dǎ zhēn, wǒ gěi nǐ kāi diǎnr yào.",
+    "de": "Eine Spritze ist nicht nötig, ich verschreibe dir etwas Medizin.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "回宿舍多休息，多喝水。",
+    "pinyin": "Huí sùshè duō xiūxi, duō hē shuǐ.",
+    "de": "Geh zurück ins Wohnheim, ruh dich viel aus und trink viel Wasser.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "山本，听说你病了。你哪儿不舒服？",
+    "pinyin": "Shānběn, tīngshuō nǐ bìng le. Nǐ nǎr bù shūfu?",
+    "de": "Yamamoto, ich habe gehört, du bist krank. Wo geht es dir nicht gut?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "早上觉得头很疼，还发烧。",
+    "pinyin": "Zǎoshang juéde tóu hěn téng, hái fā shāo.",
+    "de": "Heute Morgen hatte ich starke Kopfschmerzen und auch Fieber.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "现在不发烧了，头也不疼了。",
+    "pinyin": "Xiànzài bù fā shāo le, tóu yě bù téng le.",
+    "de": "Jetzt habe ich kein Fieber mehr und der Kopf tut auch nicht mehr weh.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "明天能去上课吗？",
+    "pinyin": "Míngtiān néng qù shàng kè ma?",
+    "de": "Kannst du morgen zum Unterricht gehen?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "谢谢你来看我。",
+    "pinyin": "Xièxie nǐ lái kàn wǒ.",
+    "de": "Danke, dass du mich besuchen gekommen bist.",
+    "level": "leicht",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l22": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L22 我25岁 — Alter, Größe & Gewicht",
+  "cards": [
+   {
+    "hanzi": "出生",
+    "pinyin": "chūshēng",
+    "de": "geboren werden",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "今年",
+    "pinyin": "jīnnián",
+    "de": "dieses Jahr",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "去年",
+    "pinyin": "qùnián",
+    "de": "letztes Jahr",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "明年",
+    "pinyin": "míngnián",
+    "de": "nächstes Jahr",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "公斤",
+    "pinyin": "gōngjīn",
+    "de": "Kilogramm",
+    "level": "mittel",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "个子",
+    "pinyin": "gèzi",
+    "de": "Körpergröße; Statur",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "更",
+    "pinyin": "gèng",
+    "de": "noch (mehr); noch -er",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "真",
+    "pinyin": "zhēn",
+    "de": "wirklich; echt",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "毕业",
+    "pinyin": "bì yè",
+    "de": "seinen Abschluss machen; abschließen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "年纪",
+    "pinyin": "niánjì",
+    "de": "Alter",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "孩子",
+    "pinyin": "háizi",
+    "de": "Kind",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "重",
+    "pinyin": "zhòng",
+    "de": "schwer",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "轻",
+    "pinyin": "qīng",
+    "de": "leicht",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "德国",
+    "pinyin": "Déguó",
+    "de": "Deutschland",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a22-l22-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L22 我25岁 — Alter, Größe & Gewicht — Sätze",
+  "cards": [
+   {
+    "hanzi": "我叫马丁，1982年出生，今年25岁，属狗。",
+    "pinyin": "Wǒ jiào Mǎ Dīng, yī jiǔ bā èr nián chūshēng, jīnnián èrshíwǔ suì, shǔ gǒu.",
+    "de": "Ich heiße Martin, bin 1982 geboren, in diesem Jahr 25 Jahre alt und im Zeichen des Hundes geboren.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "山本最大，28岁，大卫最小，20岁。",
+    "pinyin": "Shānběn zuì dà, èrshíbā suì, Dàwèi zuì xiǎo, èrshí suì.",
+    "de": "Yamamoto ist am ältesten, 28 Jahre; David ist am jüngsten, 20 Jahre.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我个子很高。",
+    "pinyin": "Wǒ gèzi hěn gāo.",
+    "de": "Ich bin sehr groß.",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "大卫更高，他1米85。",
+    "pinyin": "Dàwèi gèng gāo, tā yì mǐ bāwǔ.",
+    "de": "David ist noch größer, er ist 1,85 m.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "小明，你弟弟个子真高。",
+    "pinyin": "Xiǎomíng, nǐ dìdi gèzi zhēn gāo.",
+    "de": "Xiaoming, dein jüngerer Bruder ist wirklich groß.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "他多大了？",
+    "pinyin": "Tā duō dà le?",
+    "de": "Wie alt ist er?",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "今年18岁，明年中学毕业。",
+    "pinyin": "Jīnnián shíbā suì, míngnián zhōngxué bì yè.",
+    "de": "Dieses Jahr wird er 18, nächstes Jahr macht er seinen Schulabschluss.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你奶奶多大年纪了？",
+    "pinyin": "Nǐ nǎinai duō dà niánjì le?",
+    "de": "Wie alt ist deine Oma?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "她今年65岁，属蛇。",
+    "pinyin": "Tā jīnnián liùshíwǔ suì, shǔ shé.",
+    "de": "Sie ist dieses Jahr 65 und im Zeichen der Schlange geboren.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "这是我姐姐的孩子。",
+    "pinyin": "Zhè shì wǒ jiějie de háizi.",
+    "de": "Das ist das Kind meiner älteren Schwester.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "他挺胖的。",
+    "pinyin": "Tā tǐng pàng de.",
+    "de": "Er ist ziemlich dick.",
+    "level": "leicht",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l23": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L23 这件衣服是中式的 — Kleidung, Farben & Größen",
+  "cards": [
+   {
+    "hanzi": "件",
+    "pinyin": "jiàn",
+    "de": "Zählwort für Kleidungsstücke",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "衣服",
+    "pinyin": "yīfu",
+    "de": "Kleidung; Kleidungsstück",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "中式",
+    "pinyin": "zhōngshì",
+    "de": "chinesischer Stil",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "式",
+    "pinyin": "shì",
+    "de": "Stil; Art; Form",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "颜色",
+    "pinyin": "yánsè",
+    "de": "Farbe",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "色",
+    "pinyin": "sè",
+    "de": "Farbe",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "好看",
+    "pinyin": "hǎokàn",
+    "de": "schön; gut aussehend",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "大小",
+    "pinyin": "dàxiǎo",
+    "de": "Größe",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "合适",
+    "pinyin": "héshì",
+    "de": "passend; geeignet",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "大号",
+    "pinyin": "dàhào",
+    "de": "große Größe (L)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "中号",
+    "pinyin": "zhōnghào",
+    "de": "mittlere Größe (M)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "小号",
+    "pinyin": "xiǎohào",
+    "de": "kleine Größe (S)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "肥",
+    "pinyin": "féi",
+    "de": "weit; locker (Kleidung, Schuhe)",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "长",
+    "pinyin": "cháng",
+    "de": "lang",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "短",
+    "pinyin": "duǎn",
+    "de": "kurz",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "挑",
+    "pinyin": "tiāo",
+    "de": "auswählen; aussuchen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "试",
+    "pinyin": "shì",
+    "de": "anprobieren; probieren",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "有点儿",
+    "pinyin": "yǒudiǎnr",
+    "de": "ein bisschen; etwas",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "旗袍",
+    "pinyin": "qípáo",
+    "de": "Qipao (chinesisches Kleid)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "西服",
+    "pinyin": "xīfú",
+    "de": "Anzug",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "T恤",
+    "pinyin": "T xù",
+    "de": "T-Shirt",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "牌",
+    "pinyin": "pái",
+    "de": "Marke",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "裙子",
+    "pinyin": "qúnzi",
+    "de": "Rock",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "条",
+    "pinyin": "tiáo",
+    "de": "Zählwort (für Röcke, Hosen usw.)",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "有名",
+    "pinyin": "yǒumíng",
+    "de": "berühmt",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a22-l23-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L23 这件衣服是中式的 — Kleidung, Farben & Größen — Sätze",
+  "cards": [
+   {
+    "hanzi": "这件衣服是安妮的。",
+    "pinyin": "Zhè jiàn yīfu shì Ānnī de.",
+    "de": "Dieses Kleidungsstück gehört Annie.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "样子不错，是中式的；颜色很好看，是红的；大小也很合适，是中号的，不肥不瘦，不长不短。",
+    "pinyin": "Yàngzi búcuò, shì zhōngshì de; yánsè hěn hǎokàn, shì hóng de; dàxiǎo yě hěn héshì, shì zhōnghào de, bù féi bú shòu, bù cháng bù duǎn.",
+    "de": "Der Schnitt ist nicht schlecht, chinesischer Stil; die Farbe ist schön, rot; die Größe passt auch gut, mittlere Größe, nicht zu weit und nicht zu eng, nicht zu lang und nicht zu kurz.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "安妮，你喜欢什么样的衣服？",
+    "pinyin": "Ānnī, nǐ xǐhuan shénme yàng de yīfu?",
+    "de": "Annie, was für Kleidung magst du?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你帮我挑一件，好吗？",
+    "pinyin": "Nǐ bāng wǒ tiāo yí jiàn, hǎo ma?",
+    "de": "Hilfst du mir, eines auszusuchen?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你喜欢什么颜色的？",
+    "pinyin": "Nǐ xǐhuan shénme yánsè de?",
+    "de": "Welche Farbe magst du?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "颜色、样子都不错。",
+    "pinyin": "Yánsè, yàngzi dōu búcuò.",
+    "de": "Farbe und Schnitt sind beide nicht schlecht.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "林月，你看，合适不合适？",
+    "pinyin": "Lín Yuè, nǐ kàn, héshì bù héshì?",
+    "de": "Lin Yue, schau mal, passt es?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "有点儿肥，换一件瘦一点儿的。",
+    "pinyin": "Yǒudiǎnr féi, huàn yí jiàn shòu yìdiǎnr de.",
+    "de": "Es ist etwas weit, nimm ein etwas engeres.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "这件大小很合适。",
+    "pinyin": "Zhè jiàn dàxiǎo hěn héshì.",
+    "de": "Bei diesem Stück passt die Größe sehr gut.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你太客气了！",
+    "pinyin": "Nǐ tài kèqi le!",
+    "de": "Du bist zu höflich!",
+    "level": "leicht",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l24": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L24 我发音发得不太准 — Sprachenlernen & Prüfung",
+  "cards": [
+   {
+    "hanzi": "流利",
+    "pinyin": "liúlì",
+    "de": "fließend; flüssig",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "发音",
+    "pinyin": "fāyīn",
+    "de": "aussprechen; Aussprache",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "准",
+    "pinyin": "zhǔn",
+    "de": "genau; korrekt",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "快",
+    "pinyin": "kuài",
+    "de": "schnell",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "听力",
+    "pinyin": "tīnglì",
+    "de": "Hörverständnis",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "歌",
+    "pinyin": "gē",
+    "de": "Lied",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "练习",
+    "pinyin": "liànxí",
+    "de": "üben; Übung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "容易",
+    "pinyin": "róngyì",
+    "de": "leicht; einfach",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "声调",
+    "pinyin": "shēngdiào",
+    "de": "Ton (im Chinesischen)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "预习",
+    "pinyin": "yùxí",
+    "de": "vorbereiten; vorab durchgehen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "生词",
+    "pinyin": "shēngcí",
+    "de": "neues Wort; Vokabel",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "词",
+    "pinyin": "cí",
+    "de": "Wort",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "课文",
+    "pinyin": "kèwén",
+    "de": "Lektionstext",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "唱",
+    "pinyin": "chàng",
+    "de": "singen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "首",
+    "pinyin": "shǒu",
+    "de": "Zählwort für Lieder und Gedichte",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "de": "alle; jeder",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "节目",
+    "pinyin": "jiémù",
+    "de": "Programm",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "表演",
+    "pinyin": "biǎoyǎn",
+    "de": "aufführen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "朗诵",
+    "pinyin": "lǎngsòng",
+    "de": "rezitieren",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "功夫",
+    "pinyin": "gōngfu",
+    "de": "Kung-Fu",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "跳",
+    "pinyin": "tiào",
+    "de": "springen",
+    "level": "leicht"
+   }
+  ]
+ },
+ "a22-l24-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L24 我发音发得不太准 — Sprachenlernen & Prüfung — Sätze",
+  "cards": [
+   {
+    "hanzi": "大卫，昨天的考试考得怎么样？",
+    "pinyin": "Dàwèi, zuótiān de kǎoshì kǎo de zěnmeyàng?",
+    "de": "David, wie ist die gestrige Prüfung gelaufen?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我语法考得挺好的。",
+    "pinyin": "Wǒ yǔfǎ kǎo de tǐng hǎo de.",
+    "de": "In Grammatik habe ich ziemlich gut abgeschnitten.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "口语考得也不错，我说得很流利。",
+    "pinyin": "Kǒuyǔ kǎo de yě búcuò, wǒ shuō de hěn liúlì.",
+    "de": "Auch das Sprechen lief nicht schlecht, ich spreche sehr flüssig.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你发音怎么样？",
+    "pinyin": "Nǐ fā yīn zěnmeyàng?",
+    "de": "Wie ist deine Aussprache?",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "汉字写得快不快？",
+    "pinyin": "Hànzì xiě de kuài bú kuài?",
+    "de": "Schreibst du Schriftzeichen schnell?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的汉字不好，写得很慢。",
+    "pinyin": "Wǒ de Hànzì bù hǎo, xiě de hěn màn.",
+    "de": "Meine Schriftzeichen sind nicht gut, ich schreibe sehr langsam.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你试试听汉语歌，可以练习听力。",
+    "pinyin": "Nǐ shìshi tīng Hànyǔ gē, kěyǐ liànxí tīnglì.",
+    "de": "Versuch mal, chinesische Lieder zu hören, damit kannst du das Hörverständnis üben.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我觉得汉语很有意思。",
+    "pinyin": "Wǒ juéde Hànyǔ hěn yǒu yìsi.",
+    "de": "Ich finde Chinesisch sehr interessant.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "语法很容易，声调有点儿难，汉字最难。",
+    "pinyin": "Yǔfǎ hěn róngyì, shēngdiào yǒudiǎnr nán, Hànzì zuì nán.",
+    "de": "Die Grammatik ist sehr leicht, die Töne sind etwas schwierig, die Schriftzeichen am schwierigsten.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我发音发得不太准，汉字写得很慢。",
+    "pinyin": "Wǒ fā yīn fā de bú tài zhǔn, Hànzì xiě de hěn màn.",
+    "de": "Meine Aussprache ist nicht sehr genau, und ich schreibe Schriftzeichen sehr langsam.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我每天预习生词、读课文，还听汉语歌练习听力。",
+    "pinyin": "Wǒ měitiān yùxí shēngcí, dú kèwén, hái tīng Hànyǔ gē liànxí tīnglì.",
+    "de": "Jeden Tag bereite ich die neuen Wörter vor, lese die Lektionstexte und höre außerdem chinesische Lieder, um das Hörverständnis zu üben.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我觉得大家在一起学习汉语，都是好朋友。",
+    "pinyin": "Wǒ juéde dàjiā zài yìqǐ xué Hànyǔ, dōu shì hǎo péngyou.",
+    "de": "Ich finde, wenn alle zusammen Chinesisch lernen, sind sie alle gute Freunde.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l25": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L25 我的家乡冬天比北京暖和 — Vergleichen mit 比: Wetter & Jahreszeiten",
+  "cards": [
+   {
+    "hanzi": "冷",
+    "pinyin": "lěng",
+    "de": "kalt",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "比",
+    "pinyin": "bǐ",
+    "de": "als (Vergleich); im Vergleich zu",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "气温",
+    "pinyin": "qìwēn",
+    "de": "Lufttemperatur",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "低",
+    "pinyin": "dī",
+    "de": "niedrig",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "零下",
+    "pinyin": "líng xià",
+    "de": "unter null",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "零上",
+    "pinyin": "líng shàng",
+    "de": "über null",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "天气",
+    "pinyin": "tiānqì",
+    "de": "Wetter",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "预报",
+    "pinyin": "yùbào",
+    "de": "Vorhersage",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "阴",
+    "pinyin": "yīn",
+    "de": "bewölkt; trüb",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "晴",
+    "pinyin": "qíng",
+    "de": "sonnig; klar",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "级",
+    "pinyin": "jí",
+    "de": "Stärke; Stufe; Klasse",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "风",
+    "pinyin": "fēng",
+    "de": "Wind",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "穿",
+    "pinyin": "chuān",
+    "de": "anziehen; tragen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "别……了",
+    "pinyin": "bié……le",
+    "de": "nicht (mehr) …; lass … sein",
+    "level": "schwer"
    },
    {
     "hanzi": "季节",
     "pinyin": "jìjié",
     "de": "Jahreszeit",
-    "level": "mittel",
-    "example": {
-     "hanzi": "你最喜欢哪个季节？",
-     "pinyin": "Nǐ zuì xǐhuan nǎ ge jìjié?"
-    },
-    "note": "Zählwort: 个"
+    "level": "mittel"
    },
+   {
+    "hanzi": "春天",
+    "pinyin": "chūntiān",
+    "de": "Frühling",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "春",
+    "pinyin": "chūn",
+    "de": "Frühling",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "夏天",
+    "pinyin": "xiàtiān",
+    "de": "Sommer",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "夏",
+    "pinyin": "xià",
+    "de": "Sommer",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "秋天",
+    "pinyin": "qiūtiān",
+    "de": "Herbst",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "秋",
+    "pinyin": "qiū",
+    "de": "Herbst",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "冬天",
+    "pinyin": "dōngtiān",
+    "de": "Winter",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "冬",
+    "pinyin": "dōng",
+    "de": "Winter",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "刮",
+    "pinyin": "guā",
+    "de": "wehen; blasen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "家乡",
+    "pinyin": "jiāxiāng",
+    "de": "Heimat; Heimatort",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "下雪",
+    "pinyin": "xià xuě",
+    "de": "schneien",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "雪",
+    "pinyin": "xuě",
+    "de": "Schnee",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "下雨",
+    "pinyin": "xià yǔ",
+    "de": "regnen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "雨",
+    "pinyin": "yǔ",
+    "de": "Regen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "暖和",
+    "pinyin": "nuǎnhuo",
+    "de": "warm",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "凉快",
+    "pinyin": "liángkuai",
+    "de": "angenehm kühl",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "夜间",
+    "pinyin": "yèjiān",
+    "de": "Nacht (nachts)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "风向",
+    "pinyin": "fēngxiàng",
+    "de": "Windrichtung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "风力",
+    "pinyin": "fēnglì",
+    "de": "Windstärke",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "白天",
+    "pinyin": "báitiān",
+    "de": "tagsüber; Tag",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "多云",
+    "pinyin": "duōyún",
+    "de": "bewölkt; wolkig",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "转",
+    "pinyin": "zhuǎn",
+    "de": "umschlagen; wechseln",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "变化",
+    "pinyin": "biànhuà",
+    "de": "sich verändern; Veränderung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "沙尘",
+    "pinyin": "shāchén",
+    "de": "Sand und Staub",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a22-l25-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L25 我的家乡冬天比北京暖和 — Vergleichen mit 比: Wetter & Jahreszeiten — Sätze",
+  "cards": [
+   {
+    "hanzi": "外边冷吗？",
+    "pinyin": "Wàibian lěng ma?",
+    "de": "Ist es draußen kalt?",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "挺冷的。今天比昨天冷。",
+    "pinyin": "Tǐng lěng de. Jīntiān bǐ zuótiān lěng.",
+    "de": "Ziemlich kalt. Heute ist es kälter als gestern.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我觉得昨天很冷，最高气温只有8度。",
+    "pinyin": "Wǒ juéde zuótiān hěn lěng, zuì gāo qìwēn zhǐ yǒu bā dù.",
+    "de": "Ich fand gestern sehr kalt, die Höchsttemperatur betrug nur 8 Grad.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "今天最高气温5度，最低气温零下1度。",
+    "pinyin": "Jīntiān zuì gāo qìwēn wǔ dù, zuì dī qìwēn líng xià yī dù.",
+    "de": "Heute liegt die Höchsttemperatur bei 5 Grad, die Tiefsttemperatur bei minus 1 Grad.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "呀，今天比昨天还冷。",
+    "pinyin": "Yā, jīntiān bǐ zuótiān hái lěng.",
+    "de": "Oh, heute ist es noch kälter als gestern.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "天气预报说，明天阴，有5、6级大风，气温比今天更低。",
+    "pinyin": "Tiānqì yùbào shuō, míngtiān yīn, yǒu wǔ, liù jí dà fēng, qìwēn bǐ jīntiān gèng dī.",
+    "de": "Laut Wettervorhersage ist es morgen bewölkt, mit Windstärke 5 bis 6, und die Temperatur ist noch niedriger als heute.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "明天要多穿点儿衣服，别感冒了。",
+    "pinyin": "Míngtiān yào duō chuān diǎnr yīfu, bié gǎnmào le.",
+    "de": "Zieh morgen etwas mehr an, damit du dich nicht erkältest.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "北京有四个季节：春天、夏天、秋天和冬天。",
+    "pinyin": "Běijīng yǒu sì ge jìjié: chūntiān, xiàtiān, qiūtiān hé dōngtiān.",
+    "de": "Peking hat vier Jahreszeiten: Frühling, Sommer, Herbst und Winter.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的家乡也有四个季节。",
+    "pinyin": "Wǒ de jiāxiāng yě yǒu sì ge jìjié.",
+    "de": "Meine Heimat hat auch vier Jahreszeiten.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "春天比北京长，不刮大风，是最好的季节。",
+    "pinyin": "Chūntiān bǐ Běijīng cháng, bù guā dà fēng, shì zuì hǎo de jìjié.",
+    "de": "Der Frühling ist länger als in Peking, es weht kein starker Wind, es ist die beste Jahreszeit.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l26": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L26 我们国家的菜没有四川菜那么辣 — Vergleichen mit 没有: Essen & Geschmack",
+  "cards": [
+   {
+    "hanzi": "好吃",
+    "pinyin": "hǎochī",
+    "de": "lecker",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "当然",
+    "pinyin": "dāngrán",
+    "de": "natürlich; selbstverständlich",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "比较",
+    "pinyin": "bǐjiào",
+    "de": "relativ; ziemlich",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "清淡",
+    "pinyin": "qīngdàn",
+    "de": "leicht; nicht fettig",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "那么",
+    "pinyin": "nàme",
+    "de": "so; dermaßen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "这么",
+    "pinyin": "zhème",
+    "de": "so",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "油",
+    "pinyin": "yóu",
+    "de": "fettig; ölig",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "尝",
+    "pinyin": "cháng",
+    "de": "probieren; kosten",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "国家",
+    "pinyin": "guójiā",
+    "de": "Staat; Land",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "烤鸭",
+    "pinyin": "kǎoyā",
+    "de": "Pekingente",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "名",
+    "pinyin": "míng",
+    "de": "berühmt",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "外地",
+    "pinyin": "wàidì",
+    "de": "andere Gegend; auswärts",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "鸡丁",
+    "pinyin": "jīdīng",
+    "de": "gewürfeltes Hühnerfleisch",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "饭馆儿",
+    "pinyin": "fànguǎnr",
+    "de": "Restaurant",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "但是",
+    "pinyin": "dànshì",
+    "de": "aber; jedoch",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "火锅",
+    "pinyin": "huǒguō",
+    "de": "Feuertopf",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "贵州",
+    "pinyin": "Guìzhōu",
+    "de": "Guizhou (Provinz)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "湖南",
+    "pinyin": "Húnán",
+    "de": "Hunan (Provinz)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "句",
+    "pinyin": "jù",
+    "de": "Satz (Zähleinheit)",
+    "level": "leicht",
+    "note": "Zählwort."
+   },
+   {
+    "hanzi": "话",
+    "pinyin": "huà",
+    "de": "Spruch; Wort; Rede",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "怕",
+    "pinyin": "pà",
+    "de": "fürchten; Angst haben vor",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "麻辣烫",
+    "pinyin": "málàtàng",
+    "de": "Malatang (scharfes Gericht)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "姑娘",
+    "pinyin": "gūniang",
+    "de": "Mädchen; junge Frau",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "山西",
+    "pinyin": "Shānxī",
+    "de": "Shanxi (Provinz)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "爱",
+    "pinyin": "ài",
+    "de": "gern mögen; lieben",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "放",
+    "pinyin": "fàng",
+    "de": "tun; hineingeben; legen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "醋",
+    "pinyin": "cù",
+    "de": "Essig",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "所以",
+    "pinyin": "suǒyǐ",
+    "de": "deshalb; also",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "嫉妒",
+    "pinyin": "jídù",
+    "de": "eifersüchtig sein; neidisch sein",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "看见",
+    "pinyin": "kànjiàn",
+    "de": "sehen; erblicken",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a22-l26-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L26 我们国家的菜没有四川菜那么辣 — Vergleichen mit 没有: Essen & Geschmack — Sätze",
+  "cards": [
+   {
+    "hanzi": "林月，中国哪儿的菜最好吃？",
+    "pinyin": "Lín Yuè, Zhōngguó nǎr de cài zuì hǎochī?",
+    "de": "Lin Yue, wo in China schmeckt das Essen am besten?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我是四川人，当然觉得四川菜最好吃。",
+    "pinyin": "Wǒ shì Sìchuān rén, dāngrán juéde Sìchuān cài zuì hǎochī.",
+    "de": "Ich bin Sichuanerin, natürlich finde ich die Sichuan-Küche am leckersten.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我觉得四川菜太辣了。听说上海菜很有名。",
+    "pinyin": "Wǒ juéde Sìchuān cài tài là le. Tīngshuō Shànghǎi cài hěn yǒumíng.",
+    "de": "Ich finde die Sichuan-Küche zu scharf. Man hört, die Shanghaier Küche ist sehr berühmt.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "对。上海菜比较清淡，没有四川菜那么油。",
+    "pinyin": "Duì. Shànghǎi cài bǐjiào qīngdàn, méiyǒu Sìchuān cài nàme yóu.",
+    "de": "Stimmt. Die Shanghaier Küche ist relativ leicht und nicht so fettig wie die Sichuan-Küche.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "上海菜贵不贵？",
+    "pinyin": "Shànghǎi cài guì bú guì?",
+    "de": "Ist das Shanghaier Essen teuer?",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "哪儿的菜比较便宜？",
+    "pinyin": "Nǎr de cài bǐjiào piányi?",
+    "de": "Wo ist das Essen relativ billig?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "东北菜没有上海菜贵，也很好吃。",
+    "pinyin": "Dōngběi cài méiyǒu Shànghǎi cài guì, yě hěn hǎochī.",
+    "de": "Die Küche des Nordostens ist nicht so teuer wie die Shanghaier und schmeckt auch sehr gut.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "今天咱们去吃东北菜，怎么样？",
+    "pinyin": "Jīntiān zánmen qù chī Dōngběi cài, zěnmeyàng?",
+    "de": "Wie wäre es, wenn wir heute nordostchinesisch essen gehen?",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "行啊。今天我请客。",
+    "pinyin": "Xíng a. Jīntiān wǒ qǐng kè.",
+    "de": "Gut. Heute lade ich ein.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "中国很大，每个地方都有自己的菜，有的甜，有的咸，有的酸，有的辣。",
+    "pinyin": "Zhōngguó hěn dà, měi ge dìfang dōu yǒu zìjǐ de cài, yǒude tián, yǒude xián, yǒude suān, yǒude là.",
+    "de": "China ist groß, jede Gegend hat ihre eigenen Gerichte: manche süß, manche salzig, manche sauer, manche scharf.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "广东菜比较贵，东北菜没有广东菜贵。",
+    "pinyin": "Guǎngdōng cài bǐjiào guì, Dōngběi cài méiyǒu Guǎngdōng cài guì.",
+    "de": "Die kantonesische Küche ist relativ teuer, die des Nordostens ist nicht so teuer wie die kantonesische.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们国家的菜没有四川菜那么辣。",
+    "pinyin": "Wǒmen guójiā de cài méiyǒu Sìchuān cài nàme là.",
+    "de": "Die Gerichte in unserem Land sind nicht so scharf wie die aus Sichuan.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l27": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L27 上海跟北京不一样 — Vergleichen mit 跟……一样: Städte & Reisepläne",
+  "cards": [
+   {
+    "hanzi": "假期",
+    "pinyin": "jiàqī",
+    "de": "Ferien; Urlaub",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "打算",
+    "pinyin": "dǎsuàn",
+    "de": "Plan; planen; vorhaben",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "旅行",
+    "pinyin": "lǚxíng",
+    "de": "reisen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "俩",
+    "pinyin": "liǎ",
+    "de": "zwei (beide)",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "名胜古迹",
+    "pinyin": "míngshèng gǔjì",
+    "de": "Sehenswürdigkeiten und historische Stätten",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "想法",
+    "pinyin": "xiǎngfǎ",
+    "de": "Idee; Gedanke; Meinung",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "为什么",
+    "pinyin": "wèi shénme",
+    "de": "warum",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "文化",
+    "pinyin": "wénhuà",
+    "de": "Kultur",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "中心",
+    "pinyin": "zhōngxīn",
+    "de": "Zentrum",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "商业",
+    "pinyin": "shāngyè",
+    "de": "Handel; Wirtschaft",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "北方",
+    "pinyin": "běifāng",
+    "de": "Norden; Nordchina",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "城市",
+    "pinyin": "chéngshì",
+    "de": "Stadt",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "气候",
+    "pinyin": "qìhòu",
+    "de": "Klima",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "干燥",
+    "pinyin": "gānzào",
+    "de": "trocken",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "南方",
+    "pinyin": "nánfāng",
+    "de": "Süden; Südchina",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "海",
+    "pinyin": "hǎi",
+    "de": "Meer",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "湿润",
+    "pinyin": "shīrùn",
+    "de": "feucht",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "哈尔滨",
+    "pinyin": "Hā'ěrbīn",
+    "de": "Harbin",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "冰灯",
+    "pinyin": "bīngdēng",
+    "de": "Eislaterne",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "冰雕",
+    "pinyin": "bīngdiāo",
+    "de": "Eisskulptur",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "三亚",
+    "pinyin": "Sānyà",
+    "de": "Sanya",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a22-l27-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L27 上海跟北京不一样 — Vergleichen mit 跟……一样: Städte & Reisepläne — Sätze",
+  "cards": [
+   {
+    "hanzi": "山本，假期你有什么打算？",
+    "pinyin": "Shānběn, jiàqī nǐ yǒu shénme dǎsuàn?",
+    "de": "Yamamoto, was hast du in den Ferien vor?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们俩一样，我也去旅行。",
+    "pinyin": "Wǒmen liǎ yíyàng, wǒ yě qù lǚxíng.",
+    "de": "Wir beide sind gleich, ich verreise auch.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "西安跟北京一样，有很多名胜古迹。",
+    "pinyin": "Xī'ān gēn Běijīng yíyàng, yǒu hěn duō míngshèng gǔjì.",
+    "de": "Xi'an ist wie Peking: Es hat viele Sehenswürdigkeiten und historische Stätten.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的想法跟你的不一样。",
+    "pinyin": "Wǒ de xiǎngfǎ gēn nǐ de bù yíyàng.",
+    "de": "Meine Idee ist anders als deine.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "北京是中国的文化中心，上海是中国的商业中心。",
+    "pinyin": "Běijīng shì Zhōngguó de wénhuà zhōngxīn, Shànghǎi shì Zhōngguó de shāngyè zhōngxīn.",
+    "de": "Peking ist das kulturelle Zentrum Chinas, Shanghai ist das Handelszentrum Chinas.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我想去跟北京不一样的地方看看。",
+    "pinyin": "Wǒ xiǎng qù gēn Běijīng bù yíyàng de dìfang kànkan.",
+    "de": "Ich möchte an einen Ort fahren, der anders ist als Peking.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你的想法挺有意思的。",
+    "pinyin": "Nǐ de xiǎngfǎ tǐng yǒu yìsi de.",
+    "de": "Deine Idee ist ziemlich interessant.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "西安跟北京一样，都是北方城市，气候一样干燥。",
+    "pinyin": "Xī'ān gēn Běijīng yíyàng, dōu shì běifāng chéngshì, qìhòu yíyàng gānzào.",
+    "de": "Xi'an ist wie Peking: beides sind Städte im Norden, und das Klima ist gleich trocken.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "上海在中国的南方，是海边城市，气候很湿润。",
+    "pinyin": "Shànghǎi zài Zhōngguó de nánfāng, shì hǎi biān chéngshì, qìhòu hěn shīrùn.",
+    "de": "Shanghai liegt im Süden Chinas, ist eine Küstenstadt und hat ein sehr feuchtes Klima.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "上海话跟北京话也很不一样。",
+    "pinyin": "Shànghǎi huà gēn Běijīng huà yě hěn bù yíyàng.",
+    "de": "Der Shanghaier Dialekt ist auch ganz anders als der Pekinger.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a22-l28": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L28 秋天要到了 — Bald passiert etwas mit 要……了: Herbst & Alltag",
+  "cards": [
+   {
+    "hanzi": "火车",
+    "pinyin": "huǒchē",
+    "de": "Zug",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "父母",
+    "pinyin": "fùmǔ",
+    "de": "Eltern",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "父亲",
+    "pinyin": "fùqīn",
+    "de": "Vater",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "母亲",
+    "pinyin": "mǔqīn",
+    "de": "Mutter",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "放假",
+    "pinyin": "fàng jià",
+    "de": "Ferien haben; freihaben",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "迟到",
+    "pinyin": "chídào",
+    "de": "zu spät kommen",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "凉",
+    "pinyin": "liáng",
+    "de": "kühl",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "树叶",
+    "pinyin": "shùyè",
+    "de": "Blatt (Laub)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "树",
+    "pinyin": "shù",
+    "de": "Baum",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "叶子",
+    "pinyin": "yèzi",
+    "de": "Blatt",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "照相",
+    "pinyin": "zhào xiàng",
+    "de": "fotografieren",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "照相机",
+    "pinyin": "zhàoxiàngjī",
+    "de": "Kamera; Fotoapparat",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "坏",
+    "pinyin": "huài",
+    "de": "kaputt; schlecht",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "糟糕",
+    "pinyin": "zāogāo",
+    "de": "schlimm; so ein Mist",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "电",
+    "pinyin": "diàn",
+    "de": "Strom; Elektrizität",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "电池",
+    "pinyin": "diànchí",
+    "de": "Batterie",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "商店",
+    "pinyin": "shāngdiàn",
+    "de": "Geschäft; Laden",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "关门",
+    "pinyin": "guān mén",
+    "de": "schließen (Geschäft)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "关",
+    "pinyin": "guān",
+    "de": "schließen; zumachen",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "开门",
+    "pinyin": "kāi mén",
+    "de": "öffnen (Geschäft)",
+    "level": "mittel"
+   },
+   {
+    "hanzi": "停",
+    "pinyin": "tíng",
+    "de": "anhalten; aufhören",
+    "level": "leicht"
+   },
+   {
+    "hanzi": "香山",
+    "pinyin": "Xiāng Shān",
+    "de": "Duftberg (Xiangshan)",
+    "level": "mittel"
+   }
+  ]
+ },
+ "a22-l28-s": {
+  "stufe": "a22",
+  "title": "A2.2 Buch 2 · L28 秋天要到了 — Bald passiert etwas mit 要……了: Herbst & Alltag — Sätze",
+  "cards": [
+   {
+    "hanzi": "我去买火车票。我父母要来了，我们打算去旅行。",
+    "pinyin": "Wǒ qù mǎi huǒchē piào. Wǒ fùmǔ yào lái le, wǒmen dǎsuàn qù lǚxíng.",
+    "de": "Ich gehe Zugtickets kaufen. Meine Eltern kommen bald, wir wollen verreisen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们“十一”放假。我让他们“十一”来。",
+    "pinyin": "Wǒmen “Shí-Yī” fàng jià. Wǒ ràng tāmen “Shí-Yī” lái.",
+    "de": "Wir haben am 1. Oktober frei. Ich lasse sie zum 1. Oktober kommen.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "对，秋天是北京最好的季节。",
+    "pinyin": "Duì, qiūtiān shì Běijīng zuì hǎo de jìjié.",
+    "de": "Stimmt, der Herbst ist die beste Jahreszeit in Peking.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "不去。我要毕业了，在找工作，挺忙的。",
+    "pinyin": "Bú qù. Wǒ yào bìyè le, zài zhǎo gōngzuò, tǐng máng de.",
+    "de": "Nein. Ich werde bald fertig mit dem Studium, suche eine Stelle und bin ziemlich beschäftigt.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "哟，九点半了！要迟到了。不跟你聊了。我走了！再见！",
+    "pinyin": "Yō, jiǔ diǎn bàn le! Yào chídào le. Bù gēn nǐ liáo le. Wǒ zǒu le! Zàijiàn!",
+    "de": "Oh, es ist halb zehn! Ich komme gleich zu spät. Ich plaudere nicht mehr mit dir. Ich gehe! Tschüss!",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "天气凉了，秋天要到了。",
+    "pinyin": "Tiānqì liáng le, qiūtiān yào dào le.",
+    "de": "Es ist kühl geworden, der Herbst kommt bald.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "山上的树叶要红了。",
+    "pinyin": "Shān shàng de shùyè yào hóng le.",
+    "de": "Das Laub auf den Bergen wird bald rot.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "你同屋是不是要回国了？",
+    "pinyin": "Nǐ tóngwū shì bú shì yào huí guó le?",
+    "de": "Geht deine Zimmergenossin bald zurück in ihr Land?",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我们跟她照张相吧。",
+    "pinyin": "Wǒmen gēn tā zhào zhāng xiàng ba.",
+    "de": "Lass uns mit ihr ein Foto machen.",
+    "level": "mittel",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的照相机坏了，用你的吧。",
+    "pinyin": "Wǒ de zhàoxiàngjī huài le, yòng nǐ de ba.",
+    "de": "Meine Kamera ist kaputt, nehmen wir deine.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "我的照相机没电了。我去买两节电池。",
+    "pinyin": "Wǒ de zhàoxiàngjī méi diàn le. Wǒ qù mǎi liǎng jié diànchí.",
+    "de": "Der Akku meiner Kamera ist leer. Ich kaufe zwei Batterien.",
+    "level": "schwer",
+    "type": "satz"
+   },
+   {
+    "hanzi": "商店几点关门？",
+    "pinyin": "Shāngdiàn jǐ diǎn guān mén?",
+    "de": "Um wie viel Uhr schließt das Geschäft?",
+    "level": "leicht",
+    "type": "satz"
+   },
+   {
+    "hanzi": "现在五点了。商店要关门了。",
+    "pinyin": "Xiànzài wǔ diǎn le. Shāngdiàn yào guān mén le.",
+    "de": "Es ist jetzt fünf Uhr. Das Geschäft schließt gleich.",
+    "level": "schwer",
+    "type": "satz"
+   }
+  ]
+ },
+ "a21-x1": {
+  "stufe": "a21",
+  "title": "A2.1 Zusatz · Wetter & Jahreszeiten",
+  "cards": [
    {
     "hanzi": "温度",
     "pinyin": "wēndù",
@@ -64,36 +3412,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "今天的温度很高。",
      "pinyin": "Jīntiān de wēndù hěn gāo."
-    }
-   },
-   {
-    "hanzi": "度",
-    "pinyin": "dù",
-    "de": "Grad",
-    "level": "mittel",
-    "example": {
-     "hanzi": "今天三十度。",
-     "pinyin": "Jīntiān sānshí dù."
-    }
-   },
-   {
-    "hanzi": "雪",
-    "pinyin": "xuě",
-    "de": "Schnee",
-    "level": "leicht",
-    "example": {
-     "hanzi": "外边有很多雪。",
-     "pinyin": "Wàibian yǒu hěn duō xuě."
-    }
-   },
-   {
-    "hanzi": "下雪",
-    "pinyin": "xiàxuě",
-    "de": "schneien",
-    "level": "leicht",
-    "example": {
-     "hanzi": "北京常常下雪。",
-     "pinyin": "Běijīng chángcháng xià xuě."
     }
    },
    {
@@ -127,26 +3445,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "凉快",
-    "pinyin": "liángkuai",
-    "de": "angenehm kühl",
-    "level": "mittel",
-    "example": {
-     "hanzi": "晚上很凉快。",
-     "pinyin": "Wǎnshang hěn liángkuai."
-    }
-   },
-   {
-    "hanzi": "暖和",
-    "pinyin": "nuǎnhuo",
-    "de": "angenehm warm",
-    "level": "mittel",
-    "example": {
-     "hanzi": "屋子里很暖和。",
-     "pinyin": "Wūzi li hěn nuǎnhuo."
-    }
-   },
-   {
     "hanzi": "潮湿",
     "pinyin": "cháoshī",
     "de": "feucht",
@@ -154,16 +3452,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "这里夏天很潮湿。",
      "pinyin": "Zhèlǐ xiàtiān hěn cháoshī."
-    }
-   },
-   {
-    "hanzi": "干燥",
-    "pinyin": "gānzào",
-    "de": "trocken",
-    "level": "schwer",
-    "example": {
-     "hanzi": "冬天空气很干燥。",
-     "pinyin": "Dōngtiān kōngqì hěn gānzào."
     }
    },
    {
@@ -196,32 +3484,12 @@ Object.assign(DECKS, {
      "pinyin": "Wǒ wàng le dài yǔsǎn."
     },
     "note": "Zählwort: 把"
-   },
-   {
-    "hanzi": "预报",
-    "pinyin": "yùbào",
-    "de": "Vorhersage; vorhersagen",
-    "level": "schwer",
-    "example": {
-     "hanzi": "天气预报说明天有雨。",
-     "pinyin": "Tiānqì yùbào shuō míngtiān yǒu yǔ."
-    }
-   },
-   {
-    "hanzi": "零下",
-    "pinyin": "língxià",
-    "de": "unter null",
-    "level": "schwer",
-    "example": {
-     "hanzi": "早上零下五度。",
-     "pinyin": "Zǎoshang língxià wǔ dù."
-    }
    }
   ]
  },
  "a21-x1-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Wetter & Jahreszeiten — Sätze",
+  "title": "A2.1 Zusatz · Wetter & Jahreszeiten — Sätze",
   "cards": [
    {
     "hanzi": "今天比昨天冷。",
@@ -304,48 +3572,8 @@ Object.assign(DECKS, {
  },
  "a21-x2": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Hobbys & Freizeit",
+  "title": "A2.1 Zusatz · Hobbys & Freizeit",
   "cards": [
-   {
-    "hanzi": "爱好",
-    "pinyin": "àihào",
-    "de": "Hobby; als Hobby haben",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我的爱好是看书。",
-     "pinyin": "Wǒ de àihào shì kàn shū."
-    }
-   },
-   {
-    "hanzi": "运动",
-    "pinyin": "yùndòng",
-    "de": "Sport; Sport treiben",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我每天都运动。",
-     "pinyin": "Wǒ měi tiān dōu yùndòng."
-    }
-   },
-   {
-    "hanzi": "跑步",
-    "pinyin": "pǎobù",
-    "de": "joggen; laufen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "他早上去跑步。",
-     "pinyin": "Tā zǎoshang qù pǎobù."
-    }
-   },
-   {
-    "hanzi": "游泳",
-    "pinyin": "yóuyǒng",
-    "de": "schwimmen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "夏天我常去游泳。",
-     "pinyin": "Xiàtiān wǒ cháng qù yóuyǒng."
-    }
-   },
    {
     "hanzi": "爬山",
     "pinyin": "páshān",
@@ -367,26 +3595,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "足球",
-    "pinyin": "zúqiú",
-    "de": "Fußball",
-    "level": "leicht",
-    "example": {
-     "hanzi": "他很喜欢踢足球。",
-     "pinyin": "Tā hěn xǐhuan tī zúqiú."
-    }
-   },
-   {
-    "hanzi": "篮球",
-    "pinyin": "lánqiú",
-    "de": "Basketball",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我们一起打篮球吧。",
-     "pinyin": "Wǒmen yìqǐ dǎ lánqiú ba."
-    }
-   },
-   {
     "hanzi": "健身",
     "pinyin": "jiànshēn",
     "de": "trainieren; Fitness machen",
@@ -394,16 +3602,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我每周健身三次。",
      "pinyin": "Wǒ měi zhōu jiànshēn sān cì."
-    }
-   },
-   {
-    "hanzi": "比赛",
-    "pinyin": "bǐsài",
-    "de": "Wettkampf; Spiel; wetteifern",
-    "level": "mittel",
-    "example": {
-     "hanzi": "明天有足球比赛。",
-     "pinyin": "Míngtiān yǒu zúqiú bǐsài."
     }
    },
    {
@@ -531,7 +3729,7 @@ Object.assign(DECKS, {
  },
  "a21-x2-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Hobbys & Freizeit — Sätze",
+  "title": "A2.1 Zusatz · Hobbys & Freizeit — Sätze",
   "cards": [
    {
     "hanzi": "你有什么爱好？",
@@ -621,7 +3819,7 @@ Object.assign(DECKS, {
  },
  "a21-x3": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Kleidung & Einkaufen",
+  "title": "A2.1 Zusatz · Kleidung & Einkaufen",
   "cards": [
    {
     "hanzi": "裤子",
@@ -631,17 +3829,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "这条裤子太长了。",
      "pinyin": "Zhè tiáo kùzi tài cháng le."
-    },
-    "note": "Zählwort: 条"
-   },
-   {
-    "hanzi": "裙子",
-    "pinyin": "qúnzi",
-    "de": "Rock; Kleid",
-    "level": "leicht",
-    "example": {
-     "hanzi": "她买了一条红裙子。",
-     "pinyin": "Tā mǎi le yì tiáo hóng qúnzi."
     },
     "note": "Zählwort: 条"
    },
@@ -719,16 +3906,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "试",
-    "pinyin": "shì",
-    "de": "probieren; testen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我可以试一下吗？",
-     "pinyin": "Wǒ kěyǐ shì yíxià ma?"
-    }
-   },
-   {
     "hanzi": "试穿",
     "pinyin": "shìchuān",
     "de": "anprobieren",
@@ -739,26 +3916,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "合适",
-    "pinyin": "héshì",
-    "de": "passend; geeignet",
-    "level": "mittel",
-    "example": {
-     "hanzi": "这件衣服很合适。",
-     "pinyin": "Zhè jiàn yīfu hěn héshì."
-    }
-   },
-   {
-    "hanzi": "肥",
-    "pinyin": "féi",
-    "de": "weit; locker",
-    "level": "schwer",
-    "example": {
-     "hanzi": "这条裤子有点儿肥。",
-     "pinyin": "Zhè tiáo kùzi yǒudiǎnr féi."
-    }
-   },
-   {
     "hanzi": "牛仔裤",
     "pinyin": "niúzǎikù",
     "de": "Jeans",
@@ -766,16 +3923,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我想买一条牛仔裤。",
      "pinyin": "Wǒ xiǎng mǎi yì tiáo niúzǎikù."
-    }
-   },
-   {
-    "hanzi": "颜色",
-    "pinyin": "yánsè",
-    "de": "Farbe",
-    "level": "leicht",
-    "example": {
-     "hanzi": "你喜欢什么颜色？",
-     "pinyin": "Nǐ xǐhuan shénme yánsè?"
     }
    },
    {
@@ -852,7 +3999,7 @@ Object.assign(DECKS, {
  },
  "a21-x3-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Kleidung & Einkaufen — Sätze",
+  "title": "A2.1 Zusatz · Kleidung & Einkaufen — Sätze",
   "cards": [
    {
     "hanzi": "这件衬衫有别的颜色吗？",
@@ -942,7 +4089,7 @@ Object.assign(DECKS, {
  },
  "a21-x4": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Gesundheit & Arzt",
+  "title": "A2.1 Zusatz · Gesundheit & Arzt",
   "cards": [
    {
     "hanzi": "胃",
@@ -952,16 +4099,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我的胃不舒服。",
      "pinyin": "Wǒ de wèi bù shūfu."
-    }
-   },
-   {
-    "hanzi": "头",
-    "pinyin": "tóu",
-    "de": "Kopf",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我头很疼。",
-     "pinyin": "Wǒ tóu hěn téng."
     }
    },
    {
@@ -1035,16 +4172,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "嗓子",
-    "pinyin": "sǎngzi",
-    "de": "Hals; Kehle",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我嗓子疼。",
-     "pinyin": "Wǒ sǎngzi téng."
-    }
-   },
-   {
     "hanzi": "牙",
     "pinyin": "yá",
     "de": "Zahn",
@@ -1052,46 +4179,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我的牙很疼。",
      "pinyin": "Wǒ de yá hěn téng."
-    }
-   },
-   {
-    "hanzi": "疼",
-    "pinyin": "téng",
-    "de": "wehtun; schmerzen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我胃有点儿疼。",
-     "pinyin": "Wǒ wèi yǒudiǎnr téng."
-    }
-   },
-   {
-    "hanzi": "发烧",
-    "pinyin": "fāshāo",
-    "de": "Fieber haben",
-    "level": "mittel",
-    "example": {
-     "hanzi": "孩子昨天发烧了。",
-     "pinyin": "Háizi zuótiān fāshāo le."
-    }
-   },
-   {
-    "hanzi": "咳嗽",
-    "pinyin": "késou",
-    "de": "husten; Husten",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我咳嗽好几天了。",
-     "pinyin": "Wǒ késou hǎo jǐ tiān le."
-    }
-   },
-   {
-    "hanzi": "感冒",
-    "pinyin": "gǎnmào",
-    "de": "sich erkälten; Erkältung",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我感冒了。",
-     "pinyin": "Wǒ gǎnmào le."
     }
    },
    {
@@ -1112,26 +4199,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "他吃坏了东西，拉肚子了。",
      "pinyin": "Tā chī huài le dōngxi, lā dùzi le."
-    }
-   },
-   {
-    "hanzi": "药",
-    "pinyin": "yào",
-    "de": "Medikament; Medizin",
-    "level": "leicht",
-    "example": {
-     "hanzi": "这个药一天吃三次。",
-     "pinyin": "Zhè ge yào yì tiān chī sān cì."
-    }
-   },
-   {
-    "hanzi": "打针",
-    "pinyin": "dǎzhēn",
-    "de": "eine Spritze bekommen",
-    "level": "schwer",
-    "example": {
-     "hanzi": "孩子怕打针。",
-     "pinyin": "Háizi pà dǎzhēn."
     }
    },
    {
@@ -1168,7 +4235,7 @@ Object.assign(DECKS, {
  },
  "a21-x4-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Gesundheit & Arzt — Sätze",
+  "title": "A2.1 Zusatz · Gesundheit & Arzt — Sätze",
   "cards": [
    {
     "hanzi": "你哪里不舒服？",
@@ -1258,18 +4325,8 @@ Object.assign(DECKS, {
  },
  "a21-x5": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Reisen & Verkehr",
+  "title": "A2.1 Zusatz · Reisen & Verkehr",
   "cards": [
-   {
-    "hanzi": "火车",
-    "pinyin": "huǒchē",
-    "de": "Zug",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我坐火车去北京。",
-     "pinyin": "Wǒ zuò huǒchē qù Běijīng."
-    }
-   },
    {
     "hanzi": "机场",
     "pinyin": "jīchǎng",
@@ -1279,27 +4336,6 @@ Object.assign(DECKS, {
      "hanzi": "机场离这儿很远。",
      "pinyin": "Jīchǎng lí zhèr hěn yuǎn."
     }
-   },
-   {
-    "hanzi": "地铁",
-    "pinyin": "dìtiě",
-    "de": "U-Bahn",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我每天坐地铁上班。",
-     "pinyin": "Wǒ měitiān zuò dìtiě shàngbān."
-    }
-   },
-   {
-    "hanzi": "票",
-    "pinyin": "piào",
-    "de": "Ticket; Fahrkarte",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我买了两张票。",
-     "pinyin": "Wǒ mǎi le liǎng zhāng piào."
-    },
-    "note": "Zählwort: 张 (zhāng)."
    },
    {
     "hanzi": "行李",
@@ -1342,17 +4378,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "站",
-    "pinyin": "zhàn",
-    "de": "Station; Haltestelle; Bahnhof",
-    "level": "leicht",
-    "example": {
-     "hanzi": "下一站是哪儿？",
-     "pinyin": "Xià yí zhàn shì nǎr?"
-    },
-    "note": "Auch: Zählwort für Haltestellen."
-   },
-   {
     "hanzi": "司机",
     "pinyin": "sījī",
     "de": "Fahrer",
@@ -1360,16 +4385,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "司机开得很快。",
      "pinyin": "Sījī kāi de hěn kuài."
-    }
-   },
-   {
-    "hanzi": "旅行",
-    "pinyin": "lǚxíng",
-    "de": "reisen; Reise",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我喜欢一个人旅行。",
-     "pinyin": "Wǒ xǐhuan yí ge rén lǚxíng."
     }
    },
    {
@@ -1400,16 +4415,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "路上堵车了。",
      "pinyin": "Lùshang dǔchē le."
-    }
-   },
-   {
-    "hanzi": "迟到",
-    "pinyin": "chídào",
-    "de": "zu spät kommen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "对不起，我迟到了。",
-     "pinyin": "Duìbuqǐ, wǒ chídào le."
     }
    },
    {
@@ -1446,7 +4451,7 @@ Object.assign(DECKS, {
  },
  "a21-x5-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Reisen & Verkehr — Sätze",
+  "title": "A2.1 Zusatz · Reisen & Verkehr — Sätze",
   "cards": [
    {
     "hanzi": "火车几点出发？",
@@ -1529,7 +4534,7 @@ Object.assign(DECKS, {
  },
  "a21-x6": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Hotel & Stadt",
+  "title": "A2.1 Zusatz · Hotel & Stadt",
   "cards": [
    {
     "hanzi": "酒店",
@@ -1549,26 +4554,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我在网上订了房间。",
      "pinyin": "Wǒ zài wǎngshang dìng le fángjiān."
-    }
-   },
-   {
-    "hanzi": "公园",
-    "pinyin": "gōngyuán",
-    "de": "Park",
-    "level": "leicht",
-    "example": {
-     "hanzi": "周末我们去公园玩。",
-     "pinyin": "Zhōumò wǒmen qù gōngyuán wán."
-    }
-   },
-   {
-    "hanzi": "邮局",
-    "pinyin": "yóujú",
-    "de": "Post; Postamt",
-    "level": "mittel",
-    "example": {
-     "hanzi": "邮局几点关门？",
-     "pinyin": "Yóujú jǐ diǎn guānmén?"
     }
    },
    {
@@ -1629,16 +4614,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我们下个月搬家。",
      "pinyin": "Wǒmen xià ge yuè bānjiā."
-    }
-   },
-   {
-    "hanzi": "附近",
-    "pinyin": "fùjìn",
-    "de": "Umgebung; in der Nähe",
-    "level": "leicht",
-    "example": {
-     "hanzi": "这附近有地铁站吗？",
-     "pinyin": "Zhè fùjìn yǒu dìtiězhàn ma?"
     }
    },
    {
@@ -1716,7 +4691,7 @@ Object.assign(DECKS, {
  },
  "a21-x6-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Hotel & Stadt — Sätze",
+  "title": "A2.1 Zusatz · Hotel & Stadt — Sätze",
   "cards": [
    {
     "hanzi": "我想订一个双人房。",
@@ -1799,7 +4774,7 @@ Object.assign(DECKS, {
  },
  "a21-x7": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Studium & Beruf",
+  "title": "A2.1 Zusatz · Studium & Beruf",
   "cards": [
    {
     "hanzi": "专业",
@@ -1809,56 +4784,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "你的专业是什么？",
      "pinyin": "Nǐ de zhuānyè shì shénme?"
-    }
-   },
-   {
-    "hanzi": "考试",
-    "pinyin": "kǎoshì",
-    "de": "Prüfung; prüfen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "明天我有一个考试。",
-     "pinyin": "Míngtiān wǒ yǒu yí ge kǎoshì."
-    }
-   },
-   {
-    "hanzi": "作业",
-    "pinyin": "zuòyè",
-    "de": "Hausaufgaben",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我还没做完作业。",
-     "pinyin": "Wǒ hái méi zuò wán zuòyè."
-    }
-   },
-   {
-    "hanzi": "大学",
-    "pinyin": "dàxué",
-    "de": "Universität",
-    "level": "leicht",
-    "example": {
-     "hanzi": "他在维也纳上大学。",
-     "pinyin": "Tā zài Wéiyěnà shàng dàxué."
-    }
-   },
-   {
-    "hanzi": "毕业",
-    "pinyin": "bìyè",
-    "de": "Abschluss machen; absolvieren",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我明年大学毕业。",
-     "pinyin": "Wǒ míngnián dàxué bìyè."
-    }
-   },
-   {
-    "hanzi": "公司",
-    "pinyin": "gōngsī",
-    "de": "Firma; Unternehmen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我们公司在市中心。",
-     "pinyin": "Wǒmen gōngsī zài shìzhōngxīn."
     }
    },
    {
@@ -1960,22 +4885,12 @@ Object.assign(DECKS, {
      "hanzi": "他的成绩很好。",
      "pinyin": "Tā de chéngjì hěn hǎo."
     }
-   },
-   {
-    "hanzi": "复习",
-    "pinyin": "fùxí",
-    "de": "wiederholen; lernen für",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我在复习明天的考试。",
-     "pinyin": "Wǒ zài fùxí míngtiān de kǎoshì."
-    }
    }
   ]
  },
  "a21-x7-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Studium & Beruf — Sätze",
+  "title": "A2.1 Zusatz · Studium & Beruf — Sätze",
   "cards": [
    {
     "hanzi": "你学什么专业？",
@@ -2058,7 +4973,7 @@ Object.assign(DECKS, {
  },
  "a21-x8": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Telefon, Einladung & Verabredung",
+  "title": "A2.1 Zusatz · Telefon, Einladung & Verabredung",
   "cards": [
    {
     "hanzi": "打电话",
@@ -2071,17 +4986,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "短信",
-    "pinyin": "duǎnxìn",
-    "de": "SMS; Textnachricht",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我给你发了一条短信。",
-     "pinyin": "Wǒ gěi nǐ fā le yì tiáo duǎnxìn."
-    },
-    "note": "Zählwort: 条."
-   },
-   {
     "hanzi": "微信",
     "pinyin": "Wēixìn",
     "de": "WeChat",
@@ -2089,16 +4993,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我们加个微信吧。",
      "pinyin": "Wǒmen jiā ge Wēixìn ba."
-    }
-   },
-   {
-    "hanzi": "发",
-    "pinyin": "fā",
-    "de": "senden; schicken",
-    "level": "leicht",
-    "example": {
-     "hanzi": "请把地址发给我。",
-     "pinyin": "Qǐng bǎ dìzhǐ fā gěi wǒ."
     }
    },
    {
@@ -2132,16 +5026,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "见面",
-    "pinyin": "jiànmiàn",
-    "de": "sich treffen",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我们明天见面吧。",
-     "pinyin": "Wǒmen míngtiān jiànmiàn ba."
-    }
-   },
-   {
     "hanzi": "聚会",
     "pinyin": "jùhuì",
     "de": "Party; Treffen",
@@ -2169,16 +5053,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我刚到家。",
      "pinyin": "Wǒ gāng dào jiā."
-    }
-   },
-   {
-    "hanzi": "先",
-    "pinyin": "xiān",
-    "de": "zuerst; erst",
-    "level": "leicht",
-    "example": {
-     "hanzi": "你先走吧。",
-     "pinyin": "Nǐ xiān zǒu ba."
     }
    },
    {
@@ -2235,7 +5109,7 @@ Object.assign(DECKS, {
  },
  "a21-x8-s": {
   "stufe": "a21",
-  "title": "A2.1 Ergänzung · Telefon, Einladung & Verabredung — Sätze",
+  "title": "A2.1 Zusatz · Telefon, Einladung & Verabredung — Sätze",
   "cards": [
    {
     "hanzi": "喂，请问王老师在吗？",
@@ -2327,26 +5201,6 @@ Object.assign(DECKS, {
   "stufe": "a22",
   "title": "A2.2 · Vergleichen & Steigern",
   "cards": [
-   {
-    "hanzi": "重",
-    "pinyin": "zhòng",
-    "de": "schwer",
-    "level": "leicht",
-    "example": {
-     "hanzi": "这个包很重。",
-     "pinyin": "Zhège bāo hěn zhòng."
-    }
-   },
-   {
-    "hanzi": "轻",
-    "pinyin": "qīng",
-    "de": "leicht (Gewicht); sanft",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我的行李很轻。",
-     "pinyin": "Wǒ de xíngli hěn qīng."
-    }
-   },
    {
     "hanzi": "旧",
     "pinyin": "jiù",
@@ -2632,17 +5486,6 @@ Object.assign(DECKS, {
      "hanzi": "我终于找到工作了。",
      "pinyin": "Wǒ zhōngyú zhǎodào gōngzuò le."
     }
-   },
-   {
-    "hanzi": "然后",
-    "pinyin": "ránhòu",
-    "de": "dann; danach",
-    "level": "leicht",
-    "example": {
-     "hanzi": "先吃饭，然后看电影。",
-     "pinyin": "Xiān chīfàn, ránhòu kàn diànyǐng."
-    },
-    "note": "先 … 然后 …: erst …, dann …"
    },
    {
     "hanzi": "以前",
@@ -3194,16 +6037,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "清淡",
-    "pinyin": "qīngdàn",
-    "de": "leicht (Essen); mild",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我喜欢清淡的菜。",
-     "pinyin": "Wǒ xǐhuan qīngdàn de cài."
-    }
-   },
-   {
     "hanzi": "剩",
     "pinyin": "shèng",
     "de": "übrig bleiben; übrig lassen",
@@ -3281,16 +6114,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "这个菜真香。",
      "pinyin": "Zhège cài zhēn xiāng."
-    }
-   },
-   {
-    "hanzi": "凉",
-    "pinyin": "liáng",
-    "de": "kühl; kalt (geworden)",
-    "level": "leicht",
-    "example": {
-     "hanzi": "菜凉了，请热一下。",
-     "pinyin": "Cài liáng le, qǐng rè yíxià."
     }
    }
   ]
@@ -3393,16 +6216,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "路口",
-    "pinyin": "lùkǒu",
-    "de": "Kreuzung; Einmündung",
-    "level": "leicht",
-    "example": {
-     "hanzi": "在下一个路口右拐。",
-     "pinyin": "Zài xià yí ge lùkǒu yòu guǎi."
-    }
-   },
-   {
     "hanzi": "红绿灯",
     "pinyin": "hónglǜdēng",
     "de": "Ampel",
@@ -3433,16 +6246,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "马路",
-    "pinyin": "mǎlù",
-    "de": "Straße; Fahrbahn",
-    "level": "leicht",
-    "example": {
-     "hanzi": "过马路要小心。",
-     "pinyin": "Guò mǎlù yào xiǎoxīn."
-    }
-   },
-   {
     "hanzi": "人行道",
     "pinyin": "rénxíngdào",
     "de": "Gehweg; Bürgersteig",
@@ -3470,16 +6273,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "我在这里迷路了。",
      "pinyin": "Wǒ zài zhèlǐ mílù le."
-    }
-   },
-   {
-    "hanzi": "方向",
-    "pinyin": "fāngxiàng",
-    "de": "Richtung",
-    "level": "mittel",
-    "example": {
-     "hanzi": "我们走错方向了。",
-     "pinyin": "Wǒmen zǒu cuò fāngxiàng le."
     }
    },
    {
@@ -3842,16 +6635,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "当然",
-    "pinyin": "dāngrán",
-    "de": "natürlich; selbstverständlich",
-    "level": "leicht",
-    "example": {
-     "hanzi": "当然可以！",
-     "pinyin": "Dāngrán kěyǐ!"
-    }
-   },
-   {
     "hanzi": "确实",
     "pinyin": "quèshí",
     "de": "tatsächlich; wirklich",
@@ -3951,16 +6734,6 @@ Object.assign(DECKS, {
   "title": "A2.2 · Pläne & Zukunft",
   "cards": [
    {
-    "hanzi": "打算",
-    "pinyin": "dǎsuàn",
-    "de": "vorhaben; planen; Absicht",
-    "level": "leicht",
-    "example": {
-     "hanzi": "你打算做什么？",
-     "pinyin": "Nǐ dǎsuan zuò shénme?"
-    }
-   },
-   {
     "hanzi": "计划",
     "pinyin": "jìhuà",
     "de": "Plan; planen",
@@ -4008,16 +6781,6 @@ Object.assign(DECKS, {
     "example": {
      "hanzi": "你将来想做什么？",
      "pinyin": "Nǐ jiānglái xiǎng zuò shénme?"
-    }
-   },
-   {
-    "hanzi": "假期",
-    "pinyin": "jiàqī",
-    "de": "Ferien; Urlaub",
-    "level": "leicht",
-    "example": {
-     "hanzi": "假期你有什么安排？",
-     "pinyin": "Jiàqī nǐ yǒu shénme ānpái?"
     }
    },
    {
@@ -4290,16 +7053,6 @@ Object.assign(DECKS, {
     }
    },
    {
-    "hanzi": "介绍",
-    "pinyin": "jièshào",
-    "de": "vorstellen; Vorstellung",
-    "level": "leicht",
-    "example": {
-     "hanzi": "我来介绍一下。",
-     "pinyin": "Wǒ lái jièshào yíxià."
-    }
-   },
-   {
     "hanzi": "打扰",
     "pinyin": "dǎrǎo",
     "de": "stören",
@@ -4477,22 +7230,54 @@ Object.assign(DECKS, {
 });
 window.DECKS_EN = window.DECKS_EN || { titles: {}, cards: {} };
 Object.assign(window.DECKS_EN.titles, {
- "a21-x1": "A2.1 Extension · Weather & seasons",
- "a21-x1-s": "A2.1 Extension · Weather & seasons — Sentences",
- "a21-x2": "A2.1 Extension · Hobbies & free time",
- "a21-x2-s": "A2.1 Extension · Hobbies & free time — Sentences",
- "a21-x3": "A2.1 Extension · Clothes & shopping",
- "a21-x3-s": "A2.1 Extension · Clothes & shopping — Sentences",
- "a21-x4": "A2.1 Extension · Health & the doctor",
- "a21-x4-s": "A2.1 Extension · Health & the doctor — Sentences",
- "a21-x5": "A2.1 Extension · Travel & transport",
- "a21-x5-s": "A2.1 Extension · Travel & transport — Sentences",
- "a21-x6": "A2.1 Extension · Hotel & city",
- "a21-x6-s": "A2.1 Extension · Hotel & city — Sentences",
- "a21-x7": "A2.1 Extension · Study & work",
- "a21-x7-s": "A2.1 Extension · Study & work — Sentences",
- "a21-x8": "A2.1 Extension · Phone, invitations & meeting up",
- "a21-x8-s": "A2.1 Extension · Phone, invitations & meeting up — Sentences",
+ "a21-l13": "A2.1 Book 2 · L13 我们在食堂门口见面 — Making plans & meeting places",
+ "a21-l13-s": "A2.1 Book 2 · L13 我们在食堂门口见面 — Making plans & meeting places — Sentences",
+ "a21-l14": "A2.1 Book 2 · L14 我不能去看电影 — Invitations & declining; wanting and being able to",
+ "a21-l14-s": "A2.1 Book 2 · L14 我不能去看电影 — Invitations & declining; wanting and being able to — Sentences",
+ "a21-l15": "A2.1 Book 2 · L15 我从星期一到星期三有课 — Timetable, routes & the post office",
+ "a21-l15-s": "A2.1 Book 2 · L15 我从星期一到星期三有课 — Timetable, routes & the post office — Sentences",
+ "a21-l16": "A2.1 Book 2 · L16 我在操场踢球呢 — Sports & actions in progress",
+ "a21-l16-s": "A2.1 Book 2 · L16 我在操场踢球呢 — Sports & actions in progress — Sentences",
+ "a21-l17": "A2.1 Book 2 · L17 我不会汉字输入 — Abilities & computers",
+ "a21-l17-s": "A2.1 Book 2 · L17 我不会汉字输入 — Abilities & computers — Sentences",
+ "a21-l18": "A2.1 Book 2 · L18 一直往前走 — Asking directions & transport",
+ "a21-l18-s": "A2.1 Book 2 · L18 一直往前走 — Asking directions & transport — Sentences",
+ "a21-l19": "A2.1 Book 2 · L19 房间里可以上网 — Housing & rooms",
+ "a21-l19-s": "A2.1 Book 2 · L19 房间里可以上网 — Housing & rooms — Sentences",
+ "a21-l20": "A2.1 Book 2 · L20 请你帮我还他 — Requests & hobbies",
+ "a21-l20-s": "A2.1 Book 2 · L20 请你帮我还他 — Requests & hobbies — Sentences",
+ "a22-l21": "A2.2 Book 2 · L21 你怎么了 — Illness & seeing a doctor",
+ "a22-l21-s": "A2.2 Book 2 · L21 你怎么了 — Illness & seeing a doctor — Sentences",
+ "a22-l22": "A2.2 Book 2 · L22 我25岁 — Age, height & weight",
+ "a22-l22-s": "A2.2 Book 2 · L22 我25岁 — Age, height & weight — Sentences",
+ "a22-l23": "A2.2 Book 2 · L23 这件衣服是中式的 — Clothes, colors & sizes",
+ "a22-l23-s": "A2.2 Book 2 · L23 这件衣服是中式的 — Clothes, colors & sizes — Sentences",
+ "a22-l24": "A2.2 Book 2 · L24 我发音发得不太准 — Language learning & exams",
+ "a22-l24-s": "A2.2 Book 2 · L24 我发音发得不太准 — Language learning & exams — Sentences",
+ "a22-l25": "A2.2 Book 2 · L25 我的家乡冬天比北京暖和 — Comparison with 比: weather & seasons",
+ "a22-l25-s": "A2.2 Book 2 · L25 我的家乡冬天比北京暖和 — Comparison with 比: weather & seasons — Sentences",
+ "a22-l26": "A2.2 Book 2 · L26 我们国家的菜没有四川菜那么辣 — Comparison with 没有: food & taste",
+ "a22-l26-s": "A2.2 Book 2 · L26 我们国家的菜没有四川菜那么辣 — Comparison with 没有: food & taste — Sentences",
+ "a22-l27": "A2.2 Book 2 · L27 上海跟北京不一样 — Comparison with 跟……一样: cities & travel plans",
+ "a22-l27-s": "A2.2 Book 2 · L27 上海跟北京不一样 — Comparison with 跟……一样: cities & travel plans — Sentences",
+ "a22-l28": "A2.2 Book 2 · L28 秋天要到了 — Something about to happen with 要……了: autumn & daily life",
+ "a22-l28-s": "A2.2 Book 2 · L28 秋天要到了 — Something about to happen with 要……了: autumn & daily life — Sentences",
+ "a21-x1": "A2.1 Extra · Weather & seasons",
+ "a21-x1-s": "A2.1 Extra · Weather & seasons — Sentences",
+ "a21-x2": "A2.1 Extra · Hobbies & free time",
+ "a21-x2-s": "A2.1 Extra · Hobbies & free time — Sentences",
+ "a21-x3": "A2.1 Extra · Clothes & shopping",
+ "a21-x3-s": "A2.1 Extra · Clothes & shopping — Sentences",
+ "a21-x4": "A2.1 Extra · Health & the doctor",
+ "a21-x4-s": "A2.1 Extra · Health & the doctor — Sentences",
+ "a21-x5": "A2.1 Extra · Travel & transport",
+ "a21-x5-s": "A2.1 Extra · Travel & transport — Sentences",
+ "a21-x6": "A2.1 Extra · Hotel & city",
+ "a21-x6-s": "A2.1 Extra · Hotel & city — Sentences",
+ "a21-x7": "A2.1 Extra · Study & work",
+ "a21-x7-s": "A2.1 Extra · Study & work — Sentences",
+ "a21-x8": "A2.1 Extra · Phone, invitations & meeting up",
+ "a21-x8-s": "A2.1 Extra · Phone, invitations & meeting up — Sentences",
  "a22-y1": "A2.2 · Comparing & Intensifying",
  "a22-y1-s": "A2.2 · Comparing & Intensifying — Sentences",
  "a22-y2": "A2.2 · Progress, Experience & Sequence",
@@ -4511,33 +7296,1532 @@ Object.assign(window.DECKS_EN.titles, {
  "a22-y8-s": "A2.2 · Politeness, small talk & set phrases — Sentences"
 });
 Object.assign(window.DECKS_EN.cards, {
- "a21-x1|春天": {
+ "a21-l13|喂": {
+  "en": "hello"
+ },
+ "a21-l13|一些": {
+  "en": "some"
+ },
+ "a21-l13|些": {
+  "en": "some",
+  "note": "Measure word."
+ },
+ "a21-l13|这些": {
+  "en": "these"
+ },
+ "a21-l13|那些": {
+  "en": "those"
+ },
+ "a21-l13|帮": {
+  "en": "to help"
+ },
+ "a21-l13|一下儿": {
+  "en": "one time, once"
+ },
+ "a21-l13|饭": {
+  "en": "meal"
+ },
+ "a21-l13|早饭": {
+  "en": "breakfast"
+ },
+ "a21-l13|午饭": {
+  "en": "lunch"
+ },
+ "a21-l13|晚饭": {
+  "en": "supper, dinner"
+ },
+ "a21-l13|一起": {
+  "en": "together"
+ },
+ "a21-l13|食堂": {
+  "en": "canteen"
+ },
+ "a21-l13|门口": {
+  "en": "doorway"
+ },
+ "a21-l13|图书馆": {
+  "en": "library"
+ },
+ "a21-l13|电视": {
+  "en": "television"
+ },
+ "a21-l13|或者": {
+  "en": "or"
+ },
+ "a21-l13|跟": {
+  "en": "with"
+ },
+ "a21-l13|同屋": {
+  "en": "roommate"
+ },
+ "a21-l13|聊天儿": {
+  "en": "to chat"
+ },
+ "a21-l13|聊": {
+  "en": "to chat"
+ },
+ "a21-l13|见面": {
+  "en": "to meet"
+ },
+ "a21-l13|常": {
+  "en": "often"
+ },
+ "a21-l13|常常": {
+  "en": "often"
+ },
+ "a21-l13|打": {
+  "en": "to make (a phone call)"
+ },
+ "a21-l13|信": {
+  "en": "letter"
+ },
+ "a21-l13|回电话": {
+  "en": "to call back"
+ },
+ "a21-l13-s|我有一些汉语问题。": {
+  "en": "I have some questions about Chinese."
+ },
+ "a21-l13-s|请你帮我一下儿，行吗？": {
+  "en": "Please help me for a moment, okay?"
+ },
+ "a21-l13-s|你什么时候有空儿？": {
+  "en": "When are you free?"
+ },
+ "a21-l13-s|你中午在哪儿吃饭？": {
+  "en": "Where do you eat at noon?"
+ },
+ "a21-l13-s|我们一起吃午饭吧。": {
+  "en": "Let's have lunch together."
+ },
+ "a21-l13-s|咱们十二点半在食堂门口见。": {
+  "en": "Let's meet at half past twelve at the canteen gate."
+ },
+ "a21-l13-s|我在北京学汉语。": {
+  "en": "I study Chinese in Beijing."
+ },
+ "a21-l13-s|晚上在宿舍看电视，或者跟同屋聊天儿。": {
+  "en": "In the evening I watch TV in the dorm or chat with my roommate."
+ },
+ "a21-l13-s|今天中午我跟一个中国朋友一起吃饭。": {
+  "en": "Today at noon I eat with a Chinese friend."
+ },
+ "a21-l13-s|我常想家，常给爸爸妈妈打电话。": {
+  "en": "I often miss home and often call my dad and mom."
+ },
+ "a21-l13-s|我不常给他们写信。": {
+  "en": "I don't often write letters to them."
+ },
+ "a21-l14|电影": {
+  "en": "film, movie"
+ },
+ "a21-l14|票": {
+  "en": "ticket"
+ },
+ "a21-l14|考试": {
+  "en": "to have an exam"
+ },
+ "a21-l14|考": {
+  "en": "to examine"
+ },
+ "a21-l14|复习": {
+  "en": "to review"
+ },
+ "a21-l14|舒服": {
+  "en": "comfortable"
+ },
+ "a21-l14|医院": {
+  "en": "hospital"
+ },
+ "a21-l14|一定": {
+  "en": "certainly"
+ },
+ "a21-l14|语言": {
+  "en": "language"
+ },
+ "a21-l14|大学": {
+  "en": "university"
+ },
+ "a21-l14|中学": {
+  "en": "middle school"
+ },
+ "a21-l14|小学": {
+  "en": "primary school"
+ },
+ "a21-l14|留学生": {
+  "en": "foreign student"
+ },
+ "a21-l14|一般": {
+  "en": "usually, ordinary, general"
+ },
+ "a21-l14|休息": {
+  "en": "to rest"
+ },
+ "a21-l14|有时候": {
+  "en": "sometimes"
+ },
+ "a21-l14|逛": {
+  "en": "to stroll around"
+ },
+ "a21-l14|公园": {
+  "en": "park"
+ },
+ "a21-l14-s|马丁，我有两张电影票，你想不想去看？": {
+  "en": "Martin, I have two movie tickets. Would you like to go and see it?"
+ },
+ "a21-l14-s|对不起，下个星期考试，我要复习，不能去。": {
+  "en": "Sorry, I have an exam next week and need to review, so I can't go."
+ },
+ "a21-l14-s|你问一下儿山本能不能去。": {
+  "en": "Ask Yamamoto whether he can go."
+ },
+ "a21-l14-s|山本明天晚上有事，也不能去。": {
+  "en": "Yamamoto is busy tomorrow evening and can't go either."
+ },
+ "a21-l14-s|安妮不舒服，她要去医院。": {
+  "en": "Annie is not feeling well; she is going to the hospital."
+ },
+ "a21-l14-s|大卫没有事，他一定能去。": {
+  "en": "David has nothing on, so he can certainly go."
+ },
+ "a21-l14-s|我是语言大学的留学生。": {
+  "en": "I am a foreign student at the Language University."
+ },
+ "a21-l14-s|这个周末学校有电影，小明有票，他问我想不想去看。": {
+  "en": "There is a movie at school this weekend; Xiaoming has tickets and asks whether I want to go."
+ },
+ "a21-l14-s|下星期一考试，周末我要复习，不能去。": {
+  "en": "There is an exam next Monday; I need to review this weekend and can't go."
+ },
+ "a21-l15|时间": {
+  "en": "time"
+ },
+ "a21-l15|从": {
+  "en": "from"
+ },
+ "a21-l15|到": {
+  "en": "to arrive, to reach"
+ },
+ "a21-l15|一块儿": {
+  "en": "together"
+ },
+ "a21-l15|车站": {
+  "en": "bus stop, railway station"
+ },
+ "a21-l15|站": {
+  "en": "station"
+ },
+ "a21-l15|邮局": {
+  "en": "post office"
+ },
+ "a21-l15|寄": {
+  "en": "to post, to mail"
+ },
+ "a21-l15|封": {
+  "en": "(a measure word)",
+  "note": "Measure word."
+ },
+ "a21-l15|门": {
+  "en": "(a measure word)",
+  "note": "Measure word."
+ },
+ "a21-l15|语音": {
+  "en": "pronunciation"
+ },
+ "a21-l15|语法": {
+  "en": "grammar"
+ },
+ "a21-l15|汉字": {
+  "en": "Chinese character"
+ },
+ "a21-l15|口语": {
+  "en": "spoken language"
+ },
+ "a21-l15|从……到……": {
+  "en": "from... to..."
+ },
+ "a21-l15|节": {
+  "en": "(a measure word)",
+  "note": "Measure word."
+ },
+ "a21-l15|第": {
+  "en": "(prefix for an ordinal number)"
+ },
+ "a21-l15|教": {
+  "en": "to teach"
+ },
+ "a21-l15-s|马丁，这个星期五你有时间吗？": {
+  "en": "Martin, do you have time this Friday?"
+ },
+ "a21-l15-s|我星期五没有课，有时间。": {
+  "en": "I have no class on Friday, so I have time."
+ },
+ "a21-l15-s|一块儿去林月家玩儿吧。": {
+  "en": "Let's go to Lin Yue's home together and have fun."
+ },
+ "a21-l15-s|从学校去她家坐几路公共汽车？": {
+  "en": "Which bus do we take from school to her home?"
+ },
+ "a21-l15-s|林月说，386路、952路都到她家。": {
+  "en": "Lin Yue says that bus No. 386 and No. 952 both go to her home."
+ },
+ "a21-l15-s|咱们九点从学校出发。": {
+  "en": "We set off from school at nine o'clock."
+ },
+ "a21-l15-s|我在南门等你，一块儿从南门去车站。": {
+  "en": "I'll wait for you at the south gate, and we'll go to the bus stop from there together."
+ },
+ "a21-l15-s|我要去邮局寄封信。": {
+  "en": "I want to go to the post office to mail a letter."
+ },
+ "a21-l15-s|我们有4门课：语音、语法、汉字和口语课。": {
+  "en": "We have 4 courses: pronunciation, grammar, Chinese characters and spoken Chinese."
+ },
+ "a21-l15-s|我们有两个老师，一个姓丁，一个姓王。": {
+  "en": "We have two teachers; one is surnamed Ding and one Wang."
+ },
+ "a21-l15-s|丁老师教我们语音、语法，王老师教我们汉字、口语。": {
+  "en": "Teacher Ding teaches us pronunciation and grammar; teacher Wang teaches us characters and speaking."
+ },
+ "a21-l16|作业": {
+  "en": "homework"
+ },
+ "a21-l16|操场": {
+  "en": "playground"
+ },
+ "a21-l16|踢": {
+  "en": "to play, to kick"
+ },
+ "a21-l16|球": {
+  "en": "ball"
+ },
+ "a21-l16|足球": {
+  "en": "football, soccer"
+ },
+ "a21-l16|乒乓球": {
+  "en": "table tennis"
+ },
+ "a21-l16|啊": {
+  "en": "(a modal particle)"
+ },
+ "a21-l16|运动": {
+  "en": "to exercise; sport"
+ },
+ "a21-l16|有的": {
+  "en": "some"
+ },
+ "a21-l16|跑步": {
+  "en": "to run, to jog"
+ },
+ "a21-l16|跑": {
+  "en": "to run"
+ },
+ "a21-l16|体育馆": {
+  "en": "gymnasium"
+ },
+ "a21-l16|游泳": {
+  "en": "to swim; swimming"
+ },
+ "a21-l16|篮球": {
+  "en": "basketball"
+ },
+ "a21-l16|比赛": {
+  "en": "to have a contest; match"
+ },
+ "a21-l16|喊": {
+  "en": "to cry, to shout"
+ },
+ "a21-l16|加油": {
+  "en": "to cheer up, to go for it"
+ },
+ "a21-l16-s|喂，山本，你在做什么呢？": {
+  "en": "Hello, Yamamoto, what are you doing?"
+ },
+ "a21-l16-s|我在写作业呢。": {
+  "en": "I am doing my homework."
+ },
+ "a21-l16-s|我给你打电话，你不在宿舍。": {
+  "en": "I called you, but you weren't in the dorm."
+ },
+ "a21-l16-s|我在操场踢球呢。": {
+  "en": "I am playing football on the playground."
+ },
+ "a21-l16-s|我想找你去打乒乓球。": {
+  "en": "I'd like to come and get you to play table tennis."
+ },
+ "a21-l16-s|三点不行，我在上课呢。": {
+  "en": "Three o'clock doesn't work; I'll be in class."
+ },
+ "a21-l16-s|现在是运动时间。": {
+  "en": "Now it is exercise time."
+ },
+ "a21-l16-s|同学们有的在操场跑步，有的在体育馆游泳；有的在打篮球，有的在踢足球。": {
+  "en": "Some classmates are jogging on the playground, some are swimming in the gym, some are playing basketball and some football."
+ },
+ "a21-l16-s|我没踢球，我在打乒乓球呢。": {
+  "en": "I'm not playing football; I'm playing table tennis."
+ },
+ "a21-l16-s|我在跟大卫比赛。": {
+  "en": "I am competing with David."
+ },
+ "a21-l17|客人": {
+  "en": "guest"
+ },
+ "a21-l17|介绍": {
+  "en": "to introduce"
+ },
+ "a21-l17|公司": {
+  "en": "company, corporation"
+ },
+ "a21-l17|输入": {
+  "en": "to input"
+ },
+ "a21-l17|那儿": {
+  "en": "there"
+ },
+ "a21-l17|查": {
+  "en": "to check"
+ },
+ "a21-l17|拼音": {
+  "en": "pinyin"
+ },
+ "a21-l17|法": {
+  "en": "method"
+ },
+ "a21-l17|法语": {
+  "en": "French"
+ },
+ "a21-l17-s|没关系。大卫，我介绍一下儿，这是我公司的同事田中。": {
+  "en": "Never mind. David, let me introduce you: this is Tanaka, a colleague from my company."
+ },
+ "a21-l17-s|认识你很高兴。": {
+  "en": "Nice to meet you."
+ },
+ "a21-l17-s|我去图书馆借书。": {
+  "en": "I'm going to the library to borrow books."
+ },
+ "a21-l17-s|我不会汉字输入，不会用那儿的电脑查书。你会不会？": {
+  "en": "I don't know how to input Chinese characters, so I can't use the computer there to look up books. Can you?"
+ },
+ "a21-l17-s|我会拼音输入法。": {
+  "en": "I know the pinyin input method."
+ },
+ "a21-l17-s|你能不能教我？": {
+  "en": "Can you teach me?"
+ },
+ "a21-l17-s|我是法国人，在北京学习汉语。": {
+  "en": "I'm French and study Chinese in Beijing."
+ },
+ "a21-l17-s|我会骑自行车，不会用筷子；会写汉字，不会汉字输入。": {
+  "en": "I can ride a bicycle but can't use chopsticks; I can write characters but can't input them on a computer."
+ },
+ "a21-l17-s|山本给我介绍他的同事田中。": {
+  "en": "Yamamoto introduced his colleague Tanaka to me."
+ },
+ "a21-l17-s|田中会说汉语、英语，还会一点儿法语。": {
+  "en": "Tanaka can speak Chinese and English, and also a little French."
+ },
+ "a21-l17-s|他会拼音输入法，会用电脑输入汉字。": {
+  "en": "He knows the pinyin input method and can input characters on a computer."
+ },
+ "a21-l18|一直": {
+  "en": "straight"
+ },
+ "a21-l18|往": {
+  "en": "towards"
+ },
+ "a21-l18|十字路口": {
+  "en": "crossroads"
+ },
+ "a21-l18|路口": {
+  "en": "intersection"
+ },
+ "a21-l18|拐": {
+  "en": "to turn"
+ },
+ "a21-l18|大概": {
+  "en": "about, perhaps"
+ },
+ "a21-l18|米": {
+  "en": "meter",
+  "note": "Measure word."
+ },
+ "a21-l18|方向": {
+  "en": "direction"
+ },
+ "a21-l18|马路": {
+  "en": "road"
+ },
+ "a21-l18|附近": {
+  "en": "nearby"
+ },
+ "a21-l18|交通": {
+  "en": "transport, traffic"
+ },
+ "a21-l18|方便": {
+  "en": "convenient"
+ },
+ "a21-l18|地铁": {
+  "en": "subway"
+ },
+ "a21-l18|离": {
+  "en": "to be away from"
+ },
+ "a21-l18|远": {
+  "en": "far"
+ },
+ "a21-l18|近": {
+  "en": "near"
+ },
+ "a21-l18|先": {
+  "en": "first"
+ },
+ "a21-l18|然后": {
+  "en": "then"
+ },
+ "a21-l18|大使馆": {
+  "en": "embassy"
+ },
+ "a21-l18|线": {
+  "en": "line"
+ },
+ "a21-l18-s|请问，743路汽车到西单吗？": {
+  "en": "Excuse me, does bus No. 743 go to Xidan?"
+ },
+ "a21-l18-s|690路车站怎么走？": {
+  "en": "How do I get to the stop for bus No. 690?"
+ },
+ "a21-l18-s|你从这儿一直往前走，到十字路口往右拐，往西走大概50米。": {
+  "en": "Go straight ahead from here, turn right at the crossroads, then walk west for about 50 meters."
+ },
+ "a21-l18-s|西单方向的车站在马路南边还是北边？": {
+  "en": "Is the stop for the Xidan direction on the south or north side of the road?"
+ },
+ "a21-l18-s|你过马路，到路南边等车。": {
+  "en": "Cross the road and wait for the bus on the south side."
+ },
+ "a21-l18-s|我们学校附近交通很方便，有公共汽车，还有地铁。": {
+  "en": "Transport near our school is very convenient: there are buses and also a subway."
+ },
+ "a21-l18-s|公共汽车站离学校不远。": {
+  "en": "The bus stop is not far from the school."
+ },
+ "a21-l18-s|地铁站离学校大概有500米。": {
+  "en": "The subway station is about 500 meters from the school."
+ },
+ "a21-l18-s|去天安门要先坐690路到西单，然后换37路公共汽车。": {
+  "en": "To get to Tiananmen, you first take bus No. 690 to Xidan, then change to bus No. 37."
+ },
+ "a21-l19|听说": {
+  "en": "to hear of"
+ },
+ "a21-l19|不错": {
+  "en": "quite good, not bad"
+ },
+ "a21-l19|觉得": {
+  "en": "to feel, to think"
+ },
+ "a21-l19|挺……的": {
+  "en": "very, rather, quite"
+ },
+ "a21-l19|上网": {
+  "en": "to use the Internet"
+ },
+ "a21-l19|网": {
+  "en": "Internet"
+ },
+ "a21-l19|洗澡": {
+  "en": "to have a bath, to take a shower"
+ },
+ "a21-l19|洗": {
+  "en": "to wash"
+ },
+ "a21-l19|做饭": {
+  "en": "to cook, to prepare a meal"
+ },
+ "a21-l19|层": {
+  "en": "story, floor",
+  "note": "Measure word."
+ },
+ "a21-l19|厨房": {
+  "en": "kitchen"
+ },
+ "a21-l19|只": {
+  "en": "only"
+ },
+ "a21-l19|厕所": {
+  "en": "lavatory, toilet, W. C."
+ },
+ "a21-l19|浴室": {
+  "en": "bathroom, shower room"
+ },
+ "a21-l19|房子": {
+  "en": "house, apartment"
+ },
+ "a21-l19|自己": {
+  "en": "oneself"
+ },
+ "a21-l19|卫生间": {
+  "en": "toilet, washroom"
+ },
+ "a21-l19-s|听说6号楼的房间不错，是不是？": {
+  "en": "I heard the rooms in Building 6 are quite good, is that right?"
+ },
+ "a21-l19-s|我觉得挺好的。": {
+  "en": "I think they're quite good."
+ },
+ "a21-l19-s|有。有电视、电话，还可以上网。": {
+  "en": "Yes. There's a TV and a telephone, and you can also use the Internet."
+ },
+ "a21-l19-s|房间里可以洗澡吗？": {
+  "en": "Can you take a shower in the room?"
+ },
+ "a21-l19-s|不行。房间里不能做饭。": {
+  "en": "No. You can't cook in the room."
+ },
+ "a21-l19-s|楼里每层有一个公共厨房，可以在那儿做饭。": {
+  "en": "There's a shared kitchen on every floor of the building where you can cook."
+ },
+ "a21-l19-s|你哪天有时间？我可以去你那儿看一下儿吗？": {
+  "en": "Which day are you free? Can I come over to your place and take a look?"
+ },
+ "a21-l19-s|我的房间离教室很近，可以走路来上课。": {
+  "en": "My room is very close to the classroom; I can walk to class."
+ },
+ "a21-l19-s|房间里只有厕所，没有浴室，不能洗澡，不方便。": {
+  "en": "There's only a toilet in the room, no bathroom, so I can't take a shower, which is inconvenient."
+ },
+ "a21-l19-s|学校里留学生太多了，我不喜欢在学校住。": {
+  "en": "There are too many international students at school; I don't like living on campus."
+ },
+ "a21-l19-s|我的房子里有卫生间，有厨房，可以做饭，很方便。": {
+  "en": "My apartment has a bathroom and a kitchen, I can cook, which is very convenient."
+ },
+ "a21-l20|知道": {
+  "en": "to know"
+ },
+ "a21-l20|象棋": {
+  "en": "Chinese chess"
+ },
+ "a21-l20|一会儿": {
+  "en": "a short while"
+ },
+ "a21-l20|让": {
+  "en": "to let, to ask, to allow"
+ },
+ "a21-l20|发": {
+  "en": "to send"
+ },
+ "a21-l20|短信": {
+  "en": "message"
+ },
+ "a21-l20|告诉": {
+  "en": "to tell"
+ },
+ "a21-l20|爱好": {
+  "en": "hobby; to like"
+ },
+ "a21-l20|下棋": {
+  "en": "to play chess"
+ },
+ "a21-l20|棋": {
+  "en": "chess"
+ },
+ "a21-l20|非常": {
+  "en": "extraordinarily, very"
+ },
+ "a21-l20|有意思": {
+  "en": "interesting, enjoyable"
+ },
+ "a21-l20|书法": {
+  "en": "calligraphy"
+ },
+ "a21-l20|画儿": {
+  "en": "picture, painting"
+ },
+ "a21-l20|画": {
+  "en": "to paint, to draw"
+ },
+ "a21-l20|太极拳": {
+  "en": "taijiquan"
+ },
+ "a21-l20|围棋": {
+  "en": "the game of go"
+ },
+ "a21-l20-s|你知道他在哪儿吗？": {
+  "en": "Do you know where he is?"
+ },
+ "a21-l20-s|我来还他象棋。": {
+  "en": "I came to return his chess set."
+ },
+ "a21-l20-s|你在这儿等一会儿吧。": {
+  "en": "Why don't you wait here for a while."
+ },
+ "a21-l20-s|我还有事。请你帮我还他，行吗？": {
+  "en": "I still have something to do. Could you please return it to him for me?"
+ },
+ "a21-l20-s|这是我的手机号码，也请你给他。": {
+  "en": "This is my cell phone number; please give it to him too."
+ },
+ "a21-l20-s|下午你不在，你朋友马丁来还你象棋。": {
+  "en": "You weren't in this afternoon; your friend Martin came to return your chess set."
+ },
+ "a21-l20-s|他让我谢谢你。": {
+  "en": "He asked me to thank you."
+ },
+ "a21-l20-s|他叫你给他发个短信，告诉他你的email。": {
+  "en": "He asked you to send him a message and tell him your email."
+ },
+ "a21-l20-s|我的爱好是下棋，我觉得中国的象棋非常有意思。": {
+  "en": "My hobby is playing chess, and I find Chinese chess very interesting."
+ },
+ "a21-l20-s|我还喜欢书法和中国画儿，想请一位中国老师教我。": {
+  "en": "I also like calligraphy and Chinese painting, and want to ask a Chinese teacher to teach me."
+ },
+ "a21-l20-s|我也爱好运动，现在在学打太极拳。": {
+  "en": "I also love sports and am now learning taijiquan."
+ },
+ "a22-l21|怎么了": {
+  "en": "what's the matter"
+ },
+ "a22-l21|感冒": {
+  "en": "to catch cold; flu"
+ },
+ "a22-l21|了": {
+  "en": "(particle indicating a change)"
+ },
+ "a22-l21|头": {
+  "en": "head"
+ },
+ "a22-l21|疼": {
+  "en": "painful"
+ },
+ "a22-l21|流": {
+  "en": "to flow"
+ },
+ "a22-l21|鼻涕": {
+  "en": "nasal mucus"
+ },
+ "a22-l21|咳嗽": {
+  "en": "to cough"
+ },
+ "a22-l21|嗓子": {
+  "en": "throat, voice"
+ },
+ "a22-l21|发烧": {
+  "en": "to run a fever"
+ },
+ "a22-l21|热": {
+  "en": "hot, warm"
+ },
+ "a22-l21|量": {
+  "en": "to measure"
+ },
+ "a22-l21|体温": {
+  "en": "temperature"
+ },
+ "a22-l21|度": {
+  "en": "degree",
+  "note": "Measure word."
+ },
+ "a22-l21|打针": {
+  "en": "to have an injection"
+ },
+ "a22-l21|开": {
+  "en": "to write out"
+ },
+ "a22-l21|药": {
+  "en": "medicine"
+ },
+ "a22-l21|病": {
+  "en": "to be ill; illness"
+ },
+ "a22-l21-s|大夫，我感冒了，头疼，流鼻涕。": {
+  "en": "Doctor, I have a cold, a headache and a runny nose."
+ },
+ "a22-l21-s|我觉得头很热。": {
+  "en": "My head feels very hot."
+ },
+ "a22-l21-s|量一下儿体温吧。": {
+  "en": "Let's take your temperature."
+ },
+ "a22-l21-s|不用打针，我给你开点儿药。": {
+  "en": "You don't need an injection; I'll prescribe you some medicine."
+ },
+ "a22-l21-s|回宿舍多休息，多喝水。": {
+  "en": "Go back to the dorm, rest a lot and drink plenty of water."
+ },
+ "a22-l21-s|山本，听说你病了。你哪儿不舒服？": {
+  "en": "Yamamoto, I heard you are ill. Where do you feel unwell?"
+ },
+ "a22-l21-s|早上觉得头很疼，还发烧。": {
+  "en": "This morning my head hurt a lot, and I also had a fever."
+ },
+ "a22-l21-s|现在不发烧了，头也不疼了。": {
+  "en": "Now I no longer have a fever, and my head doesn't hurt any more."
+ },
+ "a22-l21-s|明天能去上课吗？": {
+  "en": "Can you go to class tomorrow?"
+ },
+ "a22-l21-s|谢谢你来看我。": {
+  "en": "Thank you for coming to see me."
+ },
+ "a22-l22|出生": {
+  "en": "to be born"
+ },
+ "a22-l22|今年": {
+  "en": "this year"
+ },
+ "a22-l22|去年": {
+  "en": "last year"
+ },
+ "a22-l22|明年": {
+  "en": "next year"
+ },
+ "a22-l22|公斤": {
+  "en": "kilogram (a measure word)",
+  "note": "Measure word."
+ },
+ "a22-l22|个子": {
+  "en": "height"
+ },
+ "a22-l22|更": {
+  "en": "more"
+ },
+ "a22-l22|真": {
+  "en": "really"
+ },
+ "a22-l22|毕业": {
+  "en": "to graduate"
+ },
+ "a22-l22|年纪": {
+  "en": "age"
+ },
+ "a22-l22|孩子": {
+  "en": "child"
+ },
+ "a22-l22|重": {
+  "en": "heavy"
+ },
+ "a22-l22|轻": {
+  "en": "light"
+ },
+ "a22-l22|德国": {
+  "en": "Germany"
+ },
+ "a22-l22-s|我叫马丁，1982年出生，今年25岁，属狗。": {
+  "en": "My name is Martin. I was born in 1982, I'm 25 this year, and I was born in the year of the dog."
+ },
+ "a22-l22-s|山本最大，28岁，大卫最小，20岁。": {
+  "en": "Yamamoto is the oldest at 28; David is the youngest at 20."
+ },
+ "a22-l22-s|我个子很高。": {
+  "en": "I am very tall."
+ },
+ "a22-l22-s|大卫更高，他1米85。": {
+  "en": "David is even taller; he is 1.85 metres."
+ },
+ "a22-l22-s|小明，你弟弟个子真高。": {
+  "en": "Xiaoming, your younger brother is really tall."
+ },
+ "a22-l22-s|他多大了？": {
+  "en": "How old is he?"
+ },
+ "a22-l22-s|今年18岁，明年中学毕业。": {
+  "en": "He is 18 this year and will finish middle school next year."
+ },
+ "a22-l22-s|你奶奶多大年纪了？": {
+  "en": "How old is your grandmother?"
+ },
+ "a22-l22-s|她今年65岁，属蛇。": {
+  "en": "She is 65 this year and was born in the year of the snake."
+ },
+ "a22-l22-s|这是我姐姐的孩子。": {
+  "en": "This is my elder sister's child."
+ },
+ "a22-l22-s|他挺胖的。": {
+  "en": "He is quite chubby."
+ },
+ "a22-l23|件": {
+  "en": "(a measure word for clothes)",
+  "note": "Measure word."
+ },
+ "a22-l23|衣服": {
+  "en": "clothes"
+ },
+ "a22-l23|中式": {
+  "en": "Chinese style"
+ },
+ "a22-l23|式": {
+  "en": "fashion, style"
+ },
+ "a22-l23|颜色": {
+  "en": "color"
+ },
+ "a22-l23|色": {
+  "en": "color"
+ },
+ "a22-l23|好看": {
+  "en": "good-looking, beautiful"
+ },
+ "a22-l23|大小": {
+  "en": "size"
+ },
+ "a22-l23|合适": {
+  "en": "well-fitted, suitable"
+ },
+ "a22-l23|大号": {
+  "en": "large size"
+ },
+ "a22-l23|中号": {
+  "en": "medium size"
+ },
+ "a22-l23|小号": {
+  "en": "small size"
+ },
+ "a22-l23|肥": {
+  "en": "(of clothes, shoes) loose"
+ },
+ "a22-l23|长": {
+  "en": "long"
+ },
+ "a22-l23|短": {
+  "en": "short"
+ },
+ "a22-l23|挑": {
+  "en": "to choose, to select"
+ },
+ "a22-l23|试": {
+  "en": "to try on, to have a fitting"
+ },
+ "a22-l23|有点儿": {
+  "en": "a little"
+ },
+ "a22-l23|旗袍": {
+  "en": "cheong-sam"
+ },
+ "a22-l23|西服": {
+  "en": "Western-style clothes"
+ },
+ "a22-l23|T恤": {
+  "en": "T-shirt"
+ },
+ "a22-l23|牌": {
+  "en": "brand"
+ },
+ "a22-l23|裙子": {
+  "en": "skirt"
+ },
+ "a22-l23|条": {
+  "en": "measure word",
+  "note": "Measure word."
+ },
+ "a22-l23|有名": {
+  "en": "famous"
+ },
+ "a22-l23-s|这件衣服是安妮的。": {
+  "en": "This piece of clothing is Annie's."
+ },
+ "a22-l23-s|样子不错，是中式的；颜色很好看，是红的；大小也很合适，是中号的，不肥不瘦，不长不短。": {
+  "en": "The style is good, Chinese style; the color is beautiful, red; the size is also suitable, medium size, neither loose nor tight, neither long nor short."
+ },
+ "a22-l23-s|安妮，你喜欢什么样的衣服？": {
+  "en": "Annie, what kind of clothes do you like?"
+ },
+ "a22-l23-s|你帮我挑一件，好吗？": {
+  "en": "Could you help me pick one?"
+ },
+ "a22-l23-s|你喜欢什么颜色的？": {
+  "en": "What color do you like?"
+ },
+ "a22-l23-s|颜色、样子都不错。": {
+  "en": "Both the color and the style are good."
+ },
+ "a22-l23-s|林月，你看，合适不合适？": {
+  "en": "Lin Yue, look, does it fit?"
+ },
+ "a22-l23-s|有点儿肥，换一件瘦一点儿的。": {
+  "en": "It's a bit loose; change it for a slightly tighter one."
+ },
+ "a22-l23-s|这件大小很合适。": {
+  "en": "The size of this one is very suitable."
+ },
+ "a22-l23-s|你太客气了！": {
+  "en": "You're too polite!"
+ },
+ "a22-l24|流利": {
+  "en": "fluent"
+ },
+ "a22-l24|发音": {
+  "en": "to pronounce; pronunciation"
+ },
+ "a22-l24|准": {
+  "en": "accurate, exact"
+ },
+ "a22-l24|快": {
+  "en": "quick"
+ },
+ "a22-l24|听力": {
+  "en": "listening"
+ },
+ "a22-l24|歌": {
+  "en": "song"
+ },
+ "a22-l24|练习": {
+  "en": "to practise; exercise"
+ },
+ "a22-l24|容易": {
+  "en": "easy"
+ },
+ "a22-l24|声调": {
+  "en": "tone"
+ },
+ "a22-l24|预习": {
+  "en": "to preview"
+ },
+ "a22-l24|生词": {
+  "en": "new word"
+ },
+ "a22-l24|词": {
+  "en": "word"
+ },
+ "a22-l24|课文": {
+  "en": "text"
+ },
+ "a22-l24|唱": {
+  "en": "to sing"
+ },
+ "a22-l24|首": {
+  "en": "(a measure word)",
+  "note": "Measure word."
+ },
+ "a22-l24|大家": {
+  "en": "all, everyone"
+ },
+ "a22-l24|节目": {
+  "en": "program, show"
+ },
+ "a22-l24|表演": {
+  "en": "to perform"
+ },
+ "a22-l24|朗诵": {
+  "en": "to recite, to read aloud"
+ },
+ "a22-l24|功夫": {
+  "en": "kung fu"
+ },
+ "a22-l24|跳": {
+  "en": "to jump"
+ },
+ "a22-l24-s|大卫，昨天的考试考得怎么样？": {
+  "en": "David, how did you do on yesterday's exam?"
+ },
+ "a22-l24-s|我语法考得挺好的。": {
+  "en": "I did quite well on grammar."
+ },
+ "a22-l24-s|口语考得也不错，我说得很流利。": {
+  "en": "I did well on speaking too; I speak very fluently."
+ },
+ "a22-l24-s|你发音怎么样？": {
+  "en": "How is your pronunciation?"
+ },
+ "a22-l24-s|汉字写得快不快？": {
+  "en": "Do you write characters quickly?"
+ },
+ "a22-l24-s|我的汉字不好，写得很慢。": {
+  "en": "My characters are not good; I write very slowly."
+ },
+ "a22-l24-s|你试试听汉语歌，可以练习听力。": {
+  "en": "Try listening to Chinese songs; you can practise your listening."
+ },
+ "a22-l24-s|我觉得汉语很有意思。": {
+  "en": "I think Chinese is very interesting."
+ },
+ "a22-l24-s|语法很容易，声调有点儿难，汉字最难。": {
+  "en": "Grammar is very easy, tones are a bit difficult, and characters are the most difficult."
+ },
+ "a22-l24-s|我发音发得不太准，汉字写得很慢。": {
+  "en": "My pronunciation is not very accurate, and I write characters very slowly."
+ },
+ "a22-l24-s|我每天预习生词、读课文，还听汉语歌练习听力。": {
+  "en": "Every day I preview the new words, read the texts, and also listen to Chinese songs to practise listening."
+ },
+ "a22-l24-s|我觉得大家在一起学习汉语，都是好朋友。": {
+  "en": "I think everyone studying Chinese together are all good friends."
+ },
+ "a22-l25|冷": {
+  "en": "cold"
+ },
+ "a22-l25|比": {
+  "en": "than"
+ },
+ "a22-l25|气温": {
+  "en": "air temperature"
+ },
+ "a22-l25|低": {
+  "en": "low"
+ },
+ "a22-l25|零下": {
+  "en": "below zero"
+ },
+ "a22-l25|零上": {
+  "en": "above zero"
+ },
+ "a22-l25|天气": {
+  "en": "weather"
+ },
+ "a22-l25|预报": {
+  "en": "forecast"
+ },
+ "a22-l25|阴": {
+  "en": "overcast"
+ },
+ "a22-l25|晴": {
+  "en": "sunny, clear"
+ },
+ "a22-l25|级": {
+  "en": "force, level, grade"
+ },
+ "a22-l25|风": {
+  "en": "wind"
+ },
+ "a22-l25|穿": {
+  "en": "to wear, to put on"
+ },
+ "a22-l25|别……了": {
+  "en": "don't"
+ },
+ "a22-l25|季节": {
+  "en": "season"
+ },
+ "a22-l25|春天": {
   "en": "spring"
  },
- "a21-x1|夏天": {
+ "a22-l25|春": {
+  "en": "spring"
+ },
+ "a22-l25|夏天": {
   "en": "summer"
  },
- "a21-x1|秋天": {
+ "a22-l25|夏": {
+  "en": "summer"
+ },
+ "a22-l25|秋天": {
   "en": "autumn"
  },
- "a21-x1|冬天": {
+ "a22-l25|秋": {
+  "en": "autumn"
+ },
+ "a22-l25|冬天": {
   "en": "winter"
  },
- "a21-x1|季节": {
-  "en": "season",
-  "note": "Measure word: 个"
+ "a22-l25|冬": {
+  "en": "winter"
+ },
+ "a22-l25|刮": {
+  "en": "to blow"
+ },
+ "a22-l25|家乡": {
+  "en": "hometown"
+ },
+ "a22-l25|下雪": {
+  "en": "to snow"
+ },
+ "a22-l25|雪": {
+  "en": "snow"
+ },
+ "a22-l25|下雨": {
+  "en": "to rain"
+ },
+ "a22-l25|雨": {
+  "en": "rain"
+ },
+ "a22-l25|暖和": {
+  "en": "warm"
+ },
+ "a22-l25|凉快": {
+  "en": "cool"
+ },
+ "a22-l25|夜间": {
+  "en": "nighttime"
+ },
+ "a22-l25|风向": {
+  "en": "wind direction"
+ },
+ "a22-l25|风力": {
+  "en": "wind force"
+ },
+ "a22-l25|白天": {
+  "en": "daytime"
+ },
+ "a22-l25|多云": {
+  "en": "cloudy"
+ },
+ "a22-l25|转": {
+  "en": "to change"
+ },
+ "a22-l25|变化": {
+  "en": "to change"
+ },
+ "a22-l25|沙尘": {
+  "en": "sand dust"
+ },
+ "a22-l25-s|外边冷吗？": {
+  "en": "Is it cold outside?"
+ },
+ "a22-l25-s|挺冷的。今天比昨天冷。": {
+  "en": "Pretty cold. Today is colder than yesterday."
+ },
+ "a22-l25-s|我觉得昨天很冷，最高气温只有8度。": {
+  "en": "I thought yesterday was very cold; the highest temperature was only 8 degrees."
+ },
+ "a22-l25-s|今天最高气温5度，最低气温零下1度。": {
+  "en": "Today the highest temperature is 5 degrees and the lowest is 1 degree below zero."
+ },
+ "a22-l25-s|呀，今天比昨天还冷。": {
+  "en": "Oh, today is even colder than yesterday."
+ },
+ "a22-l25-s|天气预报说，明天阴，有5、6级大风，气温比今天更低。": {
+  "en": "The weather forecast says tomorrow will be overcast with force 5 or 6 winds, and the temperature will be even lower than today."
+ },
+ "a22-l25-s|明天要多穿点儿衣服，别感冒了。": {
+  "en": "Wear a bit more clothing tomorrow, so you don't catch a cold."
+ },
+ "a22-l25-s|北京有四个季节：春天、夏天、秋天和冬天。": {
+  "en": "Beijing has four seasons: spring, summer, autumn and winter."
+ },
+ "a22-l25-s|我的家乡也有四个季节。": {
+  "en": "My hometown also has four seasons."
+ },
+ "a22-l25-s|春天比北京长，不刮大风，是最好的季节。": {
+  "en": "Spring is longer than in Beijing, there are no strong winds, and it is the best season."
+ },
+ "a22-l26|好吃": {
+  "en": "tasty, delicious"
+ },
+ "a22-l26|当然": {
+  "en": "of course, naturally, without doubt"
+ },
+ "a22-l26|比较": {
+  "en": "relatively"
+ },
+ "a22-l26|清淡": {
+  "en": "(of food) light, not greasy or rich"
+ },
+ "a22-l26|那么": {
+  "en": "like that"
+ },
+ "a22-l26|这么": {
+  "en": "so"
+ },
+ "a22-l26|油": {
+  "en": "greasy"
+ },
+ "a22-l26|尝": {
+  "en": "to try (some food), to taste"
+ },
+ "a22-l26|国家": {
+  "en": "state, nation, country"
+ },
+ "a22-l26|烤鸭": {
+  "en": "roast duck"
+ },
+ "a22-l26|名": {
+  "en": "famous"
+ },
+ "a22-l26|外地": {
+  "en": "parts of country other than where one is"
+ },
+ "a22-l26|鸡丁": {
+  "en": "diced chicken"
+ },
+ "a22-l26|饭馆儿": {
+  "en": "restaurant"
+ },
+ "a22-l26|但是": {
+  "en": "but"
+ },
+ "a22-l26|火锅": {
+  "en": "chafing dish"
+ },
+ "a22-l26|贵州": {
+  "en": "name of a province"
+ },
+ "a22-l26|湖南": {
+  "en": "name of a province"
+ },
+ "a22-l26|句": {
+  "en": "sentence",
+  "note": "Measure word."
+ },
+ "a22-l26|话": {
+  "en": "saying"
+ },
+ "a22-l26|怕": {
+  "en": "to fear, to be afraid of"
+ },
+ "a22-l26|麻辣烫": {
+  "en": "name of a dish which is both hot and spicy"
+ },
+ "a22-l26|姑娘": {
+  "en": "girl"
+ },
+ "a22-l26|山西": {
+  "en": "name of a province"
+ },
+ "a22-l26|爱": {
+  "en": "to like, to be fond of"
+ },
+ "a22-l26|放": {
+  "en": "to put"
+ },
+ "a22-l26|醋": {
+  "en": "vinegar"
+ },
+ "a22-l26|所以": {
+  "en": "so, therefore"
+ },
+ "a22-l26|嫉妒": {
+  "en": "to be jealous"
+ },
+ "a22-l26|看见": {
+  "en": "to see"
+ },
+ "a22-l26-s|林月，中国哪儿的菜最好吃？": {
+  "en": "Lin Yue, where in China is the food the tastiest?"
+ },
+ "a22-l26-s|我是四川人，当然觉得四川菜最好吃。": {
+  "en": "I am from Sichuan, so of course I think Sichuan food is the tastiest."
+ },
+ "a22-l26-s|我觉得四川菜太辣了。听说上海菜很有名。": {
+  "en": "I think Sichuan food is too spicy. I heard Shanghai food is very famous."
+ },
+ "a22-l26-s|对。上海菜比较清淡，没有四川菜那么油。": {
+  "en": "Right. Shanghai food is relatively light, not as greasy as Sichuan food."
+ },
+ "a22-l26-s|上海菜贵不贵？": {
+  "en": "Is Shanghai food expensive?"
+ },
+ "a22-l26-s|哪儿的菜比较便宜？": {
+  "en": "Where is the food relatively cheap?"
+ },
+ "a22-l26-s|东北菜没有上海菜贵，也很好吃。": {
+  "en": "Northeastern food is not as expensive as Shanghai food, and it is also delicious."
+ },
+ "a22-l26-s|今天咱们去吃东北菜，怎么样？": {
+  "en": "How about we go for Northeastern food today?"
+ },
+ "a22-l26-s|行啊。今天我请客。": {
+  "en": "Sure. I'll treat you today."
+ },
+ "a22-l26-s|中国很大，每个地方都有自己的菜，有的甜，有的咸，有的酸，有的辣。": {
+  "en": "China is big and every place has its own dishes: some sweet, some salty, some sour, some spicy."
+ },
+ "a22-l26-s|广东菜比较贵，东北菜没有广东菜贵。": {
+  "en": "Cantonese food is relatively expensive; Northeastern food is not as expensive as Cantonese food."
+ },
+ "a22-l26-s|我们国家的菜没有四川菜那么辣。": {
+  "en": "Dishes in our country are not as hot as those in Sichuan."
+ },
+ "a22-l27|假期": {
+  "en": "holiday, vacation"
+ },
+ "a22-l27|打算": {
+  "en": "plan; to plan"
+ },
+ "a22-l27|旅行": {
+  "en": "to travel"
+ },
+ "a22-l27|俩": {
+  "en": "two"
+ },
+ "a22-l27|名胜古迹": {
+  "en": "scenic spots and historic sites"
+ },
+ "a22-l27|想法": {
+  "en": "idea"
+ },
+ "a22-l27|为什么": {
+  "en": "why"
+ },
+ "a22-l27|文化": {
+  "en": "culture"
+ },
+ "a22-l27|中心": {
+  "en": "center"
+ },
+ "a22-l27|商业": {
+  "en": "commerce"
+ },
+ "a22-l27|北方": {
+  "en": "the North"
+ },
+ "a22-l27|城市": {
+  "en": "city"
+ },
+ "a22-l27|气候": {
+  "en": "climate"
+ },
+ "a22-l27|干燥": {
+  "en": "dry, arid"
+ },
+ "a22-l27|南方": {
+  "en": "the South"
+ },
+ "a22-l27|海": {
+  "en": "sea"
+ },
+ "a22-l27|湿润": {
+  "en": "humid"
+ },
+ "a22-l27|哈尔滨": {
+  "en": "Harbin"
+ },
+ "a22-l27|冰灯": {
+  "en": "ice lantern"
+ },
+ "a22-l27|冰雕": {
+  "en": "ice sculpture"
+ },
+ "a22-l27|三亚": {
+  "en": "Sanya"
+ },
+ "a22-l27-s|山本，假期你有什么打算？": {
+  "en": "Yamamoto, what are your plans for the holiday?"
+ },
+ "a22-l27-s|我们俩一样，我也去旅行。": {
+  "en": "We are the same; I'm going to travel too."
+ },
+ "a22-l27-s|西安跟北京一样，有很多名胜古迹。": {
+  "en": "Xi'an is the same as Beijing: it has many scenic spots and historic sites."
+ },
+ "a22-l27-s|我的想法跟你的不一样。": {
+  "en": "My idea is different from yours."
+ },
+ "a22-l27-s|北京是中国的文化中心，上海是中国的商业中心。": {
+  "en": "Beijing is China's cultural center and Shanghai is China's commercial center."
+ },
+ "a22-l27-s|我想去跟北京不一样的地方看看。": {
+  "en": "I want to go and see a place that is different from Beijing."
+ },
+ "a22-l27-s|你的想法挺有意思的。": {
+  "en": "Your idea is quite interesting."
+ },
+ "a22-l27-s|西安跟北京一样，都是北方城市，气候一样干燥。": {
+  "en": "Xi'an is like Beijing: both are northern cities and the climate is equally dry."
+ },
+ "a22-l27-s|上海在中国的南方，是海边城市，气候很湿润。": {
+  "en": "Shanghai is in the south of China, is a seaside city, and has a very humid climate."
+ },
+ "a22-l27-s|上海话跟北京话也很不一样。": {
+  "en": "The Shanghai dialect is also very different from the Beijing dialect."
+ },
+ "a22-l28|火车": {
+  "en": "train"
+ },
+ "a22-l28|父母": {
+  "en": "parents"
+ },
+ "a22-l28|父亲": {
+  "en": "father"
+ },
+ "a22-l28|母亲": {
+  "en": "mother"
+ },
+ "a22-l28|放假": {
+  "en": "to have a holiday"
+ },
+ "a22-l28|迟到": {
+  "en": "to arrive late"
+ },
+ "a22-l28|凉": {
+  "en": "cool"
+ },
+ "a22-l28|树叶": {
+  "en": "leaf"
+ },
+ "a22-l28|树": {
+  "en": "tree"
+ },
+ "a22-l28|叶子": {
+  "en": "leaf"
+ },
+ "a22-l28|照相": {
+  "en": "to take a picture"
+ },
+ "a22-l28|照相机": {
+  "en": "camera"
+ },
+ "a22-l28|坏": {
+  "en": "broken"
+ },
+ "a22-l28|糟糕": {
+  "en": "too bad, what bad luck"
+ },
+ "a22-l28|电": {
+  "en": "electricity"
+ },
+ "a22-l28|电池": {
+  "en": "battery"
+ },
+ "a22-l28|商店": {
+  "en": "shop, store"
+ },
+ "a22-l28|关门": {
+  "en": "(of a shop) to close"
+ },
+ "a22-l28|关": {
+  "en": "to close"
+ },
+ "a22-l28|开门": {
+  "en": "(of a shop) to open"
+ },
+ "a22-l28|停": {
+  "en": "to stop"
+ },
+ "a22-l28|香山": {
+  "en": "Fragrant Hill"
+ },
+ "a22-l28-s|我去买火车票。我父母要来了，我们打算去旅行。": {
+  "en": "I'm going to buy train tickets. My parents are about to come and we plan to travel."
+ },
+ "a22-l28-s|我们“十一”放假。我让他们“十一”来。": {
+  "en": "We have a holiday at National Day. I'm having them come then."
+ },
+ "a22-l28-s|对，秋天是北京最好的季节。": {
+  "en": "Right, autumn is the best season in Beijing."
+ },
+ "a22-l28-s|不去。我要毕业了，在找工作，挺忙的。": {
+  "en": "No. I'm about to graduate and am looking for a job; I'm quite busy."
+ },
+ "a22-l28-s|哟，九点半了！要迟到了。不跟你聊了。我走了！再见！": {
+  "en": "Oh, it's half past nine! I'm going to be late. I won't chat with you any more. I'm off! Bye!"
+ },
+ "a22-l28-s|天气凉了，秋天要到了。": {
+  "en": "The weather has turned cool; autumn is coming."
+ },
+ "a22-l28-s|山上的树叶要红了。": {
+  "en": "The leaves on the mountains are about to turn red."
+ },
+ "a22-l28-s|你同屋是不是要回国了？": {
+  "en": "Is your roommate about to go back to her country?"
+ },
+ "a22-l28-s|我们跟她照张相吧。": {
+  "en": "Let's take a picture with her."
+ },
+ "a22-l28-s|我的照相机坏了，用你的吧。": {
+  "en": "My camera is broken; let's use yours."
+ },
+ "a22-l28-s|我的照相机没电了。我去买两节电池。": {
+  "en": "My camera has run out of power. I'll go buy two batteries."
+ },
+ "a22-l28-s|商店几点关门？": {
+  "en": "What time does the shop close?"
+ },
+ "a22-l28-s|现在五点了。商店要关门了。": {
+  "en": "It is five o'clock now. The shop is about to close."
  },
  "a21-x1|温度": {
   "en": "temperature"
- },
- "a21-x1|度": {
-  "en": "degree"
- },
- "a21-x1|雪": {
-  "en": "snow"
- },
- "a21-x1|下雪": {
-  "en": "to snow"
  },
  "a21-x1|刮风": {
   "en": "to be windy"
@@ -4548,17 +8832,8 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x1|阴天": {
   "en": "overcast day"
  },
- "a21-x1|凉快": {
-  "en": "pleasantly cool"
- },
- "a21-x1|暖和": {
-  "en": "nice and warm"
- },
  "a21-x1|潮湿": {
   "en": "humid"
- },
- "a21-x1|干燥": {
-  "en": "dry"
  },
  "a21-x1|空气": {
   "en": "air"
@@ -4569,12 +8844,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x1|雨伞": {
   "en": "umbrella",
   "note": "Measure word: 把"
- },
- "a21-x1|预报": {
-  "en": "forecast; to forecast"
- },
- "a21-x1|零下": {
-  "en": "below zero"
  },
  "a21-x1-s|今天比昨天冷。": {
   "en": "It is colder today than yesterday."
@@ -4609,35 +8878,14 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x1-s|这里夏天很潮湿，我不太习惯。": {
   "en": "It is very humid here in summer; I'm not used to it."
  },
- "a21-x2|爱好": {
-  "en": "hobby; to have as a hobby"
- },
- "a21-x2|运动": {
-  "en": "sport; to exercise"
- },
- "a21-x2|跑步": {
-  "en": "to jog; to run"
- },
- "a21-x2|游泳": {
-  "en": "to swim"
- },
  "a21-x2|爬山": {
   "en": "to go hiking; to climb a mountain"
  },
  "a21-x2|骑车": {
   "en": "to ride a bike"
  },
- "a21-x2|足球": {
-  "en": "football; soccer"
- },
- "a21-x2|篮球": {
-  "en": "basketball"
- },
  "a21-x2|健身": {
   "en": "to work out"
- },
- "a21-x2|比赛": {
-  "en": "competition; match; to compete"
  },
  "a21-x2|参加": {
   "en": "to take part in; to join"
@@ -4716,10 +8964,6 @@ Object.assign(window.DECKS_EN.cards, {
   "en": "trousers; pants",
   "note": "Measure word: 条"
  },
- "a21-x3|裙子": {
-  "en": "skirt",
-  "note": "Measure word: 条"
- },
  "a21-x3|衬衫": {
   "en": "shirt; blouse",
   "note": "Measure word: 件"
@@ -4744,23 +8988,11 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x3|围巾": {
   "en": "scarf"
  },
- "a21-x3|试": {
-  "en": "to try"
- },
  "a21-x3|试穿": {
   "en": "to try on"
  },
- "a21-x3|合适": {
-  "en": "suitable; fitting"
- },
- "a21-x3|肥": {
-  "en": "loose; baggy"
- },
  "a21-x3|牛仔裤": {
   "en": "jeans"
- },
- "a21-x3|颜色": {
-  "en": "colour"
  },
  "a21-x3|价格": {
   "en": "price"
@@ -4822,9 +9054,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x4|胃": {
   "en": "stomach"
  },
- "a21-x4|头": {
-  "en": "head"
- },
  "a21-x4|肚子": {
   "en": "belly; stomach"
  },
@@ -4846,35 +9075,14 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x4|腿": {
   "en": "leg"
  },
- "a21-x4|嗓子": {
-  "en": "throat"
- },
  "a21-x4|牙": {
   "en": "tooth"
- },
- "a21-x4|疼": {
-  "en": "to hurt; painful"
- },
- "a21-x4|发烧": {
-  "en": "to have a fever"
- },
- "a21-x4|咳嗽": {
-  "en": "to cough; cough"
- },
- "a21-x4|感冒": {
-  "en": "to catch a cold; cold"
  },
  "a21-x4|过敏": {
   "en": "to be allergic; allergy"
  },
  "a21-x4|拉肚子": {
   "en": "to have diarrhea"
- },
- "a21-x4|药": {
-  "en": "medicine"
- },
- "a21-x4|打针": {
-  "en": "to get an injection"
  },
  "a21-x4|挂号": {
   "en": "to register (at a clinic)"
@@ -4921,18 +9129,8 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x4-s|别太累了，注意身体。": {
   "en": "Don't overdo it, take care of your health."
  },
- "a21-x5|火车": {
-  "en": "train"
- },
  "a21-x5|机场": {
   "en": "airport"
- },
- "a21-x5|地铁": {
-  "en": "subway; metro"
- },
- "a21-x5|票": {
-  "en": "ticket",
-  "note": "Measure word: 张 (zhāng)."
  },
  "a21-x5|行李": {
   "en": "luggage; baggage"
@@ -4946,15 +9144,8 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x5|航班": {
   "en": "flight"
  },
- "a21-x5|站": {
-  "en": "station; stop",
-  "note": "Also a measure word for stops."
- },
  "a21-x5|司机": {
   "en": "driver"
- },
- "a21-x5|旅行": {
-  "en": "to travel; trip"
  },
  "a21-x5|出口": {
   "en": "exit"
@@ -4964,9 +9155,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a21-x5|堵车": {
   "en": "traffic jam; to be stuck in traffic"
- },
- "a21-x5|迟到": {
-  "en": "to be late"
  },
  "a21-x5|登机": {
   "en": "to board (a plane)"
@@ -5016,12 +9204,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x6|订": {
   "en": "to book; to reserve"
  },
- "a21-x6|公园": {
-  "en": "park"
- },
- "a21-x6|邮局": {
-  "en": "post office"
- },
  "a21-x6|邻居": {
   "en": "neighbour"
  },
@@ -5039,9 +9221,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a21-x6|搬家": {
   "en": "to move house"
- },
- "a21-x6|附近": {
-  "en": "nearby; vicinity"
  },
  "a21-x6|街": {
   "en": "street",
@@ -5101,21 +9280,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x7|专业": {
   "en": "major; field of study"
  },
- "a21-x7|考试": {
-  "en": "exam; to take an exam"
- },
- "a21-x7|作业": {
-  "en": "homework"
- },
- "a21-x7|大学": {
-  "en": "university"
- },
- "a21-x7|毕业": {
-  "en": "to graduate"
- },
- "a21-x7|公司": {
-  "en": "company"
- },
  "a21-x7|老板": {
   "en": "boss"
  },
@@ -5145,9 +9309,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a21-x7|成绩": {
   "en": "grade; result"
- },
- "a21-x7|复习": {
-  "en": "to review; to revise"
  },
  "a21-x7-s|你学什么专业？": {
   "en": "What do you study?"
@@ -5185,15 +9346,8 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x8|打电话": {
   "en": "to make a phone call"
  },
- "a21-x8|短信": {
-  "en": "text message",
-  "note": "Measure word: 条."
- },
  "a21-x8|微信": {
   "en": "WeChat"
- },
- "a21-x8|发": {
-  "en": "to send"
  },
  "a21-x8|接": {
   "en": "to pick up; to answer"
@@ -5204,9 +9358,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a21-x8|约": {
   "en": "to arrange; to make an appointment"
  },
- "a21-x8|见面": {
-  "en": "to meet; to see each other"
- },
  "a21-x8|聚会": {
   "en": "party; get-together"
  },
@@ -5215,9 +9366,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a21-x8|刚": {
   "en": "just; just now"
- },
- "a21-x8|先": {
-  "en": "first; beforehand"
  },
  "a21-x8|再": {
   "en": "then; again"
@@ -5269,12 +9417,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a21-x8-s|对不起，我不能去，因为我要加班。": {
   "en": "Sorry, I can't come because I have to work overtime."
- },
- "a22-y1|重": {
-  "en": "heavy"
- },
- "a22-y1|轻": {
-  "en": "light (weight); gentle"
  },
  "a22-y1|旧": {
   "en": "old (things); used",
@@ -5369,10 +9511,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a22-y2|终于": {
   "en": "finally; at last"
- },
- "a22-y2|然后": {
-  "en": "then; afterwards",
-  "note": "先 … 然后 …: first …, then …"
  },
  "a22-y2|以前": {
   "en": "before; in the past"
@@ -5556,9 +9694,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a22-y4|油腻": {
   "en": "greasy; oily"
  },
- "a22-y4|清淡": {
-  "en": "light (food); mild"
- },
  "a22-y4|剩": {
   "en": "to be left over"
  },
@@ -5582,9 +9717,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a22-y4|香": {
   "en": "fragrant; savory"
- },
- "a22-y4|凉": {
-  "en": "cool; cold"
  },
  "a22-y4-s|今天我请客，你们随便点。": {
   "en": "It's my treat today, order whatever you like."
@@ -5622,9 +9754,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a22-y5|拐弯": {
   "en": "to turn (a corner)"
  },
- "a22-y5|路口": {
-  "en": "intersection; junction"
- },
  "a22-y5|红绿灯": {
   "en": "traffic light"
  },
@@ -5634,9 +9763,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a22-y5|距离": {
   "en": "distance"
  },
- "a22-y5|马路": {
-  "en": "road; street"
- },
  "a22-y5|人行道": {
   "en": "sidewalk"
  },
@@ -5645,9 +9771,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a22-y5|迷路": {
   "en": "to get lost"
- },
- "a22-y5|方向": {
-  "en": "direction"
  },
  "a22-y5|导航": {
   "en": "navigation; to navigate"
@@ -5763,9 +9886,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a22-y6|其实": {
   "en": "actually; in fact"
  },
- "a22-y6|当然": {
-  "en": "of course; naturally"
- },
  "a22-y6|确实": {
   "en": "indeed; really"
  },
@@ -5802,9 +9922,6 @@ Object.assign(window.DECKS_EN.cards, {
  "a22-y6-s|你放心，我一定会准时到的。": {
   "en": "Don't worry, I'll definitely arrive on time."
  },
- "a22-y7|打算": {
-  "en": "to plan; to intend; plan"
- },
  "a22-y7|计划": {
   "en": "plan; to plan"
  },
@@ -5819,9 +9936,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a22-y7|将来": {
   "en": "future; in the future"
- },
- "a22-y7|假期": {
-  "en": "vacation; holiday period"
  },
  "a22-y7|机会": {
   "en": "chance; opportunity"
@@ -5909,9 +10023,6 @@ Object.assign(window.DECKS_EN.cards, {
  },
  "a22-y8|注意": {
   "en": "to pay attention; to note"
- },
- "a22-y8|介绍": {
-  "en": "to introduce; introduction"
  },
  "a22-y8|打扰": {
   "en": "to disturb"

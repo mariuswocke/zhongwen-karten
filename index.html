@@ -2098,7 +2098,7 @@ function chapterStats(ch) {
 function chapterUnlocked(ch) {
   const list = stufeOf(ch).chapters;
   const i = list.indexOf(ch);
-  if (i === 0 || pathState.unlocked[ch.id]) return true;
+  if (i === 0 || ch.open || pathState.unlocked[ch.id]) return true;
   if (chapterStats(ch).seen > 0) return true; // schon gelernt → nie aussperren
   return chapterStats(list[i - 1]).mastered;
 }
