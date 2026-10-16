@@ -420,6 +420,112 @@
   .muted-note { color: var(--muted); font-size: 0.88rem; margin: 4px 0 8px; }
   footer { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 28px; opacity: .8; }
 
+  /* --- Lernpfad --- */
+  .next-card {
+    display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; padding: 14px 16px; margin-bottom: 14px;
+    border-radius: 22px; background: var(--card-bg); border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .next-ico { width: 52px; height: 52px; flex: none; border-radius: 16px; background: var(--g-teal); display: grid; place-items: center; font-size: 1.7rem; box-shadow: 0 4px 0 #1581b4; }
+  .next-main { flex: 1; min-width: 0; }
+  .next-kicker { font-size: 0.72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; }
+  .next-title { font-weight: 700; font-size: 1.02rem; margin: 1px 0 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .next-go { font-weight: 800; color: var(--accent); font-size: 1.3rem; }
+  .view-head { display: flex; align-items: center; gap: 10px; margin: 2px 0 14px; }
+  .view-head h2 { margin: 0; flex: 1; font-size: 1.25rem; }
+  .back-btn { padding: 8px 14px; font-weight: 700; border-radius: 14px; }
+  .unit-head { margin: 20px 0 8px 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 700; }
+  .ch-list { position: relative; display: grid; gap: 10px; }
+  .ch-node {
+    display: flex; align-items: center; gap: 14px; padding: 12px 14px; text-align: left; width: 100%;
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow);
+  }
+  .ch-badge {
+    width: 50px; height: 50px; flex: none; border-radius: 50%; display: grid; place-items: center; font-size: 1.5rem; font-weight: 800;
+    background: var(--bg); border: 3px solid var(--border); color: var(--muted); position: relative;
+  }
+  .ch-node.open .ch-badge { border-color: #ff8a3d; color: var(--ink); background: var(--card-bg); }
+  .ch-node.current { border-color: #ff8a3d; box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+  .ch-node.current .ch-badge { background: var(--brand); border-color: transparent; color: #fff; box-shadow: 0 4px 0 var(--edge-brand); }
+  .ch-node.done .ch-badge { background: var(--g-green); border-color: transparent; color: #fff; box-shadow: 0 4px 0 var(--edge-green); }
+  .ch-node.locked { opacity: .62; }
+  .ch-node.locked .ch-badge { font-size: 1.2rem; }
+  .ch-body { flex: 1; min-width: 0; }
+  .ch-title { font-weight: 700; font-size: 0.98rem; line-height: 1.25; }
+  .ch-title small { color: var(--muted); font-weight: 500; font-size: 0.8rem; margin-left: 4px; }
+  .ch-goal { font-size: 0.78rem; color: var(--muted); margin: 2px 0 6px; line-height: 1.3; }
+  .ch-meta { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+  .ch-hero {
+    position: relative; overflow: hidden; border-radius: 28px; padding: 20px; color: #fff; margin-bottom: 18px;
+    background: var(--g-teal); box-shadow: 0 8px 0 #1581b4, 0 18px 36px rgba(31,162,224,.25);
+  }
+  .ch-hero::before { content: ""; position: absolute; width: 200px; height: 200px; border-radius: 50%; right: -60px; top: -80px; background: rgba(255,255,255,.15); }
+  .ch-hero.s-a12 { background: var(--g-purple); box-shadow: 0 8px 0 #4a3db8, 0 18px 36px rgba(108,92,231,.25); }
+  .ch-hero.s-a21 { background: var(--brand); box-shadow: 0 8px 0 var(--edge-brand), 0 18px 36px rgba(255,90,95,.28); }
+  .ch-hero-main { position: relative; display: flex; align-items: center; gap: 16px; }
+  .ch-hero .ring { width: 88px; height: 88px; }
+  .ch-hero .ring-mid b { font-size: 1.35rem; }
+  .ch-hero-text { flex: 1; min-width: 0; }
+  .ch-kicker { font-size: 0.75rem; opacity: .92; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  .ch-hero h2 { font-size: 1.35rem; margin: 2px 0 2px; }
+  .ch-zh { font-size: 1rem; opacity: .95; margin-bottom: 2px; }
+  .ch-hero p { margin: 4px 0 0; font-size: 0.88rem; opacity: .96; }
+  .steps { display: grid; gap: 10px; }
+  .step {
+    display: flex; align-items: center; gap: 14px; text-align: left; width: 100%; padding: 13px 14px; border-radius: 20px;
+    background: var(--card-bg); border: 2px solid var(--border); box-shadow: 0 4px 0 var(--edge-neutral);
+  }
+  .step:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--edge-neutral); }
+  .step.rec { border-color: #ff8a3d; box-shadow: 0 4px 0 var(--edge-brand), 0 0 0 4px var(--accent-soft); }
+  .step.off { opacity: .55; }
+  .step-ico { width: 46px; height: 46px; flex: none; border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem; background: var(--bg); }
+  .step.rec .step-ico { background: var(--brand); }
+  .step.ok .step-ico { background: var(--g-green); }
+  .step-body { flex: 1; min-width: 0; }
+  .step-title { font-weight: 800; font-size: 1rem; }
+  .step-sub { font-size: 0.8rem; color: var(--muted); margin: 1px 0 6px; }
+  .step-tag { font-size: 0.72rem; font-weight: 800; color: #fff; background: var(--brand); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+  .step-check { font-size: 1.3rem; color: var(--good); font-weight: 800; }
+  .next-chapter-btn { width: 100%; margin-top: 14px; padding: 14px; font-size: 1.05rem; font-weight: 800; border-radius: 18px; border: none; color: #fff; background: var(--g-green); box-shadow: 0 5px 0 var(--edge-green); }
+  .wl-row { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .wl-row:last-child { border-bottom: none; }
+  .wl-hz { font-size: 1.5rem; min-width: 2.4em; }
+  .wl-main { flex: 1; min-width: 0; font-size: 0.88rem; }
+  .wl-main .res-py { font-size: 0.82rem; }
+  .st-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--border); }
+  .st-dot.lernen { background: var(--amber); }
+  .st-dot.sicher { background: var(--good); }
+  .banner { border-radius: 16px; padding: 12px 14px; margin: 10px 0 14px; font-weight: 700; background: var(--good-soft); color: var(--good); animation: pop .4s ease; }
+  .banner.warn { background: rgba(217,138,11,.15); color: var(--amber); }
+
+  /* --- Übersetzer --- */
+  .tr-panel { max-width: 680px; }
+  .tr-panel textarea.answer-input { resize: vertical; min-height: 78px; line-height: 1.4; margin: 8px 0 6px; }
+  .tr-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 6px; }
+  .tr-bar .pill { padding: 6px 12px; }
+  .tr-go { background: var(--g-teal); color: #fff; border: none; font-weight: 800; box-shadow: 0 4px 0 #1581b4; border-radius: 14px; padding: 10px 16px; }
+  .tr-ghost { font-size: 0.85rem; padding: 7px 12px; }
+  .hist { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+  .hist button { font-size: 0.82rem; padding: 4px 10px; border-radius: 999px; background: var(--bg); color: var(--muted); }
+  .ruby-card { background: var(--bg); border-radius: 16px; padding: 12px 14px; margin: 8px 0; }
+  .ruby-line { font-size: 1.6rem; line-height: 2.5; }
+  .ruby-line ruby { margin-right: 2px; cursor: pointer; }
+  .ruby-line rt { font-size: 0.5em; color: var(--accent); }
+  .ruby-line ruby:hover { background: var(--accent-soft); border-radius: 6px; }
+  .online-card { background: linear-gradient(135deg, var(--accent-soft), var(--bg)); border-radius: 18px; padding: 14px; margin: 8px 0; border: 1px solid var(--border); animation: reveal .3s ease; }
+  .online-card .tag { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .online-card .big { font-size: 1.5rem; margin: 4px 0; line-height: 1.5; }
+  .online-card .alts { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+  .online-card .alts span { cursor: pointer; text-decoration: underline dotted; margin-right: 10px; }
+  .tr-note { font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
+  .bt-row { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .bt-row .res-actions { flex-basis: auto !important; flex-wrap: nowrap; }
+  .bt-row .res-main { flex: 1 1 0; }
+  .bt-row input { width: 22px; height: 22px; margin-top: 4px; accent-color: #ff5a5f; flex: none; }
+  .bt-row.none { opacity: .6; }
+  .bt-src { font-size: 0.75rem; color: var(--muted); }
+  .bt-hz { font-size: 1.6rem; line-height: 1.3; }
+  .bt-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+
   @keyframes card-in { from { opacity: 0; transform: translateX(28px) scale(.98); } to { opacity: 1; transform: none; } }
   @keyframes reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   @keyframes pop { 0% { transform: scale(.85); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
@@ -482,10 +588,12 @@
     </div>
     <div class="hero" id="todayCard"></div>
 
+    <button class="next-card" id="nextCard" hidden></button>
+
     <div class="tiles">
-      <button class="tile t-teal" id="practiceBtn"><span class="t-ico">🎯</span>Frei üben<small>Stapel wählen</small></button>
-      <button class="tile t-purple" id="testBtn" title="Diagnose: jede Karte genau einmal, DE → CN, ohne den Lernstand zu verändern"><span class="t-ico">📝</span>Test<small>Wo stehe ich?</small></button>
-      <button class="tile t-amber" id="tileSearchBtn"><span class="t-ico">🔍</span>Wörterbuch<small>Suchen</small></button>
+      <button class="tile t-teal" id="pathBtn"><span class="t-ico">🗺️</span>Lernpfad<small>Kapitel für Kapitel</small></button>
+      <button class="tile t-purple" id="practiceBtn"><span class="t-ico">🎯</span>Frei üben<small>Auch Test</small></button>
+      <button class="tile t-amber" id="tileSearchBtn"><span class="t-ico">🌐</span>Übersetzer<small>Wörter &amp; Sätze</small></button>
     </div>
 
     <!-- bleiben für die Logik bestehen; Auswahl läuft über das Sheet -->
@@ -494,6 +602,10 @@
 
     <div class="today-card prog-card" id="overview"></div>
   </div>
+
+  <!-- Lernpfad -->
+  <div id="pathView" hidden></div>
+  <div id="chapterView" hidden></div>
 
   <!-- Session -->
   <div id="sessionView" hidden>
@@ -533,17 +645,50 @@
   <div class="panel char-panel" id="charPanel"></div>
 </div>
 
-<!-- Suche & Wörterbuch -->
+<!-- Übersetzer -->
 <div id="searchOverlay" class="overlay" hidden>
-  <div class="panel search-panel">
+  <div class="panel search-panel tr-panel">
     <div class="panel-head">
-      <h2>Suchen &amp; Wörterbuch</h2>
+      <h2>🌐 Übersetzer</h2>
       <button class="icon-btn" id="searchCloseBtn" title="Schließen (Esc)">✕</button>
     </div>
-    <input type="search" id="searchInput" class="answer-input" placeholder="Zeichen, Pinyin (ni3hao3), Deutsch oder Englisch …"
-      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
-    <div id="searchResults"></div>
-    <p class="muted-note search-credit">Wörterbuch Chinesisch → Englisch: <a href="lib/CC-CEDICT-LICENSE.txt" target="_blank" rel="noopener">CC-CEDICT</a> (MDBG), CC BY-SA 4.0<span id="dictDate"></span>. Deutsch nur über deine eigenen Karten.</p>
+    <div class="pill-row">
+      <button class="pill on" data-trtab="single">Übersetzen</button>
+      <button class="pill" data-trtab="batch">Wortliste</button>
+    </div>
+
+    <div id="trSingle">
+      <textarea id="searchInput" class="answer-input" rows="2" placeholder="Wort oder Satz — Deutsch, Englisch, 中文 oder Pinyin (ni3hao3) …"
+        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search"></textarea>
+      <div class="tr-bar">
+        <span id="trLangPills" class="pill-row" style="margin:0;align-items:center"><span class="bt-src">中文 ↔</span>
+          <button class="pill on" data-trlang="de">Deutsch</button>
+          <button class="pill" data-trlang="en">Englisch</button>
+        </span>
+        <button class="tr-go" id="onlineBtn">🌐 Online übersetzen</button>
+        <button class="tr-ghost" id="pasteBtn" title="Aus der Zwischenablage einfügen">📋 Einfügen</button>
+        <button class="tr-ghost" id="clearBtn" title="Leeren">✕</button>
+      </div>
+      <div id="trHistory"></div>
+      <div id="onlineResult"></div>
+      <div id="searchResults"></div>
+    </div>
+
+    <div id="trBatch" hidden>
+      <p class="muted-note">Ein Wort oder eine Wendung pro Zeile (bis 60) — Deutsch, Englisch, 中文 oder Pinyin. Ergebnis: Zeichen, Pinyin, Bedeutung. Auswählen und alle auf einmal als Karten merken.</p>
+      <textarea id="batchInput" class="answer-input" rows="6" placeholder="Apfel&#10;Bahnhof&#10;Ich habe Hunger&#10;谢谢" spellcheck="false" autocapitalize="off"></textarea>
+      <div class="tr-bar">
+        <span class="pill-row" style="margin:0;align-items:center"><span class="bt-src">中文 ↔</span>
+          <button class="pill on" data-blang="de">Deutsch</button>
+          <button class="pill" data-blang="en">Englisch</button>
+        </span>
+        <button class="tr-go" id="batchGo">Übersetzen</button>
+      </div>
+      <div id="batchStatus" class="muted-note"></div>
+      <div id="batchResults"></div>
+    </div>
+
+    <p class="muted-note search-credit">Wörterbuch Chinesisch ↔ Englisch offline: <a href="lib/CC-CEDICT-LICENSE.txt" target="_blank" rel="noopener">CC-CEDICT</a> (MDBG), CC BY-SA 4.0<span id="dictDate"></span>. Deutsch und ganze Sätze nur über „Online übersetzen“ (<a href="https://mymemory.translated.net" target="_blank" rel="noopener">MyMemory</a>): der Text geht dabei an den Dienst — nur wenn du auf den Knopf tippst.</p>
   </div>
 </div>
 
@@ -554,6 +699,10 @@
       <h2>Einstellungen</h2>
       <button class="icon-btn" id="settingsCloseBtn" title="Schließen">✕</button>
     </div>
+
+    <h3>Sprache / Language</h3>
+    <div class="pill-row"><button class="pill" data-lang="de">Deutsch</button><button class="pill" data-lang="en">English</button></div>
+    <p class="muted-note">Die App lädt beim Wechsel neu, dein Lernstand bleibt. Oberfläche, Karten-Bedeutungen, Kapitel und Übersetzer wechseln mit.</p>
 
     <h3>Wie willst du üben?</h3>
     <div class="chip-pick">
@@ -595,6 +744,9 @@
 <script src="hanzi-data.js"></script>
 <script src="hanzi-meta.js"></script>
 <script src="decks.js"></script>
+<script src="decks-en.js"></script>
+<script src="curriculum.js"></script>
+<script src="trad2simp.js"></script>
 <script>
 // ---------------------------------------------------------------
 // Datum (lokale Tage als "JJJJ-MM-TT"; window.__testNow nur für Tests)
@@ -731,7 +883,7 @@ const MY_DECK = "meine-woerter";
 function loadMyWords() { return readJson(MY_WORDS_KEY) || []; }
 function syncMyWordsDeck() {
   const cards = loadMyWords();
-  if (cards.length) DECKS[MY_DECK] = { stufe: "eigen", title: "Meine Wörter (aus der Suche)", cards };
+  if (cards.length) DECKS[MY_DECK] = { stufe: "eigen", title: tr("Meine Wörter (aus der Suche)", "My words (from the translator)"), cards };
   else delete DECKS[MY_DECK];
 }
 syncMyWordsDeck();
@@ -751,10 +903,24 @@ function loadSettings() {
     strokes: s.strokes !== undefined ? !!s.strokes : true,
     newPerDay: Number.isFinite(s.newPerDay) ? s.newPerDay : 10,
     roundSize: Number.isFinite(s.roundSize) ? s.roundSize : 30,
+    lang: s.lang === "en" ? "en" : "de",
     activeDecks: Array.isArray(s.activeDecks) ? s.activeDecks.filter(id => DECKS[id]) : DEFAULT_ACTIVE
   };
 }
 let settings = loadSettings();
+// Oberflächen- und Kartensprache: "de" oder "en" (Wechsel in ⚙️ lädt die App neu)
+const EN = settings.lang === "en";
+const tr = (de, en) => (EN ? en : de);
+document.documentElement.lang = settings.lang;
+if (EN && window.DECKS_EN) {
+  Object.entries(DECKS).forEach(([id, d]) => {
+    if (DECKS_EN.titles[id]) d.title = DECKS_EN.titles[id];
+    d.cards.forEach(c => {
+      const o = DECKS_EN.cards[id + "|" + c.hanzi];
+      if (o) { c.de = o.en; if (c.note && o.note) c.note = o.note; }
+    });
+  });
+}
 function saveSettings() { writeJson(SETTINGS_KEY, settings); }
 
 // Fertigkeiten: "erkennen" (CN → DE) und "abrufen" (DE → CN) werden getrennt gelernt.
@@ -844,12 +1010,12 @@ function hanziBlock(card) {
   let k = 0;
   const inner = card.type === "satz" ? card.hanzi
     : [...card.hanzi].map(ch => (/\p{Script=Han}/u.test(ch) && window.HANZI_DATA && HANZI_DATA[ch]
-      ? `<span class="hz-char" data-word="${card.hanzi}" data-char="${k++}" title="Zeichen-Details">${ch}</span>`
+      ? `<span class="hz-char" data-word="${card.hanzi}" data-char="${k++}" title="${tr("Zeichen-Details", "Character details")}">${ch}</span>`
       : (/\p{Script=Han}/u.test(ch) ? (k++, ch) : ch))).join("");
   const big = `<div class="hanzi ${longCls(card.hanzi)}">${inner}</div>`;
   const chars = settings.strokes && strokeChars(card);
   if (!chars) return big;
-  return `<div class="hanzi-line">${big}<div class="stroke-slot" data-hanzi="${chars.join("")}" title="Strichfolge — antippen spielt sie neu ab"></div></div>`;
+  return `<div class="hanzi-line">${big}<div class="stroke-slot" data-hanzi="${chars.join("")}" title="${tr("Strichfolge — antippen spielt sie neu ab", "Stroke order — tap to replay")}"></div></div>`;
 }
 let strokeToken = 0; // wechselt mit jeder Karte, alte Animationsschleifen enden dann
 // Zeichen außerhalb der eigenen Stapel (z.B. aus der Suche) kommen online vom CDN
@@ -902,7 +1068,7 @@ function mountStrokes(root = cardArea) {
 
 function exampleHtml(card) {
   return card.example
-    ? `<div class="example"><div class="example-label">Beispiel:</div><div class="example-hanzi">${card.example.hanzi}</div><div class="example-pinyin">${card.example.pinyin}</div></div>`
+    ? `<div class="example"><div class="example-label">${tr("Beispiel", "Example")}:</div><div class="example-hanzi">${card.example.hanzi}</div><div class="example-pinyin">${card.example.pinyin}</div></div>`
     : "";
 }
 
@@ -911,38 +1077,38 @@ function exampleHtml(card) {
 // ---------------------------------------------------------------
 const MODES = {
   "de-cn": {
-    label: "DE→CN",
+    label: tr("DE→CN", "EN→CN"),
     front: card => `<div class="prompt-de">${card.de}</div>`,
     back: card => `${hanziBlock(card)}<div class="pinyin">${card.pinyin}</div>` + exampleHtml(card),
     fields: [
-      { key: "answer", placeholder: "Pinyin (z.B. ni3 hao3) oder Zeichen …",
+      { key: "answer", placeholder: tr("Pinyin (z.B. ni3 hao3) oder Zeichen …", "Pinyin (e.g. ni3 hao3) or characters …"),
         check: (val, card) => (val.trim() === card.hanzi.trim() ? "ok" : pinyinVerdict(val, card.pinyin)) }
     ],
     correctDisplay: card => `${card.hanzi} (${card.pinyin})`
   },
   "cn-pinyin-de": {
-    label: "CN→Pinyin+DE",
+    label: tr("CN→Pinyin+DE", "CN→Pinyin+EN"),
     front: card => `${hanziBlock(card)}`,
     back: card => `<div class="pinyin">${card.pinyin}</div><div class="meaning">${card.de}</div>`,
     fields: [
-      { key: "pinyin", placeholder: "Pinyin eingeben (Töne optional) …", check: (val, card) => pinyinVerdict(val, card.pinyin) },
-      { key: "de", placeholder: "Deutsche Übersetzung eingeben …", de: true, check: (val, card) => (matchDe(val, card.de) ? "ok" : "wrong") }
+      { key: "pinyin", placeholder: tr("Pinyin eingeben (Töne optional) …", "Type pinyin (tones optional) …"), check: (val, card) => pinyinVerdict(val, card.pinyin) },
+      { key: "de", placeholder: tr("Deutsche Übersetzung eingeben …", "Type the English translation …"), de: true, check: (val, card) => (matchDe(val, card.de) ? "ok" : "wrong") }
     ],
     correctDisplay: card => `${card.pinyin} — ${card.de}`
   },
   "cnpinyin-de": {
-    label: "CN+Pinyin→DE",
+    label: tr("CN+Pinyin→DE", "CN+Pinyin→EN"),
     front: card => `${hanziBlock(card)}<div class="pinyin">${card.pinyin}</div>`,
     back: card => `<div class="meaning">${card.de}</div>`,
     fields: [
-      { key: "de", placeholder: "Deutsche Übersetzung eingeben …", de: true, check: (val, card) => (matchDe(val, card.de) ? "ok" : "wrong") }
+      { key: "de", placeholder: tr("Deutsche Übersetzung eingeben …", "Type the English translation …"), de: true, check: (val, card) => (matchDe(val, card.de) ? "ok" : "wrong") }
     ],
     correctDisplay: card => card.de
   }
 };
 
 function levelLabel(level) {
-  return { leicht: "Leicht", mittel: "Mittel", schwer: "Schwer" }[level] || "Mittel";
+  return { leicht: tr("Leicht", "Easy"), mittel: tr("Mittel", "Medium"), schwer: tr("Schwer", "Hard") }[level] || tr("Mittel", "Medium");
 }
 
 // ---------------------------------------------------------------
@@ -952,7 +1118,7 @@ const STUFEN = [
   { id: "a11", label: "A1.1" },
   { id: "a12", label: "A1.2" },
   { id: "a21", label: "A2.1" },
-  { id: "eigen", label: "Meine Wörter" }
+  { id: "eigen", label: tr("Meine Wörter", "My words") }
 ];
 function stufeHasCards(id) { return Object.values(DECKS).some(d => d.stufe === id); }
 function allCards() {
@@ -1065,6 +1231,8 @@ function buildPracticeQueue(deckSel, levelSel) {
 const homeView = document.getElementById("homeView");
 const sessionView = document.getElementById("sessionView");
 const doneView = document.getElementById("doneView");
+const pathView = document.getElementById("pathView");
+const chapterView = document.getElementById("chapterView");
 const cardArea = document.getElementById("cardArea");
 const deckSelect = document.getElementById("deckSelect");
 const levelSelect = document.getElementById("levelSelect");
@@ -1072,7 +1240,7 @@ const statsOverlay = document.getElementById("statsOverlay");
 const settingsOverlay = document.getElementById("settingsOverlay");
 
 function showView(view) {
-  [homeView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
+  [homeView, pathView, chapterView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
   document.body.classList.toggle("in-session", view === sessionView);
   window.scrollTo(0, 0);
 }
@@ -1093,7 +1261,7 @@ function animateRings(root) {
 
 function greeting() {
   const h = new Date().getHours();
-  return h < 11 ? "Guten Morgen! 你好" : h < 18 ? "Hallo! 你好" : "Guten Abend! 晚上好";
+  return h < 11 ? tr("Guten Morgen! 你好", "Good morning! 早上好") : h < 18 ? tr("Hallo! 你好", "Hello! 你好") : tr("Guten Abend! 晚上好", "Good evening! 晚上好");
 }
 
 function renderHome() {
@@ -1103,22 +1271,22 @@ function renderHome() {
   const total = Math.min(settings.roundSize, remaining);
   const doneToday = (state.days[today()] || {}).done || 0;
   const streak = streakDays();
-  const streakChip = `<span class="stat-chip">🔥 ${streak} ${streak === 1 ? "Tag" : "Tage"}</span>`;
+  const streakChip = `<span class="stat-chip">🔥 ${streak} ${streak === 1 ? tr("Tag", "day") : tr("Tage", "days")}</span>`;
   if (remaining > 0) {
     const pct = doneToday / (doneToday + remaining);
     todayCard.className = "hero";
     todayCard.innerHTML = `
       <div class="hero-main">
-        <div class="ring">${ringSvg(pct)}<div class="ring-mid"><div><b>${doneToday}</b><span>heute</span></div></div></div>
+        <div class="ring">${ringSvg(pct)}<div class="ring-mid"><div><b>${doneToday}</b><span>${tr("heute", "today")}</span></div></div></div>
         <div class="hero-text">
           <p class="hero-hello">${greeting()}</p>
-          <p class="hero-sub">${doneToday ? "Weiter so — da geht noch was!" : "Bereit für deine Runde?"}</p>
-          <div class="chip-row">${streakChip}<span class="stat-chip">⏰ ${ov.due.length} fällig</span><span class="stat-chip">✨ ${ov.fresh.length} neu</span></div>
+          <p class="hero-sub">${doneToday ? tr("Weiter so — da geht noch was!", "Keep going — there's more in you!") : tr("Bereit für deine Runde?", "Ready for your round?")}</p>
+          <div class="chip-row">${streakChip}<span class="stat-chip">⏰ ${ov.due.length} ${tr("fällig", "due")}</span><span class="stat-chip">✨ ${ov.fresh.length} ${tr("neu", "new")}</span></div>
         </div>
       </div>
       <div class="hero-cta">
-        <button class="btn-hero" id="startBtn">Los geht's →</button>
-        <div class="hint">${total} Karten · Enter startet</div>
+        <button class="btn-hero" id="startBtn">${tr("Los geht's →", "Let's go →")}</button>
+        <div class="hint">${total} ${tr("Karten", "cards")} · ${tr("Enter startet", "Enter starts")}</div>
       </div>`;
     document.getElementById("startBtn").onclick = () => startSession("daily");
   } else {
@@ -1126,20 +1294,29 @@ function renderHome() {
     todayCard.className = "hero hero-done";
     todayCard.innerHTML = `
       <div class="hero-main">
-        <div class="ring">${ringSvg(1)}<div class="ring-mid"><div><b>✓</b><span>geschafft</span></div></div></div>
+        <div class="ring">${ringSvg(1)}<div class="ring-mid"><div><b>✓</b><span>${tr("geschafft", "done")}</span></div></div></div>
         <div class="hero-text">
-          <p class="hero-hello">Alles erledigt! 🎉</p>
-          <p class="hero-sub">${more ? "Magst du noch ein paar neue Wörter?" : "Keine neuen Karten mehr in den aktiven Lektionen — weitere in ⚙️ aktivieren."}</p>
-          <div class="chip-row">${streakChip}<span class="stat-chip">📅 morgen ${ov.tomorrow}</span></div>
+          <p class="hero-hello">${tr("Alles erledigt!", "All done!")} 🎉</p>
+          <p class="hero-sub">${more ? tr("Magst du noch ein paar neue Wörter?", "Want a few more new words?") : tr("Keine neuen Karten mehr in den aktiven Lektionen — weitere in ⚙️ aktivieren.", "No new cards left in the active lessons — activate more in ⚙️.")}</p>
+          <div class="chip-row">${streakChip}<span class="stat-chip">📅 ${tr("morgen", "tomorrow")} ${ov.tomorrow}</span></div>
         </div>
       </div>
-      ${more ? `<div class="hero-cta"><button class="btn-hero" id="bonusBtn">10 neue Karten extra</button></div>` : ""}`;
+      ${more ? `<div class="hero-cta"><button class="btn-hero" id="bonusBtn">${tr("10 neue Karten extra", "10 extra new cards")}</button></div>` : ""}`;
     if (more) document.getElementById("bonusBtn").onclick = () => {
       dayLog().bonus += 10;
       saveState();
       startSession("daily");
     };
   }
+  const nc = document.getElementById("nextCard");
+  const cur = currentChapter();
+  if (cur) {
+    const cst = chapterStats(cur);
+    nc.hidden = false;
+    nc.innerHTML = `<div class="next-ico">${cur.icon}</div><div class="next-main"><div class="next-kicker">${tr("Weiter im Lernpfad", "Continue on your path")} · ${stufeOf(cur).label}</div>
+      <div class="next-title">${tr("Kapitel", "Chapter")} ${cur.n}: ${cur.title}</div><div class="mini"><i style="width:${Math.round(cst.prog * 100)}%"></i></div></div><div class="next-go">›</div>`;
+    nc.onclick = () => openChapter(cur.id);
+  } else nc.hidden = true;
   populateDeckSelect();
   renderOverview(ov);
   animateRings(todayCard);
@@ -1154,18 +1331,18 @@ function streakDays() {
 }
 
 function renderOverview(ov) {
-  let html = `<h3>Dein Fortschritt</h3>`;
+  let html = `<h3>${tr("Dein Fortschritt", "Your progress")}</h3>`;
   STUFEN.filter(s => stufeHasCards(s.id)).forEach(s => {
     const cards = allCards().filter(x => DECKS[x.deckId].stufe === s.id);
     const c = { neu: 0, lernen: 0, sicher: 0 };
     cards.forEach(x => c[cardStatus(x.deckId, x.card)]++);
     const pct = n => (cards.length ? (n / cards.length) * 100 : 0);
     html += `<div class="stufe-row">
-      <div class="row-label"><b>${s.label}</b><span>${c.sicher} sicher · ${c.lernen} am Lernen · ${c.neu} neu</span></div>
+      <div class="row-label"><b>${s.label}</b><span>${c.sicher} ${tr("sicher","solid")} · ${c.lernen} ${tr("am Lernen","learning")} · ${c.neu} ${tr("neu","new")}</span></div>
       <div class="stack"><div class="s-sicher" style="width:${pct(c.sicher)}%"></div><div class="s-lernen" style="width:${pct(c.lernen)}%"></div></div>
     </div>`;
   });
-  html += `<div class="legend"><span><i class="dot" style="background:var(--good)"></i>sicher</span><span><i class="dot" style="background:var(--amber)"></i>am Lernen</span><span><i class="dot" style="background:var(--border)"></i>neu</span></div>`;
+  html += `<div class="legend"><span><i class="dot" style="background:var(--good)"></i>${tr("sicher","solid")}</span><span><i class="dot" style="background:var(--amber)"></i>${tr("am Lernen","learning")}</span><span><i class="dot" style="background:var(--border)"></i>${tr("neu","new")}</span></div>`;
   document.getElementById("overview").innerHTML = html;
 }
 
@@ -1186,8 +1363,8 @@ function renderPick() {
   const tabs = [["mix", "Mix"], ...stufen.map(s => [s.id, s.label])];
   let rows = "";
   if (pick.tab === "mix") {
-    const mix = [["__all__", "Alle Stapel"], ...stufen.filter(s => s.id !== "eigen").map(s => [`__${s.id}__`, `Alle ${s.label}`])];
-    rows = mix.map(([v, l]) => `<button class="deck-row mix" data-sel="${v}"><div class="deck-top"><span>🎲 ${l}</span><span>los →</span></div></button>`).join("");
+    const mix = [["__all__", tr("Alle Stapel", "All decks")], ...stufen.filter(s => s.id !== "eigen").map(s => [`__${s.id}__`, `${tr("Alle", "All")} ${s.label}`])];
+    rows = mix.map(([v, l]) => `<button class="deck-row mix" data-sel="${v}"><div class="deck-top"><span>🎲 ${l}</span><span>${tr("los →", "go →")}</span></div></button>`).join("");
   } else {
     rows = Object.entries(DECKS).filter(([, d]) => d.stufe === pick.tab).map(([id, d]) => {
       const known = d.cards.filter(card => cardStatus(id, card) !== "neu").length;
@@ -1197,13 +1374,16 @@ function renderPick() {
   }
   document.getElementById("pickSheet").innerHTML = `
     <div class="sheet-grip"></div>
-    <div class="panel-head"><h2>${pick.kind === "test" ? "📝 Test: was sitzt schon?" : "🎯 Was willst du üben?"}</h2><button class="icon-btn" id="pickCloseBtn" title="Schließen (Esc)">✕</button></div>
+    <div class="panel-head"><h2>${pick.kind === "test" ? tr("📝 Test: was sitzt schon?", "📝 Test: what sticks?") : tr("🎯 Was willst du üben?", "🎯 What do you want to practise?")}</h2><button class="icon-btn" id="pickCloseBtn" title="${tr("Schließen (Esc)", "Close (Esc)")}">✕</button></div>
+    <div class="pill-row"><button class="pill ${pick.kind === "frei" ? "on" : ""}" data-kind="frei">🎯 ${tr("Üben", "Practise")}</button><button class="pill ${pick.kind === "test" ? "on" : ""}" data-kind="test" title="${tr("Diagnose: jede Karte genau einmal, DE → CN, ohne den Lernstand zu verändern", "Diagnosis: every card once, EN → CN, without changing your progress")}">📝 Test</button></div>
     <div class="pill-row">${tabs.map(([id, l]) => `<button class="pill ${pick.tab === id ? "on" : ""}" data-tab="${id}">${l}</button>`).join("")}</div>
-    <div class="pill-row">${[["alle", "Alle"], ["leicht", "Leicht"], ["mittel", "Mittel"], ["schwer", "Schwer"]].map(([id, l]) => `<button class="pill ${pick.level === id ? "on" : ""}" data-level="${id}">${l}</button>`).join("")}</div>
+    <div class="pill-row">${[["alle", tr("Alle", "All")], ["leicht", tr("Leicht", "Easy")], ["mittel", tr("Mittel", "Medium")], ["schwer", tr("Schwer", "Hard")]].map(([id, l]) => `<button class="pill ${pick.level === id ? "on" : ""}" data-level="${id}">${l}</button>`).join("")}</div>
     <div class="deck-list">${rows}</div>`;
 }
 document.getElementById("pickSheet").addEventListener("click", e => {
   if (e.target.closest("#pickCloseBtn")) { closePick(); return; }
+  const kd = e.target.closest("[data-kind]");
+  if (kd) { pick.kind = kd.dataset.kind; renderPick(); return; }
   const tab = e.target.closest("[data-tab]");
   if (tab) { pick.tab = tab.dataset.tab; renderPick(); return; }
   const lv = e.target.closest("[data-level]");
@@ -1223,7 +1403,7 @@ function populateDeckSelect() {
   deckSelect.innerHTML = "";
   const mixed = document.createElement("optgroup");
   mixed.label = "Gemischt";
-  [["__all__", "Alle Stapel"], ...STUFEN.filter(s => s.id !== "eigen" && stufeHasCards(s.id)).map(s => [`__${s.id}__`, `Alle ${s.label}`])].forEach(([v, l]) => {
+  [["__all__", tr("Alle Stapel", "All decks")], ...STUFEN.filter(s => s.id !== "eigen" && stufeHasCards(s.id)).map(s => [`__${s.id}__`, `${tr("Alle", "All")} ${s.label}`])].forEach(([v, l]) => {
     mixed.appendChild(new Option(l, v));
   });
   deckSelect.appendChild(mixed);
@@ -1279,7 +1459,7 @@ function confetti(count, originY, spread) {
     if (t < 1800) requestAnimationFrame(frame); else cv.remove();
   })(start);
 }
-const PRAISE = ["对！", "很好！", "太棒了！", "Super!", "Weiter so!", "Stark!", "完美！"];
+const PRAISE = EN ? ["对！", "很好！", "太棒了！", "Great!", "Keep going!", "Nice!", "完美！"] : ["对！", "很好！", "太棒了！", "Super!", "Weiter so!", "Stark!", "完美！"];
 function praise(text) {
   if (reduceMotion) return;
   const el = document.createElement("div");
@@ -1292,7 +1472,7 @@ let combo = 0;
 function updateCombo(grow) {
   const el = document.getElementById("combo");
   if (combo >= 3) {
-    el.textContent = `🔥 ${combo} in Folge`;
+    el.textContent = `🔥 ${combo} ${tr("in Folge", "in a row")}`;
     el.classList.add("on");
     if (grow) { el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); }
   } else {
@@ -1302,21 +1482,21 @@ function updateCombo(grow) {
 function celebrateAnswer() {
   combo += 1;
   updateCombo(true);
-  if (combo === 3 || combo === 5 || (combo >= 10 && combo % 5 === 0)) { confetti(40 + combo * 3, 0.35, 1.6); praise(`🔥 ${combo} in Folge!`); }
+  if (combo === 3 || combo === 5 || (combo >= 10 && combo % 5 === 0)) { confetti(40 + combo * 3, 0.35, 1.6); praise(`🔥 ${combo} ${tr("in Folge!", "in a row!")}`); }
   else if (Math.random() < 0.3) praise(PRAISE[Math.floor(Math.random() * PRAISE.length)]);
 }
 
-function startSession(kind, queue) {
+function startSession(kind, queue, opts) {
   const q = queue || (kind === "daily" ? buildDailyQueue()
     : kind === "test" ? buildTestQueue(deckSelect.value, levelSelect.value)
     : buildPracticeQueue(deckSelect.value, levelSelect.value));
   if (q.length === 0) {
-    alert("Keine Karten für diese Auswahl.");
+    alert(tr("Keine Karten für diese Auswahl.", "No cards for this selection."));
     return;
   }
   combo = 0;
   updateCombo(false);
-  session = { kind, queue: q, pos: 0, total: q.length, doneCount: 0, results: [], start: Date.now(), sel: deckSelect.value };
+  session = { kind, queue: q, pos: 0, total: q.length, doneCount: 0, results: [], start: Date.now(), sel: opts && opts.chapter ? "ch:" + opts.chapter : deckSelect.value, chapter: (opts && opts.chapter) || null };
   showView(sessionView);
   renderCard();
 }
@@ -1370,19 +1550,19 @@ function renderCard() {
   const it = currentItem();
   const card = it.card;
   updateSessionBar();
-  const typeLabel = card.type === "satz" ? "Satz" : "Wort";
+  const typeLabel = card.type === "satz" ? tr("Satz", "Sentence") : tr("Wort", "Word");
 
   // Neue Karte: erst ansehen, ein paar Karten später abfragen
   if (it.phase === "zeigen") {
     cardArea.innerHTML = `<div class="card">
-      <div class="level-badge"><span class="badge-new">Neu</span> · ${levelLabel(card.level)} · ${typeLabel}</div>
+      <div class="level-badge"><span class="badge-new">${tr("Neu", "New")}</span> · ${levelLabel(card.level)} · ${typeLabel}</div>
       ${hanziBlock(card)}
       <div class="pinyin">${card.pinyin}</div>
       <div class="meaning">${card.de}</div>
       ${audioRow()}
       ${card.note ? `<div class="note">${card.note}</div>` : ""}
       ${exampleHtml(card)}
-      <div class="actions"><button class="btn-good" id="nextBtn">Gemerkt — weiter</button></div>
+      <div class="actions"><button class="btn-good" id="nextBtn">${tr("Gemerkt — weiter", "Got it — next")}</button></div>
     </div>`;
     autoSpeak(card);
     mountStrokes();
@@ -1407,9 +1587,9 @@ function renderCard() {
       html += `<input type="text" class="answer-input" id="field-${f.key}" placeholder="${f.placeholder}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go">`;
     });
     html += `</div>`;
-    html += `<div class="actions"><button id="checkBtn">Prüfen</button></div>`;
+    html += `<div class="actions"><button id="checkBtn">${tr("Prüfen", "Check")}</button></div>`;
   } else {
-    html += `<div class="actions"><button id="flipBtn">Karte umdrehen</button></div>`;
+    html += `<div class="actions"><button id="flipBtn">${tr("Karte umdrehen", "Flip card")}</button></div>`;
   }
   html += `<div id="feedback"></div>`;
   html += `</div>`;
@@ -1437,8 +1617,8 @@ function renderCard() {
 
 function selfAssessButtons() {
   return `<div class="actions">
-      <button class="btn-bad" id="badBtn">Nicht gewusst</button>
-      <button class="btn-good" id="goodBtn">Gewusst</button>
+      <button class="btn-bad" id="badBtn">${tr("Nicht gewusst", "Didn't know")}</button>
+      <button class="btn-good" id="goodBtn">${tr("Gewusst", "Knew it")}</button>
     </div>`;
 }
 function bindAnswerButtons() {
@@ -1476,19 +1656,19 @@ function checkTyped(modeObj, inputs) {
   const self = verdicts.includes("selbst");
 
   let html;
-  if (wrong) html = `<div class="fb-wrong">❌ Nicht ganz richtig.</div>`;
-  else if (tone) html = `<div class="fb-tone">🟠 Fast — Ton falsch.</div>`;
-  else if (self) html = `<div class="fb-self">Vergleiche selbst:</div>`;
-  else html = `<div class="fb-correct">✅ Richtig!</div>`;
+  if (wrong) html = `<div class="fb-wrong">❌ ${tr("Nicht ganz richtig.", "Not quite right.")}</div>`;
+  else if (tone) html = `<div class="fb-tone">🟠 ${tr("Fast — Ton falsch.", "Almost — wrong tone.")}</div>`;
+  else if (self) html = `<div class="fb-self">${tr("Vergleiche selbst:", "Compare yourself:")}</div>`;
+  else html = `<div class="fb-correct">✅ ${tr("Richtig!", "Correct!")}</div>`;
 
   if (self) {
     const i = modeObj.fields.findIndex(f => f.de);
     const mine = inputs[i].value.trim();
-    html += `<div class="compare"><div><span class="muted-note">Deine Übersetzung</span><div>${mine ? escapeHtml(mine) : "<i>(leer)</i>"}</div></div>
-      <div><span class="muted-note">Musterlösung</span><div>${card.de}</div></div></div>`;
+    html += `<div class="compare"><div><span class="muted-note">${tr("Deine Übersetzung", "Your translation")}</span><div>${mine ? escapeHtml(mine) : `<i>(${tr("leer", "empty")})</i>`}</div></div>
+      <div><span class="muted-note">${tr("Musterlösung", "Model answer")}</span><div>${card.de}</div></div></div>`;
   }
   if (!wrong && !tone && verdicts.includes("ok-ohne-ton")) {
-    html += `<div class="tone-hint">Töne: <span class="pinyin-inline">${card.pinyin}</span> — tipp sie mit (z.B. ni3 hao3), dann prüfe ich sie auch.</div>`;
+    html += `<div class="tone-hint">${tr("Töne", "Tones")}: <span class="pinyin-inline">${card.pinyin}</span> — ${tr("tipp sie mit (z.B. ni3 hao3), dann prüfe ich sie auch.", "type them too (e.g. ni3 hao3) and I'll check them as well.")}</div>`;
   }
   // Lösung anzeigen; beim Satz-Vergleich steht die Übersetzung schon in der Vergleichsbox
   if (!self) html += modeObj.back(card);
@@ -1498,13 +1678,13 @@ function checkTyped(modeObj, inputs) {
 
   if (wrong || tone) {
     html += `<div class="actions">
-      <button class="btn-bad" id="stillWrongBtn">Weiter (nicht gewusst)</button>
-      <button class="btn-good" id="overrideBtn">War trotzdem richtig</button>
+      <button class="btn-bad" id="stillWrongBtn">${tr("Weiter (nicht gewusst)", "Next (didn't know)")}</button>
+      <button class="btn-good" id="overrideBtn">${tr("War trotzdem richtig", "I was right anyway")}</button>
     </div>`;
   } else if (self) {
     html += selfAssessButtons();
   } else {
-    html += `<div class="actions"><button class="btn-good" id="nextBtn">Weiter →</button></div>`;
+    html += `<div class="actions"><button class="btn-good" id="nextBtn">${tr("Weiter →", "Next →")}</button></div>`;
   }
   document.getElementById("feedback").innerHTML = html;
 
@@ -1528,13 +1708,13 @@ function renderWriteCard(it) {
   const card = it.card;
   const chars = strokeChars(card);
   cardArea.innerHTML = `<div class="card">
-    <div class="level-badge">${levelLabel(card.level)} · Wort · Schreiben</div>
+    <div class="level-badge">${levelLabel(card.level)} · ${tr("Wort", "Word")} · ${tr("Schreiben", "Writing")}</div>
     <div class="prompt-de">${card.de}</div>
     <div class="pinyin">${card.pinyin}</div>
     ${audioRow()}
     <div class="write-row" id="writeRow"></div>
     <div class="write-status" id="writeStatus"></div>
-    <div class="actions" id="writeActions"><button id="giveUpBtn">Lösung zeigen</button></div>
+    <div class="actions" id="writeActions"><button id="giveUpBtn">${tr("Lösung zeigen", "Show answer")}</button></div>
     <div id="feedback"></div>
   </div>`;
   const size = writeBoxSize(chars.length);
@@ -1569,12 +1749,12 @@ function renderWriteCard(it) {
     const knew = !gaveUp && mistakes.every(m => m <= 2);
     if (gaveUp) writers.forEach(w => w.showCharacter());
     document.getElementById("writeActions").remove();
-    status.textContent = gaveUp ? "" : `Fehler pro Zeichen: ${mistakes.join(" · ")}`;
-    let html = knew ? `<div class="fb-correct">✅ Richtig geschrieben!</div>` : `<div class="fb-wrong">❌ ${gaveUp ? "Lösung:" : "Noch nicht sicher."}</div>`;
+    status.textContent = gaveUp ? "" : `${tr("Fehler pro Zeichen", "Mistakes per character")}: ${mistakes.join(" · ")}`;
+    let html = knew ? `<div class="fb-correct">✅ ${tr("Richtig geschrieben!", "Written correctly!")}</div>` : `<div class="fb-wrong">❌ ${gaveUp ? tr("Lösung:", "Answer:") : tr("Noch nicht sicher.", "Not solid yet.")}</div>`;
     html += hanziBlock(card);
     html += knew
-      ? `<div class="actions"><button class="btn-good" id="nextBtn">Weiter →</button></div>`
-      : `<div class="actions"><button class="btn-bad" id="stillWrongBtn">Weiter (nicht gewusst)</button><button class="btn-good" id="overrideBtn">War trotzdem richtig</button></div>`;
+      ? `<div class="actions"><button class="btn-good" id="nextBtn">${tr("Weiter →", "Next →")}</button></div>`
+      : `<div class="actions"><button class="btn-bad" id="stillWrongBtn">${tr("Weiter (nicht gewusst)", "Next (didn't know)")}</button><button class="btn-good" id="overrideBtn">${tr("War trotzdem richtig", "I was right anyway")}</button></div>`;
     document.getElementById("feedback").innerHTML = html;
     bindAnswerButtons();
     mountStrokes();
@@ -1585,7 +1765,7 @@ function renderWriteCard(it) {
     if (token !== strokeToken || finished) return;
     if (i >= writers.length) { done(false); return; }
     row.querySelectorAll(".write-box").forEach((b, k) => b.classList.toggle("active", k === i));
-    status.textContent = chars.length > 1 ? `Zeichen ${i + 1} von ${chars.length}` : "Schreib das Zeichen Strich für Strich";
+    status.textContent = chars.length > 1 ? `${tr("Zeichen", "Character")} ${i + 1} ${tr("von", "of")} ${chars.length}` : tr("Schreib das Zeichen Strich für Strich", "Write the character stroke by stroke");
     writers[i].quiz({
       onComplete: summary => {
         mistakes[i] = summary.totalMistakes;
@@ -1602,7 +1782,7 @@ function renderWriteCard(it) {
 // Strichzahl, Radikal, Bestandteile, Herkunft, Vorkommen in eigenen Karten
 // ---------------------------------------------------------------
 const charOverlay = document.getElementById("charOverlay");
-const ETYMO = { pictographic: "Bildzeichen", ideographic: "Sinnzeichen (aus Bestandteilen zusammengesetzt)", pictophonetic: "Laut-Sinn-Zeichen (Bedeutungs- und Lautteil)" };
+const ETYMO = { pictographic: tr("Bildzeichen", "Pictograph"), ideographic: tr("Sinnzeichen (aus Bestandteilen zusammengesetzt)", "Ideograph (built from components)"), pictophonetic: tr("Laut-Sinn-Zeichen (Bedeutungs- und Lautteil)", "Phono-semantic compound (meaning + sound part)") };
 let charWriter = null;
 let charToken = 0;
 
@@ -1631,8 +1811,8 @@ function showCharDetail(chars, idx) {
   const size = Math.min(220, window.innerWidth - 120);
   document.getElementById("charPanel").innerHTML = `
     <div class="panel-head">
-      <h2>Zeichen ${ch}</h2>
-      <button class="icon-btn" id="charCloseBtn" title="Schließen (Esc)">✕</button>
+      <h2>${tr("Zeichen", "Character")} ${ch}</h2>
+      <button class="icon-btn" id="charCloseBtn" title="${tr("Schließen (Esc)", "Close (Esc)")}">✕</button>
     </div>
     ${chars.length > 1 ? `<div class="char-tabs">${chars.map((c, i) => `<button data-tab="${i}" class="${i === idx ? "active" : ""}">${c}</button>`).join("")}</div>` : ""}
     <div class="char-top">
@@ -1641,22 +1821,22 @@ function showCharDetail(chars, idx) {
         ${ownSingle ? `<div class="res-py" style="font-size:1.2rem">${ownSingle.card.pinyin}</div><div>${ownSingle.card.de}</div>` : ""}
         ${meta && meta.def ? `<div class="res-meta">EN: ${escapeHtml(meta.def)}</div>` : ""}
         <div class="facts-list">
-          <div><span>Striche</span><b id="charStrokes">–</b></div>
-          ${meta && meta.r ? `<div><span>Radikal</span><b class="char-link" data-open="${meta.r}">${meta.r}</b></div>` : ""}
-          ${parts.length ? `<div><span>Bestandteile</span><b>${parts.map(p => `<span class="char-link" data-open="${p}">${p}</span>`).join(" ")}</b></div>` : ""}
+          <div><span>${tr("Striche", "Strokes")}</span><b id="charStrokes">–</b></div>
+          ${meta && meta.r ? `<div><span>${tr("Radikal", "Radical")}</span><b class="char-link" data-open="${meta.r}">${meta.r}</b></div>` : ""}
+          ${parts.length ? `<div><span>${tr("Bestandteile", "Components")}</span><b>${parts.map(p => `<span class="char-link" data-open="${p}">${p}</span>`).join(" ")}</b></div>` : ""}
         </div>
       </div>
     </div>
     <div class="actions" style="justify-content:flex-start">
-      <button id="charPlayBtn">▶ Strichfolge</button>
-      <button id="charQuizBtn">✍️ Selbst schreiben</button>
+      <button id="charPlayBtn">▶ ${tr("Strichfolge", "Stroke order")}</button>
+      <button id="charQuizBtn">✍️ ${tr("Selbst schreiben", "Write it yourself")}</button>
       <button data-say="${ch}">🔊</button>
     </div>
     <div class="write-status" id="charStatus"></div>
-    ${ety ? `<h3>Herkunft</h3><p class="muted-note" style="color:var(--ink)">${ETYMO[ety.t] || ety.t}${ety.s ? ` · Bedeutungsteil <span class="char-link" data-open="${ety.s}">${ety.s}</span>` : ""}${ety.p ? ` · Lautteil <span class="char-link" data-open="${ety.p}">${ety.p}</span>` : ""}${ety.h ? `<br><span class="muted-note">EN: ${escapeHtml(ety.h)}</span>` : ""}</p>` : ""}
-    ${ownList.length ? `<h3>Kommt vor in deinen Karten</h3><ul class="weak-list">${ownList.map(x =>
+    ${ety ? `<h3>${tr("Herkunft", "Origin")}</h3><p class="muted-note" style="color:var(--ink)">${ETYMO[ety.t] || ety.t}${ety.s ? ` · ${tr("Bedeutungsteil", "meaning part")} <span class="char-link" data-open="${ety.s}">${ety.s}</span>` : ""}${ety.p ? ` · ${tr("Lautteil", "sound part")} <span class="char-link" data-open="${ety.p}">${ety.p}</span>` : ""}${ety.h ? `<br><span class="muted-note">EN: ${escapeHtml(ety.h)}</span>` : ""}</p>` : ""}
+    ${ownList.length ? `<h3>${tr("Kommt vor in deinen Karten", "Appears in your cards")}</h3><ul class="weak-list">${ownList.map(x =>
       `<li><span class="char-link" data-say="${x.card.hanzi}">${x.card.hanzi}</span> <span class="pinyin-inline">${x.card.pinyin}</span> — ${x.card.de}</li>`).join("")}</ul>` : ""}
-    <p class="muted-note search-credit">Strichdaten: Make Me a Hanzi (Arphic Public License) · Details: Make Me a Hanzi dictionary.txt (LGPL 3.0)</p>`;
+    <p class="muted-note search-credit">${tr("Strichdaten", "Stroke data")}: Make Me a Hanzi (Arphic Public License) · ${tr("Details", "Details")}: Make Me a Hanzi dictionary.txt (LGPL 3.0)</p>`;
 
   const css = getComputedStyle(document.documentElement);
   charWriter = HanziWriter.create(document.getElementById("charBox"), ch, {
@@ -1679,11 +1859,11 @@ function showCharDetail(chars, idx) {
   document.getElementById("charPlayBtn").onclick = play;
   document.getElementById("charQuizBtn").onclick = () => {
     charWriter.hideCharacter();
-    status.textContent = "Schreib nach — die graue Vorlage zeigt das Zeichen.";
+    status.textContent = tr("Schreib nach — die graue Vorlage zeigt das Zeichen.", "Trace it — the grey template shows the character.");
     charWriter.quiz({
-      onMistake: d => { status.textContent = `Strich ${d.strokeNum + 1}: nochmal${d.mistakesOnStroke >= 2 ? " — der Hinweis blinkt" : ""}.`; },
-      onCorrectStroke: d => { status.textContent = `Strich ${d.strokeNum + 1} von ${d.strokeNum + 1 + d.strokesRemaining} ✓`; },
-      onComplete: d => { status.textContent = d.totalMistakes === 0 ? "Fehlerfrei ✓" : `Fertig — ${d.totalMistakes} Fehler.`; }
+      onMistake: d => { status.textContent = `${tr("Strich", "Stroke")} ${d.strokeNum + 1}: ${tr("nochmal", "again")}${d.mistakesOnStroke >= 2 ? tr(" — der Hinweis blinkt", " — the hint is flashing") : ""}.`; },
+      onCorrectStroke: d => { status.textContent = `${tr("Strich", "Stroke")} ${d.strokeNum + 1} ${tr("von", "of")} ${d.strokeNum + 1 + d.strokesRemaining} ✓`; },
+      onComplete: d => { status.textContent = d.totalMistakes === 0 ? tr("Fehlerfrei ✓", "No mistakes ✓") : `${tr("Fertig", "Done")} — ${d.totalMistakes} ${tr("Fehler", "mistakes")}.`; }
     });
   };
   document.getElementById("charCloseBtn").onclick = closeCharDetail;
@@ -1696,7 +1876,7 @@ document.getElementById("charPanel").addEventListener("click", e => {
   if (!t) return;
   if (t.dataset.say) speak(t.dataset.say);
   else if (t.dataset.open && HANZI_DATA[t.dataset.open]) showCharDetail([t.dataset.open], 0);
-  else if (t.dataset.open) loadCharData(t.dataset.open, () => showCharDetail([t.dataset.open], 0), () => showToast("Für diesen Bestandteil gibt es keine Strichdaten."));
+  else if (t.dataset.open) loadCharData(t.dataset.open, () => showCharDetail([t.dataset.open], 0), () => showToast(tr("Für diesen Bestandteil gibt es keine Strichdaten.", "No stroke data for this component.")));
 });
 charOverlay.addEventListener("click", e => { if (e.target === charOverlay) closeCharDetail(); });
 // Zeichen auf der Karte antippen → Details
@@ -1708,7 +1888,8 @@ cardArea.addEventListener("click", e => {
 function finishSession(completed) {
   const s = session;
   session = null;
-  if (!s || s.results.length === 0) { goHome(); return; }
+  backChapter = (s && s.chapter) || null;
+  if (!s || s.results.length === 0) { afterSession(); return; }
   if (s.kind === "test") { finishTest(s, completed); return; }
   const right = s.results.filter(r => r.firstResult).length;
   const wrongItems = s.results.filter(r => !r.firstResult);
@@ -1723,39 +1904,39 @@ function finishSession(completed) {
   });
   const total = right + wrongItems.length;
   const ratio = total ? right / total : 0;
-  const [trophy, headline, sub] = !completed ? ["👍", "Runde beendet", "Auch kurze Runden zählen."]
-    : ratio >= 0.9 ? ["🏆", "Hervorragend!", "Fast alles gewusst — großartig."]
-    : ratio >= 0.7 ? ["🎉", "Runde geschafft!", "Starke Leistung, weiter so."]
-    : ratio >= 0.5 ? ["💪", "Gut gekämpft!", "Die schwierigen Karten kommen bald wieder."]
-    : ["🌱", "Dranbleiben lohnt sich", "Wiederholung macht's — die Karten sitzen bald."];
+  const [trophy, headline, sub] = !completed ? ["👍", tr("Runde beendet", "Round ended"), tr("Auch kurze Runden zählen.", "Short rounds count too.")]
+    : ratio >= 0.9 ? ["🏆", tr("Hervorragend!", "Outstanding!"), tr("Fast alles gewusst — großartig.", "Nearly everything — great.")]
+    : ratio >= 0.7 ? ["🎉", tr("Runde geschafft!", "Round complete!"), tr("Starke Leistung, weiter so.", "Strong work, keep it up.")]
+    : ratio >= 0.5 ? ["💪", tr("Gut gekämpft!", "Well fought!"), tr("Die schwierigen Karten kommen bald wieder.", "The tough cards will be back soon.")]
+    : ["🌱", tr("Dranbleiben lohnt sich", "Keep at it"), tr("Wiederholung macht's — die Karten sitzen bald.", "Repetition does it — these will stick soon.")];
   const streak = streakDays();
   const newToday = (state.days[today()] || {}).neu || 0;
   doneView.innerHTML = `<div class="card celebrate">
     <div class="trophy">${trophy}</div>
     <h2>${headline}</h2>
     <p class="cele-sub">${sub}</p>
-    <div class="big-ring ring">${ringSvg(ratio, true)}<div class="ring-mid"><div><b>${Math.round(ratio * 100)}%</b><span>richtig</span></div></div></div>
+    <div class="big-ring ring">${ringSvg(ratio, true)}<div class="ring-mid"><div><b>${Math.round(ratio * 100)}%</b><span>${tr("richtig", "correct")}</span></div></div></div>
     <div class="stat-tiles">
-      <div class="stat-tile"><b>${right}</b><span>gewusst</span></div>
-      <div class="stat-tile"><b>${wrongItems.length}</b><span>nochmal</span></div>
-      <div class="stat-tile"><b>${dur}</b><span>Minuten</span></div>
+      <div class="stat-tile"><b>${right}</b><span>${tr("gewusst", "known")}</span></div>
+      <div class="stat-tile"><b>${wrongItems.length}</b><span>${tr("nochmal", "again")}</span></div>
+      <div class="stat-tile"><b>${dur}</b><span>${tr("Minuten", "minutes")}</span></div>
     </div>
     <div class="chip-row" style="justify-content:center">
-      <span class="stat-chip" style="background:var(--accent-soft);color:var(--accent)">🔥 ${streak} ${streak === 1 ? "Tag" : "Tage"} in Folge</span>
-      ${newToday ? `<span class="stat-chip" style="background:var(--good-soft);color:var(--good)">✨ ${newToday} neue Wörter heute</span>` : ""}
+      <span class="stat-chip" style="background:var(--accent-soft);color:var(--accent)">🔥 ${streak} ${streak === 1 ? tr("Tag", "day") : tr("Tage", "days")} ${tr("in Folge", "in a row")}</span>
+      ${newToday ? `<span class="stat-chip" style="background:var(--good-soft);color:var(--good)">✨ ${newToday} ${tr("neue Wörter heute", "new words today")}</span>` : ""}
     </div>
-    ${hard.length ? `<h3>Das üben wir nochmal</h3><ul class="weak-list">${hard.slice(0, 5).map(r =>
+    ${hard.length ? `<h3>${tr("Das üben wir nochmal", "We'll practise these again")}</h3><ul class="weak-list">${hard.slice(0, 5).map(r =>
       `<li>${r.card.hanzi} <span class="pinyin-inline">${r.card.pinyin}</span> — ${r.card.de}</li>`).join("")}</ul>` : ""}
     <div class="actions">
-      ${hard.length ? `<button id="againBtn">Fehler nochmal</button>` : ""}
-      <button class="btn-good" id="doneBtn">Fertig</button>
+      ${hard.length ? `<button id="againBtn">${tr("Fehler nochmal", "Redo mistakes")}</button>` : ""}
+      <button class="btn-good" id="doneBtn">${tr("Fertig", "Done")}</button>
     </div>
-    <div class="hint">Enter = Fertig</div>
+    <div class="hint">${tr("Enter = Fertig", "Enter = Done")}</div>
   </div>`;
   showView(doneView);
   animateRings(doneView);
   if (completed && ratio >= 0.7) setTimeout(() => confetti(ratio >= 0.9 ? 160 : 100, 0.3, 2.4), 250);
-  document.getElementById("doneBtn").onclick = goHome;
+  document.getElementById("doneBtn").onclick = afterSession;
   const againBtn = document.getElementById("againBtn");
   if (againBtn) againBtn.onclick = () => startSession("frei", shuffle(hard.map(r => quizItem(r, r.skill))));
 }
@@ -1773,38 +1954,56 @@ function finishTest(s, completed) {
   });
   const gaps = res.filter(r => !r.firstResult);
   const label = deckSelLabel(s.sel);
+  let banner = "", nextCh = null;
+  if (s.chapter && completed) {
+    const ch = chapterById(s.chapter);
+    const p = pct(right, res.length);
+    pathState.best[ch.id] = Math.max(pathState.best[ch.id] || 0, p);
+    if (p >= PASS_PCT) {
+      pathState.passed[ch.id] = { pct: Math.max(p, (pathState.passed[ch.id] || {}).pct || 0), date: today() };
+      nextCh = nextChapterOf(ch);
+      banner = `<div class="banner">🎉 ${tr("Kapitel bestanden!", "Chapter passed!")} ${nextCh ? tr("Das nächste Kapitel ist freigeschaltet.", "The next chapter is unlocked.") : tr("Das war das letzte Kapitel — stark!", "That was the last chapter — great!")}</div>`;
+    } else {
+      banner = `<div class="banner warn">${p} % — ${tr("zum Bestehen brauchst du", "to pass you need")} ${PASS_PCT} %. ${tr("Übe die Lücken und versuch es nochmal.", "Practise the gaps and try again.")}</div>`;
+    }
+    savePath();
+  }
   const rows = [...byDeck].map(([id, d]) => `<tr><td>${DECKS[id].title}</td><td>${d.ok}/${d.n}</td><td>${pct(d.ok, d.n)}%</td></tr>`).join("");
   const text = [
-    `Diagnosetest ${label} (DE → CN) — ${today()}${completed ? "" : " (abgebrochen)"}`,
-    `Ergebnis: ${right}/${res.length} richtig (${pct(right, res.length)} %)`,
-    `Pro Stapel:`,
+    `${tr("Diagnosetest", "Diagnostic test")} ${label} (${tr("DE", "EN")} → CN) — ${today()}${completed ? "" : tr(" (abgebrochen)", " (aborted)")}`,
+    `${tr("Ergebnis", "Result")}: ${right}/${res.length} ${tr("richtig", "correct")} (${pct(right, res.length)} %)`,
+    tr("Pro Stapel:", "Per deck:"),
     ...[...byDeck].map(([id, d]) => `- ${DECKS[id].title}: ${d.ok}/${d.n} (${pct(d.ok, d.n)} %)`),
-    gaps.length ? `Lücken (${gaps.length}): ` + gaps.map(r => `${r.card.hanzi} (${r.card.pinyin}) – ${r.card.de}`).join("; ") : "Keine Lücken."
+    gaps.length ? `${tr("Lücken", "Gaps")} (${gaps.length}): ` + gaps.map(r => `${r.card.hanzi} (${r.card.pinyin}) – ${r.card.de}`).join("; ") : tr("Keine Lücken.", "No gaps.")
   ].join("\n");
 
   doneView.innerHTML = `<div class="card">
-    <h2>${completed ? "Test fertig ✓" : "Test beendet"}</h2>
-    <p class="muted-note">${label} · ${res.length} von ${s.total} Karten beantwortet</p>
+    <h2>${completed ? tr("Test fertig ✓", "Test finished ✓") : tr("Test beendet", "Test ended")}</h2>
+    <p class="muted-note">${label} · ${res.length} ${tr("von", "of")} ${s.total} ${tr("Karten beantwortet", "cards answered")}</p>
+    ${banner}
     <div class="nums">
-      <div><b>${pct(right, res.length)}%</b><span>richtig</span></div>
-      <div><b>${gaps.length}</b><span>Lücken</span></div>
+      <div><b>${pct(right, res.length)}%</b><span>${tr("richtig", "correct")}</span></div>
+      <div><b>${gaps.length}</b><span>${tr("Lücken", "gaps")}</span></div>
     </div>
     <table class="stats-table">
-      <thead><tr><th>Stapel</th><th>Richtig</th><th>%</th></tr></thead>
+      <thead><tr><th>${tr("Stapel", "Deck")}</th><th>${tr("Richtig", "Correct")}</th><th>%</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    ${gaps.length ? `<h3>Lücken</h3><ul class="weak-list">${gaps.map(r =>
+    ${gaps.length ? `<h3>${tr("Lücken", "Gaps")}</h3><ul class="weak-list">${gaps.map(r =>
       `<li>${r.card.hanzi} <span class="pinyin-inline">${r.card.pinyin}</span> — ${r.card.de}</li>`).join("")}</ul>` : ""}
     <div class="actions">
-      ${gaps.length ? `<button id="gapsBtn">Lücken in die Wiederholung</button>` : ""}
-      <button id="copyBtn">Ergebnis kopieren</button>
-      <button class="btn-good" id="doneBtn">Fertig</button>
+      ${nextCh ? `<button class="btn-good" id="nextChapterGo">${tr("Nächstes Kapitel →", "Next chapter →")}</button>` : ""}
+      ${gaps.length ? `<button id="gapsBtn">${tr("Lücken in die Wiederholung", "Add gaps to review")}</button>` : ""}
+      <button id="copyBtn">${tr("Ergebnis kopieren", "Copy result")}</button>
+      <button class="btn-good" id="doneBtn">${tr("Fertig", "Done")}</button>
     </div>
     <textarea id="copyText" class="answer-input" rows="6" hidden readonly></textarea>
   </div>`;
   showView(doneView);
   if (completed && pct(right, res.length) >= 80) setTimeout(() => confetti(90, 0.3, 2.2), 250);
-  document.getElementById("doneBtn").onclick = goHome;
+  document.getElementById("doneBtn").onclick = afterSession;
+  const nextGo = document.getElementById("nextChapterGo");
+  if (nextGo) nextGo.onclick = () => { backChapter = null; openChapter(nextCh.id); };
   const gapsBtn = document.getElementById("gapsBtn");
   if (gapsBtn) gapsBtn.onclick = () => {
     const t = today();
@@ -1818,28 +2017,290 @@ function finishTest(s, completed) {
     });
     saveState();
     gapsBtn.disabled = true;
-    gapsBtn.textContent = "✓ übernommen";
-    showToast(`${gaps.length} Lücken sind ab heute in der täglichen Session fällig.`);
+    gapsBtn.textContent = tr("✓ übernommen", "✓ added");
+    showToast(tr(`${gaps.length} Lücken sind ab heute in der täglichen Session fällig.`, `${gaps.length} gaps are due in the daily session from today.`));
   };
   document.getElementById("copyBtn").onclick = () => {
     const ta = document.getElementById("copyText");
     ta.value = text;
-    const fallback = () => { ta.hidden = false; ta.select(); showToast("Text markiert — mit ⌘C kopieren."); };
-    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => showToast("Ergebnis kopiert."), fallback);
+    const fallback = () => { ta.hidden = false; ta.select(); showToast(tr("Text markiert — mit ⌘C kopieren.", "Text selected — copy with ⌘C.")); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => showToast(tr("Ergebnis kopiert.", "Result copied.")), fallback);
     else fallback();
   };
 }
 
 function deckSelLabel(sel) {
-  if (sel === "__all__") return "alle Stapel";
+  if (sel.startsWith("ch:")) { const c = chapterById(sel.slice(3)); return c ? `${tr("Kapitel", "Chapter")} „${c.title}“` : sel; }
+  if (sel === "__all__") return tr("alle Stapel", "all decks");
   const m = sel.match(/^__([a-z0-9]+)__$/);
-  if (m) return "alle " + (STUFEN.find(x => x.id === m[1]) || { label: m[1] }).label;
+  if (m) return tr("alle ", "all ") + (STUFEN.find(x => x.id === m[1]) || { label: m[1] }).label;
   return DECKS[sel] ? DECKS[sel].title : sel;
 }
 
 function goHome() {
+  backChapter = null;
   showView(homeView);
   renderHome();
+}
+
+// ---------------------------------------------------------------
+// Lernpfad: Stufen → Kapitel → Abschnitte (Entdecken, Üben, Sätze, Schreiben, Kapiteltest)
+// Freischaltung: erstes Kapitel jeder Stufe offen; weitere, wenn das vorige gemeistert
+// ist (Kapiteltest ≥ 80 % oder ≥ 80 % der Karten „sicher") oder schon Karten gelernt sind.
+// ---------------------------------------------------------------
+const PATH_KEY = "cnTutorPath_v1";
+function loadPath() {
+  const p = readJson(PATH_KEY) || {};
+  return { passed: p.passed || {}, unlocked: p.unlocked || {}, best: p.best || {} };
+}
+let pathState = loadPath();
+function savePath() { writeJson(PATH_KEY, pathState); }
+
+const CURR = (window.CURRICULUM || []).map(s => ({
+  ...s,
+  title: (EN && s.titleEn) || s.title,
+  sub: (EN && s.subEn) || s.sub,
+  chapters: s.chapters.map((c, i) => ({
+    ...c, stufe: s.id, n: i + 1,
+    title: (EN && c.titleEn) || c.title, goal: (EN && c.goalEn) || c.goal, unit: (EN && c.unitEn) || c.unit
+  }))
+}));
+function chapterById(id) { return CURR.flatMap(s => s.chapters).find(c => c.id === id) || null; }
+function stufeOf(ch) { return CURR.find(s => s.id === ch.stufe); }
+function nextChapterOf(ch) {
+  const list = CURR.flatMap(s => s.chapters);
+  return list[list.indexOf(ch) + 1] || null;
+}
+function cardsOf(deckIds) {
+  return (deckIds || []).filter(id => DECKS[id]).flatMap(id => DECKS[id].cards.map(card => ({ deckId: id, card })));
+}
+const PASS_PCT = 80;
+function chapterStats(ch) {
+  const words = cardsOf(ch.decks), sents = cardsOf(ch.sentenceDecks);
+  const all = words.concat(sents);
+  const status = x => cardStatus(x.deckId, x.card);
+  const seenN = list => list.filter(x => status(x) !== "neu").length;
+  const sicherN = list => list.filter(x => status(x) === "sicher").length;
+  const writable = words.filter(x => strokeChars(x.card));
+  const wrDone = writable.filter(x => { const e = entry(x.deckId, x.card, "schreiben"); return e && e.box >= 3; }).length;
+  const passed = pathState.passed[ch.id] || null;
+  const seen = seenN(all), sicher = sicherN(all);
+  const share = all.length ? sicher / all.length : 0;
+  const mastered = !!passed || (all.length > 0 && share >= PASS_PCT / 100);
+  const prog = passed ? 1 : all.length ? 0.5 * (seen / all.length) + 0.5 * share : 0;
+  return { words, sents, all, seen, sicher, wSeen: seenN(words), wSicher: sicherN(words), sSeen: seenN(sents), sSicher: sicherN(sents),
+    writable, wrDone, passed, best: pathState.best[ch.id] || 0, share, mastered, prog };
+}
+function chapterUnlocked(ch) {
+  const list = stufeOf(ch).chapters;
+  const i = list.indexOf(ch);
+  if (i === 0 || pathState.unlocked[ch.id]) return true;
+  if (chapterStats(ch).seen > 0) return true; // schon gelernt → nie aussperren
+  return chapterStats(list[i - 1]).mastered;
+}
+function lastTouched(x) {
+  const c = state.cards[cardId(x.deckId, x.card)];
+  return c ? SKILL_ORDER.reduce((m, sk) => (c[sk] && c[sk].last > m ? c[sk].last : m), "") : "";
+}
+// Das Kapitel, bei dem es als Nächstes weitergeht
+function currentChapter() {
+  const list = CURR.flatMap(s => s.chapters);
+  let best = null, bestDay = "", lastCh = null, lastDay = "";
+  list.forEach(ch => {
+    const st = chapterStats(ch);
+    const day = st.all.reduce((m, x) => { const t = lastTouched(x); return t > m ? t : m; }, "");
+    if (day && day > lastDay) { lastDay = day; lastCh = ch; }
+    if (!st.mastered && day && day > bestDay) { bestDay = day; best = ch; }
+  });
+  if (best) return best;
+  if (lastCh) {
+    const nx = nextChapterOf(lastCh);
+    if (nx && !chapterStats(nx).mastered) return nx;
+  }
+  return list.find(ch => !chapterStats(ch).mastered && chapterUnlocked(ch)) || null;
+}
+
+let pathTab = null;
+let chapterId = null;
+let backChapter = null;
+function afterSession() {
+  const id = backChapter;
+  backChapter = null;
+  if (id) openChapter(id); else goHome();
+}
+
+function openPath(tab) {
+  pathTab = tab || pathTab || (currentChapter() || {}).stufe || (CURR[0] || {}).id;
+  renderPath();
+  showView(pathView);
+}
+function renderPath() {
+  const cur = currentChapter();
+  const tabs = CURR.map(s => {
+    const done = s.chapters.filter(c => chapterStats(c).mastered).length;
+    return `<button class="pill ${pathTab === s.id ? "on" : ""}" data-ptab="${s.id}">${s.label} · ${done}/${s.chapters.length}</button>`;
+  }).join("");
+  const stufe = CURR.find(s => s.id === pathTab) || CURR[0];
+  let html = `<div class="view-head"><button class="back-btn" id="pathBack">← ${tr("Start", "Home")}</button><h2>🗺️ ${tr("Lernpfad", "Learning path")}</h2></div>
+    <div class="pill-row">${tabs}</div>
+    <p class="muted-note"><b>${stufe.label} · ${stufe.title}</b> — ${stufe.sub}</p><div class="ch-list">`;
+  let unit = null;
+  stufe.chapters.forEach(ch => {
+    if (ch.unit !== unit) { unit = ch.unit; html += `</div><div class="unit-head">${unit}</div><div class="ch-list">`; }
+    const st = chapterStats(ch);
+    const locked = !chapterUnlocked(ch);
+    const cls = st.mastered ? "done" : cur && cur.id === ch.id ? "current" : locked ? "locked" : "open";
+    const counts = [st.words.length ? `${st.words.length} ${tr("Wörter", "words")}` : "", st.sents.length ? `${st.sents.length} ${tr("Sätze", "sentences")}` : ""].filter(Boolean).join(" · ");
+    html += `<button class="ch-node ${cls}" data-ch="${ch.id}">
+      <div class="ch-badge">${st.mastered ? "✓" : locked ? "🔒" : ch.icon}</div>
+      <div class="ch-body">
+        <div class="ch-title">${ch.n}. ${ch.title}${ch.zh ? `<small>${ch.zh}</small>` : ""}</div>
+        <div class="ch-goal">${ch.goal}</div>
+        <div class="mini"><i style="width:${Math.round(st.prog * 100)}%"></i></div>
+        <div class="ch-meta"><span>${counts}</span><span>${cls === "current" ? tr("▶ weiter hier", "▶ continue here") : st.mastered ? tr("gemeistert", "mastered") : locked ? tr("gesperrt", "locked") : Math.round(st.prog * 100) + " %"}</span></div>
+      </div></button>`;
+  });
+  html += `</div>`;
+  pathView.innerHTML = html;
+}
+pathView.addEventListener("click", e => {
+  if (e.target.closest("#pathBack")) { goHome(); return; }
+  const t = e.target.closest("[data-ptab]");
+  if (t) { pathTab = t.dataset.ptab; renderPath(); return; }
+  const n = e.target.closest("[data-ch]");
+  if (!n) return;
+  const ch = chapterById(n.dataset.ch);
+  if (!chapterUnlocked(ch)) {
+    const list = stufeOf(ch).chapters;
+    const prev = list[list.indexOf(ch) - 1];
+    if (!confirm(tr(`„${ch.title}“ ist noch gesperrt — erst „${prev.title}“ abschließen (Kapiteltest ≥ ${PASS_PCT} %).\n\nTrotzdem freischalten?`, `“${ch.title}” is still locked — finish “${prev.title}” first (chapter test ≥ ${PASS_PCT} %).\n\nUnlock anyway?`))) return;
+    pathState.unlocked[ch.id] = true;
+    savePath();
+  }
+  openChapter(ch.id);
+});
+
+function openChapter(id) {
+  chapterId = id;
+  backChapter = null;
+  renderChapter();
+  showView(chapterView);
+}
+const STEP_LABEL = { discover: "Entdecken", practice: "Üben", sentences: "Sätze", writing: "Schreiben", test: "Kapiteltest" };
+function chapterSteps(ch, st) {
+  const steps = [];
+  const unseenW = st.words.length - st.wSeen;
+  const pct = (a, b) => (b ? a / b : 0);
+  if (st.words.length) steps.push({
+    key: "discover", icon: "🌱", title: tr("Entdecken", "Discover"),
+    sub: unseenW ? tr(`${Math.min(8, unseenW)} von ${unseenW} neuen Wörtern kennenlernen`, `Meet ${Math.min(8, unseenW)} of ${unseenW} new words`) : tr("Alle Wörter schon gesehen", "All words seen"),
+    pct: pct(st.wSeen, st.words.length), ok: unseenW === 0, off: unseenW === 0
+  });
+  if (st.words.length) steps.push({
+    key: "practice", icon: "🧠", title: tr("Üben", "Practise"),
+    sub: st.wSeen ? tr(`${st.wSicher} von ${st.words.length} Wörtern sicher`, `${st.wSicher} of ${st.words.length} words solid`) : tr("Erst Wörter entdecken", "Discover words first"),
+    pct: pct(st.wSicher, st.words.length), ok: pct(st.wSicher, st.words.length) >= PASS_PCT / 100, off: st.wSeen === 0
+  });
+  if (st.sents.length) steps.push({
+    key: "sentences", icon: "💬", title: tr("Sätze", "Sentences"),
+    sub: tr(`${st.sSicher} von ${st.sents.length} Sätzen sicher`, `${st.sSicher} of ${st.sents.length} sentences solid`),
+    pct: pct(st.sSicher, st.sents.length), ok: pct(st.sSicher, st.sents.length) >= PASS_PCT / 100, off: false
+  });
+  if (st.writable.length) steps.push({
+    key: "writing", icon: "✍️", title: tr("Schreiben", "Writing"),
+    sub: tr(`${st.wrDone} von ${st.writable.length} Wörtern aus dem Kopf geschrieben`, `${st.wrDone} of ${st.writable.length} words written from memory`),
+    pct: pct(st.wrDone, st.writable.length), ok: pct(st.wrDone, st.writable.length) >= PASS_PCT / 100, off: st.wSeen === 0
+  });
+  steps.push({
+    key: "test", icon: "🏁", title: tr("Kapiteltest", "Chapter test"),
+    sub: st.passed ? tr(`Bestanden · ${st.passed.pct} %`, `Passed · ${st.passed.pct} %`) : st.best ? tr(`Bestes Ergebnis ${st.best} % · bestehen ab ${PASS_PCT} %`, `Best result ${st.best} % · pass at ${PASS_PCT} %`) : tr(`Jede Karte einmal · bestehen ab ${PASS_PCT} %`, `Every card once · pass at ${PASS_PCT} %`),
+    pct: (st.passed ? st.passed.pct : st.best) / 100, ok: !!st.passed, off: false
+  });
+  // Empfehlung: die erste noch offene Etappe in sinnvoller Reihenfolge
+  const rec = steps.find(s => !s.ok && !s.off);
+  if (rec) rec.rec = true;
+  return steps;
+}
+function renderChapter() {
+  const ch = chapterById(chapterId);
+  const st = chapterStats(ch);
+  const stufe = stufeOf(ch);
+  const steps = chapterSteps(ch, st);
+  const next = nextChapterOf(ch);
+  const counts = [st.words.length ? `${st.words.length} ${tr("Wörter", "words")}` : "", st.sents.length ? `${st.sents.length} ${tr("Sätze", "sentences")}` : ""].filter(Boolean).join(" · ");
+  const wordRows = st.all.map(x => {
+    const s = cardStatus(x.deckId, x.card);
+    return `<div class="wl-row" data-say="${x.card.hanzi}"><span class="st-dot ${s}" title="${s}"></span>
+      <div class="wl-hz" style="${x.card.hanzi.length > 6 ? "font-size:1.05rem" : ""}">${x.card.hanzi}</div>
+      <div class="wl-main"><span class="res-py">${x.card.pinyin}</span><br>${x.card.de}</div></div>`;
+  }).join("");
+  chapterView.innerHTML = `
+    <div class="view-head"><button class="back-btn" id="chBack">← ${tr("Lernpfad", "Path")}</button></div>
+    <div class="ch-hero s-${ch.stufe}">
+      <div class="ch-hero-main">
+        <div class="ring">${ringSvg(st.prog)}<div class="ring-mid"><div><b>${Math.round(st.prog * 100)}%</b></div></div></div>
+        <div class="ch-hero-text">
+          <div class="ch-kicker">${stufe.label} · ${tr("Kapitel", "Chapter")} ${ch.n} ${tr("von", "of")} ${stufe.chapters.length}</div>
+          <h2>${ch.icon} ${ch.title}</h2>
+          ${ch.zh ? `<div class="ch-zh">${ch.zh}</div>` : ""}
+          <p>🎯 ${ch.goal}</p>
+          <div class="chip-row" style="margin-top:8px"><span class="stat-chip">${counts}</span>${st.mastered ? `<span class="stat-chip">✓ ${tr("gemeistert", "mastered")}</span>` : ""}</div>
+        </div>
+      </div>
+    </div>
+    <div class="steps">${steps.map((s, i) => `
+      <button class="step ${s.rec ? "rec" : ""} ${s.ok ? "ok" : ""} ${s.off ? "off" : ""}" data-step="${s.key}" ${s.off ? "disabled" : ""} ${s.rec ? 'id="recStep"' : ""}>
+        <div class="step-ico">${s.ok ? "✓" : s.icon}</div>
+        <div class="step-body"><div class="step-title">${i + 1}. ${s.title}</div><div class="step-sub">${s.sub}</div>
+          <div class="mini"><i style="width:${Math.round(s.pct * 100)}%"></i></div></div>
+        ${s.rec ? `<span class="step-tag">${tr("Weiter", "Next")} ▶</span>` : s.ok ? `<span class="step-check">✓</span>` : ""}
+      </button>`).join("")}</div>
+    ${st.mastered && next ? `<button class="next-chapter-btn" id="nextChapterBtn" data-ch="${next.id}">${tr("Weiter mit Kapitel", "Continue with chapter")} „${next.title}“ →</button>` : ""}
+    <details class="deck-group" style="margin-top:16px"><summary>${tr("Alle Karten dieses Kapitels", "All cards in this chapter")} (${st.all.length})</summary>
+      <p class="muted-note">${tr("Antippen zum Anhören · Punkt: grau neu · gelb am Lernen · grün sicher", "Tap to listen · dot: grey new · yellow learning · green solid")}</p>${wordRows}</details>`;
+  animateRings(chapterView);
+}
+chapterView.addEventListener("click", e => {
+  if (e.target.closest("#chBack")) { openPath(); return; }
+  const nx = e.target.closest("[data-ch]");
+  if (nx) { openChapter(nx.dataset.ch); return; }
+  const say = e.target.closest("[data-say]");
+  if (say) { speak(say.dataset.say); return; }
+  const stp = e.target.closest("[data-step]");
+  if (stp && !stp.disabled) startChapterStep(chapterId, stp.dataset.step);
+});
+
+function chapterQueue(ch, key) {
+  const st = chapterStats(ch);
+  const isNew = x => cardStatus(x.deckId, x.card) === "neu";
+  const weak = x => {
+    const sk = skillsFor(x.card).length ? skillsFor(x.card) : ["erkennen"];
+    return Math.random() * (8 - Math.min(...sk.map(s => (entry(x.deckId, x.card, s) || { box: 0 }).box)));
+  };
+  const quizPick = x => {
+    const modes = modesFor(x.card);
+    const mode = randomOf(modes.length ? modes : ["cnpinyin-de"]);
+    return { ...quizItem(x, SKILL_OF_MODE[mode]), mode };
+  };
+  const showNew = x => ({ ...quizItem(x, skillsFor(x.card)[0] || "erkennen"), phase: "zeigen", isNew: true });
+  const top = (list, n) => list.map(x => ({ x, s: weak(x) })).sort((a, b) => b.s - a.s).slice(0, n).map(o => o.x);
+  if (key === "discover") return st.words.filter(isNew).slice(0, 8).map(showNew);
+  if (key === "practice") return shuffle(top(st.words.filter(x => !isNew(x)), 20).map(quizPick));
+  if (key === "sentences") {
+    const fresh = st.sents.filter(isNew).slice(0, 6).map(showNew);
+    return fresh.concat(shuffle(top(st.sents.filter(x => !isNew(x)), 15).map(quizPick)));
+  }
+  if (key === "writing") {
+    const pool = st.writable.filter(x => !isNew(x));
+    return shuffle(top(pool, 10).map(x => ({ ...quizItem(x, "schreiben"), mode: "schreiben" })));
+  }
+  return shuffle(st.all.map(x => ({ ...quizItem(x, "abrufen"), mode: "de-cn" })));
+}
+function startChapterStep(id, key) {
+  const ch = chapterById(id);
+  const q = chapterQueue(ch, key);
+  if (!q.length) { showToast(tr("Hier gibt es gerade nichts zu tun — probier den nächsten Schritt.", "Nothing to do here right now — try the next step.")); return; }
+  startSession(key === "test" ? "test" : "frei", q, { chapter: id, step: key });
 }
 
 // ---------------------------------------------------------------
@@ -1856,13 +2317,13 @@ function maybeShowVoiceHint() {
   const all = speechSynthesis.getVoices();
   if (all.length === 0 || zhVoice()) return; // Stimmen noch nicht geladen oder vorhanden
   voiceHintShown = true;
-  showToast("Keine chinesische Stimme gefunden — die Aussprache bleibt stumm oder klingt falsch. " +
+  showToast(EN ? "No Chinese voice found — pronunciation stays silent or sounds wrong. Mac: System Settings → Accessibility → Spoken Content → System Voice → Manage Voices → Chinese (Mainland). iPhone: Settings → Accessibility → Spoken Content → Voices → Chinese." : "Keine chinesische Stimme gefunden — die Aussprache bleibt stumm oder klingt falsch. " +
     "Mac: Systemeinstellungen → Bedienungshilfen → Gesprochene Inhalte → Systemstimme → Stimmen verwalten → Chinesisch (Festland). " +
     "iPhone: Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → Chinesisch.");
 }
 function speak(text, slow) {
   if (!("speechSynthesis" in window)) {
-    showToast("Dein Browser unterstützt leider keine Sprachausgabe.");
+    showToast(tr("Dein Browser unterstützt leider keine Sprachausgabe.", "Your browser does not support speech output."));
     return;
   }
   maybeShowVoiceHint();
@@ -1870,7 +2331,7 @@ function speak(text, slow) {
   utter.lang = "zh-CN";
   const v = zhVoice();
   if (v) utter.voice = v;
-  utter.rate = slow ? 0.5 : 0.85;
+  utter.rate = slow ? 0.3 : 0.85;
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
 }
@@ -1878,7 +2339,7 @@ function autoSpeak(card) {
   if (settings.audioAuto) speak(card.hanzi);
 }
 function audioRow() {
-  return `<div class="audio-row"><button class="audio-btn" data-audio="normal" title="Anhören (A)">🔊</button><button class="audio-btn" data-audio="slow" title="Langsam anhören">🐢</button></div>`;
+  return `<div class="audio-row"><button class="audio-btn" data-audio="normal" title="${tr("Anhören (A)", "Listen (A)")}">🔊</button><button class="audio-btn" data-audio="slow" title="${tr("Langsam anhören", "Listen slowly")}">🐢</button></div>`;
 }
 cardArea.addEventListener("click", e => {
   const btn = e.target.closest("[data-audio]");
@@ -1908,6 +2369,7 @@ const newPerDayInput = document.getElementById("newPerDayInput");
 const roundSizeSelect = document.getElementById("roundSizeSelect");
 
 function renderSettings() {
+  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === settings.lang));
   modeCheckboxes.forEach(cb => { cb.checked = settings.modes.includes(cb.value); });
   typedCheckbox.checked = settings.typed;
   audioAutoCheckbox.checked = settings.audioAuto;
@@ -1927,6 +2389,14 @@ function renderSettings() {
   }).join("");
 }
 
+document.querySelectorAll("[data-lang]").forEach(b => {
+  b.onclick = () => {
+    if (b.dataset.lang === settings.lang) return;
+    settings.lang = b.dataset.lang;
+    saveSettings();
+    location.reload();
+  };
+});
 modeCheckboxes.forEach(cb => {
   cb.onchange = () => {
     const modes = modeCheckboxes.filter(c => c.checked).map(c => c.value);
@@ -1982,7 +2452,7 @@ function closeSettings() {
 // Sicherung: Export / Import / Zurücksetzen
 // ---------------------------------------------------------------
 function exportProgress() {
-  const data = { format: "cn-karteikarten", exported: new Date().toISOString(), progress: state, settings };
+  const data = { format: "cn-karteikarten", exported: new Date().toISOString(), progress: state, settings, path: pathState };
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -1997,10 +2467,11 @@ function importProgress(file) {
   reader.onload = () => {
     try {
       const data = JSON.parse(reader.result);
-      if (!confirm("Den aktuellen Lernstand durch die Datei ersetzen?")) return;
+      if (!confirm(tr("Den aktuellen Lernstand durch die Datei ersetzen?", "Replace your current progress with this file?"))) return;
       if (data && data.format === "cn-karteikarten") {
         state = data.progress;
         if (data.settings) { writeJson(SETTINGS_KEY, data.settings); settings = loadSettings(); }
+        if (data.path) { writeJson(PATH_KEY, data.path); pathState = loadPath(); }
       } else if (data && data.version === 4) {
         state = data;
       } else {
@@ -2008,9 +2479,9 @@ function importProgress(file) {
       }
       saveState();
       renderSettings();
-      alert("Lernstand importiert.");
+      alert(tr("Lernstand importiert.", "Progress imported."));
     } catch (e) {
-      alert("Diese Datei konnte nicht gelesen werden.");
+      alert(tr("Diese Datei konnte nicht gelesen werden.", "This file could not be read."));
     }
   };
   reader.readAsText(file);
@@ -2022,10 +2493,12 @@ document.getElementById("importInput").onchange = e => {
   e.target.value = "";
 };
 document.getElementById("resetAllBtn").onclick = () => {
-  if (!confirm("Wirklich den gesamten Lernstand löschen? Vorher am besten exportieren.")) return;
+  if (!confirm(tr("Wirklich den gesamten Lernstand löschen? Vorher am besten exportieren.", "Really delete all your progress? Better export it first."))) return;
   state = emptyState();
   saveState();
-  alert("Lernstand zurückgesetzt.");
+  pathState = { passed: {}, unlocked: {}, best: {} };
+  savePath();
+  alert(tr("Lernstand zurückgesetzt.", "Progress reset."));
 };
 
 // ---------------------------------------------------------------
@@ -2051,17 +2524,17 @@ function renderStatsPanel() {
     .map(sk => quizItem(x, sk)));
   const weakCards = [...new Map(weakItems.map(it => [cardId(it.deckId, it.card), it.card])).values()];
   const weakHtml = weakCards.length
-    ? `<button class="btn-good" id="practiceWeakBtn" style="margin-bottom:10px">Diese ${weakCards.length} jetzt üben</button>
+    ? `<button class="btn-good" id="practiceWeakBtn" style="margin-bottom:10px">${tr("Diese", "Practise these")} ${weakCards.length} ${tr("jetzt üben", "now")}</button>
        <ul class="weak-list">${weakCards.slice(0, 40).map(c => `<li>${c.hanzi} <span class="pinyin-inline">${c.pinyin}</span> — ${c.de}</li>`).join("")}</ul>`
-    : `<p class="muted-note">Aktuell keine auffälligen Problemkarten.</p>`;
+    : `<p class="muted-note">${tr("Aktuell keine auffälligen Problemkarten.", "No problem cards right now.")}</p>`;
   document.getElementById("statsPanel").innerHTML = `
-    <div class="panel-head"><h2>Statistik</h2><button class="icon-btn" id="statsCloseBtn" title="Schließen">✕</button></div>
-    <p>Gesamt beantwortet: ${totalSeen} · Richtig: ${totalSeen - totalWrong} · Falsch: ${totalWrong}${totalSeen ? " (" + totalPct + "% richtig)" : ""}</p>
+    <div class="panel-head"><h2>${tr("Statistik", "Statistics")}</h2><button class="icon-btn" id="statsCloseBtn" title="${tr("Schließen", "Close")}">✕</button></div>
+    <p>${tr("Gesamt beantwortet", "Total answered")}: ${totalSeen} · ${tr("Richtig", "Correct")}: ${totalSeen - totalWrong} · ${tr("Falsch", "Wrong")}: ${totalWrong}${totalSeen ? " (" + totalPct + "% " + tr("richtig", "correct") + ")" : ""}</p>
     <table class="stats-table">
-      <thead><tr><th>Stapel</th><th>Beantwortet</th><th>Richtig</th><th>Falsch</th><th>%</th></tr></thead>
+      <thead><tr><th>${tr("Stapel", "Deck")}</th><th>${tr("Beantwortet", "Answered")}</th><th>${tr("Richtig", "Correct")}</th><th>${tr("Falsch", "Wrong")}</th><th>%</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    <h3>Schwierige Karten (zuletzt falsch, noch nicht wieder gekonnt)</h3>
+    <h3>${tr("Schwierige Karten (zuletzt falsch, noch nicht wieder gekonnt)", "Difficult cards (last answer wrong, not yet recovered)")}</h3>
     ${weakHtml}
   `;
   document.getElementById("statsCloseBtn").onclick = () => { statsOverlay.hidden = true; };
@@ -2243,7 +2716,7 @@ function toggleSaved(e) {
       pinyin: numToMarks(e.p),
       de: e.d.split("/").slice(0, 3).join("; "),
       level: "mittel",
-      note: "Bedeutung auf Englisch (Wörterbuch CC-CEDICT)."
+      note: EN ? "" : "Bedeutung auf Englisch (Wörterbuch CC-CEDICT)."
     });
     if (!settings.activeDecks.includes(MY_DECK)) { settings.activeDecks.push(MY_DECK); }
   }
@@ -2258,34 +2731,34 @@ function dictRow(e) {
   lastResults.push({ hanzi: e.w });
   const strokesOk = [...e.w].length <= 4;
   return `<div class="res" data-word="${e.w}">
-    <div class="res-hz ${[...e.w].length > 4 ? "long" : ""}" data-detail="${e.w}" title="Zeichen-Details">${e.w}</div>
+    <div class="res-hz ${[...e.w].length > 4 ? "long" : ""}" data-detail="${e.w}" title="${tr("Zeichen-Details", "Character details")}">${e.w}</div>
     <div class="res-main">
       <div class="res-py">${numToMarks(e.p)}</div>
       <div class="res-def">${escapeHtml(defsToText(e.d))}</div>
-      ${ownWords().has(e.w) ? `<div class="res-meta">in deinen Karten</div>` : ""}
+      ${ownWords().has(e.w) ? `<div class="res-meta">${tr("in deinen Karten", "in your cards")}</div>` : ""}
       <div class="stroke-holder"></div>
     </div>
     <div class="res-actions">
-      <button data-say="${e.w}" title="Anhören">🔊</button>
-      ${strokesOk ? `<button data-strokes="${e.w}" title="Strichfolge">✍️</button>` : ""}
-      <button data-save="${e.w}|${e.p}" class="${isSaved(e.w) ? "saved" : ""}" title="Als Karte merken">${isSaved(e.w) ? "✓ gemerkt" : "＋ merken"}</button>
+      <button data-say="${e.w}" title="${tr("Anhören", "Listen")}">🔊</button>
+      ${strokesOk ? `<button data-strokes="${e.w}" title="${tr("Strichfolge", "Stroke order")}">✍️</button>` : ""}
+      <button data-save="${e.w}|${e.p}" class="${isSaved(e.w) ? "saved" : ""}" title="${tr("Als Karte merken", "Save as card")}">${isSaved(e.w) ? tr("✓ gemerkt", "✓ saved") : tr("＋ merken", "＋ save")}</button>
     </div>
   </div>`;
 }
 function ownRow(x) {
   lastResults.push({ hanzi: x.card.hanzi });
   return `<div class="res">
-    <div class="res-hz ${[...x.card.hanzi].length > 4 ? "long" : ""}" data-detail="${x.card.hanzi}" title="Zeichen-Details">${x.card.hanzi}</div>
+    <div class="res-hz ${[...x.card.hanzi].length > 4 ? "long" : ""}" data-detail="${x.card.hanzi}" title="${tr("Zeichen-Details", "Character details")}">${x.card.hanzi}</div>
     <div class="res-main">
       <div class="res-py">${x.card.pinyin}</div>
       <div class="res-def">${x.card.de}</div>
-      <div class="res-meta">${DECKS[x.deckId].title} · ${{ neu: "neu", lernen: "am Lernen", sicher: "sicher" }[cardStatus(x.deckId, x.card)]}</div>
+      <div class="res-meta">${DECKS[x.deckId].title} · ${{ neu: tr("neu", "new"), lernen: tr("am Lernen", "learning"), sicher: tr("sicher", "solid") }[cardStatus(x.deckId, x.card)]}</div>
       <div class="stroke-holder"></div>
     </div>
     <div class="res-actions">
-      <button data-say="${x.card.hanzi}" title="Anhören">🔊</button>
+      <button data-say="${x.card.hanzi}" title="${tr("Anhören", "Listen")}">🔊</button>
       ${strokeChars(x.card) ? `<button data-strokes="${x.card.hanzi}" title="Strichfolge">✍️</button>` : ""}
-      <button data-practice="${x.deckId}" title="Diesen Stapel üben">Stapel üben</button>
+      <button data-practice="${x.deckId}" title="${tr("Diesen Stapel üben", "Practise this deck")}">${tr("Stapel üben", "Practise deck")}</button>
     </div>
   </div>`;
 }
@@ -2295,61 +2768,342 @@ async function runSearch() {
   const q = searchInput.value.trim();
   const seq = ++searchSeq;
   lastResults = [];
-  if (!q) { searchResults.innerHTML = `<p class="muted-note">Tipp: Auch ganze Sätze einfügen — sie werden in Wörter zerlegt.</p>`; return; }
+  updateTrBar();
+  renderHistory();
+  if (!q) { searchResults.innerHTML = `<p class="muted-note">${tr("Tipp: Auch ganze Sätze einfügen — sie werden in Wörter zerlegt.", "Tip: paste whole sentences too — they get split into words.")}</p>`; return; }
   let html = "";
   const own = searchOwn(q);
-  if (own.length) html += `<div class="res-head">Deine Karten</div>` + own.map(ownRow).join("");
-  searchResults.innerHTML = html + `<p class="muted-note">Wörterbuch wird geladen …</p>`;
+  if (own.length) html += `<div class="res-head">${tr("Deine Karten", "Your cards")}</div>` + own.map(ownRow).join("");
+  searchResults.innerHTML = html + `<p class="muted-note">${tr("Wörterbuch wird geladen …", "Loading dictionary …")}</p>`;
   let dict;
   try {
     dict = await loadDict();
   } catch (err) {
-    if (seq === searchSeq) searchResults.innerHTML = html + `<p class="muted-note">Das Wörterbuch konnte nicht geladen werden.</p>`;
+    if (seq === searchSeq) searchResults.innerHTML = html + `<p class="muted-note">${tr("Das Wörterbuch konnte nicht geladen werden.", "The dictionary could not be loaded.")}</p>`;
     return;
   }
   if (seq !== searchSeq) return; // inzwischen weitergetippt
 
   if (isHan(q)) {
     const hanOnly = [...q].filter(isHan).join("");
+    html += rubyCard(dict, q);
     const r = searchDict(dict, hanOnly);
-    if (r.exact.length) html += `<div class="res-head">Wörterbuch</div>` + r.exact.map(dictRow).join("");
+    if (r.exact.length) html += `<div class="res-head">${tr("Wörterbuch", "Dictionary")}</div>` + r.exact.map(dictRow).join("");
     if (!r.exact.length || [...hanOnly].length > 4 || hanOnly !== q) {
       const segs = segment(dict, q);
       if (segs.length > 1 || !r.exact.length) {
-        html += `<div class="res-head">Wort für Wort (Lesehilfe, keine Übersetzung)</div><div class="seg-row">` +
+        html += `<div class="res-head">${tr("Wort für Wort (Lesehilfe, keine Übersetzung)", "Word by word (reading aid, not a translation)")}</div><div class="seg-row">` +
           segs.map(s => s.e
             ? (be => `<div class="seg" data-search="${s.w}"><b>${s.w}</b><span class="res-py">${numToMarks(be.p)}</span><small>${escapeHtml(be.d.split("/")[0].slice(0, 40))}</small></div>`)(bestEntry(s.e))
-            : `<div class="seg unknown"><b>${s.w}</b><small>unbekannt</small></div>`).join("") + `</div>`;
-        html += `<button id="translateBtn" title="Öffnet Google Übersetzer in einem neuen Tab — der Text wird dabei an Google gesendet">Ganzen Satz online übersetzen ↗</button>`;
+            : `<div class="seg unknown"><b>${s.w}</b><small>${tr("unbekannt", "unknown")}</small></div>`).join("") + `</div>`;
       }
     }
-    if (r.longer.length) html += `<div class="res-head">Wörter mit „${hanOnly}“</div>` + r.longer.map(dictRow).join("");
+    if (r.longer.length) html += `<div class="res-head">${tr("Wörter mit", "Words with")} „${hanOnly}“</div>` + r.longer.map(dictRow).join("");
   } else {
     const r = searchDict(dict, q);
     if (r.pinyin.length) html += `<div class="res-head">Pinyin</div>` + r.pinyin.map(dictRow).join("");
-    if (r.english.length) html += `<div class="res-head">Englisch</div>` + r.english.map(dictRow).join("");
+    if (r.english.length) html += `<div class="res-head">${tr("Englisch", "English")}</div>` + r.english.map(dictRow).join("");
   }
-  if (!html) html = `<p class="muted-note">Nichts gefunden. Deutsch findet nur deine eigenen Karten — fürs Wörterbuch Englisch oder Pinyin versuchen.</p>`;
+  if (!html) html = `<p class="muted-note">${tr("Nichts gefunden. Deutsch findet nur deine eigenen Karten — für das Wörterbuch Englisch oder Pinyin versuchen, oder „Online übersetzen“ tippen.", "Nothing found. Try Chinese, pinyin or English for the dictionary — or tap “Translate online”.")}</p>`;
   searchResults.innerHTML = html;
-  const tb = document.getElementById("translateBtn");
-  if (tb) tb.onclick = () => window.open(`https://translate.google.com/?sl=zh-CN&tl=de&op=translate&text=${encodeURIComponent(q)}`, "_blank", "noopener");
 }
 
 let searchTimer = null;
 searchInput.addEventListener("input", () => {
   clearTimeout(searchTimer);
+  onlineResult.innerHTML = "";
+  updateTrBar();
   searchTimer = setTimeout(runSearch, 180);
 });
 searchInput.addEventListener("keydown", e => {
-  if (e.key !== "Enter") return;
+  if (e.key !== "Enter" || e.shiftKey) return; // Umschalt+Enter = neue Zeile
   e.preventDefault();
   e.stopPropagation();
   clearTimeout(searchTimer);
+  addHistory(searchInput.value);
   runSearch().then(() => { if (lastResults[0]) speak(lastResults[0].hanzi); });
 });
-searchResults.addEventListener("click", e => {
-  const t = e.target.closest("[data-say],[data-strokes],[data-save],[data-practice],[data-search],[data-detail]");
+document.getElementById("onlineBtn").onclick = showOnline;
+document.getElementById("clearBtn").onclick = () => { searchInput.value = ""; onlineResult.innerHTML = ""; searchInput.focus(); runSearch(); };
+document.getElementById("pasteBtn").onclick = () => {
+  if (!navigator.clipboard || !navigator.clipboard.readText) { showToast(tr("Einfügen ist hier nicht erlaubt — lange auf das Feld tippen und „Einfügen“ wählen.", "Pasting is not allowed here — long-press the field and choose “Paste”.")); return; }
+  navigator.clipboard.readText().then(t => { searchInput.value = t.trim(); onlineResult.innerHTML = ""; runSearch(); }, () => showToast(tr("Zugriff auf die Zwischenablage verweigert.", "Clipboard access denied.")));
+};
+document.querySelectorAll("[data-trlang]").forEach(b => { b.onclick = () => { trLang = b.dataset.trlang; updateTrBar(); }; });
+document.querySelectorAll("[data-blang]").forEach(b => { b.onclick = () => { batchLang = b.dataset.blang; updateTrBar(); }; });
+document.querySelectorAll("[data-trtab]").forEach(b => {
+  b.onclick = () => {
+    document.querySelectorAll("[data-trtab]").forEach(x => x.classList.toggle("on", x === b));
+    document.getElementById("trSingle").hidden = b.dataset.trtab !== "single";
+    document.getElementById("trBatch").hidden = b.dataset.trtab !== "batch";
+    if (b.dataset.trtab === "batch") batchInput.focus(); else searchInput.focus();
+  };
+});
+document.getElementById("batchGo").onclick = runBatch;
+// ---------------------------------------------------------------
+// Übersetzer: Lesehilfe (Pinyin über den Zeichen), Online-Dienst MyMemory
+// (nur auf Knopfdruck und nach einmaliger Erlaubnis), Verlauf, Wortliste
+// ---------------------------------------------------------------
+const onlineResult = document.getElementById("onlineResult");
+const trHistory = document.getElementById("trHistory");
+const batchResults = document.getElementById("batchResults");
+const batchInput = document.getElementById("batchInput");
+const ONLINE_KEY = "cnTutorOnlineOK";
+const HIST_KEY = "cnTutorTrHist_v1";
+let trLang = settings.lang;     // Gegenstück zu Chinesisch: "de" | "en"
+let batchLang = settings.lang;
+let onlineState = null;
+let batchRows = [];
+const attr = s => escapeHtml(String(s));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const langName = l => (l === "de" ? tr("Deutsch", "German") : tr("Englisch", "English"));
+
+// Pinyin-Token für beliebigen chinesischen Text (Satzzeichen bleiben stehen)
+function rubyTokens(dict, text) {
+  const out = [];
+  text.split(/(\p{Script=Han}+)/u).forEach(part => {
+    if (!part) return;
+    if (isHan(part)) {
+      segment(dict, part).forEach(sg => {
+        const be = sg.e ? bestEntry(sg.e) : null;
+        out.push({ w: sg.w, py: be ? numToMarks(be.p) : "" });
+      });
+    } else out.push({ w: part, py: "" });
+  });
+  return out;
+}
+const rubyHtml = tk => tk.map(t => (t.py ? `<ruby data-gloss="${attr(t.w)}">${escapeHtml(t.w)}<rt>${t.py}</rt></ruby>` : escapeHtml(t.w))).join("");
+const pinyinOfTokens = tk => tk.filter(t => t.py).map(t => t.py).join(" ");
+function rubyCard(dict, q) {
+  const tk = rubyTokens(dict, q);
+  if (!tk.some(t => t.py)) return "";
+  return `<div class="res-head">${tr("Lesehilfe", "Reading aid")}</div><div class="ruby-card"><div class="ruby-line">${rubyHtml(tk)}</div>
+    <div class="bt-actions"><button data-say="${attr(q)}">🔊 ${tr("Ganzer Text", "Whole text")}</button><button data-copy="${attr(pinyinOfTokens(tk))}">📋 ${tr("Pinyin kopieren", "Copy pinyin")}</button></div></div>`;
+}
+
+// Online-Dienst
+function onlineAllowed() {
+  if (readJson(ONLINE_KEY)) return true;
+  if (!confirm(tr("Zum Übersetzen wird dein Text an den kostenlosen Dienst MyMemory (mymemory.translated.net) gesendet. Erlauben? Die Frage kommt nur einmal.", "To translate, your text is sent to the free service MyMemory (mymemory.translated.net). Allow? You will only be asked once."))) return false;
+  writeJson(ONLINE_KEY, true);
+  return true;
+}
+const onlineCache = new Map();
+function decodeEntities(t) { const ta = document.createElement("textarea"); ta.innerHTML = t; return ta.value; }
+// from: "zh" (→ trLang) | "de" | "en" (→ Chinesisch)
+const looksSimplified = (dict, t) => [...t].filter(isHan).every(ch => dict.byWord.has(ch));
+async function onlineTranslate(text, from, target, dict) {
+  const q = text.trim().slice(0, 480);
+  const pair = from === "zh" ? `zh-CN|${target}` : `${from}|zh-CN`;
+  const key = pair + "|" + q;
+  if (onlineCache.has(key)) return onlineCache.get(key);
+  const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(q)}&langpair=${encodeURIComponent(pair)}`);
+  if (!res.ok) throw new Error("net");
+  const j = await res.json();
+  const main = decodeEntities((j.responseData && j.responseData.translatedText) || "").trim();
+  if (j.quotaFinished || /MYMEMORY WARNING/i.test(main)) throw new Error("quota");
+  if (!main || /^(PLEASE SELECT|INVALID)/i.test(main)) throw new Error("empty");
+  const wantHan = from !== "zh";
+  const single = !/\s/.test(q) && [...q].length <= 20;
+  const toSimp = t => [...t].map(ch => (window.TRAD2SIMP || {})[ch] || ch).join("").replace(q.match(/[：:，。,.；;！!？?]$/) ? /$^/ : /[：:，。,.；;]+$/, "");
+  let cands = [...new Set([main, ...(j.matches || []).filter(m => +m.quality >= 50 || (single && wantHan && m.match >= 0.95)).map(m => decodeEntities(m.translation || "").trim())]
+    .filter(x => x && (wantHan ? isHan(x) : !isHan(x)))
+    .map(x => (wantHan ? toSimp(x) : x)))];
+  if (!cands.length) throw new Error("empty"); // z.B. unverändert zurückgegebener Text ohne Chinesisch
+  // Der Dienst liefert Langzeichen (→ umgewandelt); bei einzelnen Wörtern gewinnt ein Treffer aus dem Wörterbuch
+  const best = wantHan && single ? (cands.find(x => dict.byWord.has(x)) || cands[0]) : cands[0];
+  const out = { text: best, alts: cands.filter(x => x !== best).slice(0, 4), cut: text.trim().length > 480, trad: false };
+  onlineCache.set(key, out);
+  return out;
+}
+const onlineErr = e => (e.message === "quota"
+  ? tr("Das Tageslimit des Online-Dienstes ist erreicht — morgen wieder, oder Wörter offline nachschlagen.", "The online service's daily limit is reached — try again tomorrow, or look words up offline.")
+  : e.message === "empty" ? tr("Keine Übersetzung gefunden.", "No translation found.")
+  : tr("Online-Dienst nicht erreichbar (Internet?).", "Online service unreachable (internet?)."));
+
+function saveMyCard(card) {
+  const words = loadMyWords();
+  if (words.some(c => c.hanzi === card.hanzi)) return false;
+  words.push({ level: "mittel", ...card });
+  writeJson(MY_WORDS_KEY, words);
+  syncMyWordsDeck();
+  ownWordSet = null;
+  if (!settings.activeDecks.includes(MY_DECK)) settings.activeDecks.push(MY_DECK);
+  saveSettings();
+  return true;
+}
+const looksSentence = t => [...t].filter(isHan).length > 4 || /[，。？！,.?!]/.test(t);
+
+async function showOnline() {
+  const q = searchInput.value.trim();
+  if (!q) return;
+  if (!onlineAllowed()) return;
+  const from = isHan(q) ? "zh" : trLang;
+  onlineResult.innerHTML = `<div class="online-card"><div class="tag">${tr("Übersetze …", "Translating …")}</div></div>`;
+  try {
+    const dict = await loadDict();
+    const r = await onlineTranslate(q, from, trLang, dict);
+    addHistory(q);
+    renderOnline(q, from, r, dict, r.text);
+  } catch (err) {
+    onlineResult.innerHTML = `<div class="online-card"><div class="tag">${onlineErr(err)}</div></div>`;
+  }
+}
+function renderOnline(q, from, r, dict, text) {
+  const toZh = from !== "zh";
+  const tk = toZh ? rubyTokens(dict, text) : null;
+  r = { ...r, trad: toZh && !looksSimplified(dict, text) };
+  onlineState = { q, from, r, text, tk };
+  const tag = toZh ? tr("Chinesisch · maschinelle Übersetzung", "Chinese · machine translation") : `${langName(trLang)} · ${tr("maschinelle Übersetzung", "machine translation")}`;
+  onlineResult.innerHTML = `<div class="online-card"><div class="tag">${tag}</div>
+    <div class="big ${toZh ? "ruby-line" : ""}">${toZh ? rubyHtml(tk) : escapeHtml(text)}</div>
+    <div class="bt-actions">${toZh ? `<button data-say="${attr(text)}">🔊</button>` : ""}<button data-copy="${attr(text)}">📋 ${tr("Kopieren", "Copy")}</button>
+      ${toZh ? `<button data-osave="1">＋ ${tr("als Karte merken", "save as card")}</button>` : ""}</div>
+    ${r.alts.length ? `<div class="alts">${tr("Weitere Vorschläge", "More options")}: ${r.alts.map(a => `<span data-alt="${attr(a)}">${escapeHtml(a)}</span>`).join("")}</div>` : ""}
+    <div class="tr-note">${tr("Maschinell übersetzt (MyMemory) — bei Sätzen bitte prüfen.", "Machine-translated (MyMemory) — please double-check sentences.")}${r.cut ? " " + tr("Text auf 480 Zeichen gekürzt.", "Text cut to 480 characters.") : ""}${toZh && r.trad ? " ⚠ " + tr("Eventuell Langzeichen — die App lernt vereinfachte.", "May contain traditional characters — the app teaches simplified.") : ""}</div></div>`;
+}
+
+// Verlauf
+function addHistory(q) {
+  q = q.trim().slice(0, 80);
+  if (!q) return;
+  const h = (readJson(HIST_KEY) || []).filter(x => x !== q);
+  h.unshift(q);
+  writeJson(HIST_KEY, h.slice(0, 12));
+}
+function renderHistory() {
+  const h = readJson(HIST_KEY) || [];
+  trHistory.innerHTML = !searchInput.value.trim() && h.length
+    ? `<div class="res-head">${tr("Zuletzt", "Recent")}</div><div class="hist">${h.map(x => `<button data-hist="${attr(x)}">${escapeHtml(x)}</button>`).join("")}</div>` : "";
+}
+function updateTrBar() {
+  const q = searchInput.value.trim();
+  document.querySelectorAll("[data-trlang]").forEach(b => b.classList.toggle("on", b.dataset.trlang === trLang));
+  document.querySelectorAll("[data-blang]").forEach(b => b.classList.toggle("on", b.dataset.blang === batchLang));
+  document.getElementById("onlineBtn").textContent = `🌐 ${tr("Online", "Online")} → ${q && isHan(q) ? langName(trLang) : "中文"}`;
+}
+
+// Wortliste
+function batchLocal(dict, line, lang) {
+  if (isHan(line)) {
+    const own = allCards().find(x => x.card.hanzi === line);
+    if (own) return { hanzi: line, pinyin: own.card.pinyin, de: own.card.de, how: "own" };
+    const ex = dict.byWord.get(line);
+    if (ex) { const e = bestEntry(ex); return { hanzi: line, pinyin: numToMarks(e.p), de: defsToText(e.d).split("; ").slice(0, 3).join("; "), en: true, how: "dict" }; }
+    return { hanzi: line, pinyin: pinyinOfTokens(rubyTokens(dict, line)), de: "", how: "read" };
+  }
+  const n = normalizeDe(line);
+  const own = searchOwn(line).find(x => normalizeDe(x.card.de) === n || normalizePinyin(x.card.pinyin) === normalizePinyin(line));
+  if (own) return { hanzi: own.card.hanzi, pinyin: own.card.pinyin, de: own.card.de, how: "own" };
+  if (lang === "en" || hasToneInfo(line)) {
+    const r = searchDict(dict, line);
+    const e = hasToneInfo(line) ? r.pinyin[0] : r.english[0];
+    if (e) return { hanzi: e.w, pinyin: numToMarks(e.p), de: lang === "en" && !hasToneInfo(line) ? line : defsToText(e.d).split("; ").slice(0, 3).join("; "), en: lang !== "en" || hasToneInfo(line), how: "dict" };
+  }
+  return {};
+}
+async function runBatch() {
+  const lines = batchInput.value.split("\n").map(l => l.trim()).filter(Boolean).slice(0, 60);
+  const status = document.getElementById("batchStatus");
+  if (!lines.length) return;
+  batchResults.innerHTML = "";
+  status.textContent = tr("Wörterbuch wird geladen …", "Loading dictionary …");
+  let dict;
+  try { dict = await loadDict(); } catch (e) { status.textContent = tr("Das Wörterbuch konnte nicht geladen werden.", "The dictionary could not be loaded."); return; }
+  const rows = lines.map(line => ({ line, lang: batchLang, ...batchLocal(dict, line, batchLang) }));
+  const needs = rows.filter(r => (isHan(r.line) ? !r.de : !r.hanzi));
+  let allowed = needs.length ? onlineAllowed() : false;
+  let done = 0;
+  for (const r of needs) {
+    if (!allowed) { r.err = "offline"; continue; }
+    status.textContent = `${tr("Online übersetzen", "Translating online")} ${++done}/${needs.length} …`;
+    try {
+      const o = await onlineTranslate(r.line, isHan(r.line) ? "zh" : batchLang, batchLang, dict);
+      if (isHan(r.line)) { r.de = o.text; r.how = "online"; }
+      else {
+        r.hanzi = o.text;
+        const ex = dict.byWord.get(o.text);
+        r.pinyin = ex ? numToMarks(bestEntry(ex).p) : pinyinOfTokens(rubyTokens(dict, o.text));
+        r.de = r.line; r.how = "online";
+      }
+    } catch (e) {
+      r.err = e.message;
+      if (e.message === "quota") { needs.slice(needs.indexOf(r) + 1).forEach(x => { x.err = "quota"; }); break; }
+    }
+    await sleep(250);
+  }
+  batchRows = rows;
+  renderBatch();
+  const ok = rows.filter(r => r.hanzi).length;
+  status.textContent = `${ok} ${tr("von", "of")} ${rows.length} ${tr("übersetzt", "translated")}${rows.some(r => r.err === "offline") ? " · " + tr("Deutsch nur über „Online übersetzen“ — Erlaubnis fehlt.", "German needs online translation — permission missing.") : ""}${rows.some(r => r.err === "quota") ? " · " + onlineErr({ message: "quota" }) : ""}`;
+}
+function renderBatch() {
+  const html = batchRows.map((r, i) => {
+    const saved = r.hanzi && isSaved(r.hanzi);
+    const label = r.how === "online" ? "🌐" : r.how === "own" ? "📚" : "";
+    return `<div class="bt-row ${r.hanzi ? "" : "none"}">
+      <input type="checkbox" data-bi="${i}" ${r.hanzi && !saved ? "checked" : ""} ${r.hanzi && !saved ? "" : "disabled"} aria-label="${tr("Auswählen", "Select")}">
+      <div class="res-main"><div class="bt-src">${escapeHtml(r.line)} ${label}</div>
+        ${r.hanzi ? `<div class="bt-hz">${escapeHtml(r.hanzi)}</div><div class="res-py">${r.pinyin || ""}</div><div class="res-def">${r.de ? escapeHtml(r.de) : `<i>${tr("Bedeutung: „Online“ tippen", "Meaning: tap “Online”")}</i>`}${r.en && !EN ? ` <span class="bt-src">(EN)</span>` : ""}</div>`
+          : `<div class="res-def"><i>${r.err === "offline" ? tr("nicht gefunden (Online-Erlaubnis fehlt)", "not found (online permission missing)") : r.err ? onlineErr({ message: r.err }) : tr("nicht gefunden", "not found")}</i></div>`}
+      </div>
+      <div class="res-actions">${r.hanzi ? `<button data-say="${attr(r.hanzi)}">🔊</button>` : ""}${saved ? `<span class="bt-src">✓</span>` : ""}</div>
+    </div>`;
+  }).join("");
+  batchResults.innerHTML = html ? `<div class="bt-actions">
+      <button class="btn-good" data-bsave="1">＋ ${tr("Auswahl als Karten merken", "Save selection as cards")}</button>
+      <button data-bcopy="1">📋 ${tr("Als Text kopieren", "Copy as text")}</button></div>${html}` : "";
+}
+
+// Klicks in allen Ergebnisbereichen
+function onResultClick(e) {
+  const t = e.target.closest("[data-say],[data-strokes],[data-save],[data-practice],[data-search],[data-detail],[data-copy],[data-gloss],[data-alt],[data-osave],[data-hist],[data-bsave],[data-bcopy]");
   if (!t) return;
+  const d = t.dataset;
+  if (d.copy !== undefined) {
+    const done = () => showToast(tr("Kopiert.", "Copied."));
+    if (navigator.clipboard) navigator.clipboard.writeText(d.copy).then(done, () => showToast(d.copy)); else showToast(d.copy);
+    return;
+  }
+  if (d.gloss) {
+    speak(d.gloss);
+    loadDict().then(dict => {
+      const ex = dict.byWord.get(d.gloss);
+      if (!ex) return;
+      const be = bestEntry(ex);
+      showToast(`${d.gloss}  ${numToMarks(be.p)} — ${defsToText(be.d).split("; ").slice(0, 3).join("; ")}`);
+    });
+    return;
+  }
+  if (d.hist) { searchInput.value = d.hist; onlineResult.innerHTML = ""; runSearch(); updateTrBar(); return; }
+  if (d.alt) { loadDict().then(dict => renderOnline(onlineState.q, onlineState.from, onlineState.r, dict, d.alt)); return; }
+  if (d.osave) {
+    const o = onlineState;
+    if (!o) return;
+    const card = { hanzi: o.text, pinyin: pinyinOfTokens(o.tk), de: o.q, note: o.from === "de" ? tr("Online-Übersetzung (MyMemory) — bitte prüfen.", "Online translation (MyMemory) — please double-check.") : tr("Online-Übersetzung (MyMemory) — bitte prüfen.", "Online translation (MyMemory) — please double-check.") };
+    if (looksSentence(o.text)) card.type = "satz";
+    showToast(saveMyCard(card) ? tr("Gemerkt — kommt in „Meine Wörter“ und in der täglichen Session dran.", "Saved — it will appear in “My words” and in the daily session.") : tr("Hast du schon gemerkt.", "Already saved."));
+    return;
+  }
+  if (d.bcopy) {
+    const text = batchRows.filter(r => r.hanzi).map(r => [r.hanzi, r.pinyin, r.de].join("\t")).join("\n");
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => showToast(tr("Kopiert.", "Copied.")), () => showToast(text)); else showToast(text);
+    return;
+  }
+  if (d.bsave) {
+    const picked = [...batchResults.querySelectorAll("[data-bi]:checked")].map(c => batchRows[+c.dataset.bi]);
+    let n = 0;
+    picked.forEach(r => {
+      const card = { hanzi: r.hanzi, pinyin: r.pinyin, de: r.de || r.line };
+      if (r.en && !EN) card.note = "Bedeutung auf Englisch (Wörterbuch CC-CEDICT).";
+      if (r.how === "online") card.note = tr("Online-Übersetzung (MyMemory) — bitte prüfen.", "Online translation (MyMemory) — please double-check.");
+      if (looksSentence(r.hanzi)) card.type = "satz";
+      if (saveMyCard(card)) n++;
+    });
+    renderBatch();
+    showToast(n ? tr(`${n} Karten gemerkt — sie kommen in „Meine Wörter“ und in der täglichen Session dran.`, `${n} cards saved — they appear in “My words” and in the daily session.`) : tr("Nichts ausgewählt.", "Nothing selected."));
+    return;
+  }
   if (t.dataset.say) speak(t.dataset.say);
   else if (t.dataset.detail) openCharDetail(t.dataset.detail, 0);
   else if (t.dataset.search) { searchInput.value = t.dataset.search; runSearch(); }
@@ -2365,19 +3119,22 @@ searchResults.addEventListener("click", e => {
         b.classList.toggle("saved", saved);
         b.textContent = saved ? "✓ gemerkt" : "＋ merken";
       });
-      showToast(saved ? `„${w}“ ist jetzt in „Meine Wörter“ und kommt in der täglichen Session dran.` : `„${w}“ aus „Meine Wörter“ entfernt.`);
+      showToast(saved ? tr(`„${w}“ ist jetzt in „Meine Wörter“ und kommt in der täglichen Session dran.`, `“${w}” is now in “My words” and will show up in the daily session.`) : tr(`„${w}“ aus „Meine Wörter“ entfernt.`, `“${w}” removed from “My words”.`));
     });
   } else if (t.dataset.strokes) {
     const holder = t.closest(".res").querySelector(".stroke-holder");
     if (holder.firstChild) { holder.innerHTML = ""; return; }
     const chars = [...t.dataset.strokes].filter(isHan).join("");
-    holder.innerHTML = `<div class="stroke-slot" data-hanzi="${chars}" title="Antippen spielt neu ab"></div>`;
+    holder.innerHTML = `<div class="stroke-slot" data-hanzi="${chars}" title="${tr("Antippen spielt neu ab", "Tap to replay")}"></div>`;
     mountStrokes(holder);
   }
-});
+}
+[searchResults, onlineResult, batchResults, trHistory].forEach(el => el.addEventListener("click", onResultClick));
 
 function openSearch() {
   searchOverlay.hidden = false;
+  updateTrBar();
+  renderHistory();
   searchInput.focus();
   searchInput.select();
   if (!searchInput.value) runSearch();
@@ -2407,14 +3164,14 @@ document.getElementById("settingsCloseBtn").onclick = closeSettings;
   if (o === settingsOverlay) closeSettings(); else o.hidden = true;
 }));
 document.getElementById("practiceBtn").onclick = () => openPick("frei");
-document.getElementById("testBtn").onclick = () => openPick("test");
+document.getElementById("pathBtn").onclick = () => openPath();
 document.getElementById("tileSearchBtn").onclick = e => { e.currentTarget.blur(); openSearch(); };
 document.getElementById("endSessionBtn").onclick = e => { e.currentTarget.blur(); finishSession(false); };
 
 // Enter: springt je nach Zustand zum nächsten sinnvollen Schritt
 // (starten / Karte umdrehen / prüfen / weiter / fertig). Esc schließt Panels
 // bzw. beendet die Runde.
-const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "startBtn", "doneBtn"];
+const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "startBtn", "recStep", "doneBtn"];
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     if (!charOverlay.hidden) closeCharDetail();
@@ -2423,11 +3180,13 @@ document.addEventListener("keydown", e => {
     else if (!settingsOverlay.hidden) closeSettings();
     else if (!statsOverlay.hidden) statsOverlay.hidden = true;
     else if (session) finishSession(false);
+    else if (!chapterView.hidden) openPath();
+    else if (!pathView.hidden) goHome();
     return;
   }
   if (!settingsOverlay.hidden || !statsOverlay.hidden || !searchOverlay.hidden || !charOverlay.hidden || !pickOverlay.hidden) return;
   const active = document.activeElement;
-  const typing = active && (active.tagName === "SELECT" || (active.tagName === "INPUT" && !active.disabled && active.type !== "checkbox"));
+  const typing = active && (active.tagName === "SELECT" || ((active.tagName === "INPUT" || active.tagName === "TEXTAREA") && !active.disabled && active.type !== "checkbox"));
   if (e.key === "/" && !typing) { e.preventDefault(); openSearch(); return; }
 
   // Kürzel während der Runde (nicht beim Tippen)
@@ -2474,9 +3233,70 @@ if (location.protocol.startsWith("http")) {
   const standalone = window.navigator.standalone || matchMedia("(display-mode: standalone)").matches;
   if (isIos && !standalone && !readJson("cnTutorInstallHint")) {
     writeJson("cnTutorInstallHint", true);
-    showToast("Tipp: Teilen-Symbol → „Zum Home-Bildschirm“. Dann läuft die App offline und Safari löscht deinen Lernstand nicht nach längerer Pause.");
+    showToast(tr("Tipp: Teilen-Symbol → „Zum Home-Bildschirm“. Dann läuft die App offline und Safari löscht deinen Lernstand nicht nach längerer Pause.", "Tip: Share icon → “Add to Home Screen”. Then the app runs offline and Safari will not wipe your progress after a long break."));
   }
 }
+
+// ---------------------------------------------------------------
+// Feste Texte im englischen Modus (Text-Knoten und title/placeholder des Grundgerüsts)
+// ---------------------------------------------------------------
+const EN_STATIC = {
+  "Jeden Tag ein bisschen besser": "A little better every day",
+  "Lernpfad": "Learning path", "Kapitel für Kapitel": "Chapter by chapter",
+  "Frei üben": "Practise", "Auch Test": "Plus test",
+  "Übersetzer": "Translator", "Wörter & Sätze": "Words & sentences",
+  "Alle": "All", "Leicht": "Easy", "Mittel": "Medium", "Schwer": "Hard",
+  "weiter ·": "next ·", "Leertaste": "Space", "umdrehen ·": "flip ·", "nicht gewusst ·": "didn't know ·", "gewusst ·": "knew it ·",
+  "suchen ·": "search ·", "beenden": "end", "ausblenden": "hide",
+  "Dein Lernstand liegt sicher in diesem Browser.": "Your progress is stored safely in this browser.",
+  "🌐 Übersetzer": "🌐 Translator", "Übersetzen": "Translate", "Wortliste": "Word list",
+  "Deutsch": "German", "Englisch": "English",
+  "🌐 Online übersetzen": "🌐 Translate online", "📋 Einfügen": "📋 Paste",
+  "Ein Wort oder eine Wendung pro Zeile (bis 60) — Deutsch, Englisch, 中文 oder Pinyin. Ergebnis: Zeichen, Pinyin, Bedeutung. Auswählen und alle auf einmal als Karten merken.":
+    "One word or phrase per line (up to 60) — German, English, 中文 or pinyin. Result: characters, pinyin, meaning. Select and save them all as cards at once.",
+  "Wörterbuch Chinesisch ↔ Englisch offline:": "Dictionary Chinese ↔ English offline:",
+  ". Deutsch und ganze Sätze nur über „Online übersetzen“ (": ". German and whole sentences only via “Translate online” (",
+  "): der Text geht dabei an den Dienst — nur wenn du auf den Knopf tippst.": "): the text is sent to that service — only when you tap the button.",
+  "Einstellungen": "Settings",
+  "Die App lädt beim Wechsel neu, dein Lernstand bleibt. Oberfläche, Karten-Bedeutungen, Kapitel und Übersetzer wechseln mit.": "The app reloads when you switch; your progress stays. Interface, card meanings, chapters and translator switch too.",
+  "Wie willst du üben?": "How do you want to practise?",
+  "DE → CN": "EN → CN", "CN → Pinyin + DE": "CN → Pinyin + EN", "CN + Pinyin → DE": "CN + Pinyin → EN", "✍️ Schreiben": "✍️ Writing",
+  "Mehrere möglich, sie wechseln zufällig. Schreiben nur bei Wörtern (Finger/Maus).": "Several possible — they alternate randomly. Writing only for words (finger/mouse).",
+  "Antwort eintippen (automatische Prüfung)": "Type the answer (automatic check)",
+  "Nach dem Umdrehen vorlesen 🔊": "Read aloud after flipping 🔊",
+  "Strichfolge neben Wörtern": "Stroke order next to words",
+  "Tagesziel": "Daily goal", "Neue Karten pro Tag": "New cards per day", "Karten pro Runde": "Cards per round",
+  "Aktive Lektionen": "Active lessons",
+  "Neue Karten kommen nur aus angehakten Lektionen. Hake an, was im Kurs schon dran war.": "New cards only come from ticked lessons. Tick what the course has covered.",
+  "Mehr: Sicherung & Tastenkürzel": "More: backup & shortcuts",
+  "Tastenkürzel unter der Karte (Mac)": "Keyboard shortcuts under the card (Mac)",
+  "Lernstand wird automatisch gespeichert. Export/Import dient nur als Sicherung.": "Progress is saved automatically. Export/import is only a backup.",
+  "Exportieren": "Export", "Importieren": "Import", "Alles zurücksetzen": "Reset everything",
+  "Suchen & Wörterbuch (/)": "Translator & dictionary (/)", "Statistik": "Statistics", "Runde beenden": "End round",
+  "Hinweis ausblenden (in ⚙️ wieder einschaltbar)": "Hide hint (re-enable in ⚙️)",
+  "Schließen (Esc)": "Close (Esc)", "Schließen": "Close",
+  "Wort oder Satz — Deutsch, Englisch, 中文 oder Pinyin (ni3hao3) …": "Word or sentence — German, English, 中文 or pinyin (ni3hao3) …",
+  "Aus der Zwischenablage einfügen": "Paste from clipboard", "Leeren": "Clear",
+  "Apfel\nBahnhof\nIch habe Hunger\n谢谢": "Apple\nStation\nI am hungry\n谢谢"
+};
+function applyStaticI18n() {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => {
+    const t = n.nodeValue.trim();
+    if (n.parentElement && n.parentElement.closest("[data-lang]")) return; // Sprachwahl bleibt zweisprachig
+    if (EN_STATIC[t] !== undefined) n.nodeValue = n.nodeValue.replace(t, EN_STATIC[t]);
+  });
+  document.querySelectorAll("[title],[placeholder]").forEach(el => {
+    ["title", "placeholder"].forEach(a => {
+      const v = el.getAttribute(a);
+      if (v && EN_STATIC[v] !== undefined) el.setAttribute(a, EN_STATIC[v]);
+    });
+  });
+  document.title = "Chinese Flashcards";
+}
+if (EN) applyStaticI18n();
 
 renderHome();
 </script>
