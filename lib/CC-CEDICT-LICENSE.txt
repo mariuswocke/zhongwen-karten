@@ -1,0 +1,15 @@
+Wörterbuchdaten (dict.js)
+=========================
+
+Quelle:  CC-CEDICT, herausgegeben von MDBG
+         https://www.mdbg.net/chinese/dictionary?page=cc-cedict
+Basis:   CEDICT — Copyright (C) 1997, 1998 Paul Andrew Denisowski
+
+Lizenz:  Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+         https://creativecommons.org/licenses/by-sa/4.0/
+
+Änderungen: dict.js ist eine gekürzte und umformatierte Fassung von CC-CEDICT
+(nur vereinfachte Zeichen; ohne reine Verweis-Einträge, ohne Einträge mit
+lateinischen Buchstaben und ohne Wendungen ab 5 Zeichen; höchstens 5
+Bedeutungen pro Eintrag). Erzeugt mit scripts/build-dict.mjs. Diese
+Fassung steht ebenfalls unter CC BY-SA 4.0.

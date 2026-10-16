@@ -1,0 +1,2220 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="中文 Karten">
+<meta name="theme-color" content="#f5f3ef">
+<meta name="robots" content="noindex, nofollow">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<title>Chinesisch Karteikarten</title>
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --card-bg: #ffffff;
+    --ink: #1f2430;
+    --muted: #6b7280;
+    --accent: #b3261e;
+    --accent-soft: #f3d9d7;
+    --good: #2f7a4d;
+    --good-soft: rgba(47,122,77,0.15);
+    --bad: #b3261e;
+    --bad-soft: rgba(179,38,30,0.12);
+    --amber: #c98a1b;
+    --border: #e2ddd3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17181c;
+      --card-bg: #23252b;
+      --ink: #eceef1;
+      --muted: #9aa0aa;
+      --accent: #e08585;
+      --accent-soft: #3a2323;
+      --good: #6fbf8b;
+      --good-soft: rgba(111,191,139,0.15);
+      --bad: #e08585;
+      --bad-soft: rgba(224,133,133,0.15);
+      --amber: #e0b35c;
+      --border: #33353c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    padding: 16px;
+  }
+  [hidden] { display: none !important; }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin: 0 0 4px; }
+  h2 { font-size: 1.1rem; margin: 0 0 8px; }
+  h3 { font-size: 0.95rem; margin: 16px 0 6px; }
+  .sub { color: var(--muted); font-size: 0.9rem; margin: 0 0 16px; }
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  select, button {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  button:active { transform: scale(0.98); }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .corner-actions {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+  }
+  .icon-btn {
+    font-size: 1.1rem;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* --- Startbildschirm --- */
+  .today-card, .card, .panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .today-card { padding: 22px 20px; text-align: center; }
+  .today-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .nums { display: flex; justify-content: center; gap: 36px; margin: 10px 0 16px; }
+  .nums b { display: block; font-size: 2.5rem; line-height: 1.1; font-weight: 600; }
+  .nums span { font-size: 0.85rem; color: var(--muted); }
+  .btn-primary {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+    font-weight: 600; font-size: 1.05rem; padding: 12px 28px; min-width: 210px;
+  }
+  .btn-secondary { font-weight: 600; }
+  .hint { font-size: 0.8rem; color: var(--muted); margin-top: 10px; }
+  .all-done { font-size: 1.15rem; margin: 12px 0 14px; }
+  .section { margin-top: 24px; }
+  .section h3 { margin: 0 0 10px; }
+  .practice-row select { flex: 1 1 160px; min-width: 0; }
+  .stufe-row { margin-bottom: 12px; font-size: 0.85rem; }
+  .stufe-row .row-label { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+  .stufe-row .row-label span:last-child { color: var(--muted); }
+  .stack { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--border); }
+  .stack .s-sicher { background: var(--good); }
+  .stack .s-lernen { background: var(--amber); }
+  .legend { font-size: 0.78rem; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  .facts { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.88rem; color: var(--muted); margin-top: 6px; }
+  .facts b { color: var(--ink); }
+
+  /* --- Session --- */
+  .session-bar { display: flex; align-items: center; gap: 10px; max-width: 480px; margin: 0 auto 14px; }
+  .session-bar .bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .session-bar .fill { height: 100%; width: 0; background: var(--good); transition: width 0.25s; }
+  .session-count { font-size: 0.85rem; color: var(--muted); min-width: 52px; text-align: right; }
+  .card {
+    padding: 28px 20px;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .level-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin-bottom: 16px;
+  }
+  .badge-new { color: var(--accent); font-weight: 700; }
+  .hanzi {
+    font-size: 3.6rem;
+    line-height: 1.25;
+    margin: 0 0 10px;
+    word-break: break-word;
+  }
+  .hanzi.hanzi-long { font-size: 2rem; }
+  .hanzi-line { display: flex; align-items: center; justify-content: center; gap: 14px 18px; flex-wrap: wrap; margin-bottom: 10px; }
+  .hanzi-line .hanzi { margin: 0; }
+  .stroke-slot { display: flex; gap: 4px; cursor: pointer; }
+  .stroke-box {
+    border: 1px solid var(--border); border-radius: 8px;
+    background:
+      linear-gradient(var(--border), var(--border)) center / 100% 1px no-repeat,
+      linear-gradient(var(--border), var(--border)) center / 1px 100% no-repeat,
+      var(--bg);
+  }
+  .prompt-de {
+    font-size: 1.5rem;
+    margin: 10px 0 6px;
+    line-height: 1.4;
+  }
+  .pinyin {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .meaning {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .note {
+    font-size: 0.88rem;
+    color: var(--muted);
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+    margin-top: 10px;
+    text-align: left;
+  }
+  .example {
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+    margin-top: 10px;
+    text-align: left;
+  }
+  .example-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .example-hanzi {
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .example-pinyin {
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0 4px;
+  }
+  .answer-input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .audio-btn {
+    font-size: 1.3rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: var(--accent-soft);
+    border: none;
+    margin: 10px 0;
+  }
+  .fb-correct, .fb-wrong {
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin: 14px 0 8px;
+  }
+  .fb-correct { background: var(--good-soft); color: var(--good); }
+  .fb-wrong { background: var(--bad-soft); color: var(--bad); }
+  .fb-tone, .fb-self { padding: 8px 12px; border-radius: 10px; font-weight: 600; margin: 14px 0 8px; }
+  .fb-tone { background: rgba(201,138,27,0.15); color: var(--amber); }
+  .fb-self { background: var(--bg); color: var(--ink); }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; margin-bottom: 10px; font-size: 0.95rem; }
+  .compare > div { background: var(--bg); border-radius: 10px; padding: 8px 10px; }
+  .compare .muted-note { margin: 0; font-size: 0.75rem; }
+  .tone-hint { font-size: 0.85rem; color: var(--muted); margin: -2px 0 8px; }
+  .audio-row { display: flex; justify-content: center; gap: 8px; }
+  .audio-btn[data-audio="slow"] { font-size: 1.1rem; }
+  .key-hint { max-width: 480px; margin: 12px auto 0; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.8; }
+  kbd { font-family: inherit; font-size: 0.72rem; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; background: var(--card-bg); }
+  .link-btn { border: none; background: none; padding: 0 4px; font-size: 0.75rem; color: var(--muted); text-decoration: underline; }
+  .toast {
+    position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+    width: min(520px, calc(100% - 32px)); z-index: 30;
+    background: var(--ink); color: var(--bg); border-radius: 12px; padding: 12px 14px;
+    font-size: 0.85rem; line-height: 1.4; box-shadow: 0 4px 16px rgba(0,0,0,0.2); cursor: pointer;
+  }
+  @media (pointer: coarse) { .key-hint { display: none !important; } }
+  .correct-answer {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .actions button { flex: 1 1 130px; max-width: 200px; font-weight: 600; }
+  .btn-bad { background: var(--bad); color: white; border-color: var(--bad); }
+  .btn-good { background: var(--good); color: white; border-color: var(--good); }
+  .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+  /* --- Panels (Statistik, Einstellungen) --- */
+  .overlay {
+    position: fixed; inset: 0; z-index: 20;
+    background: rgba(0,0,0,0.35);
+    display: flex; justify-content: center; align-items: flex-start;
+    overflow-y: auto; padding: 24px 12px;
+  }
+  .panel { width: 100%; max-width: 600px; padding: 18px 20px; }
+  .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .panel-head h2 { margin: 0; }
+  .setting-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 0.92rem; }
+  .setting-row input[type="number"] { width: 70px; padding: 6px 8px; font-size: 0.95rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--ink); }
+  .check-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 0.9rem; }
+  .check-row input { width: 18px; height: 18px; flex: none; }
+  .deck-group { border: 1px solid var(--border); border-radius: 12px; padding: 6px 12px; margin-bottom: 8px; }
+  .deck-group summary { cursor: pointer; padding: 4px 0; font-weight: 600; font-size: 0.92rem; }
+  .deck-group .check-row { font-size: 0.85rem; padding-left: 4px; }
+  .search-panel { max-width: 640px; }
+  .search-panel .answer-input { margin: 8px 0 4px; }
+  .search-credit { margin-top: 14px; font-size: 0.75rem; }
+  .search-credit a { color: inherit; }
+  .res-head { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 16px 0 6px; }
+  .res { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .res:last-child { border-bottom: none; }
+  .res-hz { font-size: 1.7rem; line-height: 1.2; min-width: 2.2em; max-width: 45%; cursor: pointer; }
+  .res-hz.long { font-size: 1.1rem; line-height: 1.4; }
+  .res-main { flex: 1; min-width: 0; }
+  .res-py { color: var(--accent); font-size: 0.95rem; }
+  .res-def { font-size: 0.9rem; line-height: 1.35; overflow-wrap: anywhere; }
+  .res-meta { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .res-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .res-actions button { font-size: 0.85rem; padding: 5px 9px; }
+  .res-actions .saved { color: var(--good); border-color: var(--good); }
+  .res .stroke-slot { margin-top: 8px; }
+  .seg-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+  .seg { border: 1px solid var(--border); border-radius: 10px; padding: 6px 8px; text-align: center; cursor: pointer; background: var(--bg); max-width: 9.5em; }
+  .seg b { display: block; font-size: 1.3rem; font-weight: 500; }
+  .seg .res-py { font-size: 0.8rem; }
+  .seg small { display: block; font-size: 0.72rem; color: var(--muted); line-height: 1.25; }
+  .seg.unknown { opacity: 0.6; cursor: default; }
+  .hz-char { cursor: pointer; border-radius: 6px; }
+  .hz-char:hover { background: var(--accent-soft); }
+  .write-row { display: flex; justify-content: center; gap: 8px; margin: 16px 0 6px; }
+  .write-box { touch-action: none; background-color: var(--card-bg); }
+  .write-box.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+  .write-status { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; text-align: center; }
+  .char-panel { max-width: 560px; }
+  .char-tabs { display: flex; gap: 6px; margin: 8px 0; }
+  .char-tabs button { font-size: 1.3rem; padding: 4px 12px; }
+  .char-tabs button.active { border-color: var(--accent); background: var(--accent-soft); }
+  .char-top { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; margin-top: 8px; }
+  .char-box { touch-action: none; flex: none; }
+  .char-facts { flex: 1; min-width: 160px; font-size: 0.95rem; }
+  .facts-list { margin-top: 10px; display: grid; gap: 6px; }
+  .facts-list div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--border); padding-bottom: 4px; }
+  .facts-list span { color: var(--muted); font-size: 0.85rem; }
+  .facts-list b { font-weight: 500; font-size: 1.1rem; }
+  .char-link { cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+  .stats-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 0.85rem; }
+  .stats-table th, .stats-table td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--border); }
+  .weak-list { padding-left: 18px; font-size: 0.9rem; margin: 0; text-align: left; }
+  .weak-list li { margin-bottom: 4px; }
+  .pinyin-inline { color: var(--accent); }
+  .muted-note { color: var(--muted); font-size: 0.88rem; margin: 4px 0 8px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 28px; }
+
+  /* --- iPhone / Touch --- */
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    padding-left: max(16px, env(safe-area-inset-left));
+  }
+  button, select, label, input { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  select, button, input[type="text"] { -webkit-appearance: none; appearance: none; }
+  select { padding-right: 28px; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 15px) 55%, calc(100% - 10px) 55%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+  @media (max-width: 600px), (pointer: coarse) {
+    select, input[type="text"], input[type="number"], .answer-input { font-size: 16px; } /* verhindert Auto-Zoom in iOS Safari */
+    .corner-actions { position: static; justify-content: flex-end; margin: 0 0 8px; }
+    .icon-btn { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+    .practice-row select, .practice-row button { min-height: 44px; }
+    .practice-row #deckSelect { flex-basis: 100%; }
+    body.in-session .corner-actions { display: none; } /* während der Runde nur Karte + Fortschritt */
+    .check-row input { width: 22px; height: 22px; }
+    .check-row { min-height: 36px; }
+    .actions button, #checkBtn, #flipBtn, .btn-primary { min-height: 48px; }
+    .audio-btn { min-height: 44px; min-width: 56px; }
+    .hanzi { font-size: 3.2rem; }
+    .compare { grid-template-columns: 1fr; }
+    .char-top { justify-content: center; }
+    .res { flex-wrap: wrap; }
+    .res-actions { flex-basis: 100%; justify-content: flex-start; }
+    .res-actions button { min-height: 40px; }
+    .card { padding: 22px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="corner-actions">
+  <button id="searchBtn" class="icon-btn" title="Suchen &amp; Wörterbuch (/)">🔍</button>
+  <button id="statsToggleBtn" class="icon-btn" title="Statistik">📊</button>
+  <button id="settingsBtn" class="icon-btn" title="Einstellungen">⚙️</button>
+</div>
+
+<div class="wrap">
+
+  <!-- Startbildschirm -->
+  <div id="homeView">
+    <h1>中文 Karteikarten</h1>
+    <p class="sub">Vereinfachte Zeichen &middot; Pinyin &middot; Aussprache &middot; Bedeutung</p>
+    <div class="today-card" id="todayCard"></div>
+
+    <div class="section">
+      <h3>Frei üben</h3>
+      <div class="toolbar practice-row">
+        <select id="deckSelect" aria-label="Stapel"></select>
+        <select id="levelSelect" aria-label="Niveau">
+          <option value="alle">Alle Niveaus</option>
+          <option value="leicht">Leicht</option>
+          <option value="mittel">Mittel</option>
+          <option value="schwer">Schwer</option>
+        </select>
+        <button id="practiceBtn" class="btn-secondary">Üben</button>
+        <button id="testBtn" class="btn-secondary" title="Diagnose: jede Karte genau einmal, DE → CN, ohne den Lernstand zu verändern">Test</button>
+      </div>
+    </div>
+
+    <div class="section" id="overview"></div>
+  </div>
+
+  <!-- Session -->
+  <div id="sessionView" hidden>
+    <div class="session-bar">
+      <div class="bar"><div class="fill" id="sessionFill"></div></div>
+      <span class="session-count" id="sessionCount"></span>
+      <button class="icon-btn" id="endSessionBtn" title="Runde beenden">✕</button>
+    </div>
+    <div id="cardArea"></div>
+    <div class="key-hint" id="keyHint">
+      <span><kbd>Enter</kbd> weiter · <kbd>Leertaste</kbd> umdrehen · <kbd>1</kbd> nicht gewusst · <kbd>2</kbd> gewusst · <kbd>A</kbd> Audio · <kbd>/</kbd> suchen · <kbd>Esc</kbd> beenden</span>
+      <button class="link-btn" id="hideKeyHintBtn" title="Hinweis ausblenden (in ⚙️ wieder einschaltbar)">ausblenden</button>
+    </div>
+  </div>
+
+  <!-- Abschluss -->
+  <div id="doneView" hidden></div>
+
+  <footer>Dein Lernstand wird automatisch in diesem Browser gespeichert.</footer>
+</div>
+
+<div id="toast" class="toast" hidden role="status" onclick="this.hidden = true"></div>
+
+<!-- Statistik -->
+<div id="statsOverlay" class="overlay" hidden>
+  <div class="panel" id="statsPanel"></div>
+</div>
+
+<!-- Zeichen-Details -->
+<div id="charOverlay" class="overlay" hidden>
+  <div class="panel char-panel" id="charPanel"></div>
+</div>
+
+<!-- Suche & Wörterbuch -->
+<div id="searchOverlay" class="overlay" hidden>
+  <div class="panel search-panel">
+    <div class="panel-head">
+      <h2>Suchen &amp; Wörterbuch</h2>
+      <button class="icon-btn" id="searchCloseBtn" title="Schließen (Esc)">✕</button>
+    </div>
+    <input type="search" id="searchInput" class="answer-input" placeholder="Zeichen, Pinyin (ni3hao3), Deutsch oder Englisch …"
+      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+    <div id="searchResults"></div>
+    <p class="muted-note search-credit">Wörterbuch Chinesisch → Englisch: <a href="lib/CC-CEDICT-LICENSE.txt" target="_blank" rel="noopener">CC-CEDICT</a> (MDBG), CC BY-SA 4.0<span id="dictDate"></span>. Deutsch nur über deine eigenen Karten.</p>
+  </div>
+</div>
+
+<!-- Einstellungen -->
+<div id="settingsOverlay" class="overlay" hidden>
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Einstellungen</h2>
+      <button class="icon-btn" id="settingsCloseBtn" title="Schließen">✕</button>
+    </div>
+
+    <h3>Abfragerichtungen</h3>
+    <p class="muted-note">Mehrere möglich, sie wechseln zufällig. „DE → CN“ wird getrennt von den beiden Erkennen-Richtungen gelernt.</p>
+    <label class="check-row"><input type="checkbox" class="mode-checkbox" value="de-cn"> DE → CN (abrufen)</label>
+    <label class="check-row"><input type="checkbox" class="mode-checkbox" value="cn-pinyin-de"> CN → Pinyin + DE (erkennen)</label>
+    <label class="check-row"><input type="checkbox" class="mode-checkbox" value="cnpinyin-de"> CN + Pinyin → DE (erkennen)</label>
+    <label class="check-row"><input type="checkbox" class="mode-checkbox" value="schreiben"> DE + Pinyin → Zeichen schreiben (nur Wörter, mit Finger/Maus)</label>
+    <label class="check-row"><input type="checkbox" id="typedCheckbox"> Antwort eintippen (automatische Prüfung)</label>
+
+    <h3>Audio &amp; Hilfen</h3>
+    <label class="check-row"><input type="checkbox" id="audioAutoCheckbox"> Nach dem Umdrehen automatisch vorlesen</label>
+    <label class="check-row"><input type="checkbox" id="strokesCheckbox"> Strichfolge-Animation neben Wörtern zeigen</label>
+    <label class="check-row"><input type="checkbox" id="keyHintCheckbox"> Tastenkürzel unter der Karte anzeigen (nur Mac)</label>
+
+    <h3>Tägliche Session</h3>
+    <div class="setting-row"><span>Neue Karten pro Tag</span><input type="number" id="newPerDayInput" min="0" max="100" step="1"></div>
+    <div class="setting-row"><span>Karten pro Runde</span>
+      <select id="roundSizeSelect"><option value="15">15</option><option value="30">30</option><option value="50">50</option></select>
+    </div>
+
+    <h3>Aktive Lektionen</h3>
+    <p class="muted-note">Neue Karten kommen nur aus angehakten Stapeln, in Kursreihenfolge. Hake an, was im Kurs schon dran war.</p>
+    <div id="deckChecklist"></div>
+
+    <h3>Lernstand</h3>
+    <p class="muted-note">Wird automatisch gespeichert. Export/Import dient nur als Sicherung.</p>
+    <div class="toolbar">
+      <button id="exportBtn">Exportieren</button>
+      <label class="icon-btn" style="font-size:0.95rem;padding:8px 12px;" for="importInput">Importieren</label>
+      <input type="file" id="importInput" accept="application/json" hidden>
+      <button id="resetAllBtn">Alles zurücksetzen</button>
+    </div>
+  </div>
+</div>
+
+<script src="lib/hanzi-writer.min.js"></script>
+<script src="hanzi-data.js"></script>
+<script src="hanzi-meta.js"></script>
+<script src="decks.js"></script>
+<script>
+// ---------------------------------------------------------------
+// Datum (lokale Tage als "JJJJ-MM-TT"; window.__testNow nur für Tests)
+// ---------------------------------------------------------------
+function now() { return window.__testNow ? new Date(window.__testNow) : new Date(); }
+function dayKey(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function today() { return dayKey(now()); }
+function addDays(key, n) {
+  const [y, m, d] = key.split("-").map(Number);
+  return dayKey(new Date(y, m - 1, d + n));
+}
+
+// ---------------------------------------------------------------
+// Lernstand (Wiederholung mit Fälligkeitsdatum, lokal gespeichert)
+//
+// state.cards["<stapel>|<hanzi>"] = { erkennen: Eintrag, abrufen: Eintrag }
+// Eintrag = { box 1–7, due "JJJJ-MM-TT", seen, wrong, last }
+// Richtig (wenn fällig): eine Box höher, nächste Fälligkeit nach INTERVAL.
+// Falsch: zurück auf Box 1, heute nochmal.
+// ---------------------------------------------------------------
+const STORAGE_KEY = "cnTutorProgress_v4";
+const OLD_STORAGE_KEY = "cnTutorProgress_v3"; // alter Stand, bleibt unangetastet
+const SETTINGS_KEY = "cnTutorSettings_v1";
+const INTERVAL = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 14, 6: 30, 7: 90 }; // Tage bis zur nächsten Abfrage
+
+function readJson(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    return null;
+  }
+}
+function writeJson(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    /* localStorage evtl. nicht verfügbar — Lernstand geht dann verloren, App bleibt aber nutzbar */
+  }
+}
+function emptyState() { return { version: 4, cards: {}, days: {} }; }
+
+// Alter Stand (eine Box 1–5 pro Karte) -> beide Fertigkeiten mit derselben Box.
+// Fälligkeiten werden über das jeweilige Intervall verteilt, damit nicht alles
+// am selben Tag ansteht.
+function migrateV3(old) {
+  const st = emptyState();
+  const t = today();
+  Object.entries(old || {}).forEach(([id, e]) => {
+    if (!e || typeof e !== "object") return;
+    const box = Math.min(5, Math.max(1, e.box || 1));
+    const make = () => ({
+      box,
+      due: addDays(t, Math.floor(Math.random() * (INTERVAL[box] + 1))),
+      seen: e.seen || 0,
+      wrong: e.wrong || 0,
+      last: null
+    });
+    st.cards[id] = { erkennen: make(), abrufen: make() };
+  });
+  return st;
+}
+
+// Übernahme des Lernstands von der alten karteikarten.html (siehe dort):
+// nur wenn hier noch nichts gespeichert ist, danach Adresse bereinigen.
+(function takeOverFromOldFile() {
+  const prefix = "#uebernahme=";
+  if (!location.hash.startsWith(prefix)) return;
+  try {
+    const handed = JSON.parse(decodeURIComponent(location.hash.slice(prefix.length)));
+    const hasOwn = readJson(STORAGE_KEY) || readJson(OLD_STORAGE_KEY);
+    if (!hasOwn && handed && typeof handed === "object") writeJson(OLD_STORAGE_KEY, handed);
+  } catch (e) {
+    console.error("Lernstand konnte nicht übernommen werden", e);
+  }
+  history.replaceState(null, "", location.pathname + location.search);
+})();
+
+function loadState() {
+  const v4 = readJson(STORAGE_KEY);
+  if (v4 && v4.version === 4) return v4;
+  const v3 = readJson(OLD_STORAGE_KEY);
+  const st = v3 ? migrateV3(v3) : emptyState();
+  writeJson(STORAGE_KEY, st);
+  return st;
+}
+let state = loadState();
+function saveState() { writeJson(STORAGE_KEY, state); }
+
+function cardId(deckId, card) {
+  return deckId + "|" + card.hanzi;
+}
+function entry(deckId, card, skill) {
+  const c = state.cards[cardId(deckId, card)];
+  return (c && c[skill]) || null;
+}
+// Gibt zurück, ob die Karte für diese Fertigkeit gerade zum ersten Mal beantwortet wurde.
+function setResult(deckId, card, skill, knewIt) {
+  const t = today();
+  const id = cardId(deckId, card);
+  const c = state.cards[id] || (state.cards[id] = {});
+  const isFirst = !c[skill];
+  const e = c[skill] || (c[skill] = { box: 1, due: t, seen: 0, wrong: 0, last: null });
+  e.seen += 1;
+  e.last = t;
+  if (knewIt) {
+    // Nur fällige Karten steigen auf — freies Üben nicht fälliger Karten
+    // schiebt die Wiederholung nicht künstlich nach hinten.
+    if (e.due <= t) {
+      e.box = Math.min(7, e.box + 1);
+      e.due = addDays(t, INTERVAL[e.box]);
+    }
+  } else {
+    e.wrong += 1;
+    e.box = 1;
+    e.due = t;
+  }
+  saveState();
+  return isFirst;
+}
+function dayLog() {
+  const t = today();
+  return state.days[t] || (state.days[t] = { done: 0, correct: 0, neu: 0, bonus: 0 });
+}
+
+// ---------------------------------------------------------------
+// Einstellungen
+// ---------------------------------------------------------------
+// "Meine Wörter": aus der Suche gemerkte Wörter, als eigener Stapel
+const MY_WORDS_KEY = "cnTutorMyWords_v1";
+const MY_DECK = "meine-woerter";
+function loadMyWords() { return readJson(MY_WORDS_KEY) || []; }
+function syncMyWordsDeck() {
+  const cards = loadMyWords();
+  if (cards.length) DECKS[MY_DECK] = { stufe: "eigen", title: "Meine Wörter (aus der Suche)", cards };
+  else delete DECKS[MY_DECK];
+}
+syncMyWordsDeck();
+
+const ALL_MODES = ["de-cn", "cn-pinyin-de", "cnpinyin-de", "schreiben"];
+const DEFAULT_MODES = ["de-cn", "cn-pinyin-de", "cnpinyin-de"]; // Schreiben bewusst einschalten
+const DEFAULT_ACTIVE = Object.keys(DECKS).filter(id =>
+  DECKS[id].stufe !== "a21" || ["a21-l01", "a21-l02", "a21-l03"].includes(id));
+
+function loadSettings() {
+  const s = readJson(SETTINGS_KEY) || {};
+  return {
+    modes: Array.isArray(s.modes) && s.modes.length ? s.modes.filter(m => ALL_MODES.includes(m)) : DEFAULT_MODES.slice(),
+    typed: s.typed !== undefined ? !!s.typed : true,
+    audioAuto: s.audioAuto !== undefined ? !!s.audioAuto : true,
+    keyHint: s.keyHint !== undefined ? !!s.keyHint : true,
+    strokes: s.strokes !== undefined ? !!s.strokes : true,
+    newPerDay: Number.isFinite(s.newPerDay) ? s.newPerDay : 10,
+    roundSize: Number.isFinite(s.roundSize) ? s.roundSize : 30,
+    activeDecks: Array.isArray(s.activeDecks) ? s.activeDecks.filter(id => DECKS[id]) : DEFAULT_ACTIVE
+  };
+}
+let settings = loadSettings();
+function saveSettings() { writeJson(SETTINGS_KEY, settings); }
+
+// Fertigkeiten: "erkennen" (CN → DE) und "abrufen" (DE → CN) werden getrennt gelernt.
+const SKILL_OF_MODE = { "de-cn": "abrufen", "cn-pinyin-de": "erkennen", "cnpinyin-de": "erkennen", "schreiben": "schreiben" };
+const SKILL_ORDER = ["erkennen", "abrufen", "schreiben"];
+function enabledSkills() {
+  return SKILL_ORDER.filter(sk => settings.modes.some(m => SKILL_OF_MODE[m] === sk));
+}
+function randomOf(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+// Schreiben gibt es nur für Wörter mit Strichdaten (keine Sätze)
+function skillsFor(card) {
+  return enabledSkills().filter(sk => sk !== "schreiben" || strokeChars(card));
+}
+function modesFor(card) {
+  return settings.modes.filter(m => m !== "schreiben" || strokeChars(card));
+}
+function modeForSkill(skill) {
+  return randomOf(settings.modes.filter(m => SKILL_OF_MODE[m] === skill));
+}
+
+// ---------------------------------------------------------------
+// Antwort-Prüfung
+// ---------------------------------------------------------------
+function normalizeDe(s) {
+  return s.toLowerCase().trim().replace(/[.!?'"]/g, "").replace(/\s+/g, " ").trim();
+}
+function deVariants(de) {
+  const cleaned = de.replace(/[()]/g, " ");
+  return cleaned.split(/[;,/]/).map(normalizeDe).filter(Boolean);
+}
+function matchDe(input, de) {
+  const norm = normalizeDe(input);
+  if (!norm) return false;
+  return deVariants(de).some(v => v === norm || (norm.length >= 3 && (v.includes(norm) || norm.includes(v))));
+}
+function normalizePinyin(s) {
+  return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[0-9]/g, "")
+    .replace(/v/g, "u") // "lv4" für lǜ
+    .replace(/[^a-z]/g, "");
+}
+function matchPinyin(input, pinyin) {
+  const a = normalizePinyin(input);
+  if (!a) return false;
+  return a === normalizePinyin(pinyin);
+}
+
+// Töne: aus Tonzeichen (nǐ) oder Ziffern (ni3) eine Folge 1–4 bilden.
+// Neutraler Ton (ohne Zeichen, 5 oder 0) zählt nicht mit.
+const TONE_MARKS = { "̄": 1, "́": 2, "̌": 3, "̀": 4 };
+function toneMarks(s) {
+  return [...s.normalize("NFD")].map(ch => TONE_MARKS[ch]).filter(Boolean);
+}
+function hasToneInfo(s) {
+  return /[1-4]/.test(s) || toneMarks(s).length > 0;
+}
+function inputTones(s) {
+  return /[0-5]/.test(s) ? [...s.matchAll(/[1-4]/g)].map(m => +m[0]) : toneMarks(s);
+}
+// "ok" (mit richtigen Tönen) · "ok-ohne-ton" · "ton" (Buchstaben richtig, Ton falsch) · "wrong"
+function pinyinVerdict(input, pinyin) {
+  if (!matchPinyin(input, pinyin)) return "wrong";
+  if (!hasToneInfo(input)) return "ok-ohne-ton";
+  const a = inputTones(input), b = toneMarks(pinyin);
+  return a.length === b.length && a.every((t, i) => t === b[i]) ? "ok" : "ton";
+}
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+}
+function longCls(hanzi) {
+  return hanzi.length > 8 ? "hanzi-long" : "";
+}
+// ---------------------------------------------------------------
+// Strichfolge-Animation (Hanzi Writer, Daten aus hanzi-data.js)
+// Nur für Wörter mit 1–4 Zeichen, nicht für Sätze.
+// ---------------------------------------------------------------
+function strokeChars(card) {
+  if (card.type === "satz" || !window.HanziWriter || !window.HANZI_DATA) return null;
+  // nur echte Schriftzeichen ("号/日", "(一)点儿", "太……了" → ohne Satzzeichen)
+  const chars = [...card.hanzi].filter(ch => /\p{Script=Han}/u.test(ch));
+  if (chars.length === 0 || chars.length > 4 || !chars.every(ch => HANZI_DATA[ch])) return null;
+  return chars;
+}
+function hanziBlock(card) {
+  // jedes Schriftzeichen eines Worts antippbar → Zeichen-Details
+  let k = 0;
+  const inner = card.type === "satz" ? card.hanzi
+    : [...card.hanzi].map(ch => (/\p{Script=Han}/u.test(ch) && window.HANZI_DATA && HANZI_DATA[ch]
+      ? `<span class="hz-char" data-word="${card.hanzi}" data-char="${k++}" title="Zeichen-Details">${ch}</span>`
+      : (/\p{Script=Han}/u.test(ch) ? (k++, ch) : ch))).join("");
+  const big = `<div class="hanzi ${longCls(card.hanzi)}">${inner}</div>`;
+  const chars = settings.strokes && strokeChars(card);
+  if (!chars) return big;
+  return `<div class="hanzi-line">${big}<div class="stroke-slot" data-hanzi="${chars.join("")}" title="Strichfolge — antippen spielt sie neu ab"></div></div>`;
+}
+let strokeToken = 0; // wechselt mit jeder Karte, alte Animationsschleifen enden dann
+// Zeichen außerhalb der eigenen Stapel (z.B. aus der Suche) kommen online vom CDN
+function loadCharData(c, onLoad, onError) {
+  if (HANZI_DATA[c]) return onLoad(HANZI_DATA[c]);
+  fetch(`https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/${encodeURIComponent(c)}.json`)
+    .then(r => (r.ok ? r.json() : Promise.reject()))
+    .then(d => { HANZI_DATA[c] = d; onLoad(d); })
+    .catch(() => onError && onError());
+}
+function mountStrokes(root = cardArea) {
+  const css = getComputedStyle(document.documentElement);
+  const color = name => css.getPropertyValue(name).trim();
+  root.querySelectorAll(".stroke-slot:not([data-mounted])").forEach(slot => {
+    slot.dataset.mounted = "1";
+    const chars = [...slot.dataset.hanzi];
+    const size = chars.length > 2 ? 62 : 80;
+    const writers = chars.map(ch => {
+      const box = document.createElement("div");
+      box.className = "stroke-box";
+      box.style.width = box.style.height = size + "px";
+      slot.appendChild(box);
+      return HanziWriter.create(box, ch, {
+        width: size, height: size, padding: 4,
+        showCharacter: false, showOutline: true,
+        strokeAnimationSpeed: 1.1, delayBetweenStrokes: 220,
+        strokeColor: color("--ink"), outlineColor: color("--border"),
+        charDataLoader: loadCharData
+      });
+    });
+    const token = strokeToken;
+    let run = 0;
+    const alive = r => token === strokeToken && r === run && slot.isConnected;
+    const play = (i, r) => {
+      if (!alive(r)) return;
+      if (i >= writers.length) {
+        setTimeout(() => { if (alive(r)) { writers.forEach(w => w.hideCharacter()); setTimeout(() => play(0, r), 400); } }, 1600);
+        return;
+      }
+      writers[i].animateCharacter({ onComplete: () => setTimeout(() => play(i + 1, r), 250) });
+    };
+    play(0, run);
+    slot.onclick = () => {
+      run += 1;
+      writers.forEach(w => w.hideCharacter());
+      setTimeout(() => play(0, run), 150);
+    };
+  });
+}
+
+function exampleHtml(card) {
+  return card.example
+    ? `<div class="example"><div class="example-label">Beispiel:</div><div class="example-hanzi">${card.example.hanzi}</div><div class="example-pinyin">${card.example.pinyin}</div></div>`
+    : "";
+}
+
+// ---------------------------------------------------------------
+// Abfragemodi
+// ---------------------------------------------------------------
+const MODES = {
+  "de-cn": {
+    label: "DE→CN",
+    front: card => `<div class="prompt-de">${card.de}</div>`,
+    back: card => `${hanziBlock(card)}<div class="pinyin">${card.pinyin}</div>` + exampleHtml(card),
+    fields: [
+      { key: "answer", placeholder: "Pinyin (z.B. ni3 hao3) oder Zeichen …",
+        check: (val, card) => (val.trim() === card.hanzi.trim() ? "ok" : pinyinVerdict(val, card.pinyin)) }
+    ],
+    correctDisplay: card => `${card.hanzi} (${card.pinyin})`
+  },
+  "cn-pinyin-de": {
+    label: "CN→Pinyin+DE",
+    front: card => `${hanziBlock(card)}`,
+    back: card => `<div class="pinyin">${card.pinyin}</div><div class="meaning">${card.de}</div>`,
+    fields: [
+      { key: "pinyin", placeholder: "Pinyin eingeben (Töne optional) …", check: (val, card) => pinyinVerdict(val, card.pinyin) },
+      { key: "de", placeholder: "Deutsche Übersetzung eingeben …", de: true, check: (val, card) => (matchDe(val, card.de) ? "ok" : "wrong") }
+    ],
+    correctDisplay: card => `${card.pinyin} — ${card.de}`
+  },
+  "cnpinyin-de": {
+    label: "CN+Pinyin→DE",
+    front: card => `${hanziBlock(card)}<div class="pinyin">${card.pinyin}</div>`,
+    back: card => `<div class="meaning">${card.de}</div>`,
+    fields: [
+      { key: "de", placeholder: "Deutsche Übersetzung eingeben …", de: true, check: (val, card) => (matchDe(val, card.de) ? "ok" : "wrong") }
+    ],
+    correctDisplay: card => card.de
+  }
+};
+
+function levelLabel(level) {
+  return { leicht: "Leicht", mittel: "Mittel", schwer: "Schwer" }[level] || "Mittel";
+}
+
+// ---------------------------------------------------------------
+// Karten und Auswahl
+// ---------------------------------------------------------------
+const STUFEN = [
+  { id: "a11", label: "A1.1" },
+  { id: "a12", label: "A1.2" },
+  { id: "a21", label: "A2.1" },
+  { id: "eigen", label: "Meine Wörter" }
+];
+function stufeHasCards(id) { return Object.values(DECKS).some(d => d.stufe === id); }
+function allCards() {
+  return Object.entries(DECKS).flatMap(([deckId, deck]) => deck.cards.map(card => ({ deckId, card })));
+}
+function cardsForSelection(sel) {
+  if (sel === "__all__") return allCards();
+  const stufe = sel.match(/^__([a-z0-9]+)__$/);
+  if (stufe) return allCards().filter(x => DECKS[x.deckId].stufe === stufe[1]);
+  return DECKS[sel].cards.map(card => ({ deckId: sel, card }));
+}
+// neu = noch nie abgefragt · sicher = alle aktiven Fertigkeiten ab Box 4 · sonst am Lernen
+function cardStatus(deckId, card) {
+  const entries = skillsFor(card).map(sk => entry(deckId, card, sk));
+  if (entries.every(e => !e)) return "neu";
+  if (entries.every(e => e && e.box >= 4)) return "sicher";
+  return "lernen";
+}
+
+// ---------------------------------------------------------------
+// Tägliche Session
+// ---------------------------------------------------------------
+function dailyOverview() {
+  const t = today();
+  const active = new Set(settings.activeDecks);
+  const due = [], fresh = [];
+  let tomorrow = 0;
+  allCards().forEach(({ deckId, card }) => {
+    const skills = skillsFor(card);
+    if (skills.length === 0) return;
+    const hasAny = skills.some(sk => entry(deckId, card, sk));
+    skills.forEach((sk, i) => {
+      const e = entry(deckId, card, sk);
+      if (e) {
+        if (e.due <= t) due.push({ deckId, card, skill: sk, due: e.due, box: e.box });
+        else if (e.due === addDays(t, 1)) tomorrow++;
+      } else if (i === 0) {
+        if (!hasAny && active.has(deckId)) fresh.push({ deckId, card, skill: sk });
+        else if (hasAny) due.push({ deckId, card, skill: sk, due: "", box: 0 });
+      } else {
+        // zweite Fertigkeit startet, sobald die erste sitzt (ab Box 2),
+        // frühestens am Tag nach der letzten Abfrage
+        const prev = entry(deckId, card, skills[i - 1]);
+        if (prev && prev.box >= 2 && prev.last !== t) due.push({ deckId, card, skill: sk, due: "", box: 0 });
+      }
+    });
+  });
+  // bewusst gemerkte Wörter aus der Suche zuerst, danach Kursreihenfolge
+  fresh.sort((a, b) => (b.deckId === MY_DECK) - (a.deckId === MY_DECK));
+  const d = state.days[t] || {};
+  const newLeft = Math.max(0, settings.newPerDay + (d.bonus || 0) - (d.neu || 0));
+  return { due, fresh: fresh.slice(0, newLeft), freshAvailable: fresh.length, tomorrow };
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function quizItem(x, skill) {
+  return { deckId: x.deckId, card: x.card, skill, mode: modeForSkill(skill), phase: "abfragen", isNew: false, firstResult: null };
+}
+
+function buildDailyQueue() {
+  const ov = dailyOverview();
+  const size = settings.roundSize;
+  // Fällige zuerst (am längsten überfällig, schwächste Box), neue Karten
+  // gleichmäßig dazwischen. Bei großem Rückstand bekommen neue höchstens ein Drittel.
+  const due = shuffle(ov.due.slice()).sort((a, b) => (a.due < b.due ? -1 : a.due > b.due ? 1 : a.box - b.box));
+  const reviewTake = Math.min(due.length, size - Math.min(ov.fresh.length, Math.ceil(size / 3)));
+  const newTake = Math.min(ov.fresh.length, size - reviewTake);
+  const reviews = shuffle(due.slice(0, reviewTake).map(x => quizItem(x, x.skill)));
+  const news = ov.fresh.slice(0, newTake).map(x => ({ ...quizItem(x, x.skill), phase: "zeigen", isNew: true }));
+  const queue = reviews.slice();
+  news.forEach((item, k) => {
+    const at = Math.round(((k + 1) * queue.length) / (news.length - k + 1));
+    queue.splice(Math.min(at, queue.length), 0, item);
+  });
+  return queue;
+}
+
+// Diagnosetest: jede Karte genau einmal, DE → CN, Reihenfolge zufällig
+function buildTestQueue(deckSel, levelSel) {
+  let pool = cardsForSelection(deckSel);
+  if (levelSel !== "alle") pool = pool.filter(x => x.card.level === levelSel);
+  return shuffle(pool.map(x => ({ ...quizItem(x, "abrufen"), mode: "de-cn" })));
+}
+
+function buildPracticeQueue(deckSel, levelSel) {
+  let pool = cardsForSelection(deckSel);
+  if (levelSel !== "alle") pool = pool.filter(x => x.card.level === levelSel);
+  // alle Karten der Auswahl, ohne Limit; schwache und neue tendenziell zuerst
+  const scored = pool.map(x => {
+    const boxes = (skillsFor(x.card).length ? skillsFor(x.card) : ["erkennen"]).map(sk => (entry(x.deckId, x.card, sk) || { box: 0 }).box);
+    return { x, score: Math.random() * (8 - Math.min(...boxes)) };
+  });
+  scored.sort((a, b) => b.score - a.score);
+  return scored.map(({ x }) => {
+    const mode = randomOf(modesFor(x.card).length ? modesFor(x.card) : ["cnpinyin-de"]);
+    return { ...quizItem(x, SKILL_OF_MODE[mode]), mode };
+  });
+}
+
+// ---------------------------------------------------------------
+// Ansichten
+// ---------------------------------------------------------------
+const homeView = document.getElementById("homeView");
+const sessionView = document.getElementById("sessionView");
+const doneView = document.getElementById("doneView");
+const cardArea = document.getElementById("cardArea");
+const deckSelect = document.getElementById("deckSelect");
+const levelSelect = document.getElementById("levelSelect");
+const statsOverlay = document.getElementById("statsOverlay");
+const settingsOverlay = document.getElementById("settingsOverlay");
+
+function showView(view) {
+  [homeView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
+  document.body.classList.toggle("in-session", view === sessionView);
+  window.scrollTo(0, 0);
+}
+
+let session = null; // { kind, queue, pos, total, doneCount, results, start }
+
+function renderHome() {
+  const ov = dailyOverview();
+  const todayCard = document.getElementById("todayCard");
+  const total = Math.min(settings.roundSize, ov.due.length + ov.fresh.length);
+  if (ov.due.length + ov.fresh.length > 0) {
+    todayCard.innerHTML = `
+      <div class="today-label">Heute</div>
+      <div class="nums">
+        <div><b>${ov.due.length}</b><span>fällig</span></div>
+        <div><b>${ov.fresh.length}</b><span>neu</span></div>
+      </div>
+      <button class="btn-primary" id="startBtn">Los geht's</button>
+      <div class="hint">Diese Runde: ${total} Karten · Enter startet</div>`;
+    document.getElementById("startBtn").onclick = () => startSession("daily");
+  } else {
+    const more = ov.freshAvailable > 0;
+    todayCard.innerHTML = `
+      <div class="today-label">Heute</div>
+      <div class="all-done">Für heute alles erledigt ✓</div>
+      ${more ? `<button class="btn-secondary" id="bonusBtn">10 neue Karten extra</button>` : ""}
+      <div class="hint">${more ? "Oder frei üben, siehe unten." : "Keine neuen Karten mehr in den aktiven Lektionen — weitere in ⚙️ anhaken."}</div>`;
+    if (more) document.getElementById("bonusBtn").onclick = () => {
+      dayLog().bonus += 10;
+      saveState();
+      startSession("daily");
+    };
+  }
+  populateDeckSelect();
+  renderOverview(ov);
+}
+
+function streakDays() {
+  let n = 0;
+  let k = today();
+  if (!(state.days[k] && state.days[k].done)) k = addDays(k, -1); // heute noch nicht gelernt zählt nicht als Abbruch
+  while (state.days[k] && state.days[k].done) { n++; k = addDays(k, -1); }
+  return n;
+}
+
+function renderOverview(ov) {
+  let html = `<h3>Fortschritt</h3>`;
+  STUFEN.filter(s => stufeHasCards(s.id)).forEach(s => {
+    const cards = allCards().filter(x => DECKS[x.deckId].stufe === s.id);
+    const c = { neu: 0, lernen: 0, sicher: 0 };
+    cards.forEach(x => c[cardStatus(x.deckId, x.card)]++);
+    const pct = n => (cards.length ? (n / cards.length) * 100 : 0);
+    html += `<div class="stufe-row">
+      <div class="row-label"><span>${s.label}</span><span>${c.sicher} sicher · ${c.lernen} am Lernen · ${c.neu} neu</span></div>
+      <div class="stack"><div class="s-sicher" style="width:${pct(c.sicher)}%"></div><div class="s-lernen" style="width:${pct(c.lernen)}%"></div></div>
+    </div>`;
+  });
+  html += `<div class="legend"><span><i class="dot" style="background:var(--good)"></i>sicher (Box 4+)</span><span><i class="dot" style="background:var(--amber)"></i>am Lernen</span><span><i class="dot" style="background:var(--border)"></i>neu</span></div>`;
+  const streak = streakDays();
+  html += `<div class="facts" style="margin-top:14px">
+    <span>Lernserie: <b>${streak} ${streak === 1 ? "Tag" : "Tage"}</b></span>
+    <span>Morgen fällig: <b>${ov.tomorrow}</b></span>
+  </div>`;
+  document.getElementById("overview").innerHTML = html;
+}
+
+function populateDeckSelect() {
+  const prev = deckSelect.value;
+  deckSelect.innerHTML = "";
+  const mixed = document.createElement("optgroup");
+  mixed.label = "Gemischt";
+  [["__all__", "Alle Stapel"], ...STUFEN.filter(s => s.id !== "eigen" && stufeHasCards(s.id)).map(s => [`__${s.id}__`, `Alle ${s.label}`])].forEach(([v, l]) => {
+    mixed.appendChild(new Option(l, v));
+  });
+  deckSelect.appendChild(mixed);
+  STUFEN.filter(s => stufeHasCards(s.id)).forEach(s => {
+    const og = document.createElement("optgroup");
+    og.label = s.label;
+    Object.entries(DECKS).filter(([, d]) => d.stufe === s.id).forEach(([id, d]) => {
+      const known = d.cards.filter(card => cardStatus(id, card) !== "neu").length;
+      og.appendChild(new Option(`${d.title} (${known}/${d.cards.length})`, id));
+    });
+    deckSelect.appendChild(og);
+  });
+  if (prev) deckSelect.value = prev;
+}
+
+// ---------------------------------------------------------------
+// Session-Ablauf
+// ---------------------------------------------------------------
+function startSession(kind, queue) {
+  const q = queue || (kind === "daily" ? buildDailyQueue()
+    : kind === "test" ? buildTestQueue(deckSelect.value, levelSelect.value)
+    : buildPracticeQueue(deckSelect.value, levelSelect.value));
+  if (q.length === 0) {
+    alert("Keine Karten für diese Auswahl.");
+    return;
+  }
+  session = { kind, queue: q, pos: 0, total: q.length, doneCount: 0, results: [], start: Date.now(), sel: deckSelect.value };
+  showView(sessionView);
+  renderCard();
+}
+
+function currentItem() { return session.queue[session.pos]; }
+
+function reinsert(item, gap) {
+  const at = Math.min(session.queue.length, session.pos + 1 + gap);
+  session.queue.splice(at, 0, item);
+}
+
+function advance() {
+  session.pos += 1;
+  if (session.pos >= session.queue.length) finishSession(true);
+  else renderCard();
+}
+
+function updateSessionBar() {
+  document.getElementById("sessionFill").style.width = `${(session.doneCount / session.total) * 100}%`;
+  document.getElementById("sessionCount").textContent = `${session.doneCount} / ${session.total}`;
+}
+
+// Zählt nur die erste Antwort pro Karte für Statistik und Tageslog;
+// falsche Karten kommen ein paar Karten später nochmal.
+function answer(knewIt) {
+  const it = currentItem();
+  if (session.kind === "test") {
+    it.firstResult = knewIt;
+    session.results.push(it);
+    session.doneCount += 1;
+    advance();
+    return;
+  }
+  const firstForSkill = setResult(it.deckId, it.card, it.skill, knewIt);
+  if (it.firstResult === null) {
+    it.firstResult = knewIt;
+    session.results.push(it);
+    const d = dayLog();
+    if (it.isNew && firstForSkill) d.neu += 1;
+    d.done += 1;
+    if (knewIt) d.correct += 1;
+    saveState();
+  }
+  if (knewIt) session.doneCount += 1;
+  else reinsert({ ...it }, 3);
+  advance();
+}
+
+function renderCard() {
+  strokeToken += 1;
+  const it = currentItem();
+  const card = it.card;
+  updateSessionBar();
+  const typeLabel = card.type === "satz" ? "Satz" : "Wort";
+
+  // Neue Karte: erst ansehen, ein paar Karten später abfragen
+  if (it.phase === "zeigen") {
+    cardArea.innerHTML = `<div class="card">
+      <div class="level-badge"><span class="badge-new">Neu</span> · ${levelLabel(card.level)} · ${typeLabel}</div>
+      ${hanziBlock(card)}
+      <div class="pinyin">${card.pinyin}</div>
+      <div class="meaning">${card.de}</div>
+      ${audioRow()}
+      ${card.note ? `<div class="note">${card.note}</div>` : ""}
+      ${exampleHtml(card)}
+      <div class="actions"><button class="btn-good" id="nextBtn">Gemerkt — weiter</button></div>
+    </div>`;
+    autoSpeak(card);
+    mountStrokes();
+    document.getElementById("nextBtn").onclick = () => {
+      reinsert({ ...it, phase: "abfragen" }, 3);
+      advance();
+    };
+    return;
+  }
+
+  if (it.mode === "schreiben") { renderWriteCard(it); return; }
+
+  const modeObj = MODES[it.mode];
+  const typed = settings.typed && !(session.kind === "test" && card.type === "satz");
+  let html = `<div class="card">`;
+  html += `<div class="level-badge">${session.kind === "test" ? "Test · " : ""}${levelLabel(card.level)} · ${typeLabel} · ${modeObj.label}</div>`;
+  html += modeObj.front(card);
+  if (it.mode !== "de-cn") html += audioRow(); // bei DE→CN würde Audio die Lösung verraten
+  if (typed) {
+    html += `<div class="fields">`;
+    modeObj.fields.forEach(f => {
+      html += `<input type="text" class="answer-input" id="field-${f.key}" placeholder="${f.placeholder}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go">`;
+    });
+    html += `</div>`;
+    html += `<div class="actions"><button id="checkBtn">Prüfen</button></div>`;
+  } else {
+    html += `<div class="actions"><button id="flipBtn">Karte umdrehen</button></div>`;
+  }
+  html += `<div id="feedback"></div>`;
+  html += `</div>`;
+  cardArea.innerHTML = html;
+  mountStrokes();
+
+  if (typed) {
+    const inputs = modeObj.fields.map(f => document.getElementById(`field-${f.key}`));
+    inputs.forEach((inp, idx) => {
+      inp.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          e.stopPropagation();
+          if (idx < inputs.length - 1) inputs[idx + 1].focus();
+          else document.getElementById("checkBtn").click();
+        }
+      });
+    });
+    if (inputs[0]) inputs[0].focus();
+    document.getElementById("checkBtn").onclick = () => checkTyped(modeObj, inputs);
+  } else {
+    document.getElementById("flipBtn").onclick = () => revealFlip(modeObj);
+  }
+}
+
+function selfAssessButtons() {
+  return `<div class="actions">
+      <button class="btn-bad" id="badBtn">Nicht gewusst</button>
+      <button class="btn-good" id="goodBtn">Gewusst</button>
+    </div>`;
+}
+function bindAnswerButtons() {
+  const on = (id, fn) => { const b = document.getElementById(id); if (b) b.onclick = fn; };
+  on("badBtn", () => answer(false));
+  on("goodBtn", () => answer(true));
+  on("nextBtn", () => answer(true));
+  on("stillWrongBtn", () => answer(false));
+  on("overrideBtn", () => answer(true));
+}
+
+function revealFlip(modeObj) {
+  const card = currentItem().card;
+  document.getElementById("flipBtn").remove();
+  document.getElementById("feedback").innerHTML = `
+    ${modeObj.back(card)}
+    ${card.note ? `<div class="note">${card.note}</div>` : ""}
+    ${currentItem().mode === "de-cn" ? audioRow() : ""}
+    ${selfAssessButtons()}
+  `;
+  bindAnswerButtons();
+  autoSpeak(card);
+  mountStrokes();
+}
+
+// Prüft die Eingaben. Deutsche Übersetzungen von Sätzen lassen sich nicht
+// zuverlässig automatisch prüfen — dort vergleichst du selbst mit der Musterlösung.
+function checkTyped(modeObj, inputs) {
+  const it = currentItem();
+  const card = it.card;
+  const isSentence = card.type === "satz";
+  const verdicts = modeObj.fields.map((f, i) => (isSentence && f.de ? "selbst" : f.check(inputs[i].value, card)));
+  const wrong = verdicts.includes("wrong");
+  const tone = verdicts.includes("ton");
+  const self = verdicts.includes("selbst");
+
+  let html;
+  if (wrong) html = `<div class="fb-wrong">❌ Nicht ganz richtig.</div>`;
+  else if (tone) html = `<div class="fb-tone">🟠 Fast — Ton falsch.</div>`;
+  else if (self) html = `<div class="fb-self">Vergleiche selbst:</div>`;
+  else html = `<div class="fb-correct">✅ Richtig!</div>`;
+
+  if (self) {
+    const i = modeObj.fields.findIndex(f => f.de);
+    const mine = inputs[i].value.trim();
+    html += `<div class="compare"><div><span class="muted-note">Deine Übersetzung</span><div>${mine ? escapeHtml(mine) : "<i>(leer)</i>"}</div></div>
+      <div><span class="muted-note">Musterlösung</span><div>${card.de}</div></div></div>`;
+  }
+  if (!wrong && !tone && verdicts.includes("ok-ohne-ton")) {
+    html += `<div class="tone-hint">Töne: <span class="pinyin-inline">${card.pinyin}</span> — tipp sie mit (z.B. ni3 hao3), dann prüfe ich sie auch.</div>`;
+  }
+  // Lösung anzeigen; beim Satz-Vergleich steht die Übersetzung schon in der Vergleichsbox
+  if (!self) html += modeObj.back(card);
+  else if (it.mode === "cn-pinyin-de") html += `<div class="pinyin">${card.pinyin}</div>`;
+  if (card.note) html += `<div class="note">${card.note}</div>`;
+  if (currentItem().mode === "de-cn") html += audioRow();
+
+  if (wrong || tone) {
+    html += `<div class="actions">
+      <button class="btn-bad" id="stillWrongBtn">Weiter (nicht gewusst)</button>
+      <button class="btn-good" id="overrideBtn">War trotzdem richtig</button>
+    </div>`;
+  } else if (self) {
+    html += selfAssessButtons();
+  } else {
+    html += `<div class="actions"><button class="btn-good" id="nextBtn">Weiter →</button></div>`;
+  }
+  document.getElementById("feedback").innerHTML = html;
+
+  inputs.forEach(inp => { inp.disabled = true; });
+  document.getElementById("checkBtn").disabled = true;
+  bindAnswerButtons();
+  autoSpeak(card);
+  mountStrokes();
+}
+
+// ---------------------------------------------------------------
+// Schreibmodus: DE + Pinyin vorgegeben, Zeichen Strich für Strich schreiben.
+// Ohne Vorlage; nach 2 Fehlversuchen beim selben Strich blinkt er als Hinweis.
+// Gewusst = höchstens 2 Fehler pro Zeichen.
+// ---------------------------------------------------------------
+function writeBoxSize(n) {
+  const avail = Math.min(cardArea.clientWidth || 360, 480) - 56;
+  return Math.max(70, Math.min(150, Math.floor((avail - (n - 1) * 8) / n)));
+}
+function renderWriteCard(it) {
+  const card = it.card;
+  const chars = strokeChars(card);
+  cardArea.innerHTML = `<div class="card">
+    <div class="level-badge">${levelLabel(card.level)} · Wort · Schreiben</div>
+    <div class="prompt-de">${card.de}</div>
+    <div class="pinyin">${card.pinyin}</div>
+    ${audioRow()}
+    <div class="write-row" id="writeRow"></div>
+    <div class="write-status" id="writeStatus"></div>
+    <div class="actions" id="writeActions"><button id="giveUpBtn">Lösung zeigen</button></div>
+    <div id="feedback"></div>
+  </div>`;
+  const size = writeBoxSize(chars.length);
+  const row = document.getElementById("writeRow");
+  const css = getComputedStyle(document.documentElement);
+  const writers = chars.map(ch => {
+    const box = document.createElement("div");
+    box.className = "stroke-box write-box";
+    box.style.width = box.style.height = size + "px";
+    row.appendChild(box);
+    return HanziWriter.create(box, ch, {
+      width: size, height: size, padding: 6,
+      showCharacter: false, showOutline: false, showHintAfterMisses: 2,
+      strokeColor: css.getPropertyValue("--ink").trim(),
+      outlineColor: css.getPropertyValue("--border").trim(),
+      highlightColor: css.getPropertyValue("--amber").trim(),
+      drawingColor: css.getPropertyValue("--accent").trim(),
+      drawingWidth: 6,
+      charDataLoader: loadCharData
+    });
+  });
+  const mistakes = [];
+  const status = document.getElementById("writeStatus");
+  const token = strokeToken;
+  let finished = false;
+
+  const done = gaveUp => {
+    if (finished) return;
+    finished = true;
+    writers.forEach(w => { try { w.cancelQuiz(); } catch (e) { /* schon fertig */ } });
+    row.querySelectorAll(".write-box").forEach(b => b.classList.remove("active"));
+    const knew = !gaveUp && mistakes.every(m => m <= 2);
+    if (gaveUp) writers.forEach(w => w.showCharacter());
+    document.getElementById("writeActions").remove();
+    status.textContent = gaveUp ? "" : `Fehler pro Zeichen: ${mistakes.join(" · ")}`;
+    let html = knew ? `<div class="fb-correct">✅ Richtig geschrieben!</div>` : `<div class="fb-wrong">❌ ${gaveUp ? "Lösung:" : "Noch nicht sicher."}</div>`;
+    html += hanziBlock(card);
+    html += knew
+      ? `<div class="actions"><button class="btn-good" id="nextBtn">Weiter →</button></div>`
+      : `<div class="actions"><button class="btn-bad" id="stillWrongBtn">Weiter (nicht gewusst)</button><button class="btn-good" id="overrideBtn">War trotzdem richtig</button></div>`;
+    document.getElementById("feedback").innerHTML = html;
+    bindAnswerButtons();
+    mountStrokes();
+    autoSpeak(card);
+  };
+
+  const quizAt = i => {
+    if (token !== strokeToken || finished) return;
+    if (i >= writers.length) { done(false); return; }
+    row.querySelectorAll(".write-box").forEach((b, k) => b.classList.toggle("active", k === i));
+    status.textContent = chars.length > 1 ? `Zeichen ${i + 1} von ${chars.length}` : "Schreib das Zeichen Strich für Strich";
+    writers[i].quiz({
+      onComplete: summary => {
+        mistakes[i] = summary.totalMistakes;
+        setTimeout(() => quizAt(i + 1), 300);
+      }
+    });
+  };
+  quizAt(0);
+  document.getElementById("giveUpBtn").onclick = () => done(true);
+}
+
+// ---------------------------------------------------------------
+// Zeichen-Details: Strichfolge groß, selbst nachschreiben (mit Vorlage),
+// Strichzahl, Radikal, Bestandteile, Herkunft, Vorkommen in eigenen Karten
+// ---------------------------------------------------------------
+const charOverlay = document.getElementById("charOverlay");
+const ETYMO = { pictographic: "Bildzeichen", ideographic: "Sinnzeichen (aus Bestandteilen zusammengesetzt)", pictophonetic: "Laut-Sinn-Zeichen (Bedeutungs- und Lautteil)" };
+let charWriter = null;
+let charToken = 0;
+
+function openCharDetail(word, idx) {
+  const chars = [...word].filter(isHan);
+  if (!chars.length) return;
+  charOverlay.hidden = false;
+  showCharDetail(chars, Math.min(idx || 0, chars.length - 1));
+}
+function closeCharDetail() {
+  charToken += 1;
+  charOverlay.hidden = true;
+  charWriter = null;
+}
+function showCharDetail(chars, idx) {
+  const ch = chars[idx];
+  const token = ++charToken;
+  const meta = (window.HANZI_META || {})[ch] || null;
+  const own = allCards().filter(x => x.card.hanzi.includes(ch));
+  const ownSingle = own.find(x => x.card.hanzi === ch);
+  const seen = new Set();
+  const ownList = own.filter(x => !seen.has(x.card.hanzi) && seen.add(x.card.hanzi))
+    .sort((a, b) => a.card.hanzi.length - b.card.hanzi.length).slice(0, 12);
+  const parts = meta && meta.d ? [...meta.d].filter(c => !/[⿰-⿻？]/.test(c) && c !== ch) : [];
+  const ety = meta && meta.e ? meta.e : null;
+  const size = Math.min(220, window.innerWidth - 120);
+  document.getElementById("charPanel").innerHTML = `
+    <div class="panel-head">
+      <h2>Zeichen ${ch}</h2>
+      <button class="icon-btn" id="charCloseBtn" title="Schließen (Esc)">✕</button>
+    </div>
+    ${chars.length > 1 ? `<div class="char-tabs">${chars.map((c, i) => `<button data-tab="${i}" class="${i === idx ? "active" : ""}">${c}</button>`).join("")}</div>` : ""}
+    <div class="char-top">
+      <div class="stroke-box char-box" id="charBox" style="width:${size}px;height:${size}px"></div>
+      <div class="char-facts">
+        ${ownSingle ? `<div class="res-py" style="font-size:1.2rem">${ownSingle.card.pinyin}</div><div>${ownSingle.card.de}</div>` : ""}
+        ${meta && meta.def ? `<div class="res-meta">EN: ${escapeHtml(meta.def)}</div>` : ""}
+        <div class="facts-list">
+          <div><span>Striche</span><b id="charStrokes">–</b></div>
+          ${meta && meta.r ? `<div><span>Radikal</span><b class="char-link" data-open="${meta.r}">${meta.r}</b></div>` : ""}
+          ${parts.length ? `<div><span>Bestandteile</span><b>${parts.map(p => `<span class="char-link" data-open="${p}">${p}</span>`).join(" ")}</b></div>` : ""}
+        </div>
+      </div>
+    </div>
+    <div class="actions" style="justify-content:flex-start">
+      <button id="charPlayBtn">▶ Strichfolge</button>
+      <button id="charQuizBtn">✍️ Selbst schreiben</button>
+      <button data-say="${ch}">🔊</button>
+    </div>
+    <div class="write-status" id="charStatus"></div>
+    ${ety ? `<h3>Herkunft</h3><p class="muted-note" style="color:var(--ink)">${ETYMO[ety.t] || ety.t}${ety.s ? ` · Bedeutungsteil <span class="char-link" data-open="${ety.s}">${ety.s}</span>` : ""}${ety.p ? ` · Lautteil <span class="char-link" data-open="${ety.p}">${ety.p}</span>` : ""}${ety.h ? `<br><span class="muted-note">EN: ${escapeHtml(ety.h)}</span>` : ""}</p>` : ""}
+    ${ownList.length ? `<h3>Kommt vor in deinen Karten</h3><ul class="weak-list">${ownList.map(x =>
+      `<li><span class="char-link" data-say="${x.card.hanzi}">${x.card.hanzi}</span> <span class="pinyin-inline">${x.card.pinyin}</span> — ${x.card.de}</li>`).join("")}</ul>` : ""}
+    <p class="muted-note search-credit">Strichdaten: Make Me a Hanzi (Arphic Public License) · Details: Make Me a Hanzi dictionary.txt (LGPL 3.0)</p>`;
+
+  const css = getComputedStyle(document.documentElement);
+  charWriter = HanziWriter.create(document.getElementById("charBox"), ch, {
+    width: size, height: size, padding: 10,
+    showOutline: true, showCharacter: false, showHintAfterMisses: 2,
+    strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
+    strokeColor: css.getPropertyValue("--ink").trim(),
+    outlineColor: css.getPropertyValue("--border").trim(),
+    highlightColor: css.getPropertyValue("--amber").trim(),
+    drawingColor: css.getPropertyValue("--accent").trim(),
+    drawingWidth: 8,
+    charDataLoader: (c, onLoad, onError) => loadCharData(c, data => {
+      const el = document.getElementById("charStrokes");
+      if (el && token === charToken) el.textContent = data.strokes.length;
+      onLoad(data);
+    }, onError)
+  });
+  const status = document.getElementById("charStatus");
+  const play = () => { status.textContent = ""; charWriter.cancelQuiz(); charWriter.hideCharacter(); charWriter.animateCharacter(); };
+  document.getElementById("charPlayBtn").onclick = play;
+  document.getElementById("charQuizBtn").onclick = () => {
+    charWriter.hideCharacter();
+    status.textContent = "Schreib nach — die graue Vorlage zeigt das Zeichen.";
+    charWriter.quiz({
+      onMistake: d => { status.textContent = `Strich ${d.strokeNum + 1}: nochmal${d.mistakesOnStroke >= 2 ? " — der Hinweis blinkt" : ""}.`; },
+      onCorrectStroke: d => { status.textContent = `Strich ${d.strokeNum + 1} von ${d.strokeNum + 1 + d.strokesRemaining} ✓`; },
+      onComplete: d => { status.textContent = d.totalMistakes === 0 ? "Fehlerfrei ✓" : `Fertig — ${d.totalMistakes} Fehler.`; }
+    });
+  };
+  document.getElementById("charCloseBtn").onclick = closeCharDetail;
+  document.querySelectorAll("#charPanel [data-tab]").forEach(b => { b.onclick = () => showCharDetail(chars, +b.dataset.tab); });
+  play();
+}
+
+document.getElementById("charPanel").addEventListener("click", e => {
+  const t = e.target.closest("[data-open],[data-say]");
+  if (!t) return;
+  if (t.dataset.say) speak(t.dataset.say);
+  else if (t.dataset.open && HANZI_DATA[t.dataset.open]) showCharDetail([t.dataset.open], 0);
+  else if (t.dataset.open) loadCharData(t.dataset.open, () => showCharDetail([t.dataset.open], 0), () => showToast("Für diesen Bestandteil gibt es keine Strichdaten."));
+});
+charOverlay.addEventListener("click", e => { if (e.target === charOverlay) closeCharDetail(); });
+// Zeichen auf der Karte antippen → Details
+cardArea.addEventListener("click", e => {
+  const c = e.target.closest("[data-char]");
+  if (c) openCharDetail(c.dataset.word, +c.dataset.char);
+});
+
+function finishSession(completed) {
+  const s = session;
+  session = null;
+  if (!s || s.results.length === 0) { goHome(); return; }
+  if (s.kind === "test") { finishTest(s, completed); return; }
+  const right = s.results.filter(r => r.firstResult).length;
+  const wrongItems = s.results.filter(r => !r.firstResult);
+  const secs = Math.round((Date.now() - s.start) / 1000);
+  const dur = `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+  const seen = new Set();
+  const hard = wrongItems.filter(r => {
+    const id = cardId(r.deckId, r.card);
+    if (seen.has(id)) return false;
+    seen.add(id);
+    return true;
+  });
+  doneView.innerHTML = `<div class="card">
+    <h2>${completed ? "Runde geschafft ✓" : "Runde beendet"}</h2>
+    <div class="nums">
+      <div><b>${right}</b><span>richtig</span></div>
+      <div><b>${wrongItems.length}</b><span>falsch</span></div>
+      <div><b>${dur}</b><span>Minuten</span></div>
+    </div>
+    ${hard.length ? `<h3>Heute schwierig</h3><ul class="weak-list">${hard.slice(0, 5).map(r =>
+      `<li>${r.card.hanzi} <span class="pinyin-inline">${r.card.pinyin}</span> — ${r.card.de}</li>`).join("")}</ul>` : ""}
+    <div class="actions">
+      ${hard.length ? `<button id="againBtn">Fehler nochmal</button>` : ""}
+      <button class="btn-good" id="doneBtn">Fertig</button>
+    </div>
+    <div class="hint">Enter = Fertig</div>
+  </div>`;
+  showView(doneView);
+  document.getElementById("doneBtn").onclick = goHome;
+  const againBtn = document.getElementById("againBtn");
+  if (againBtn) againBtn.onclick = () => startSession("frei", shuffle(hard.map(r => quizItem(r, r.skill))));
+}
+
+// Ergebnis des Diagnosetests: pro Stapel, Lücken, Übernahme in die Wiederholung
+function finishTest(s, completed) {
+  const res = s.results;
+  const right = res.filter(r => r.firstResult).length;
+  const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
+  const byDeck = new Map();
+  res.forEach(r => {
+    const d = byDeck.get(r.deckId) || byDeck.set(r.deckId, { n: 0, ok: 0 }).get(r.deckId);
+    d.n += 1;
+    if (r.firstResult) d.ok += 1;
+  });
+  const gaps = res.filter(r => !r.firstResult);
+  const label = deckSelLabel(s.sel);
+  const rows = [...byDeck].map(([id, d]) => `<tr><td>${DECKS[id].title}</td><td>${d.ok}/${d.n}</td><td>${pct(d.ok, d.n)}%</td></tr>`).join("");
+  const text = [
+    `Diagnosetest ${label} (DE → CN) — ${today()}${completed ? "" : " (abgebrochen)"}`,
+    `Ergebnis: ${right}/${res.length} richtig (${pct(right, res.length)} %)`,
+    `Pro Stapel:`,
+    ...[...byDeck].map(([id, d]) => `- ${DECKS[id].title}: ${d.ok}/${d.n} (${pct(d.ok, d.n)} %)`),
+    gaps.length ? `Lücken (${gaps.length}): ` + gaps.map(r => `${r.card.hanzi} (${r.card.pinyin}) – ${r.card.de}`).join("; ") : "Keine Lücken."
+  ].join("\n");
+
+  doneView.innerHTML = `<div class="card">
+    <h2>${completed ? "Test fertig ✓" : "Test beendet"}</h2>
+    <p class="muted-note">${label} · ${res.length} von ${s.total} Karten beantwortet</p>
+    <div class="nums">
+      <div><b>${pct(right, res.length)}%</b><span>richtig</span></div>
+      <div><b>${gaps.length}</b><span>Lücken</span></div>
+    </div>
+    <table class="stats-table">
+      <thead><tr><th>Stapel</th><th>Richtig</th><th>%</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    ${gaps.length ? `<h3>Lücken</h3><ul class="weak-list">${gaps.map(r =>
+      `<li>${r.card.hanzi} <span class="pinyin-inline">${r.card.pinyin}</span> — ${r.card.de}</li>`).join("")}</ul>` : ""}
+    <div class="actions">
+      ${gaps.length ? `<button id="gapsBtn">Lücken in die Wiederholung</button>` : ""}
+      <button id="copyBtn">Ergebnis kopieren</button>
+      <button class="btn-good" id="doneBtn">Fertig</button>
+    </div>
+    <textarea id="copyText" class="answer-input" rows="6" hidden readonly></textarea>
+  </div>`;
+  showView(doneView);
+  document.getElementById("doneBtn").onclick = goHome;
+  const gapsBtn = document.getElementById("gapsBtn");
+  if (gapsBtn) gapsBtn.onclick = () => {
+    const t = today();
+    gaps.forEach(r => {
+      const id = cardId(r.deckId, r.card);
+      const c = state.cards[id] || (state.cards[id] = {});
+      const e = c.abrufen || (c.abrufen = { box: 1, due: t, seen: 0, wrong: 0, last: null });
+      e.box = 1;
+      e.due = t;
+      e.wrong += 1;
+    });
+    saveState();
+    gapsBtn.disabled = true;
+    gapsBtn.textContent = "✓ übernommen";
+    showToast(`${gaps.length} Lücken sind ab heute in der täglichen Session fällig.`);
+  };
+  document.getElementById("copyBtn").onclick = () => {
+    const ta = document.getElementById("copyText");
+    ta.value = text;
+    const fallback = () => { ta.hidden = false; ta.select(); showToast("Text markiert — mit ⌘C kopieren."); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => showToast("Ergebnis kopiert."), fallback);
+    else fallback();
+  };
+}
+
+function deckSelLabel(sel) {
+  if (sel === "__all__") return "alle Stapel";
+  const m = sel.match(/^__([a-z0-9]+)__$/);
+  if (m) return "alle " + (STUFEN.find(x => x.id === m[1]) || { label: m[1] }).label;
+  return DECKS[sel] ? DECKS[sel].title : sel;
+}
+
+function goHome() {
+  showView(homeView);
+  renderHome();
+}
+
+// ---------------------------------------------------------------
+// Sprachausgabe
+// ---------------------------------------------------------------
+function zhVoice() {
+  if (!("speechSynthesis" in window)) return null;
+  const voices = speechSynthesis.getVoices().filter(v => /^zh[-_]?(CN|Hans)?/i.test(v.lang));
+  return voices.find(v => /CN|Hans/i.test(v.lang)) || voices[0] || null;
+}
+let voiceHintShown = false;
+function maybeShowVoiceHint() {
+  if (voiceHintShown || !("speechSynthesis" in window)) return;
+  const all = speechSynthesis.getVoices();
+  if (all.length === 0 || zhVoice()) return; // Stimmen noch nicht geladen oder vorhanden
+  voiceHintShown = true;
+  showToast("Keine chinesische Stimme gefunden — die Aussprache bleibt stumm oder klingt falsch. " +
+    "Mac: Systemeinstellungen → Bedienungshilfen → Gesprochene Inhalte → Systemstimme → Stimmen verwalten → Chinesisch (Festland). " +
+    "iPhone: Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → Chinesisch.");
+}
+function speak(text, slow) {
+  if (!("speechSynthesis" in window)) {
+    showToast("Dein Browser unterstützt leider keine Sprachausgabe.");
+    return;
+  }
+  maybeShowVoiceHint();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = "zh-CN";
+  const v = zhVoice();
+  if (v) utter.voice = v;
+  utter.rate = slow ? 0.5 : 0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utter);
+}
+function autoSpeak(card) {
+  if (settings.audioAuto) speak(card.hanzi);
+}
+function audioRow() {
+  return `<div class="audio-row"><button class="audio-btn" data-audio="normal" title="Anhören (A)">🔊</button><button class="audio-btn" data-audio="slow" title="Langsam anhören">🐢</button></div>`;
+}
+cardArea.addEventListener("click", e => {
+  const btn = e.target.closest("[data-audio]");
+  if (!btn || !session) return;
+  btn.blur(); // sonst würde Enter danach erneut vorlesen statt weiterzugehen
+  speak(currentItem().card.hanzi, btn.dataset.audio === "slow");
+});
+
+let toastTimer = null;
+function showToast(text) {
+  const t = document.getElementById("toast");
+  t.textContent = text;
+  t.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, 12000);
+}
+
+// ---------------------------------------------------------------
+// Einstellungen
+// ---------------------------------------------------------------
+const modeCheckboxes = Array.from(document.querySelectorAll(".mode-checkbox"));
+const typedCheckbox = document.getElementById("typedCheckbox");
+const audioAutoCheckbox = document.getElementById("audioAutoCheckbox");
+const keyHintCheckbox = document.getElementById("keyHintCheckbox");
+const strokesCheckbox = document.getElementById("strokesCheckbox");
+const newPerDayInput = document.getElementById("newPerDayInput");
+const roundSizeSelect = document.getElementById("roundSizeSelect");
+
+function renderSettings() {
+  modeCheckboxes.forEach(cb => { cb.checked = settings.modes.includes(cb.value); });
+  typedCheckbox.checked = settings.typed;
+  audioAutoCheckbox.checked = settings.audioAuto;
+  keyHintCheckbox.checked = settings.keyHint;
+  strokesCheckbox.checked = settings.strokes;
+  newPerDayInput.value = settings.newPerDay;
+  roundSizeSelect.value = String(settings.roundSize);
+  const active = new Set(settings.activeDecks);
+  document.getElementById("deckChecklist").innerHTML = STUFEN.filter(s => stufeHasCards(s.id)).map(s => {
+    const decks = Object.entries(DECKS).filter(([, d]) => d.stufe === s.id);
+    const on = decks.filter(([id]) => active.has(id)).length;
+    return `<details class="deck-group" ${s.id === "a21" ? "open" : ""}>
+      <summary>${s.label} <span class="muted-note">(${on}/${decks.length} aktiv)</span></summary>
+      <label class="check-row"><input type="checkbox" class="stufe-all" data-stufe="${s.id}" ${on === decks.length ? "checked" : ""}> <i>alle</i></label>
+      ${decks.map(([id, d]) => `<label class="check-row"><input type="checkbox" class="deck-cb" value="${id}" ${active.has(id) ? "checked" : ""}> ${d.title}</label>`).join("")}
+    </details>`;
+  }).join("");
+}
+
+modeCheckboxes.forEach(cb => {
+  cb.onchange = () => {
+    const modes = modeCheckboxes.filter(c => c.checked).map(c => c.value);
+    if (modes.length === 0) { cb.checked = true; return; }
+    settings.modes = modes;
+    saveSettings();
+  };
+});
+typedCheckbox.onchange = () => { settings.typed = typedCheckbox.checked; saveSettings(); };
+audioAutoCheckbox.onchange = () => { settings.audioAuto = audioAutoCheckbox.checked; saveSettings(); };
+strokesCheckbox.onchange = () => { settings.strokes = strokesCheckbox.checked; saveSettings(); };
+keyHintCheckbox.onchange = () => { settings.keyHint = keyHintCheckbox.checked; saveSettings(); applyKeyHint(); };
+function applyKeyHint() { document.getElementById("keyHint").hidden = !settings.keyHint; }
+document.getElementById("hideKeyHintBtn").onclick = () => {
+  settings.keyHint = false;
+  saveSettings();
+  applyKeyHint();
+};
+applyKeyHint();
+newPerDayInput.onchange = () => {
+  const n = Math.max(0, Math.min(100, parseInt(newPerDayInput.value, 10) || 0));
+  settings.newPerDay = n;
+  newPerDayInput.value = n;
+  saveSettings();
+};
+roundSizeSelect.onchange = () => { settings.roundSize = parseInt(roundSizeSelect.value, 10); saveSettings(); };
+document.getElementById("deckChecklist").addEventListener("change", e => {
+  const t = e.target;
+  const active = new Set(settings.activeDecks);
+  if (t.classList.contains("stufe-all")) {
+    Object.entries(DECKS).filter(([, d]) => d.stufe === t.dataset.stufe)
+      .forEach(([id]) => (t.checked ? active.add(id) : active.delete(id)));
+  } else if (t.classList.contains("deck-cb")) {
+    t.checked ? active.add(t.value) : active.delete(t.value);
+  }
+  settings.activeDecks = Object.keys(DECKS).filter(id => active.has(id)); // Kursreihenfolge beibehalten
+  saveSettings();
+  const open = Array.from(document.querySelectorAll(".deck-group")).map(d => d.open);
+  renderSettings();
+  document.querySelectorAll(".deck-group").forEach((d, i) => { d.open = open[i]; });
+});
+
+function openSettings() {
+  renderSettings();
+  settingsOverlay.hidden = false;
+}
+function closeSettings() {
+  settingsOverlay.hidden = true;
+  if (!homeView.hidden) renderHome();
+}
+
+// ---------------------------------------------------------------
+// Sicherung: Export / Import / Zurücksetzen
+// ---------------------------------------------------------------
+function exportProgress() {
+  const data = { format: "cn-karteikarten", exported: new Date().toISOString(), progress: state, settings };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `karteikarten-lernstand-${today()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importProgress(file) {
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (!confirm("Den aktuellen Lernstand durch die Datei ersetzen?")) return;
+      if (data && data.format === "cn-karteikarten") {
+        state = data.progress;
+        if (data.settings) { writeJson(SETTINGS_KEY, data.settings); settings = loadSettings(); }
+      } else if (data && data.version === 4) {
+        state = data;
+      } else {
+        state = migrateV3(data); // alte fortschritt.json (v3)
+      }
+      saveState();
+      renderSettings();
+      alert("Lernstand importiert.");
+    } catch (e) {
+      alert("Diese Datei konnte nicht gelesen werden.");
+    }
+  };
+  reader.readAsText(file);
+}
+
+document.getElementById("exportBtn").onclick = exportProgress;
+document.getElementById("importInput").onchange = e => {
+  if (e.target.files[0]) importProgress(e.target.files[0]);
+  e.target.value = "";
+};
+document.getElementById("resetAllBtn").onclick = () => {
+  if (!confirm("Wirklich den gesamten Lernstand löschen? Vorher am besten exportieren.")) return;
+  state = emptyState();
+  saveState();
+  alert("Lernstand zurückgesetzt.");
+};
+
+// ---------------------------------------------------------------
+// Statistik
+// ---------------------------------------------------------------
+function renderStatsPanel() {
+  let totalSeen = 0, totalWrong = 0, rows = "";
+  Object.entries(DECKS).forEach(([deckId, deck]) => {
+    let seen = 0, wrong = 0;
+    deck.cards.forEach(card => SKILL_ORDER.forEach(sk => {
+      const e = entry(deckId, card, sk);
+      if (e) { seen += e.seen; wrong += e.wrong; }
+    }));
+    totalSeen += seen;
+    totalWrong += wrong;
+    const pct = seen ? Math.round(((seen - wrong) / seen) * 100) + "%" : "–";
+    rows += `<tr><td>${deck.title}</td><td>${seen}</td><td>${seen - wrong}</td><td>${wrong}</td><td>${pct}</td></tr>`;
+  });
+  const totalPct = totalSeen ? Math.round(((totalSeen - totalWrong) / totalSeen) * 100) : 0;
+  // schwach = zuletzt falsch (Box 1), je Fertigkeit
+  const weakItems = allCards().flatMap(x => enabledSkills()
+    .filter(sk => { const e = entry(x.deckId, x.card, sk); return e && e.box === 1 && e.wrong > 0; })
+    .map(sk => quizItem(x, sk)));
+  const weakCards = [...new Map(weakItems.map(it => [cardId(it.deckId, it.card), it.card])).values()];
+  const weakHtml = weakCards.length
+    ? `<button class="btn-good" id="practiceWeakBtn" style="margin-bottom:10px">Diese ${weakCards.length} jetzt üben</button>
+       <ul class="weak-list">${weakCards.slice(0, 40).map(c => `<li>${c.hanzi} <span class="pinyin-inline">${c.pinyin}</span> — ${c.de}</li>`).join("")}</ul>`
+    : `<p class="muted-note">Aktuell keine auffälligen Problemkarten.</p>`;
+  document.getElementById("statsPanel").innerHTML = `
+    <div class="panel-head"><h2>Statistik</h2><button class="icon-btn" id="statsCloseBtn" title="Schließen">✕</button></div>
+    <p>Gesamt beantwortet: ${totalSeen} · Richtig: ${totalSeen - totalWrong} · Falsch: ${totalWrong}${totalSeen ? " (" + totalPct + "% richtig)" : ""}</p>
+    <table class="stats-table">
+      <thead><tr><th>Stapel</th><th>Beantwortet</th><th>Richtig</th><th>Falsch</th><th>%</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <h3>Schwierige Karten (zuletzt falsch, noch nicht wieder gekonnt)</h3>
+    ${weakHtml}
+  `;
+  document.getElementById("statsCloseBtn").onclick = () => { statsOverlay.hidden = true; };
+  const practiceWeakBtn = document.getElementById("practiceWeakBtn");
+  if (practiceWeakBtn) practiceWeakBtn.onclick = () => {
+    statsOverlay.hidden = true;
+    startSession("frei", shuffle(weakItems));
+  };
+}
+
+// ---------------------------------------------------------------
+// Suche & Wörterbuch
+// Eigene Karten (DE/Pinyin/Zeichen) + CC-CEDICT (CN ↔ EN, offline).
+// dict.js wird erst beim ersten Öffnen der Suche geladen.
+// ---------------------------------------------------------------
+const searchOverlay = document.getElementById("searchOverlay");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+const isHan = s => /\p{Script=Han}/u.test(s);
+
+// Pinyin mit Ziffern (CC-CEDICT) → Tonzeichen: "ni3 hao3" → "nǐ hǎo"
+const TONE_TABLE = { a: "āáǎà", e: "ēéěè", i: "īíǐì", o: "ōóǒò", u: "ūúǔù", "ü": "ǖǘǚǜ" };
+function syllableToMarks(syl) {
+  const m = syl.match(/^([a-zA-ZüÜ:]+)([1-5])$/);
+  if (!m) return syl.replace(/u:|v/g, "ü");
+  const s = m[1].replace(/u:|v/g, "ü").replace(/U:|V/g, "Ü");
+  const tone = +m[2];
+  if (tone === 5) return s;
+  const lower = s.toLowerCase();
+  let idx = lower.search(/[ae]/);
+  if (idx < 0) idx = lower.indexOf("ou");
+  if (idx < 0) for (let i = lower.length - 1; i >= 0; i--) if ("aeiouü".includes(lower[i])) { idx = i; break; }
+  if (idx < 0) return s;
+  let marked = TONE_TABLE[lower[idx]][tone - 1];
+  if (s[idx] !== lower[idx]) marked = marked.toUpperCase();
+  return s.slice(0, idx) + marked + s.slice(idx + 1);
+}
+function numToMarks(p) { return p.split(" ").map(syllableToMarks).join(" "); }
+function defsToText(d) {
+  return d.split("/").join("; ").replace(/\[([a-zA-Z:0-9 ]+)\]/g, (m, p) => `[${numToMarks(p)}]`);
+}
+
+let dictPromise = null;
+function loadDict() {
+  if (dictPromise) return dictPromise;
+  dictPromise = new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = "dict.js";
+    s.onload = () => {
+      const entries = window.CEDICT_RAW.split("\n").map(line => {
+        const [w, p, d] = line.split("\t");
+        return { w, p, d, k: p.replace(/u:|v/gi, "u").replace(/[^a-zA-Z]/g, "").toLowerCase(), t: (p.match(/[1-4]/g) || []).map(Number) };
+      });
+      window.CEDICT_RAW = null; // Rohtext nicht doppelt im Speicher halten
+      const byWord = new Map(), byKey = new Map();
+      entries.forEach(e => {
+        (byWord.get(e.w) || byWord.set(e.w, []).get(e.w)).push(e);
+        (byKey.get(e.k) || byKey.set(e.k, []).get(e.k)).push(e);
+      });
+      document.getElementById("dictDate").textContent = window.CEDICT_DATE ? `, Stand ${window.CEDICT_DATE.slice(0, 10)}` : "";
+      resolve({ entries, byWord, byKey });
+    };
+    s.onerror = () => { dictPromise = null; reject(new Error("dict.js nicht geladen")); };
+    document.head.appendChild(s);
+  });
+  return dictPromise;
+}
+
+// Wörter in eigenen Stapeln (für Rangfolge und Markierung)
+let ownWordSet = null;
+function ownWords() {
+  return ownWordSet || (ownWordSet = new Set(allCards().map(x => x.card.hanzi)));
+}
+
+function searchOwn(q) {
+  const t = q.trim();
+  if (!t) return [];
+  let hits;
+  if (isHan(t)) {
+    hits = allCards().filter(x => x.card.hanzi.includes(t));
+  } else {
+    const letters = normalizePinyin(t);
+    const de = normalizeDe(t);
+    hits = allCards().filter(x => {
+      const py = normalizePinyin(x.card.pinyin);
+      return (letters && (py === letters || (letters.length >= 3 && py.startsWith(letters)))) ||
+        (de.length >= 2 && normalizeDe(x.card.de).includes(de));
+    });
+  }
+  // kurze Wörter zuerst, Sätze zuletzt; doppelte Wörter aus mehreren Stapeln nur einmal
+  const seen = new Set();
+  return hits
+    .sort((a, b) => (a.card.type === "satz") - (b.card.type === "satz") || a.card.hanzi.length - b.card.hanzi.length)
+    .filter(x => !seen.has(x.card.hanzi) && seen.add(x.card.hanzi))
+    .slice(0, 12);
+}
+
+function rankDict(list) {
+  const own = ownWords();
+  return list.sort((a, b) =>
+    (own.has(b.w) - own.has(a.w)) || ([...a.w].length - [...b.w].length) || (b.d.length - a.d.length));
+}
+
+function searchDict(dict, q) {
+  const t = q.trim();
+  if (isHan(t)) {
+    const all = dict.byWord.get(t) || [];
+    const first = all.length ? bestEntry(all) : null;
+    const exact = first ? [first, ...all.filter(e => e !== first)] : [];
+    const longer = t.length <= 2
+      ? rankDict(dict.entries.filter(e => e.w !== t && e.w.startsWith(t))).slice(0, 12)
+      : [];
+    return { exact, longer };
+  }
+  // Pinyin: Buchstaben ohne Töne vergleichen, Töne nur wenn eingegeben
+  const letters = normalizePinyin(t);
+  let pinyin = letters ? (dict.byKey.get(letters) || []).slice() : [];
+  if (pinyin.length && hasToneInfo(t)) {
+    const want = inputTones(t);
+    pinyin = pinyin.filter(e => e.t.length === want.length && e.t.every((x, i) => x === want[i]));
+  }
+  if (pinyin.length < 5 && letters.length >= 4) {
+    pinyin = pinyin.concat(dict.entries.filter(e => e.k !== letters && e.k.startsWith(letters)).slice(0, 200));
+  }
+  pinyin = rankDict(pinyin).slice(0, 15);
+  // Englisch: ganzes Wort in den Bedeutungen; exakte Bedeutung zuerst
+  let english = [];
+  const en = t.toLowerCase();
+  if (/^[a-z][a-z' -]{1,}$/.test(en)) {
+    const re = new RegExp(`(^|[^a-z])${en.replace(/[-']/g, "\\$&")}([^a-z]|$)`);
+    english = dict.entries.filter(e => re.test(e.d.toLowerCase())).map(e => {
+      const parts = e.d.toLowerCase().split(/[\/;]/).map(x => x.replace(/\(.*?\)/g, "").replace(/^\s*to /, "").trim());
+      return { e, exact: parts.includes(en.replace(/^to /, "")) };
+    });
+    const own = ownWords();
+    english.sort((a, b) => (b.exact - a.exact) || (own.has(b.e.w) - own.has(a.e.w)) || ([...a.e.w].length - [...b.e.w].length));
+    english = english.slice(0, 20).map(x => x.e);
+  }
+  return { pinyin, english };
+}
+
+// Häufigste Lesung eines Worts: Aussprache aus eigenen Karten, dann ohne
+// Vermerke wie "(Tw)"/"(old)", dann der ausführlichste Eintrag
+function bestEntry(list) {
+  const ownPy = new Map(allCards().map(x => [x.card.hanzi, normalizePinyin(x.card.pinyin)]));
+  const special = e => /^\((Tw|old|archaic|dialect|literary|classical|Cantonese)\b/i.test(e.d) || /^[A-Z]/.test(e.p);
+  return list.slice().sort((a, b) =>
+    ((ownPy.get(b.w) === b.k) - (ownPy.get(a.w) === a.k)) || (special(a) - special(b)) || (b.d.length - a.d.length))[0];
+}
+
+// Satz/Text in Wörter zerlegen: längster Wörterbuchtreffer zuerst (max. 4 Zeichen)
+function segment(dict, text) {
+  const chars = [...text];
+  const out = [];
+  let i = 0;
+  while (i < chars.length) {
+    if (!isHan(chars[i])) { i++; continue; }
+    let word = chars[i];
+    for (let len = Math.min(4, chars.length - i); len >= 1; len--) {
+      const w = chars.slice(i, i + len).join("");
+      const list = dict.byWord.get(w);
+      // Mehrzeichen-Wörter, die nur als Slang/Dialekt existieren ("我去"), nicht nehmen
+      if (list && (len === 1 || !list.every(e => /^\((slang|dialect|Tw|Cantonese|internet slang)\b/i.test(e.d)))) { word = w; break; }
+    }
+    out.push({ w: word, e: dict.byWord.get(word) || null });
+    i += [...word].length;
+  }
+  return out;
+}
+
+function isSaved(hanzi) { return loadMyWords().some(c => c.hanzi === hanzi); }
+function toggleSaved(e) {
+  let words = loadMyWords();
+  if (words.some(c => c.hanzi === e.w)) {
+    words = words.filter(c => c.hanzi !== e.w);
+  } else {
+    words.push({
+      hanzi: e.w,
+      pinyin: numToMarks(e.p),
+      de: e.d.split("/").slice(0, 3).join("; "),
+      level: "mittel",
+      note: "Bedeutung auf Englisch (Wörterbuch CC-CEDICT)."
+    });
+    if (!settings.activeDecks.includes(MY_DECK)) { settings.activeDecks.push(MY_DECK); }
+  }
+  writeJson(MY_WORDS_KEY, words);
+  syncMyWordsDeck();
+  ownWordSet = null;
+  saveSettings();
+}
+
+let lastResults = []; // Einträge in Anzeigereihenfolge (für Enter = erstes Ergebnis anhören)
+function dictRow(e) {
+  lastResults.push({ hanzi: e.w });
+  const strokesOk = [...e.w].length <= 4;
+  return `<div class="res" data-word="${e.w}">
+    <div class="res-hz ${[...e.w].length > 4 ? "long" : ""}" data-detail="${e.w}" title="Zeichen-Details">${e.w}</div>
+    <div class="res-main">
+      <div class="res-py">${numToMarks(e.p)}</div>
+      <div class="res-def">${escapeHtml(defsToText(e.d))}</div>
+      ${ownWords().has(e.w) ? `<div class="res-meta">in deinen Karten</div>` : ""}
+      <div class="stroke-holder"></div>
+    </div>
+    <div class="res-actions">
+      <button data-say="${e.w}" title="Anhören">🔊</button>
+      ${strokesOk ? `<button data-strokes="${e.w}" title="Strichfolge">✍️</button>` : ""}
+      <button data-save="${e.w}|${e.p}" class="${isSaved(e.w) ? "saved" : ""}" title="Als Karte merken">${isSaved(e.w) ? "✓ gemerkt" : "＋ merken"}</button>
+    </div>
+  </div>`;
+}
+function ownRow(x) {
+  lastResults.push({ hanzi: x.card.hanzi });
+  return `<div class="res">
+    <div class="res-hz ${[...x.card.hanzi].length > 4 ? "long" : ""}" data-detail="${x.card.hanzi}" title="Zeichen-Details">${x.card.hanzi}</div>
+    <div class="res-main">
+      <div class="res-py">${x.card.pinyin}</div>
+      <div class="res-def">${x.card.de}</div>
+      <div class="res-meta">${DECKS[x.deckId].title} · ${{ neu: "neu", lernen: "am Lernen", sicher: "sicher" }[cardStatus(x.deckId, x.card)]}</div>
+      <div class="stroke-holder"></div>
+    </div>
+    <div class="res-actions">
+      <button data-say="${x.card.hanzi}" title="Anhören">🔊</button>
+      ${strokeChars(x.card) ? `<button data-strokes="${x.card.hanzi}" title="Strichfolge">✍️</button>` : ""}
+      <button data-practice="${x.deckId}" title="Diesen Stapel üben">Stapel üben</button>
+    </div>
+  </div>`;
+}
+
+let searchSeq = 0;
+async function runSearch() {
+  const q = searchInput.value.trim();
+  const seq = ++searchSeq;
+  lastResults = [];
+  if (!q) { searchResults.innerHTML = `<p class="muted-note">Tipp: Auch ganze Sätze einfügen — sie werden in Wörter zerlegt.</p>`; return; }
+  let html = "";
+  const own = searchOwn(q);
+  if (own.length) html += `<div class="res-head">Deine Karten</div>` + own.map(ownRow).join("");
+  searchResults.innerHTML = html + `<p class="muted-note">Wörterbuch wird geladen …</p>`;
+  let dict;
+  try {
+    dict = await loadDict();
+  } catch (err) {
+    if (seq === searchSeq) searchResults.innerHTML = html + `<p class="muted-note">Das Wörterbuch konnte nicht geladen werden.</p>`;
+    return;
+  }
+  if (seq !== searchSeq) return; // inzwischen weitergetippt
+
+  if (isHan(q)) {
+    const hanOnly = [...q].filter(isHan).join("");
+    const r = searchDict(dict, hanOnly);
+    if (r.exact.length) html += `<div class="res-head">Wörterbuch</div>` + r.exact.map(dictRow).join("");
+    if (!r.exact.length || [...hanOnly].length > 4 || hanOnly !== q) {
+      const segs = segment(dict, q);
+      if (segs.length > 1 || !r.exact.length) {
+        html += `<div class="res-head">Wort für Wort (Lesehilfe, keine Übersetzung)</div><div class="seg-row">` +
+          segs.map(s => s.e
+            ? (be => `<div class="seg" data-search="${s.w}"><b>${s.w}</b><span class="res-py">${numToMarks(be.p)}</span><small>${escapeHtml(be.d.split("/")[0].slice(0, 40))}</small></div>`)(bestEntry(s.e))
+            : `<div class="seg unknown"><b>${s.w}</b><small>unbekannt</small></div>`).join("") + `</div>`;
+        html += `<button id="translateBtn" title="Öffnet Google Übersetzer in einem neuen Tab — der Text wird dabei an Google gesendet">Ganzen Satz online übersetzen ↗</button>`;
+      }
+    }
+    if (r.longer.length) html += `<div class="res-head">Wörter mit „${hanOnly}“</div>` + r.longer.map(dictRow).join("");
+  } else {
+    const r = searchDict(dict, q);
+    if (r.pinyin.length) html += `<div class="res-head">Pinyin</div>` + r.pinyin.map(dictRow).join("");
+    if (r.english.length) html += `<div class="res-head">Englisch</div>` + r.english.map(dictRow).join("");
+  }
+  if (!html) html = `<p class="muted-note">Nichts gefunden. Deutsch findet nur deine eigenen Karten — fürs Wörterbuch Englisch oder Pinyin versuchen.</p>`;
+  searchResults.innerHTML = html;
+  const tb = document.getElementById("translateBtn");
+  if (tb) tb.onclick = () => window.open(`https://translate.google.com/?sl=zh-CN&tl=de&op=translate&text=${encodeURIComponent(q)}`, "_blank", "noopener");
+}
+
+let searchTimer = null;
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(runSearch, 180);
+});
+searchInput.addEventListener("keydown", e => {
+  if (e.key !== "Enter") return;
+  e.preventDefault();
+  e.stopPropagation();
+  clearTimeout(searchTimer);
+  runSearch().then(() => { if (lastResults[0]) speak(lastResults[0].hanzi); });
+});
+searchResults.addEventListener("click", e => {
+  const t = e.target.closest("[data-say],[data-strokes],[data-save],[data-practice],[data-search],[data-detail]");
+  if (!t) return;
+  if (t.dataset.say) speak(t.dataset.say);
+  else if (t.dataset.detail) openCharDetail(t.dataset.detail, 0);
+  else if (t.dataset.search) { searchInput.value = t.dataset.search; runSearch(); }
+  else if (t.dataset.practice) { closeSearch(); startSession("frei", buildPracticeQueue(t.dataset.practice, "alle")); }
+  else if (t.dataset.save) {
+    const [w, p] = t.dataset.save.split("|");
+    dictPromise.then(d => {
+      const e2 = (d.byWord.get(w) || []).find(x => x.p === p);
+      if (!e2) return;
+      toggleSaved(e2);
+      const saved = isSaved(w);
+      searchResults.querySelectorAll(`[data-save^="${w}|"]`).forEach(b => {
+        b.classList.toggle("saved", saved);
+        b.textContent = saved ? "✓ gemerkt" : "＋ merken";
+      });
+      showToast(saved ? `„${w}“ ist jetzt in „Meine Wörter“ und kommt in der täglichen Session dran.` : `„${w}“ aus „Meine Wörter“ entfernt.`);
+    });
+  } else if (t.dataset.strokes) {
+    const holder = t.closest(".res").querySelector(".stroke-holder");
+    if (holder.firstChild) { holder.innerHTML = ""; return; }
+    const chars = [...t.dataset.strokes].filter(isHan).join("");
+    holder.innerHTML = `<div class="stroke-slot" data-hanzi="${chars}" title="Antippen spielt neu ab"></div>`;
+    mountStrokes(holder);
+  }
+});
+
+function openSearch() {
+  searchOverlay.hidden = false;
+  searchInput.focus();
+  searchInput.select();
+  if (!searchInput.value) runSearch();
+  loadDict().catch(() => {}); // schon mal im Hintergrund laden
+}
+function closeSearch() {
+  searchOverlay.hidden = true;
+  if (!homeView.hidden) renderHome();
+}
+document.getElementById("searchBtn").onclick = e => { e.currentTarget.blur(); openSearch(); };
+document.getElementById("searchCloseBtn").onclick = closeSearch;
+searchOverlay.addEventListener("click", e => { if (e.target === searchOverlay) closeSearch(); });
+
+// ---------------------------------------------------------------
+// Bedienung
+// ---------------------------------------------------------------
+document.getElementById("statsToggleBtn").onclick = e => {
+  e.currentTarget.blur();
+  if (statsOverlay.hidden) { renderStatsPanel(); statsOverlay.hidden = false; }
+  else statsOverlay.hidden = true;
+};
+document.getElementById("settingsBtn").onclick = e => { e.currentTarget.blur(); openSettings(); };
+document.getElementById("settingsCloseBtn").onclick = closeSettings;
+// Klick auf den abgedunkelten Rand schließt das Panel
+[statsOverlay, settingsOverlay].forEach(o => o.addEventListener("click", e => {
+  if (e.target !== o) return;
+  if (o === settingsOverlay) closeSettings(); else o.hidden = true;
+}));
+document.getElementById("practiceBtn").onclick = () => startSession("frei");
+document.getElementById("testBtn").onclick = () => startSession("test");
+document.getElementById("endSessionBtn").onclick = e => { e.currentTarget.blur(); finishSession(false); };
+
+// Enter: springt je nach Zustand zum nächsten sinnvollen Schritt
+// (starten / Karte umdrehen / prüfen / weiter / fertig). Esc schließt Panels
+// bzw. beendet die Runde.
+const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "startBtn", "doneBtn"];
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    if (!charOverlay.hidden) closeCharDetail();
+    else if (!searchOverlay.hidden) closeSearch();
+    else if (!settingsOverlay.hidden) closeSettings();
+    else if (!statsOverlay.hidden) statsOverlay.hidden = true;
+    else if (session) finishSession(false);
+    return;
+  }
+  if (!settingsOverlay.hidden || !statsOverlay.hidden || !searchOverlay.hidden || !charOverlay.hidden) return;
+  const active = document.activeElement;
+  const typing = active && (active.tagName === "SELECT" || (active.tagName === "INPUT" && !active.disabled && active.type !== "checkbox"));
+  if (e.key === "/" && !typing) { e.preventDefault(); openSearch(); return; }
+
+  // Kürzel während der Runde (nicht beim Tippen)
+  if (session && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    const clickFirst = ids => {
+      const btn = ids.map(id => document.getElementById(id)).find(b => b && !b.disabled && b.offsetParent !== null);
+      if (btn) { e.preventDefault(); btn.click(); }
+      return !!btn;
+    };
+    if (e.key === " ") { clickFirst(["flipBtn", "checkBtn", "nextBtn"]) || e.preventDefault(); return; }
+    if (e.key === "1") { clickFirst(["badBtn", "stillWrongBtn", "giveUpBtn"]); return; }
+    if (e.key === "2") { clickFirst(["goodBtn", "overrideBtn", "nextBtn"]); return; }
+    if (e.key === "a" || e.key === "A") {
+      const it = currentItem();
+      // bei DE→CN erst nach dem Aufdecken, sonst würde es die Lösung verraten
+      if (it.mode !== "de-cn" || it.phase === "zeigen" || document.querySelector("#feedback [data-audio]")) speak(it.card.hanzi);
+      return;
+    }
+  }
+
+  if (e.key !== "Enter") return;
+  if (active && (active.tagName === "SELECT" || active.classList.contains("answer-input"))) return;
+  // Ein sichtbar fokussierter Knopf (z.B. per Tab gewählt) hat Vorrang
+  if (active && active.tagName === "BUTTON" && active.offsetParent !== null && !active.classList.contains("icon-btn")) return;
+  for (const id of ENTER_TARGETS) {
+    const btn = document.getElementById(id);
+    if (btn && !btn.disabled && btn.offsetParent !== null) {
+      e.preventDefault();
+      btn.click();
+      return;
+    }
+  }
+});
+
+// ---------------------------------------------------------------
+// Als App (nur wenn über eine Web-Adresse geöffnet, nicht per Doppelklick)
+// ---------------------------------------------------------------
+if (location.protocol.startsWith("http")) {
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(e => console.warn("Offline-Modus nicht verfügbar", e));
+  // Bittet den Browser, den Lernstand nicht bei Speicherknappheit zu löschen
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+  // iPhone im Browser (nicht vom Home-Bildschirm): einmal erklären, warum installieren
+  const isIos = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const standalone = window.navigator.standalone || matchMedia("(display-mode: standalone)").matches;
+  if (isIos && !standalone && !readJson("cnTutorInstallHint")) {
+    writeJson("cnTutorInstallHint", true);
+    showToast("Tipp: Teilen-Symbol → „Zum Home-Bildschirm“. Dann läuft die App offline und Safari löscht deinen Lernstand nicht nach längerer Pause.");
+  }
+}
+
+renderHome();
+</script>
+</body>
+</html>
