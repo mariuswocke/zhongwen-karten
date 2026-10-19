@@ -399,6 +399,7 @@
   .write-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 8px; margin: 16px -8px 6px; }
   .write-box { touch-action: none; background-color: var(--card-bg); }
   .write-box.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .write-preview { margin: 4px auto 12px; display: grid; place-items: center; color: var(--border); font-weight: 500; line-height: 1; }
   .write-status { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; text-align: center; }
   .char-panel { max-width: 560px; }
   .char-tabs { display: flex; gap: 6px; margin: 8px 0; }
@@ -717,6 +718,11 @@
     <label class="switch-row"><span>Nach dem Umdrehen vorlesen 🔊</span><input type="checkbox" id="audioAutoCheckbox"></label>
     <label class="switch-row"><span>Strichfolge neben Wörtern</span><input type="checkbox" id="strokesCheckbox"></label>
 
+    <h3>Schreibfeld</h3>
+    <div class="pill-row"><button class="pill" data-writesize="s">Klein</button><button class="pill" data-writesize="m">Mittel</button><button class="pill" data-writesize="l">Groß</button></div>
+    <p class="muted-note">Vorschau in echter Größe:</p>
+    <div class="stroke-box write-preview" id="writePreview">字</div>
+
     <h3>Tagesziel</h3>
     <div class="setting-row"><span>Neue Karten pro Tag</span><input type="number" id="newPerDayInput" min="0" max="100" step="1"></div>
     <div class="setting-row"><span>Karten pro Runde</span>
@@ -904,6 +910,7 @@ function loadSettings() {
     audioAuto: s.audioAuto !== undefined ? !!s.audioAuto : true,
     keyHint: s.keyHint !== undefined ? !!s.keyHint : true,
     strokes: s.strokes !== undefined ? !!s.strokes : true,
+    writeSize: ["s", "m", "l"].includes(s.writeSize) ? s.writeSize : "l",
     newPerDay: Number.isFinite(s.newPerDay) ? s.newPerDay : 10,
     roundSize: Number.isFinite(s.roundSize) ? s.roundSize : 30,
     lang: s.lang === "en" ? "en" : "de",
@@ -1710,9 +1717,10 @@ function writeBoxSize(n) {
 }
 // Großes Schreib-Pad für das aktive Zeichen; die übrigen Zeichen werden klein angezeigt.
 const WRITE_MINI = 60;
-function writePadSize() {
-  const avail = Math.min(cardArea.clientWidth || 360, 480) - 26;
-  return Math.max(150, Math.min(360, avail, Math.floor(window.innerHeight * 0.5)));
+const WRITE_MAX = { s: 150, m: 250, l: 360 };
+function writePadSize(level = settings.writeSize) {
+  const avail = Math.min(document.querySelector(".wrap").clientWidth || 360, 480) - 26;
+  return Math.max(120, Math.min(WRITE_MAX[level] || 360, avail, Math.floor(window.innerHeight * 0.5)));
 }
 function renderWriteCard(it) {
   const card = it.card;
@@ -2394,6 +2402,7 @@ function renderSettings() {
   audioAutoCheckbox.checked = settings.audioAuto;
   keyHintCheckbox.checked = settings.keyHint;
   strokesCheckbox.checked = settings.strokes;
+  renderWritePreview();
   newPerDayInput.value = settings.newPerDay;
   roundSizeSelect.value = String(settings.roundSize);
   const active = new Set(settings.activeDecks);
@@ -2426,6 +2435,15 @@ modeCheckboxes.forEach(cb => {
 });
 typedCheckbox.onchange = () => { settings.typed = typedCheckbox.checked; saveSettings(); };
 audioAutoCheckbox.onchange = () => { settings.audioAuto = audioAutoCheckbox.checked; saveSettings(); };
+function renderWritePreview() {
+  document.querySelectorAll("[data-writesize]").forEach(b => b.classList.toggle("on", b.dataset.writesize === settings.writeSize));
+  const box = document.getElementById("writePreview"), size = writePadSize();
+  box.style.width = box.style.height = size + "px";
+  box.style.fontSize = Math.round(size * 0.8) + "px";
+}
+document.querySelectorAll("[data-writesize]").forEach(b => {
+  b.onclick = () => { settings.writeSize = b.dataset.writesize; saveSettings(); renderWritePreview(); };
+});
 strokesCheckbox.onchange = () => { settings.strokes = strokesCheckbox.checked; saveSettings(); };
 keyHintCheckbox.onchange = () => { settings.keyHint = keyHintCheckbox.checked; saveSettings(); applyKeyHint(); };
 function applyKeyHint() { document.getElementById("keyHint").hidden = !settings.keyHint; }
@@ -3285,6 +3303,7 @@ const EN_STATIC = {
   "Antwort eintippen (automatische Prüfung)": "Type the answer (automatic check)",
   "Nach dem Umdrehen vorlesen 🔊": "Read aloud after flipping 🔊",
   "Strichfolge neben Wörtern": "Stroke order next to words",
+  "Schreibfeld": "Writing pad", "Klein": "Small", "Mittel": "Medium", "Groß": "Large", "Vorschau in echter Größe:": "Preview at actual size:",
   "Tagesziel": "Daily goal", "Neue Karten pro Tag": "New cards per day", "Karten pro Runde": "Cards per round",
   "Aktive Lektionen": "Active lessons",
   "Neue Karten kommen nur aus angehakten Lektionen. Hake an, was im Kurs schon dran war.": "New cards only come from ticked lessons. Tick what the course has covered.",

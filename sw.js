@@ -1,7 +1,7 @@
 // Service Worker: hält alle App-Dateien offline vor.
 // Bei jeder neuen Version VERSION hochzählen — dann lädt die App beim
 // nächsten Öffnen die neuen Dateien und räumt den alten Zwischenspeicher weg.
-const VERSION = "v8";
+const VERSION = "v9";
 const CACHE = `cn-karten-${VERSION}`;
 const FILES = [
   "./",
