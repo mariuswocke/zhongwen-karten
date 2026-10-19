@@ -67,7 +67,7 @@
     color: var(--ink);
     font-family: -apple-system, "PingFang SC", "SF Pro Rounded", "Noto Sans SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
     padding: 16px;
-    min-height: 100vh;
+    min-height: 100vh; min-height: 100dvh;
   }
   [hidden] { display: none !important; }
   .wrap { max-width: 560px; margin: 0 auto; }
@@ -193,9 +193,9 @@
   .facts b { color: var(--ink); }
 
   /* --- Auswahl-Sheet (Üben / Test) --- */
-  .sheet-overlay { align-items: flex-end; padding: 0; }
+  .overlay.sheet-overlay { align-items: flex-end; padding: 0; }
   .sheet {
-    width: 100%; max-width: 600px; max-height: 88vh; overflow-y: auto; margin: 0 auto;
+    width: 100%; max-width: 600px; max-height: 88vh; max-height: calc(100dvh - env(safe-area-inset-top) - 16px); overflow-y: auto; overscroll-behavior: contain; margin: 0 auto;
     background: var(--card-bg); border-radius: 28px 28px 0 0; padding: 8px 18px max(20px, env(safe-area-inset-bottom));
     box-shadow: 0 -10px 40px rgba(0,0,0,.2); animation: sheet-up .28s cubic-bezier(.2,.9,.3,1);
   }
@@ -342,11 +342,19 @@
   /* --- Panels (Statistik, Einstellungen) --- */
   .overlay {
     position: fixed; inset: 0; z-index: 20; background: rgba(30,15,40,0.45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
-    display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; padding: 24px 12px;
+    display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
     animation: fade .2s ease;
   }
+  /* offenes Fenster: Seite dahinter scrollt nicht mit */
+  html:has(.overlay:not([hidden])), html:has(.overlay:not([hidden])) body { overflow: hidden; }
   .panel { width: 100%; max-width: 600px; padding: 18px 20px; }
-  .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .overlay > .panel { margin: max(24px, calc(env(safe-area-inset-top) + 8px)) auto max(24px, calc(env(safe-area-inset-bottom) + 8px)); }
+  .panel-head {
+    display: flex; justify-content: space-between; align-items: center; margin: -18px -20px 8px; padding: 14px 20px 8px;
+    position: sticky; top: max(8px, env(safe-area-inset-top)); z-index: 2;
+    background: var(--card-bg); border-radius: 24px 24px 0 0;
+  }
   .panel-head h2 { margin: 0; }
   .setting-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; font-size: 0.93rem; }
   .setting-row input[type="number"] { width: 76px; padding: 8px 10px; font-size: 0.95rem; border-radius: 10px; border: 2px solid var(--border); background: var(--bg); color: var(--ink); }
@@ -548,6 +556,7 @@
 
   /* --- iPhone / Touch --- */
   html { -webkit-text-size-adjust: 100%; }
+  html, body { overscroll-behavior-y: none; } /* kein Nachfedern der ganzen App */
   body {
     padding-top: max(16px, env(safe-area-inset-top));
     padding-right: max(16px, env(safe-area-inset-right));
@@ -751,6 +760,10 @@
         <button id="resetAllBtn">Alles zurücksetzen</button>
       </div>
     </details>
+
+    <h3>App-Version</h3>
+    <div class="setting-row"><span id="versionLabel"></span><button id="updateBtn">Neueste Version laden</button></div>
+    <p class="muted-note" id="versionStatus"></p>
   </div>
 </div>
 
@@ -2537,7 +2550,39 @@ document.getElementById("deckChecklist").addEventListener("change", e => {
   document.querySelectorAll(".deck-group").forEach((d, i) => { d.open = open[i]; });
 });
 
+// Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
+const APP_VERSION = "v11";
+const UPDATE_FLAG = "cnTutorUpdatedTo";
+async function loadLatestVersion() {
+  const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
+  btn.disabled = true;
+  status.textContent = tr("Prüfe …", "Checking …");
+  let latest = null;
+  try {
+    const t = await (await fetch("sw.js?check=" + Date.now(), { cache: "no-store" })).text();
+    latest = (t.match(/VERSION = "([^"]+)"/) || [])[1] || null;
+  } catch (e) { /* offline */ }
+  btn.disabled = false;
+  if (!latest) { status.textContent = tr("Keine Verbindung — bitte online nochmal versuchen.", "No connection — please try again online."); return; }
+  if (latest === APP_VERSION) { status.textContent = `✓ ${tr("Du hast die neueste Version", "You have the latest version")} (${APP_VERSION}).`; return; }
+  status.textContent = tr(`Lade ${latest} …`, `Loading ${latest} …`);
+  try { const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(); if (reg) await reg.update(); } catch (e) { /* egal */ }
+  try { for (const k of await caches.keys()) if (k.startsWith("cn-karten-")) await caches.delete(k); } catch (e) { /* egal */ }
+  try { localStorage.setItem(UPDATE_FLAG, latest); } catch (e) { /* egal */ }
+  location.replace(location.pathname + "?v=" + latest);
+}
+document.getElementById("updateBtn").onclick = loadLatestVersion;
+function reportUpdate() {
+  let to = null;
+  try { to = localStorage.getItem(UPDATE_FLAG); localStorage.removeItem(UPDATE_FLAG); } catch (e) { /* egal */ }
+  if (!to) return;
+  showToast(to === APP_VERSION
+    ? `✓ ${tr("Aktualisiert — du hast jetzt die neueste Version", "Updated — you now have the latest version")} (${APP_VERSION}).`
+    : tr(`Noch ${APP_VERSION} — ${to} ist bei GitHub evtl. erst in ein paar Minuten da. Später nochmal versuchen.`, `Still ${APP_VERSION} — ${to} may take a few minutes to reach GitHub. Try again later.`));
+}
 function openSettings() {
+  document.getElementById("versionLabel").textContent = `${tr("Installiert", "Installed")}: ${APP_VERSION}`;
+  document.getElementById("versionStatus").textContent = "";
   renderSettings();
   settingsOverlay.hidden = false;
 }
@@ -3323,6 +3368,7 @@ document.addEventListener("keydown", e => {
 // Als App (nur wenn über eine Web-Adresse geöffnet, nicht per Doppelklick)
 // ---------------------------------------------------------------
 if (location.protocol.startsWith("http")) {
+  reportUpdate();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(e => console.warn("Offline-Modus nicht verfügbar", e));
   // Bittet den Browser, den Lernstand nicht bei Speicherknappheit zu löschen
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
@@ -3371,7 +3417,7 @@ const EN_STATIC = {
   "Mehr: Sicherung & Tastenkürzel": "More: backup & shortcuts",
   "Tastenkürzel unter der Karte (Mac)": "Keyboard shortcuts under the card (Mac)",
   "Lernstand wird automatisch gespeichert. Export/Import dient nur als Sicherung.": "Progress is saved automatically. Export/import is only a backup.",
-  "Exportieren": "Export", "Importieren": "Import", "Alles zurücksetzen": "Reset everything",
+  "App-Version": "App version", "Neueste Version laden": "Load latest version", "Exportieren": "Export", "Importieren": "Import", "Alles zurücksetzen": "Reset everything",
   "Suchen & Wörterbuch (/)": "Translator & dictionary (/)", "Statistik": "Statistics", "Runde beenden": "End round",
   "Hinweis ausblenden (in ⚙️ wieder einschaltbar)": "Hide hint (re-enable in ⚙️)",
   "Schließen (Esc)": "Close (Esc)", "Schließen": "Close",

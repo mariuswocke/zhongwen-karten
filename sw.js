@@ -1,7 +1,7 @@
 // Service Worker: hält alle App-Dateien offline vor.
-// Bei jeder neuen Version VERSION hochzählen — dann lädt die App beim
-// nächsten Öffnen die neuen Dateien und räumt den alten Zwischenspeicher weg.
-const VERSION = "v10";
+// Bei jeder neuen Version VERSION hochzählen (und APP_VERSION in index.html) —
+// dann lädt die App die neuen Dateien und räumt den alten Zwischenspeicher weg.
+const VERSION = "v11";
 const CACHE = `cn-karten-${VERSION}`;
 const FILES = [
   "./",
@@ -21,9 +21,14 @@ const FILES = [
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
+// Große, selten geänderte Dateien: aus dem Zwischenspeicher (neu geladen bei neuer VERSION)
+const BIG = ["dict.js", "hanzi-data.js", "hanzi-meta.js", "hanzi-writer.min.js", "/icons/"];
 
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
+  // cache: "reload" umgeht den HTTP-Cache, sonst landen evtl. alte Dateien im neuen Speicher
+  event.waitUntil(caches.open(CACHE)
+    .then(c => c.addAll(FILES.map(f => new Request(f, { cache: "reload" }))))
+    .then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", event => {
@@ -34,17 +39,30 @@ self.addEventListener("activate", event => {
   );
 });
 
-// Erst aus dem Zwischenspeicher, sonst aus dem Netz (und dann merken).
+// App-Dateien zuerst frisch aus dem Netz (offline oder nach 3 s aus dem Speicher),
+// große Datendateien zuerst aus dem Speicher.
 self.addEventListener("fetch", event => {
   const req = event.request;
-  if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
-  event.respondWith(
-    caches.match(req, { ignoreSearch: true }).then(hit => hit || fetch(req).then(res => {
-      if (res.ok) {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(req, copy));
-      }
-      return res;
-    }))
-  );
+  const url = new URL(req.url);
+  if (req.method !== "GET" || url.origin !== location.origin || url.pathname.endsWith("/sw.js")) return;
+  const fromCache = () => caches.match(req, { ignoreSearch: true });
+  const fromNet = () => fetch(new Request(req.url, { cache: "no-cache", credentials: "same-origin" })).then(res => {
+    if (res.ok) {
+      const copy = res.clone();
+      caches.open(CACHE).then(c => c.put(req, copy));
+    }
+    return res;
+  });
+  if (BIG.some(b => url.pathname.includes(b))) {
+    event.respondWith(fromCache().then(hit => hit || fromNet()));
+    return;
+  }
+  event.respondWith(new Promise(resolve => {
+    let done = false;
+    const finish = res => { if (!done && res) { done = true; resolve(res); } };
+    const timer = setTimeout(() => fromCache().then(finish), 3000);
+    fromNet()
+      .then(res => { clearTimeout(timer); finish(res); })
+      .catch(() => { clearTimeout(timer); fromCache().then(hit => { finish(hit); if (!done) { done = true; resolve(Response.error()); } }); });
+  }));
 });
