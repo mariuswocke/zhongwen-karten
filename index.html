@@ -450,6 +450,13 @@
   .ch-node.done .ch-badge { background: var(--g-green); border-color: transparent; color: #fff; box-shadow: 0 4px 0 var(--edge-green); }
   .ch-node.locked { opacity: .62; }
   .ch-node.locked .ch-badge { font-size: 1.2rem; }
+  .medal-row { display: flex; gap: 8px; margin: 14px 0 6px; }
+  .medal { flex: 1; min-width: 0; text-align: center; border: 1px solid var(--border); border-radius: 14px; padding: 8px 4px; background: var(--card-bg); }
+  .medal .m-ico { font-size: 1.8rem; line-height: 1.1; }
+  .medal b { display: block; font-size: 0.82rem; }
+  .medal small { display: block; font-size: 0.66rem; color: var(--muted); line-height: 1.25; }
+  .medal.off .m-ico { opacity: .35; filter: grayscale(1); }
+  .medal.top { border-color: var(--amber); box-shadow: 0 0 0 2px color-mix(in srgb, var(--amber) 35%, transparent); }
   .ch-body { flex: 1; min-width: 0; }
   .ch-title { font-weight: 700; font-size: 0.98rem; line-height: 1.25; }
   .ch-title small { color: var(--muted); font-weight: 500; font-size: 0.8rem; margin-left: 4px; }
@@ -1507,7 +1514,8 @@ function startSession(kind, queue, opts) {
   }
   combo = 0;
   updateCombo(false);
-  session = { kind, queue: q, pos: 0, total: q.length, doneCount: 0, results: [], start: Date.now(), sel: opts && opts.chapter ? "ch:" + opts.chapter : deckSelect.value, chapter: (opts && opts.chapter) || null };
+  const chId = (opts && opts.chapter) || null;
+  session = { kind, queue: q, pos: 0, total: q.filter(x => !(x.ladder && x.phase === "zeigen")).length, doneCount: 0, medalBefore: chId ? chapterMedal(chapterById(chId)) : -1, results: [], start: Date.now(), sel: opts && opts.chapter ? "ch:" + opts.chapter : deckSelect.value, chapter: (opts && opts.chapter) || null };
   showView(sessionView);
   renderCard();
 }
@@ -1563,7 +1571,7 @@ function renderCard() {
   updateSessionBar();
   const typeLabel = card.type === "satz" ? tr("Satz", "Sentence") : tr("Wort", "Word");
 
-  // Neue Karte: erst ansehen, ein paar Karten später abfragen
+  // Neue Karte: erst ansehen, dann gleich abfragen
   if (it.phase === "zeigen") {
     cardArea.innerHTML = `<div class="card">
       <div class="level-badge"><span class="badge-new">${tr("Neu", "New")}</span> · ${levelLabel(card.level)} · ${typeLabel}</div>
@@ -1578,7 +1586,7 @@ function renderCard() {
     autoSpeak(card);
     mountStrokes();
     document.getElementById("nextBtn").onclick = () => {
-      reinsert({ ...it, phase: "abfragen" }, 3);
+      if (!it.ladder) reinsert({ ...it, phase: "abfragen" }, 0); // direkt danach abfragen
       advance();
     };
     return;
@@ -1942,6 +1950,7 @@ function finishSession(completed) {
     <div class="trophy">${trophy}</div>
     <h2>${headline}</h2>
     <p class="cele-sub">${sub}</p>
+    ${medalBanner(s)}
     <div class="big-ring ring">${ringSvg(ratio, true)}<div class="ring-mid"><div><b>${Math.round(ratio * 100)}%</b><span>${tr("richtig", "correct")}</span></div></div></div>
     <div class="stat-tiles">
       <div class="stat-tile"><b>${right}</b><span>${tr("gewusst", "known")}</span></div>
@@ -1986,6 +1995,8 @@ function finishTest(s, completed) {
     const ch = chapterById(s.chapter);
     const p = pct(right, res.length);
     pathState.best[ch.id] = Math.max(pathState.best[ch.id] || 0, p);
+    const errs = res.length - right;
+    if (p >= PASS_PCT && !(errs >= pathState.bestErr[ch.id])) pathState.bestErr[ch.id] = errs;
     if (p >= PASS_PCT) {
       pathState.passed[ch.id] = { pct: Math.max(p, (pathState.passed[ch.id] || {}).pct || 0), date: today() };
       nextCh = nextChapterOf(ch);
@@ -1994,6 +2005,7 @@ function finishTest(s, completed) {
       banner = `<div class="banner warn">${p} % — ${tr("zum Bestehen brauchst du", "to pass you need")} ${PASS_PCT} %. ${tr("Übe die Lücken und versuch es nochmal.", "Practise the gaps and try again.")}</div>`;
     }
     savePath();
+    banner += medalBanner(s);
   }
   const rows = [...byDeck].map(([id, d]) => `<tr><td>${DECKS[id].title}</td><td>${d.ok}/${d.n}</td><td>${pct(d.ok, d.n)}%</td></tr>`).join("");
   const text = [
@@ -2078,7 +2090,7 @@ function goHome() {
 const PATH_KEY = "cnTutorPath_v1";
 function loadPath() {
   const p = readJson(PATH_KEY) || {};
-  return { passed: p.passed || {}, unlocked: p.unlocked || {}, best: p.best || {} };
+  return { passed: p.passed || {}, unlocked: p.unlocked || {}, best: p.best || {}, bestErr: p.bestErr || {} };
 }
 let pathState = loadPath();
 function savePath() { writeJson(PATH_KEY, pathState); }
@@ -2117,6 +2129,32 @@ function chapterStats(ch) {
   const prog = passed ? 1 : all.length ? 0.5 * (seen / all.length) + 0.5 * share : 0;
   return { words, sents, all, seen, sicher, wSeen: seenN(words), wSicher: sicherN(words), sSeen: seenN(sents), sSicher: sicherN(sents),
     writable, wrDone, passed, best: pathState.best[ch.id] || 0, share, mastered, prog };
+}
+// Medaillen: Bronze = alle Wörter einmal gesehen; Silber/Gold/Platin = bestandener
+// Kapiteltest (≥ PASS_PCT) mit höchstens 14 / 4 / 0 Fehlern (bestes Ergebnis zählt).
+const MEDALS = [
+  { icon: "🥉", name: "Bronze", rule: tr("Alle Wörter einmal durchgemacht", "All words done once") },
+  { icon: "🥈", name: tr("Silber", "Silver"), rule: tr("Test bestanden, unter 15 Fehler", "Test passed, under 15 mistakes"), maxErr: 14 },
+  { icon: "🥇", name: "Gold", rule: tr("Test bestanden, unter 5 Fehler", "Test passed, under 5 mistakes"), maxErr: 4 },
+  { icon: "💎", name: tr("Platin", "Platinum"), rule: tr("Test ohne Fehler", "Test with no mistakes"), maxErr: 0 }
+];
+function chapterBestErr(ch, st) {
+  if (Number.isFinite(pathState.bestErr[ch.id])) return pathState.bestErr[ch.id];
+  // ältere bestandene Tests vor den Medaillen: Fehler aus dem Prozentwert zurückrechnen
+  return st.passed ? Math.round(st.all.length * (1 - st.passed.pct / 100)) : null;
+}
+function chapterMedal(ch, st = chapterStats(ch)) {
+  const base = st.words.length ? st.words : st.all;
+  let m = base.length && base.every(x => cardStatus(x.deckId, x.card) !== "neu") ? 0 : -1;
+  const err = chapterBestErr(ch, st);
+  if (err !== null) MEDALS.forEach((md, i) => { if (i > 0 && err <= md.maxErr) m = Math.max(m, i); });
+  return m;
+}
+function medalBanner(s) {
+  if (!s.chapter) return "";
+  const m = chapterMedal(chapterById(s.chapter));
+  if (m <= s.medalBefore) return "";
+  return `<div class="banner">${MEDALS[m].icon} ${tr("Neue Medaille", "New medal")}: <b>${MEDALS[m].name}</b>!</div>`;
 }
 function chapterUnlocked(ch) {
   const list = stufeOf(ch).chapters;
@@ -2181,7 +2219,7 @@ function renderPath() {
     html += `<button class="ch-node ${cls}" data-ch="${ch.id}">
       <div class="ch-badge">${st.mastered ? "✓" : locked ? "🔒" : ch.icon}</div>
       <div class="ch-body">
-        <div class="ch-title">${ch.n}. ${ch.title}${ch.zh ? `<small>${ch.zh}</small>` : ""}</div>
+        <div class="ch-title">${ch.n}. ${ch.title}${(m => (m >= 0 ? ` ${MEDALS[m].icon}` : ""))(chapterMedal(ch, st))}${ch.zh ? `<small>${ch.zh}</small>` : ""}</div>
         <div class="ch-goal">${ch.goal}</div>
         <div class="mini"><i style="width:${Math.round(st.prog * 100)}%"></i></div>
         <div class="ch-meta"><span>${counts}</span><span>${cls === "current" ? tr("▶ weiter hier", "▶ continue here") : st.mastered ? tr("gemeistert", "mastered") : locked ? tr("gesperrt", "locked") : Math.round(st.prog * 100) + " %"}</span></div>
@@ -2240,7 +2278,8 @@ function chapterSteps(ch, st) {
   });
   steps.push({
     key: "test", icon: "🏁", title: tr("Kapiteltest", "Chapter test"),
-    sub: st.passed ? tr(`Bestanden · ${st.passed.pct} %`, `Passed · ${st.passed.pct} %`) : st.best ? tr(`Bestes Ergebnis ${st.best} % · bestehen ab ${PASS_PCT} %`, `Best result ${st.best} % · pass at ${PASS_PCT} %`) : tr(`Jede Karte einmal · bestehen ab ${PASS_PCT} %`, `Every card once · pass at ${PASS_PCT} %`),
+    sub: (st.passed ? tr(`Bestanden · ${st.passed.pct} %`, `Passed · ${st.passed.pct} %`) : st.best ? tr(`Bestes Ergebnis ${st.best} % · bestehen ab ${PASS_PCT} %`, `Best result ${st.best} % · pass at ${PASS_PCT} %`) : tr(`Jede Karte einmal · bestehen ab ${PASS_PCT} %`, `Every card once · pass at ${PASS_PCT} %`))
+      + (chapterBestErr(ch, st) !== null ? ` · ${tr("bester Test", "best test")}: ${chapterBestErr(ch, st)} ${tr("Fehler", "mistakes")}` : ""),
     pct: (st.passed ? st.passed.pct : st.best) / 100, ok: !!st.passed, off: false
   });
   // Empfehlung: die erste noch offene Etappe in sinnvoller Reihenfolge
@@ -2254,6 +2293,11 @@ function renderChapter() {
   const stufe = stufeOf(ch);
   const steps = chapterSteps(ch, st);
   const next = nextChapterOf(ch);
+  const medal = chapterMedal(ch, st), bestErr = chapterBestErr(ch, st);
+  const nextMedal = MEDALS[medal + 1];
+  const medalHtml = `<div class="medal-row">${MEDALS.map((md, i) => `<div class="medal ${i > medal ? "off" : ""} ${i === medal ? "top" : ""}">
+      <div class="m-ico">${md.icon}</div><b>${md.name}</b><small>${md.rule}</small></div>`).join("")}</div>
+    <p class="muted-note">${nextMedal ? `${tr("Nächste Medaille", "Next medal")}: ${nextMedal.icon} ${nextMedal.name} — ${nextMedal.rule}${bestErr !== null ? ` · ${tr("bisher bester Test", "best test so far")}: ${bestErr} ${tr("Fehler", "mistakes")}` : ""}` : tr("Alle Medaillen geholt — perfekt!", "All medals earned — perfect!")}</p>`;
   const counts = [st.words.length ? `${st.words.length} ${tr("Wörter", "words")}` : "", st.sents.length ? `${st.sents.length} ${tr("Sätze", "sentences")}` : ""].filter(Boolean).join(" · ");
   const wordRows = st.all.map(x => {
     const s = cardStatus(x.deckId, x.card);
@@ -2275,6 +2319,7 @@ function renderChapter() {
         </div>
       </div>
     </div>
+    ${medalHtml}
     <div class="steps">${steps.map((s, i) => `
       <button class="step ${s.rec ? "rec" : ""} ${s.ok ? "ok" : ""} ${s.off ? "off" : ""}" data-step="${s.key}" ${s.off ? "disabled" : ""} ${s.rec ? 'id="recStep"' : ""}>
         <div class="step-ico">${s.ok ? "✓" : s.icon}</div>
@@ -2311,7 +2356,7 @@ function chapterQueue(ch, key) {
   };
   const showNew = x => ({ ...quizItem(x, skillsFor(x.card)[0] || "erkennen"), phase: "zeigen", isNew: true });
   const top = (list, n) => list.map(x => ({ x, s: weak(x) })).sort((a, b) => b.s - a.s).slice(0, n).map(o => o.x);
-  if (key === "discover") return st.words.filter(isNew).slice(0, 8).map(showNew);
+  if (key === "discover") return ladderQueue(st.words.filter(isNew).slice(0, 8));
   if (key === "practice") return shuffle(top(st.words.filter(x => !isNew(x)), 20).map(quizPick));
   if (key === "sentences") {
     const fresh = st.sents.filter(isNew).slice(0, 6).map(showNew);
@@ -2322,6 +2367,22 @@ function chapterQueue(ch, key) {
     return shuffle(top(pool, 10).map(x => ({ ...quizItem(x, "schreiben"), mode: "schreiben" })));
   }
   return shuffle(st.all.map(x => ({ ...quizItem(x, "abrufen"), mode: "de-cn" })));
+}
+// Neue Wörter einzeln einführen: zeigen → sofort leicht abfragen; mit jedem neuen
+// Wort kommen die vorigen schwerer und gemischt dran (CN+Pinyin→DE, CN→Pinyin+DE, DE→CN).
+const LADDER = ["cnpinyin-de", "cn-pinyin-de", "de-cn"];
+function ladderQueue(list) {
+  const step = (x, k) => ({ ...quizItem(x, SKILL_OF_MODE[LADDER[k]]), mode: LADDER[k], isNew: k === 0, ladder: true });
+  const q = [];
+  list.forEach((x, i) => {
+    q.push({ ...quizItem(x, "erkennen"), phase: "zeigen", isNew: true, ladder: true });
+    q.push(step(x, 0));
+    if (i >= 1) q.push(step(list[i - 1], 1));
+    if (i >= 2) q.push(step(list[i - 2], 2));
+  });
+  const n = list.length;
+  if (n) q.push(step(list[n - 1], 1));
+  return q.concat(shuffle(list.slice(Math.max(0, n - 2)).map(x => step(x, 2))));
 }
 function startChapterStep(id, key) {
   const ch = chapterById(id);
