@@ -396,7 +396,7 @@
   .seg.unknown { opacity: 0.6; cursor: default; }
   .hz-char { cursor: pointer; border-radius: 6px; }
   .hz-char:hover { background: var(--accent-soft); }
-  .write-row { display: flex; justify-content: center; gap: 8px; margin: 16px 0 6px; }
+  .write-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 8px; margin: 16px -8px 6px; }
   .write-box { touch-action: none; background-color: var(--card-bg); }
   .write-box.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
   .write-status { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; text-align: center; }
@@ -1708,6 +1708,12 @@ function writeBoxSize(n) {
   const avail = Math.min(cardArea.clientWidth || 360, 480) - 56;
   return Math.max(70, Math.min(150, Math.floor((avail - (n - 1) * 8) / n)));
 }
+// Großes Schreib-Pad für das aktive Zeichen; die übrigen Zeichen werden klein angezeigt.
+const WRITE_MINI = 60;
+function writePadSize() {
+  const avail = Math.min(cardArea.clientWidth || 360, 480) - 26;
+  return Math.max(150, Math.min(360, avail, Math.floor(window.innerHeight * 0.5)));
+}
 function renderWriteCard(it) {
   const card = it.card;
   const chars = strokeChars(card);
@@ -1721,25 +1727,32 @@ function renderWriteCard(it) {
     <div class="actions" id="writeActions"><button id="giveUpBtn">${tr("Lösung zeigen", "Show answer")}</button></div>
     <div id="feedback"></div>
   </div>`;
-  const size = writeBoxSize(chars.length);
+  const pad = writePadSize();
   const row = document.getElementById("writeRow");
   const css = getComputedStyle(document.documentElement);
-  const writers = chars.map(ch => {
+  const boxes = [];
+  const writers = chars.map((ch, k) => {
     const box = document.createElement("div");
     box.className = "stroke-box write-box";
+    const size = k === 0 ? pad : WRITE_MINI;
     box.style.width = box.style.height = size + "px";
     row.appendChild(box);
+    boxes.push(box);
     return HanziWriter.create(box, ch, {
-      width: size, height: size, padding: 6,
+      width: size, height: size, padding: k === 0 ? 10 : 4,
       showCharacter: false, showOutline: false, showHintAfterMisses: 2,
       strokeColor: css.getPropertyValue("--ink").trim(),
       outlineColor: css.getPropertyValue("--border").trim(),
       highlightColor: css.getPropertyValue("--amber").trim(),
       drawingColor: css.getPropertyValue("--accent").trim(),
-      drawingWidth: 6,
+      drawingWidth: Math.max(6, Math.round(pad / 28)),
       charDataLoader: loadCharData
     });
   });
+  const resizeBox = (i, size) => {
+    boxes[i].style.width = boxes[i].style.height = size + "px";
+    writers[i].updateDimensions({ width: size, height: size, padding: size > WRITE_MINI ? 10 : 4 });
+  };
   const mistakes = [];
   const status = document.getElementById("writeStatus");
   const token = strokeToken;
@@ -1750,6 +1763,7 @@ function renderWriteCard(it) {
     finished = true;
     writers.forEach(w => { try { w.cancelQuiz(); } catch (e) { /* schon fertig */ } });
     row.querySelectorAll(".write-box").forEach(b => b.classList.remove("active"));
+    if (chars.length > 1) { const s = writeBoxSize(chars.length); writers.forEach((w, k) => resizeBox(k, s)); }
     const knew = !gaveUp && mistakes.every(m => m <= 2);
     if (gaveUp) writers.forEach(w => w.showCharacter());
     document.getElementById("writeActions").remove();
@@ -1769,6 +1783,7 @@ function renderWriteCard(it) {
     if (token !== strokeToken || finished) return;
     if (i >= writers.length) { done(false); return; }
     row.querySelectorAll(".write-box").forEach((b, k) => b.classList.toggle("active", k === i));
+    if (i > 0) { resizeBox(i - 1, WRITE_MINI); resizeBox(i, pad); }
     status.textContent = chars.length > 1 ? `${tr("Zeichen", "Character")} ${i + 1} ${tr("von", "of")} ${chars.length}` : tr("Schreib das Zeichen Strich für Strich", "Write the character stroke by stroke");
     writers[i].quiz({
       onComplete: summary => {
