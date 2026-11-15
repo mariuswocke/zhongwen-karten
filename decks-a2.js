@@ -272,7 +272,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "考试",
     "pinyin": "kǎoshì",
-    "de": "eine Prüfung ablegen; prüfen",
+    "de": "eine Prüfung ablegen; Prüfung",
     "level": "mittel"
    },
    {
@@ -332,7 +332,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "留学生",
     "pinyin": "liúxuéshēng",
-    "de": "ausländischer Student; Austauschstudent",
+    "de": "ausländischer Student / ausländische Studentin; internationaler Student",
     "level": "mittel"
    },
    {
@@ -402,7 +402,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "安妮不舒服，她要去医院。",
     "pinyin": "Ānnī bù shūfu, tā yào qù yīyuàn.",
-    "de": "Anni fühlt sich nicht wohl, sie muss ins Krankenhaus.",
+    "de": "Anni fühlt sich nicht wohl, sie geht ins Krankenhaus.",
     "level": "mittel",
     "type": "satz"
    },
@@ -416,7 +416,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "我是语言大学的留学生。",
     "pinyin": "Wǒ shì Yǔyán Dàxué de liúxuéshēng.",
-    "de": "Ich bin Austauschstudent an der Sprachuniversität.",
+    "de": "Ich bin ausländischer Student an der Sprachuniversität.",
     "level": "mittel",
     "type": "satz"
    },
@@ -609,7 +609,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "我要去邮局寄封信。",
     "pinyin": "Wǒ yào qù yóujú jì fēng xìn.",
-    "de": "Ich muss zur Post, um einen Brief aufzugeben.",
+    "de": "Ich will zur Post, um einen Brief aufzugeben.",
     "level": "mittel",
     "type": "satz"
    },
@@ -1634,7 +1634,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "打针",
     "pinyin": "dǎ zhēn",
-    "de": "eine Spritze geben; spritzen",
+    "de": "eine Spritze bekommen; sich spritzen lassen (auch: eine Spritze geben)",
     "level": "mittel"
    },
    {
@@ -2419,7 +2419,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "阴",
     "pinyin": "yīn",
-    "de": "bewölkt; trüb",
+    "de": "bedeckt; trüb",
     "level": "leicht"
    },
    {
@@ -2449,7 +2449,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "别……了",
     "pinyin": "bié……le",
-    "de": "nicht (mehr) …; lass … sein",
+    "de": "bloß nicht …; (tu) nicht …",
     "level": "schwer"
    },
    {
@@ -3380,7 +3380,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "我的照相机没电了。我去买两节电池。",
     "pinyin": "Wǒ de zhàoxiàngjī méi diàn le. Wǒ qù mǎi liǎng jié diànchí.",
-    "de": "Der Akku meiner Kamera ist leer. Ich kaufe zwei Batterien.",
+    "de": "Die Batterien meiner Kamera sind leer. Ich kaufe zwei neue Batterien.",
     "level": "schwer",
     "type": "satz"
    },
@@ -4261,7 +4261,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "我昨天吃了不干净的东西，所以今天拉肚子。",
     "pinyin": "Wǒ zuótiān chī le bù gānjìng de dōngxi, suǒyǐ jīntiān lā dùzi.",
-    "de": "Gestern habe ich etwas Verdorbenes gegessen, deshalb habe ich heute Durchfall.",
+    "de": "Gestern habe ich etwas Unhygienisches gegessen, deshalb habe ich heute Durchfall.",
     "level": "schwer",
     "type": "satz"
    },
@@ -4849,7 +4849,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "申请",
     "pinyin": "shēnqǐng",
-    "de": "bewerben; beantragen",
+    "de": "sich bewerben (um); beantragen",
     "level": "schwer",
     "example": {
      "hanzi": "我申请了一份新工作。",
@@ -5759,7 +5759,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "需要",
     "pinyin": "xūyào",
-    "de": "brauchen; müssen",
+    "de": "brauchen; benötigen",
     "level": "mittel",
     "example": {
      "hanzi": "我需要你的帮助。",
@@ -7085,7 +7085,7 @@ Object.assign(DECKS, {
    {
     "hanzi": "辛苦",
     "pinyin": "xīnkǔ",
-    "de": "anstrengend; Mühe machen",
+    "de": "anstrengend; mühsam",
     "level": "mittel",
     "example": {
      "hanzi": "今天辛苦你了。",
@@ -7631,7 +7631,7 @@ Object.assign(window.DECKS_EN.cards, {
   "en": "to cry, to shout"
  },
  "a21-l16|加油": {
-  "en": "to cheer up, to go for it"
+  "en": "to cheer on, to root for; go for it"
  },
  "a21-l16-s|喂，山本，你在做什么呢？": {
   "en": "Hello, Yamamoto, what are you doing?"

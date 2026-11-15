@@ -36,7 +36,11 @@ window.DECKS_EN = {
   "a21-l12": "A2.1 Book 1 · L12 我们骑自行车去颐和园 — Transport & Excursion",
   "a21-saetze-e1": "A2.1 Book 1 · Core Sentences Unit 1 — Introductions & Identifying",
   "a21-saetze-e2": "A2.1 Book 1 · Core Sentences Unit 2 — Time & Places",
-  "a21-saetze-e3": "A2.1 Book 1 · Core Sentences Unit 3 — Daily Life (Food, Money, Transport)"
+  "a21-saetze-e3": "A2.1 Book 1 · Core Sentences Unit 3 — Daily Life (Food, Money, Transport)",
+  "a11-kursdialoge": "A1.1 — Course dialogues",
+  "a11-kursnotizen-zeichen": "A1.1 — Characters from the course notes",
+  "a12-restaurant-woerter": "A1.2 — Restaurant & menu (words)",
+  "a12-restaurant-dialoge": "A1.2 — Restaurant & menu (sentences)"
  },
  "cards": {
   "a11-zahlen|〇": {
@@ -2094,6 +2098,624 @@ window.DECKS_EN = {
   },
   "a21-saetze-e3|我去你宿舍找你。明天见!": {
    "en": "I'll come to your dorm to pick you up. See you tomorrow!"
+  },
+  "a11-kursdialoge|你怎么样？": {
+   "en": "How are you doing?"
+  },
+  "a11-kursdialoge|我很好。": {
+   "en": "I'm fine."
+  },
+  "a11-kursdialoge|我还可以。": {
+   "en": "I'm so-so / okay."
+  },
+  "a11-kursdialoge|请问，您贵姓？": {
+   "en": "May I ask your surname?"
+  },
+  "a11-kursdialoge|她叫什么名字？": {
+   "en": "What is her name?"
+  },
+  "a11-kursdialoge|她叫安娜。": {
+   "en": "Her name is Anna."
+  },
+  "a11-kursdialoge|你是美国人吗？": {
+   "en": "Are you American?"
+  },
+  "a11-kursdialoge|不是，我是德国人。": {
+   "en": "No, I'm German."
+  },
+  "a11-kursdialoge|你是哪儿的人？": {
+   "en": "Where are you from?"
+  },
+  "a11-kursdialoge|我是德国人。": {
+   "en": "I'm from Germany."
+  },
+  "a11-kursdialoge|你家在哪儿？": {
+   "en": "Where is your home?"
+  },
+  "a11-kursdialoge|我家在维也纳。": {
+   "en": "My home is in Vienna."
+  },
+  "a11-kursdialoge|你家住哪儿？": {
+   "en": "Where do you live?"
+  },
+  "a11-kursdialoge|我住在维也纳。": {
+   "en": "I live in Vienna."
+  },
+  "a11-kursdialoge|你在哪儿？": {
+   "en": "Where are you?"
+  },
+  "a11-kursdialoge|我在学校。": {
+   "en": "I'm at school / university."
+  },
+  "a11-kursdialoge|高老师是哪儿的人？": {
+   "en": "Where is Teacher Gao from?"
+  },
+  "a11-kursdialoge|他是中国人。": {
+   "en": "He is Chinese."
+  },
+  "a11-kursdialoge|你的手机号码是多少？": {
+   "en": "What is your mobile number?"
+  },
+  "a11-kursdialoge|我的号码是一二三四五六。": {
+   "en": "My number is 123456."
+  },
+  "a11-kursdialoge|你多大了？": {
+   "en": "How old are you?"
+  },
+  "a11-kursdialoge|你几岁了？": {
+   "en": "How old are you? (to a child)"
+  },
+  "a11-kursdialoge|我今年十岁了。": {
+   "en": "I'm ten years old."
+  },
+  "a11-kursdialoge|您多大岁数了？": {
+   "en": "How old are you? (polite)"
+  },
+  "a11-kursdialoge|我今年五十岁了。": {
+   "en": "I'm fifty years old."
+  },
+  "a11-kursdialoge|你属什么？": {
+   "en": "Which zodiac animal are you?"
+  },
+  "a11-kursdialoge|我属龙。": {
+   "en": "I was born in the year of the Dragon."
+  },
+  "a11-kursdialoge|你是哪年生的？": {
+   "en": "Which year were you born?"
+  },
+  "a11-kursdialoge|你的电邮地址是什么？": {
+   "en": "What is your email address?"
+  },
+  "a11-kursdialoge|这样对吗？": {
+   "en": "Is that right?"
+  },
+  "a11-kursdialoge|这样对不对？": {
+   "en": "Is that right or not?"
+  },
+  "a11-kursdialoge|不对。": {
+   "en": "No, that's not right."
+  },
+  "a11-kursdialoge|这位是你的什么人？": {
+   "en": "How is this person related to you?"
+  },
+  "a11-kursdialoge|她是我的朋友。": {
+   "en": "She is my friend."
+  },
+  "a11-kursdialoge|现在几点钟？": {
+   "en": "What time is it now?"
+  },
+  "a11-kursdialoge|现在三点。": {
+   "en": "It's three o'clock."
+  },
+  "a11-kursdialoge|几点了？": {
+   "en": "What time is it?"
+  },
+  "a11-kursdialoge|三点了。": {
+   "en": "It's three o'clock already."
+  },
+  "a11-kursdialoge|是上午还是下午？": {
+   "en": "Is it morning or afternoon?"
+  },
+  "a11-kursdialoge|是下午。": {
+   "en": "It's afternoon."
+  },
+  "a11-kursdialoge|今天星期几？": {
+   "en": "What day of the week is it today?"
+  },
+  "a11-kursdialoge|今天星期一。": {
+   "en": "Today is Monday."
+  },
+  "a11-kursdialoge|我们什么时候见？": {
+   "en": "When shall we meet?"
+  },
+  "a11-kursdialoge|我们明天见。": {
+   "en": "We'll meet tomorrow."
+  },
+  "a11-kursdialoge|你有空吗？": {
+   "en": "Are you free?"
+  },
+  "a11-kursdialoge|你有事吗？": {
+   "en": "Do you have plans?"
+  },
+  "a11-kursdialoge|没有事。": {
+   "en": "I have nothing planned."
+  },
+  "a11-kursdialoge|请等一下。": {
+   "en": "Please wait a moment."
+  },
+  "a11-kursdialoge|我是学生。": {
+   "en": "I'm a student."
+  },
+  "a11-kursdialoge|她是学生。": {
+   "en": "She is a student."
+  },
+  "a11-kursdialoge|我有四本书。": {
+   "en": "I have four books."
+  },
+  "a11-kursdialoge|这样对。": {
+   "en": "That's right."
+  },
+  "a11-kursdialoge|您好。": {
+   "en": "Hello (polite)."
+  },
+  "a11-kursdialoge|他是老师。": {
+   "en": "He is a teacher."
+  },
+  "a11-kursdialoge|三点半。": {
+   "en": "Half past three."
+  },
+  "a11-kursdialoge|三点十分。": {
+   "en": "Ten past three."
+  },
+  "a11-kursdialoge|他属蛇。": {
+   "en": "He was born in the year of the Snake."
+  },
+  "a11-kursdialoge|我属马。": {
+   "en": "I was born in the year of the Horse."
+  },
+  "a11-kursdialoge|他属羊。": {
+   "en": "He was born in the year of the Sheep."
+  },
+  "a11-kursdialoge|他属猴。": {
+   "en": "He was born in the year of the Monkey."
+  },
+  "a11-kursdialoge|我属鼠。": {
+   "en": "I was born in the year of the Rat."
+  },
+  "a11-kursdialoge|他属鸡。": {
+   "en": "He was born in the year of the Rooster."
+  },
+  "a11-kursdialoge|我属牛。": {
+   "en": "I was born in the year of the Ox."
+  },
+  "a11-kursdialoge|他属虎。": {
+   "en": "He was born in the year of the Tiger."
+  },
+  "a11-kursdialoge|他属猪。": {
+   "en": "He was born in the year of the Pig."
+  },
+  "a11-kursdialoge|我属兔。": {
+   "en": "I was born in the year of the Rabbit."
+  },
+  "a11-kursdialoge|晚上好。": {
+   "en": "Good evening."
+  },
+  "a11-kursdialoge|早上好。": {
+   "en": "Good morning."
+  },
+  "a11-kursdialoge|现在我很忙。": {
+   "en": "I'm busy right now."
+  },
+  "a11-kursdialoge|这是一座山。": {
+   "en": "This is a mountain."
+  },
+  "a11-kursdialoge|这是小猫。": {
+   "en": "This is a kitten."
+  },
+  "a11-kursdialoge|这是我的书。": {
+   "en": "This is my book."
+  },
+  "a11-kursdialoge|我们去吧。": {
+   "en": "Let's go."
+  },
+  "a11-kursdialoge|那是谁？": {
+   "en": "Who is that?"
+  },
+  "a11-kursdialoge|见你很高兴。": {
+   "en": "Nice to see you."
+  },
+  "a11-kursdialoge|这是木头。": {
+   "en": "This is wood."
+  },
+  "a11-kursdialoge|我在家。": {
+   "en": "I'm at home."
+  },
+  "a11-kursdialoge|这是狗。": {
+   "en": "This is a dog."
+  },
+  "a11-kursdialoge|我生在中国。": {
+   "en": "I was born in China."
+  },
+  "a11-kursdialoge|什么时候？": {
+   "en": "When?"
+  },
+  "a11-kursdialoge|这个字很难。": {
+   "en": "This character is hard."
+  },
+  "a11-kursdialoge|星星很多。": {
+   "en": "There are many stars."
+  },
+  "a11-kursdialoge|喝水。": {
+   "en": "Drink water."
+  },
+  "a11-kursdialoge|我懂了。": {
+   "en": "I understand now."
+  },
+  "a11-kursdialoge|请坐。": {
+   "en": "Please sit down."
+  },
+  "a11-kursdialoge|地址在哪儿？": {
+   "en": "Where is the address?"
+  },
+  "a11-kursdialoge|我姓李。": {
+   "en": "My surname is Li."
+  },
+  "a11-kursdialoge|她是德国人。": {
+   "en": "She is German."
+  },
+  "a11-kursdialoge|她住在柏林。": {
+   "en": "She lives in Berlin."
+  },
+  "a11-kursdialoge|她的生日是七月十号。": {
+   "en": "Her birthday is on July 10th."
+  },
+  "a11-kursnotizen-zeichen|起": {
+   "en": "to get up; to begin"
+  },
+  "a11-kursnotizen-zeichen|晚": {
+   "en": "late; evening"
+  },
+  "a11-kursnotizen-zeichen|现": {
+   "en": "now; present (in 现在)"
+  },
+  "a11-kursnotizen-zeichen|地": {
+   "en": "place; ground"
+  },
+  "a11-kursnotizen-zeichen|址": {
+   "en": "address (in 地址)"
+  },
+  "a11-kursnotizen-zeichen|候": {
+   "en": "time; to wait (in 时候)"
+  },
+  "a11-kursnotizen-zeichen|期": {
+   "en": "period; week (in 星期)"
+  },
+  "a11-kursnotizen-zeichen|儿": {
+   "en": "child; the -r suffix"
+  },
+  "a11-kursnotizen-zeichen|生": {
+   "en": "to be born; to live"
+  },
+  "a11-kursnotizen-zeichen|时": {
+   "en": "time; hour"
+  },
+  "a11-kursnotizen-zeichen|今": {
+   "en": "today; now"
+  },
+  "a11-kursnotizen-zeichen|星": {
+   "en": "star"
+  },
+  "a11-kursnotizen-zeichen|什": {
+   "en": "what (in 什么)"
+  },
+  "a11-kursnotizen-zeichen|谢": {
+   "en": "to thank"
+  },
+  "a11-kursnotizen-zeichen|午": {
+   "en": "noon"
+  },
+  "a11-kursnotizen-zeichen|么": {
+   "en": "question particle (in 什么)"
+  },
+  "a12-restaurant-woerter|乌龙茶": {
+   "en": "oolong tea"
+  },
+  "a12-restaurant-woerter|菊花茶": {
+   "en": "chrysanthemum tea"
+  },
+  "a12-restaurant-woerter|普洱茶": {
+   "en": "pu'er tea"
+  },
+  "a12-restaurant-woerter|花茶": {
+   "en": "jasmine tea; flower tea"
+  },
+  "a12-restaurant-woerter|豆浆": {
+   "en": "soy milk"
+  },
+  "a12-restaurant-woerter|饮料": {
+   "en": "drink; beverage"
+  },
+  "a12-restaurant-woerter|红酒": {
+   "en": "red wine"
+  },
+  "a12-restaurant-woerter|豆腐脑": {
+   "en": "tofu pudding (breakfast)"
+  },
+  "a12-restaurant-woerter|油条": {
+   "en": "fried dough stick"
+  },
+  "a12-restaurant-woerter|油饼": {
+   "en": "fried dough cake"
+  },
+  "a12-restaurant-woerter|茶叶蛋": {
+   "en": "tea egg"
+  },
+  "a12-restaurant-woerter|馒头": {
+   "en": "steamed bun"
+  },
+  "a12-restaurant-woerter|粥": {
+   "en": "congee; rice porridge"
+  },
+  "a12-restaurant-woerter|小笼包": {
+   "en": "xiaolongbao (soup dumplings)"
+  },
+  "a12-restaurant-woerter|麻婆豆腐": {
+   "en": "mapo tofu"
+  },
+  "a12-restaurant-woerter|春卷": {
+   "en": "spring roll"
+  },
+  "a12-restaurant-woerter|炸酱面": {
+   "en": "noodles with fried soybean sauce"
+  },
+  "a12-restaurant-woerter|川菜": {
+   "en": "Sichuan cuisine"
+  },
+  "a12-restaurant-woerter|广东菜": {
+   "en": "Cantonese cuisine"
+  },
+  "a12-restaurant-woerter|皮蛋豆腐": {
+   "en": "tofu with century egg"
+  },
+  "a12-restaurant-woerter|红烧牛肉": {
+   "en": "red-braised beef"
+  },
+  "a12-restaurant-woerter|凉拌黄瓜": {
+   "en": "cold cucumber salad"
+  },
+  "a12-restaurant-woerter|凉菜": {
+   "en": "cold dishes"
+  },
+  "a12-restaurant-woerter|热菜": {
+   "en": "hot dishes"
+  },
+  "a12-restaurant-woerter|羊肉串": {
+   "en": "lamb skewers"
+  },
+  "a12-restaurant-woerter|鱼香肉丝": {
+   "en": "shredded pork in yuxiang sauce"
+  },
+  "a12-restaurant-woerter|糖醋肉": {
+   "en": "sweet and sour pork"
+  },
+  "a12-restaurant-woerter|蛋炒饭": {
+   "en": "egg fried rice"
+  },
+  "a12-restaurant-woerter|白米饭": {
+   "en": "plain white rice"
+  },
+  "a12-restaurant-woerter|柠檬": {
+   "en": "lemon"
+  },
+  "a12-restaurant-woerter|巧克力": {
+   "en": "chocolate"
+  },
+  "a12-restaurant-woerter|薯片": {
+   "en": "potato chips"
+  },
+  "a12-restaurant-woerter|土豆": {
+   "en": "potato"
+  },
+  "a12-restaurant-woerter|黄瓜": {
+   "en": "cucumber"
+  },
+  "a12-restaurant-woerter|西兰花": {
+   "en": "broccoli"
+  },
+  "a12-restaurant-woerter|豆芽": {
+   "en": "bean sprouts"
+  },
+  "a12-restaurant-woerter|水果": {
+   "en": "fruit"
+  },
+  "a12-restaurant-woerter|姜": {
+   "en": "ginger"
+  },
+  "a12-restaurant-woerter|葱": {
+   "en": "spring onion"
+  },
+  "a12-restaurant-woerter|三文鱼": {
+   "en": "salmon"
+  },
+  "a12-restaurant-woerter|粉丝": {
+   "en": "glass noodles"
+  },
+  "a12-restaurant-woerter|大白菜": {
+   "en": "Chinese cabbage"
+  },
+  "a12-restaurant-woerter|荷兰豆": {
+   "en": "snow peas"
+  },
+  "a12-restaurant-woerter|空心菜": {
+   "en": "water spinach"
+  },
+  "a12-restaurant-woerter|鸭肉": {
+   "en": "duck meat"
+  },
+  "a12-restaurant-woerter|推荐": {
+   "en": "to recommend"
+  },
+  "a12-restaurant-woerter|刀叉": {
+   "en": "knife and fork; cutlery"
+  },
+  "a12-restaurant-dialoge|您好！欢迎光临！你们几位？": {
+   "en": "Hello! Welcome! How many of you are there?"
+  },
+  "a12-restaurant-dialoge|我们一共三个人。": {
+   "en": "There are three of us in total."
+  },
+  "a12-restaurant-dialoge|三位吗？您稍等。": {
+   "en": "Three people? Please wait a moment."
+  },
+  "a12-restaurant-dialoge|你们三位，是吗？请！": {
+   "en": "The three of you, right? This way, please!"
+  },
+  "a12-restaurant-dialoge|这是菜单，这是酒水单。": {
+   "en": "This is the menu, and this is the drinks list."
+  },
+  "a12-restaurant-dialoge|我们可不可以先看一下？": {
+   "en": "May we take a look first?"
+  },
+  "a12-restaurant-dialoge|当然可以！": {
+   "en": "Of course!"
+  },
+  "a12-restaurant-dialoge|服务员，我们想点菜。": {
+   "en": "Waiter, we'd like to order."
+  },
+  "a12-restaurant-dialoge|你们都要喝什么？": {
+   "en": "What would you all like to drink?"
+  },
+  "a12-restaurant-dialoge|你们想喝什么？": {
+   "en": "What would you like to drink?"
+  },
+  "a12-restaurant-dialoge|你们要吃什么？": {
+   "en": "What would you like to eat?"
+  },
+  "a12-restaurant-dialoge|一杯可乐。": {
+   "en": "A glass of cola."
+  },
+  "a12-restaurant-dialoge|您呢？": {
+   "en": "And you?"
+  },
+  "a12-restaurant-dialoge|我想喝一瓶啤酒。": {
+   "en": "I'd like a bottle of beer."
+  },
+  "a12-restaurant-dialoge|好的，一壶绿茶、一瓶啤酒和一杯可乐，马上来。": {
+   "en": "Okay, a pot of green tea, a bottle of beer and a glass of cola — coming right up."
+  },
+  "a12-restaurant-dialoge|请来一壶茶、一听可乐、两瓶啤酒。": {
+   "en": "Please bring a pot of tea, a can of cola and two bottles of beer."
+  },
+  "a12-restaurant-dialoge|我们要吃北京烤鸭，还有蔬菜豆腐、牛肉炒面、鸡肉炒饭。": {
+   "en": "We'll have Peking duck, plus tofu with vegetables, fried noodles with beef and fried rice with chicken."
+  },
+  "a12-restaurant-dialoge|要不要喝汤？": {
+   "en": "Would you like some soup?"
+  },
+  "a12-restaurant-dialoge|不要，谢谢。": {
+   "en": "No, thank you."
+  },
+  "a12-restaurant-dialoge|再来一瓶啤酒。": {
+   "en": "One more bottle of beer, please."
+  },
+  "a12-restaurant-dialoge|请现在来米饭。": {
+   "en": "Please bring the rice now."
+  },
+  "a12-restaurant-dialoge|我不吃肉。": {
+   "en": "I don't eat meat."
+  },
+  "a12-restaurant-dialoge|我不能吃辣的。": {
+   "en": "I can't eat spicy food."
+  },
+  "a12-restaurant-dialoge|你能推荐什么菜？": {
+   "en": "What dish can you recommend?"
+  },
+  "a12-restaurant-dialoge|请给我刀叉。": {
+   "en": "Could I have a knife and fork, please?"
+  },
+  "a12-restaurant-dialoge|我们现在要买单。": {
+   "en": "We'd like the bill now."
+  },
+  "a12-restaurant-dialoge|您好，一共三百八十六块五毛。": {
+   "en": "Hello, that comes to 386.50 kuai in total."
+  },
+  "a12-restaurant-dialoge|一共一百三十八块。": {
+   "en": "138 kuai in total."
+  },
+  "a12-restaurant-dialoge|不好意思，我们今天没有。": {
+   "en": "Sorry, we don't have one today."
+  },
+  "a12-restaurant-dialoge|当然可以。": {
+   "en": "Of course."
+  },
+  "a12-restaurant-dialoge|你喜欢喝什么？": {
+   "en": "What do you like to drink?"
+  },
+  "a12-restaurant-dialoge|你最喜欢喝什么？": {
+   "en": "What do you like drinking most?"
+  },
+  "a12-restaurant-dialoge|我喜欢喝绿茶，不喜欢喝咖啡。": {
+   "en": "I like green tea, but not coffee."
+  },
+  "a12-restaurant-dialoge|一瓶啤酒多少钱？": {
+   "en": "How much is a bottle of beer?"
+  },
+  "a12-restaurant-dialoge|一瓶啤酒十块钱。": {
+   "en": "A bottle of beer costs 10 kuai."
+  },
+  "a12-restaurant-dialoge|一壶绿茶多少钱？": {
+   "en": "How much is a pot of green tea?"
+  },
+  "a12-restaurant-dialoge|一壶绿茶三十八块钱。": {
+   "en": "A pot of green tea costs 38 kuai."
+  },
+  "a12-restaurant-dialoge|你喜欢吃辣的吗？": {
+   "en": "Do you like spicy food?"
+  },
+  "a12-restaurant-dialoge|我喜欢吃辣的。": {
+   "en": "I like spicy food."
+  },
+  "a12-restaurant-dialoge|我不喜欢吃辣的。": {
+   "en": "I don't like spicy food."
+  },
+  "a12-restaurant-dialoge|你喜欢吃甜的吗？": {
+   "en": "Do you like sweet things?"
+  },
+  "a12-restaurant-dialoge|你最喜欢吃什么？": {
+   "en": "What do you like eating most?"
+  },
+  "a12-restaurant-dialoge|你不太喜欢吃什么？": {
+   "en": "What don't you like eating so much?"
+  },
+  "a12-restaurant-dialoge|你喜欢吃中国菜吗？": {
+   "en": "Do you like Chinese food?"
+  },
+  "a12-restaurant-dialoge|你最喜欢吃什么中国菜？": {
+   "en": "Which Chinese dish do you like best?"
+  },
+  "a12-restaurant-dialoge|我喜欢吃中国菜。": {
+   "en": "I like Chinese food."
+  },
+  "a12-restaurant-dialoge|你会用筷子吃饭吗？": {
+   "en": "Can you eat with chopsticks?"
+  },
+  "a12-restaurant-dialoge|柠檬很酸。": {
+   "en": "Lemons are very sour."
+  },
+  "a12-restaurant-dialoge|巧克力很甜。": {
+   "en": "Chocolate is very sweet."
+  },
+  "a12-restaurant-dialoge|咖啡很苦。": {
+   "en": "Coffee is very bitter."
+  },
+  "a12-restaurant-dialoge|这个菜很辣。": {
+   "en": "This dish is very spicy."
+  },
+  "a12-restaurant-dialoge|薯片很咸。": {
+   "en": "Potato chips are very salty."
+  },
+  "a12-restaurant-dialoge|米饭很淡。": {
+   "en": "Rice tastes mild."
   }
  }
 };

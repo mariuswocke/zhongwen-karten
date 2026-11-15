@@ -313,7 +313,30 @@
   #flipBtn:active, #checkBtn:active { box-shadow: 0 2px 0 #4a3db8; }
   .btn-bad, .actions .btn-bad { background: var(--g-red); color: #fff; border-color: transparent; box-shadow: 0 4px 0 var(--edge-red); }
   .btn-good, .actions .btn-good { background: var(--g-green); color: #fff; border-color: transparent; box-shadow: 0 4px 0 var(--edge-green); }
-  .btn-bad:active, .btn-good:active { box-shadow: 0 1px 0 rgba(0,0,0,.25) !important; }
+  .btn-hard, .actions .btn-hard { background: var(--g-amber); color: #fff; border-color: transparent; box-shadow: 0 4px 0 #c9791f; }
+  .btn-easy, .actions .btn-easy { background: var(--g-teal); color: #fff; border-color: transparent; box-shadow: 0 4px 0 #1b8fb3; }
+  .btn-bad:active, .btn-good:active, .btn-hard:active, .btn-easy:active { box-shadow: 0 1px 0 rgba(0,0,0,.25) !important; }
+  .actions.four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .actions.four button { max-width: none; padding: 9px 2px; font-size: .92rem; line-height: 1.2; }
+  .actions.four small { display: block; font-size: .68rem; font-weight: 600; opacity: .92; }
+  .actions .btn-easy-mini { flex: 0 0 auto; max-width: none; padding: 13px 14px; font-size: .85rem; background: var(--g-teal); color: #fff; border-color: transparent; box-shadow: 0 4px 0 #1b8fb3; }
+  .badge-leech { color: var(--amber); font-weight: 700; }
+  .ex-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); padding: 18px; }
+  .ex-kind { font-size: .82rem; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
+  .ex-sent { font-size: 2rem; line-height: 1.4; text-align: center; margin: 6px 0; }
+  .ex-blank { display: inline-block; min-width: 2.2em; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  .ex-fill { color: var(--good); font-weight: 700; }
+  .ex-py { text-align: center; color: var(--accent); font-size: .95rem; min-height: 1.4em; }
+  .ex-de { text-align: center; color: var(--muted); margin-bottom: 12px; }
+  .ex-opts { display: grid; gap: 8px; margin-top: 12px; }
+  .ex-opt { display: flex; gap: 10px; align-items: baseline; text-align: left; padding: 11px 14px; border-radius: 14px; border: 2px solid var(--border); background: var(--card-bg); }
+  .ex-opt .py { color: var(--muted); font-size: .8rem; }
+  .ex-hz { font-size: 1.3rem; font-weight: 500; }
+  .ex-opt:disabled { opacity: 1; cursor: default; }
+  .ex-opt.right { border-color: var(--good); background: var(--good-soft); }
+  .ex-opt.wrong { border-color: var(--bad); }
+  .ex-hear { display: grid; place-items: center; width: 88px; height: 88px; padding: 0; margin: 4px auto 10px; border-radius: 50%; font-size: 2.3rem; background: var(--g-purple); color: #fff; border: none; box-shadow: 0 5px 0 #4a3db8; }
+  #courseSelect { min-width: 0; max-width: 60%; text-overflow: ellipsis; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0; }
 
   /* --- Abschluss --- */
@@ -599,6 +622,7 @@
   .onb[data-step="tools"] { --a: #f97316; --b: #db2777; }
   .onb[data-step="level"], .onb[data-step="quiz"] { --a: #2563eb; --b: #0891b2; }
   .onb[data-step="goal"] { --a: #e11d48; --b: #f59e0b; }
+  .onb[data-step="skills"] { --a: #0d9488; --b: #2563eb; }
   html:has(.onb:not([hidden])), html:has(.onb:not([hidden])) body { overflow: hidden; }
   .onb-deco, .onb-fx { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
   .onb-deco span { position: absolute; font-weight: 700; opacity: .12; animation: onb-float 15s ease-in-out infinite; }
@@ -669,6 +693,15 @@
   .o-hsk { flex: none; font-size: .72rem; font-weight: 800; color: #0f7a4d; background: #d9f5e8; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
   .onb-link { border: none; background: transparent; color: #fff; text-decoration: underline; font-weight: 700; padding: 6px; font-size: .92rem; }
 
+  .onb-hear { align-self: center; width: 110px; height: 110px; padding: 0; border-radius: 50%; font-size: 3rem; background: #fff; color: #2563eb; border: none; box-shadow: 0 5px 0 rgba(0,0,0,.22); }
+  .onb-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .onb-seg button { padding: 10px 4px; border-radius: 12px; border: 2px solid #e6dff2; background: #fff; color: #2a2236; font-weight: 700; }
+  .onb-seg button.on { border-color: #ff8a3d; background: #fff3e6; }
+  .onb-hint { display: block; margin-top: 6px; color: #7a7288; font-size: .76rem; line-height: 1.35; }
+  .onb-toggle { display: flex; gap: 12px; align-items: center; text-align: left; width: 100%; padding: 11px 14px; border-radius: 16px; border: 2px solid rgba(255,255,255,.5); background: rgba(255,255,255,.18); color: #fff; }
+  .onb-toggle.on { background: #fff; color: #2a2236; border-color: #fff; }
+  .onb-toggle small { display: block; font-weight: 400; font-size: .76rem; opacity: .85; line-height: 1.35; }
+  .onb-toggle .t-ico { font-size: 1.5rem; }
   .onb-big { text-align: center; }
   .onb-big b { display: block; font-size: 4.6rem; line-height: 1; text-shadow: 0 5px 0 rgba(0,0,0,.15); }
   .onb-big span { font-size: .95rem; opacity: .95; }
@@ -731,6 +764,7 @@
   <!-- Lernpfad -->
   <div id="pathView" hidden></div>
   <div id="chapterView" hidden></div>
+  <div id="exerciseView" hidden></div>
 
   <!-- Session -->
   <div id="sessionView" hidden>
@@ -742,7 +776,7 @@
     <div class="combo" id="combo"></div>
     <div id="cardArea"></div>
     <div class="key-hint" id="keyHint">
-      <span><kbd>Enter</kbd> weiter · <kbd>Leertaste</kbd> umdrehen · <kbd>1</kbd> nicht gewusst · <kbd>2</kbd> gewusst · <kbd>A</kbd> Audio · <kbd>/</kbd> suchen · <kbd>Esc</kbd> beenden</span>
+      <span><kbd>Enter</kbd> weiter · <kbd>Leertaste</kbd> umdrehen · <kbd>1</kbd>–<kbd>4</kbd> Nochmal · Schwer · Gut · Leicht · <kbd>A</kbd> Audio · <kbd>/</kbd> suchen · <kbd>Esc</kbd> beenden</span>
       <button class="link-btn" id="hideKeyHintBtn" title="Hinweis ausblenden (in ⚙️ wieder einschaltbar)">ausblenden</button>
     </div>
   </div>
@@ -853,6 +887,8 @@
     </div>
 
     <h3>Aktive Lektionen</h3>
+    <div class="setting-row"><span>Wo bist du im Kurs?</span><select id="courseSelect"></select></div>
+    <p class="muted-note">Wähle die letzte Lektion, die im Kurs schon dran war: Alle Stapel bis dahin werden aktiv, die Kapitel öffnen sich.</p>
     <p class="muted-note">Neue Karten kommen nur aus angehakten Lektionen. Hake an, was im Kurs schon dran war.</p>
     <div id="deckChecklist"></div>
 
@@ -906,9 +942,11 @@ function addDays(key, n) {
 // Lernstand (Wiederholung mit Fälligkeitsdatum, lokal gespeichert)
 //
 // state.cards["<stapel>|<hanzi>"] = { erkennen: Eintrag, abrufen: Eintrag }
-// Eintrag = { box 1–7, due "JJJJ-MM-TT", seen, wrong, last }
-// Richtig (wenn fällig): eine Box höher, nächste Fälligkeit nach INTERVAL.
-// Falsch: zurück auf Box 1, heute nochmal.
+// Eintrag = { box 1–7, due "JJJJ-MM-TT", seen, wrong, last, ivl, ease, lapses }
+//   ivl = Abstand in Tagen, ease = Leichtigkeit (Start 2,5), lapses = wie oft vergessen.
+//   box wird aus ivl abgeleitet (für Status, Medaillen, Statistik). Ältere Einträge ohne
+//   ivl/ease/lapses werden beim ersten Zugriff ergänzt (ivl aus box, lapses aus wrong).
+// Bewertung wie bei Anki: 0 Nochmal · 1 Schwer · 2 Gut · 3 Leicht (siehe nextSchedule).
 // ---------------------------------------------------------------
 const STORAGE_KEY = "cnTutorProgress_v4";
 const OLD_STORAGE_KEY = "cnTutorProgress_v3"; // alter Stand, bleibt unangetastet
@@ -987,25 +1025,59 @@ function entry(deckId, card, skill) {
   return (c && c[skill]) || null;
 }
 // Gibt zurück, ob die Karte für diese Fertigkeit gerade zum ersten Mal beantwortet wurde.
-function setResult(deckId, card, skill, knewIt) {
+const IVL_MAX = 180, LEECH_LAPSES = 4, LEECH_IVL = 3;
+function boxOf(ivl) { return ivl < 1 ? 1 : ivl < 3 ? 2 : ivl < 7 ? 3 : ivl < 14 ? 4 : ivl < 30 ? 5 : ivl < 90 ? 6 : 7; }
+function upgradeEntry(e) {
+  if (e.ivl === undefined) e.ivl = INTERVAL[e.box] || 0;
+  if (e.ease === undefined) e.ease = 2.5;
+  if (e.lapses === undefined) e.lapses = e.wrong || 0;
+  return e;
+}
+// Sorgenkind: oft vergessen → kurze Abstände, kommt in der Tagesrunde zuerst
+function isLeech(e) { return !!e && (e.lapses !== undefined ? e.lapses : e.wrong || 0) >= LEECH_LAPSES; }
+// Neuer Abstand (Tage) und neue Leichtigkeit für eine Bewertung. Rein rechnerisch, ohne Zufall.
+function nextSchedule(e, grade) {
+  const ivl = e.ivl !== undefined ? e.ivl : INTERVAL[e.box] || 0;
+  const ease = e.ease !== undefined ? e.ease : 2.5;
+  if (grade === 0) return { ivl: 0, ease: Math.max(1.3, ease - 0.2) };
+  const good = Math.max(ivl + 1, ivl < 1 ? 1 : ivl < 3 ? 3 : Math.round(ivl * ease));
+  let n = good, ez = ease;
+  if (grade === 1) { n = Math.max(1, Math.round(Math.max(ivl, 1) * 1.2)); ez = Math.max(1.3, ease - 0.15); }
+  else if (grade === 3) { n = Math.max(good + 1, ivl < 1 ? 3 : Math.round(ivl * ease * 1.3)); ez = Math.min(3, ease + 0.15); }
+  n = Math.min(IVL_MAX, n);
+  if (isLeech(e)) n = Math.min(n, LEECH_IVL);
+  return { ivl: n, ease: ez };
+}
+// Gibt zurück, ob die Karte für diese Fertigkeit gerade zum ersten Mal beantwortet wurde.
+// grade: 0 Nochmal, 1 Schwer, 2 Gut, 3 Leicht (true = Gut, false = Nochmal für ältere Aufrufer)
+function setResult(deckId, card, skill, grade) {
+  if (grade === true) grade = 2;
+  else if (grade === false) grade = 0;
   const t = today();
   const id = cardId(deckId, card);
   const c = state.cards[id] || (state.cards[id] = {});
   const isFirst = !c[skill];
-  const e = c[skill] || (c[skill] = { box: 1, due: t, seen: 0, wrong: 0, last: null });
+  const e = upgradeEntry(c[skill] || (c[skill] = { box: 1, due: t, seen: 0, wrong: 0, last: null }));
   e.seen += 1;
   e.last = t;
-  if (knewIt) {
-    // Nur fällige Karten steigen auf — freies Üben nicht fälliger Karten
-    // schiebt die Wiederholung nicht künstlich nach hinten.
-    if (e.due <= t) {
-      e.box = Math.min(7, e.box + 1);
-      e.due = addDays(t, INTERVAL[e.box]);
-    }
-  } else {
+  if (grade === 0) {
+    const s = nextSchedule(e, 0);
     e.wrong += 1;
+    e.lapses += 1;
+    e.ease = s.ease;
+    e.ivl = 0;
     e.box = 1;
     e.due = t;
+  } else if (e.due <= t) {
+    // Nur fällige Karten rücken vor — freies Üben nicht fälliger Karten
+    // schiebt die Wiederholung nicht künstlich nach hinten.
+    const s = nextSchedule(e, grade);
+    let n = s.ivl;
+    if (n >= 7) n = Math.min(IVL_MAX, Math.max(e.ivl + 1, n + Math.round(n * 0.05 * (Math.random() * 2 - 1)))); // leichte Streuung
+    e.ivl = n;
+    e.ease = s.ease;
+    e.box = boxOf(n);
+    e.due = addDays(t, n);
   }
   saveState();
   return isFirst;
@@ -1296,7 +1368,7 @@ function dailyOverview() {
     skills.forEach((sk, i) => {
       const e = entry(deckId, card, sk);
       if (e) {
-        if (e.due <= t) due.push({ deckId, card, skill: sk, due: e.due, box: e.box });
+        if (e.due <= t) due.push({ deckId, card, skill: sk, due: e.due, box: e.box, leech: isLeech(e) });
         else if (e.due === addDays(t, 1)) tomorrow++;
       } else if (i === 0) {
         if (!hasAny && active.has(deckId)) fresh.push({ deckId, card, skill: sk });
@@ -1331,9 +1403,9 @@ function quizItem(x, skill) {
 function buildDailyQueue() {
   const ov = dailyOverview();
   const size = settings.roundSize;
-  // Fällige zuerst (am längsten überfällig, schwächste Box), neue Karten
+  // Fällige zuerst (Sorgenkinder, dann am längsten überfällig, schwächste Box), neue Karten
   // gleichmäßig dazwischen. Bei großem Rückstand bekommen neue höchstens ein Drittel.
-  const due = shuffle(ov.due.slice()).sort((a, b) => (a.due < b.due ? -1 : a.due > b.due ? 1 : a.box - b.box));
+  const due = shuffle(ov.due.slice()).sort((a, b) => (b.leech ? 1 : 0) - (a.leech ? 1 : 0) || (a.due < b.due ? -1 : a.due > b.due ? 1 : a.box - b.box));
   const reviewTake = Math.min(due.length, size - Math.min(ov.fresh.length, Math.ceil(size / 3)));
   const newTake = Math.min(ov.fresh.length, size - reviewTake);
   const reviews = shuffle(due.slice(0, reviewTake).map(x => quizItem(x, x.skill)));
@@ -1376,6 +1448,7 @@ const sessionView = document.getElementById("sessionView");
 const doneView = document.getElementById("doneView");
 const pathView = document.getElementById("pathView");
 const chapterView = document.getElementById("chapterView");
+const exerciseView = document.getElementById("exerciseView");
 const cardArea = document.getElementById("cardArea");
 const deckSelect = document.getElementById("deckSelect");
 const levelSelect = document.getElementById("levelSelect");
@@ -1383,7 +1456,7 @@ const statsOverlay = document.getElementById("statsOverlay");
 const settingsOverlay = document.getElementById("settingsOverlay");
 
 function showView(view) {
-  [homeView, pathView, chapterView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
+  [homeView, pathView, chapterView, exerciseView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
   document.body.classList.toggle("in-session", view === sessionView);
   window.scrollTo(0, 0);
 }
@@ -1665,7 +1738,10 @@ function updateSessionBar() {
 
 // Zählt nur die erste Antwort pro Karte für Statistik und Tageslog;
 // falsche Karten kommen ein paar Karten später nochmal.
-function answer(knewIt) {
+function answer(grade) {
+  if (grade === true) grade = 2;
+  else if (grade === false) grade = 0;
+  const knewIt = grade >= 1;
   const it = currentItem();
   if (session.kind === "test") {
     it.firstResult = knewIt;
@@ -1674,7 +1750,7 @@ function answer(knewIt) {
     advance();
     return;
   }
-  const firstForSkill = setResult(it.deckId, it.card, it.skill, knewIt);
+  const firstForSkill = setResult(it.deckId, it.card, it.skill, grade);
   if (it.firstResult === null) {
     it.firstResult = knewIt;
     session.results.push(it);
@@ -1722,7 +1798,7 @@ function renderCard() {
   const modeObj = MODES[it.mode];
   const typed = settings.typed && !(session.kind === "test" && card.type === "satz");
   let html = `<div class="card">`;
-  html += `<div class="level-badge">${session.kind === "test" ? "Test · " : ""}${levelLabel(card.level)} · ${typeLabel} · ${modeObj.label}</div>`;
+  html += `<div class="level-badge">${session.kind === "test" ? "Test · " : ""}${levelLabel(card.level)} · ${typeLabel} · ${modeObj.label}${leechBadge(it)}</div>`;
   html += modeObj.front(card);
   if (it.mode !== "de-cn") html += audioRow(); // bei DE→CN würde Audio die Lösung verraten
   if (typed) {
@@ -1759,19 +1835,47 @@ function renderCard() {
   }
 }
 
+// Vorschau des nächsten Abstands unter jedem Knopf (wie bei Anki)
+function ivlLabel(n) {
+  if (n < 1) return tr("gleich", "soon");
+  if (n < 60) return n + " " + tr(n === 1 ? "Tag" : "Tage", n === 1 ? "day" : "days");
+  return Math.round(n / 30) + " " + tr("Mon.", "mo.");
+}
 function selfAssessButtons() {
-  return `<div class="actions">
+  if (session && session.kind === "test") {
+    return `<div class="actions">
       <button class="btn-bad" id="badBtn">${tr("Nicht gewusst", "Didn't know")}</button>
       <button class="btn-good" id="goodBtn">${tr("Gewusst", "Knew it")}</button>
     </div>`;
+  }
+  const it = currentItem();
+  const e = it && entry(it.deckId, it.card, it.skill);
+  const base = e ? { ...e } : { box: 1 };
+  const b = (id, cls, g, label) => `<button class="${cls}" id="${id}"><span>${label}</span><small>${g === 0 ? tr("gleich", "soon") : ivlLabel(nextSchedule(base, g).ivl)}</small></button>`;
+  return `<div class="actions four">
+      ${b("againBtn", "btn-bad", 0, tr("Nochmal", "Again"))}
+      ${b("hardBtn", "btn-hard", 1, tr("Schwer", "Hard"))}
+      ${b("goodBtn", "btn-good", 2, tr("Gut", "Good"))}
+      ${b("easyBtn", "btn-easy", 3, tr("Leicht", "Easy"))}
+    </div>`;
+}
+// kleiner „Leicht"-Knopf neben „Weiter" nach richtiger Eingabe
+function easyMini() {
+  return session && session.kind === "test" ? "" : `<button class="btn-easy-mini" id="easyBtn" title="${tr("Leicht (4)", "Easy (4)")}">⚡ ${tr("Leicht", "Easy")}</button>`;
 }
 function bindAnswerButtons() {
   const on = (id, fn) => { const b = document.getElementById(id); if (b) b.onclick = fn; };
-  on("badBtn", () => answer(false));
-  on("goodBtn", () => answer(true));
-  on("nextBtn", () => answer(true));
-  on("stillWrongBtn", () => answer(false));
-  on("overrideBtn", () => answer(true));
+  on("againBtn", () => answer(0));
+  on("hardBtn", () => answer(1));
+  on("goodBtn", () => answer(2));
+  on("easyBtn", () => answer(3));
+  on("badBtn", () => answer(0));
+  on("nextBtn", () => answer(2));
+  on("stillWrongBtn", () => answer(0));
+  on("overrideBtn", () => answer(2));
+}
+function leechBadge(it) {
+  return isLeech(entry(it.deckId, it.card, it.skill)) ? ` · <span class="badge-leech">🩹 ${tr("Sorgenkind", "Tricky card")}</span>` : "";
 }
 
 function revealFlip(modeObj) {
@@ -1828,7 +1932,7 @@ function checkTyped(modeObj, inputs) {
   } else if (self) {
     html += selfAssessButtons();
   } else {
-    html += `<div class="actions"><button class="btn-good" id="nextBtn">${tr("Weiter →", "Next →")}</button></div>`;
+    html += `<div class="actions"><button class="btn-good" id="nextBtn">${tr("Weiter →", "Next →")}</button>${easyMini()}</div>`;
   }
   document.getElementById("feedback").innerHTML = html;
 
@@ -1912,7 +2016,7 @@ function renderWriteCard(it) {
     let html = knew ? `<div class="fb-correct">✅ ${tr("Richtig geschrieben!", "Written correctly!")}</div>` : `<div class="fb-wrong">❌ ${gaveUp ? tr("Lösung:", "Answer:") : tr("Noch nicht sicher.", "Not solid yet.")}</div>`;
     html += hanziBlock(card);
     html += knew
-      ? `<div class="actions"><button class="btn-good" id="nextBtn">${tr("Weiter →", "Next →")}</button></div>`
+      ? `<div class="actions"><button class="btn-good" id="nextBtn">${tr("Weiter →", "Next →")}</button>${easyMini()}</div>`
       : `<div class="actions"><button class="btn-bad" id="stillWrongBtn">${tr("Weiter (nicht gewusst)", "Next (didn't know)")}</button><button class="btn-good" id="overrideBtn">${tr("War trotzdem richtig", "I was right anyway")}</button></div>`;
     document.getElementById("feedback").innerHTML = html;
     bindAnswerButtons();
@@ -2433,6 +2537,10 @@ function renderChapter() {
       <div class="wl-hz" style="${x.card.hanzi.length > 6 ? "font-size:1.05rem" : ""}">${x.card.hanzi}</div>
       <div class="wl-main"><span class="res-py">${x.card.pinyin}</span><br>${x.card.de}</div></div>`;
   }).join("");
+  const exOk = buildExercises(ch).length >= 3;
+  const exBtn = `<div class="steps" style="margin-top:10px"><button class="step ${exOk ? "" : "off"}" data-ex="1" ${exOk ? "" : "disabled"}>
+      <div class="step-ico">🧩</div><div class="step-body"><div class="step-title">${tr("Übungen", "Exercises")}</div>
+      <div class="step-sub">${exOk ? tr("Lückentext & Hören mit ganzen Sätzen", "Fill-in-the-blank & listening with whole sentences") : tr("Noch zu wenige Sätze in diesem Kapitel", "Not enough sentences in this chapter yet")}</div></div></button></div>`;
   chapterView.innerHTML = `
     <div class="view-head"><button class="back-btn" id="chBack">← ${tr("Lernpfad", "Path")}</button></div>
     <div class="ch-hero s-${ch.stufe}">
@@ -2455,6 +2563,7 @@ function renderChapter() {
           <div class="mini"><i style="width:${Math.round(s.pct * 100)}%"></i></div></div>
         ${s.rec ? `<span class="step-tag">${tr("Weiter", "Next")} ▶</span>` : s.ok ? `<span class="step-check">✓</span>` : ""}
       </button>`).join("")}</div>
+    ${exBtn}
     ${st.mastered && next ? `<button class="next-chapter-btn" id="nextChapterBtn" data-ch="${next.id}">${tr("Weiter mit Kapitel", "Continue with chapter")} „${next.title}“ →</button>` : ""}
     <details class="deck-group" style="margin-top:16px"><summary>${tr("Alle Karten dieses Kapitels", "All cards in this chapter")} (${st.all.length})</summary>
       <p class="muted-note">${tr("Antippen zum Anhören · Punkt: grau neu · gelb am Lernen · grün sicher", "Tap to listen · dot: grey new · yellow learning · green solid")}</p>${wordRows}</details>`;
@@ -2466,8 +2575,148 @@ chapterView.addEventListener("click", e => {
   if (nx) { openChapter(nx.dataset.ch); return; }
   const say = e.target.closest("[data-say]");
   if (say) { speak(say.dataset.say); return; }
+  const exb = e.target.closest("[data-ex]");
+  if (exb && !exb.disabled) { openExercise(chapterId); return; }
   const stp = e.target.closest("[data-step]");
   if (stp && !stp.disabled) startChapterStep(chapterId, stp.dataset.step);
+});
+
+// ---------------------------------------------------------------
+// Übungen pro Kapitel: Lückentext (Wort im Satz ergänzen) und Hören (Satz verstehen).
+// Sätze aus den Satz-Stapeln des Kapitels (bei zu wenigen auch aus früheren Kapiteln);
+// Ergebnis wirkt auf die Planung der betroffenen Karte, aber nur wenn sie schon gelernt wird.
+// ---------------------------------------------------------------
+const NO_BLANK = new Set(["的", "了", "吗", "吧", "呢", "啊", "么"]);
+function exercisePools(ch) {
+  const all = CURR.flatMap(s => s.chapters);
+  const at = all.indexOf(ch);
+  const upto = all.filter((c, i) => i <= at && (!isExtraChapter(c) || c === ch));
+  const wordsAll = cardsOf(upto.flatMap(c => c.decks || [])).filter(x => x.card.type !== "satz");
+  const mine = new Set(cardsOf(ch.decks || []).map(x => x.card.hanzi));
+  let sents = cardsOf(ch.sentenceDecks || []).filter(x => x.card.de);
+  if (sents.length < 8) {
+    const have = new Set(sents.map(x => x.card.hanzi));
+    const more = cardsOf(upto.flatMap(c => c.sentenceDecks || [])).filter(x => x.card.de && !have.has(x.card.hanzi));
+    sents = sents.concat(shuffle(more).slice(0, 40));
+  }
+  return { wordsAll, mine, sents };
+}
+function buildExercises(ch, n = 8) {
+  const { wordsAll, mine, sents } = exercisePools(ch);
+  const words = [...new Map(wordsAll.map(x => [x.card.hanzi, x])).values()];
+  const cloze = [];
+  sents.forEach(s => {
+    const hz = s.card.hanzi;
+    const cands = words.filter(w => w.card.hanzi.length <= 4 && w.card.hanzi !== hz && hz.includes(w.card.hanzi)
+      && !NO_BLANK.has(w.card.hanzi) && !/[，。？！、,.?!\s]/.test(w.card.hanzi));
+    if (!cands.length) return;
+    cands.sort((a, b) => (mine.has(b.card.hanzi) - mine.has(a.card.hanzi)) || (b.card.hanzi.length - a.card.hanzi.length) || (Math.random() - 0.5));
+    const w = cands[0], len = w.card.hanzi.length;
+    const pool = shuffle(words.filter(o => o !== w && !hz.includes(o.card.hanzi) && o.card.de !== w.card.de && o.card.hanzi.length <= 4));
+    const opts = [w].concat(pool.filter(o => o.card.hanzi.length === len).concat(pool.filter(o => o.card.hanzi.length !== len)).slice(0, 3));
+    if (opts.length === 4) cloze.push({ type: "cloze", s, w, opts: shuffle(opts) });
+  });
+  const usedS = new Set(cloze.map(q => q.s.card.hanzi));
+  const fromExamples = [];
+  cardsOf(ch.decks || []).forEach(x => {
+    const e = x.card.example, w = x.card.hanzi;
+    if (!e || !e.hanzi || e.hanzi === w || !e.hanzi.includes(w) || w.length > 4 || NO_BLANK.has(w) || usedS.has(e.hanzi)) return;
+    const pool = shuffle(words.filter(o => o.card.hanzi !== w && !e.hanzi.includes(o.card.hanzi) && o.card.de !== x.card.de && o.card.hanzi.length <= 4));
+    const opts = [x].concat(pool.filter(o => o.card.hanzi.length === w.length).concat(pool.filter(o => o.card.hanzi.length !== w.length)).slice(0, 3));
+    if (opts.length === 4) fromExamples.push({ type: "cloze", s: { deckId: x.deckId, card: { hanzi: e.hanzi, pinyin: e.pinyin || "", de: "" } }, w: x, opts: shuffle(opts), hintOnly: true });
+  });
+  if (cloze.length < n) cloze.push(...shuffle(fromExamples).slice(0, n - cloze.length + 2));
+  const hear = [];
+  if ("speechSynthesis" in window) sents.forEach(s => {
+    const others = shuffle(sents.filter(o => o !== s && o.card.de !== s.card.de));
+    if (others.length >= 3) hear.push({ type: "hear", s, opts: shuffle([s].concat(others.slice(0, 3))) });
+  });
+  const out = shuffle(cloze).slice(0, hear.length ? Math.ceil(n * 0.6) : n);
+  const used = new Set(out.map(q => q.s.card.hanzi));
+  shuffle(hear).forEach(q => { if (out.length < n && !used.has(q.s.card.hanzi)) { out.push(q); used.add(q.s.card.hanzi); } });
+  shuffle(cloze).forEach(q => { if (out.length < n && !used.has(q.s.card.hanzi)) { out.push(q); used.add(q.s.card.hanzi); } });
+  return shuffle(out);
+}
+
+let ex = null; // { ch, qs, i, ok, picked, results, spoken }
+function openExercise(chId) {
+  const ch = chapterById(chId);
+  const qs = buildExercises(ch);
+  if (qs.length < 3) { showToast(tr("Für dieses Kapitel gibt es noch nicht genug Sätze für Übungen.", "Not enough sentences in this chapter for exercises yet.")); return; }
+  ex = { ch, qs, i: 0, ok: 0, picked: null, results: [], spoken: false };
+  showView(exerciseView);
+  renderExercise();
+}
+function exRightIndex(q) { return q.opts.indexOf(q.type === "cloze" ? q.w : q.s); }
+function renderExercise() {
+  const head = `<div class="view-head"><button class="back-btn" id="exBack">← ${tr("Kapitel", "Chapter")}</button><h2>🧩 ${tr("Übungen", "Exercises")}</h2></div>
+    <div class="mini" style="margin:0 0 12px"><i style="width:${Math.round(ex.i / ex.qs.length * 100)}%"></i></div>`;
+  if (ex.i >= ex.qs.length) { renderExerciseDone(head); return; }
+  const q = ex.qs[ex.i], c = q.s.card, answered = ex.picked !== null, ri = exRightIndex(q);
+  const optsHtml = q.opts.map((o, i) => {
+    const cls = !answered ? "" : i === ri ? " right" : i === ex.picked ? " wrong" : "";
+    const label = q.type === "cloze" ? `<b class="ex-hz">${escapeHtml(o.card.hanzi)}</b> <span class="py">${escapeHtml(o.card.pinyin)}</span>` : escapeHtml(o.card.de);
+    return `<button class="ex-opt${cls}" data-exans="${i}" ${answered ? "disabled" : ""}><kbd>${i + 1}</kbd><span>${label}</span></button>`;
+  }).join("");
+  let body;
+  if (q.type === "cloze") {
+    const w = escapeHtml(q.w.card.hanzi), sent = escapeHtml(c.hanzi);
+    const shown = answered ? sent.split(w).join(`<span class="ex-fill">${w}</span>`) : sent.split(w).join('<span class="ex-blank">＿＿</span>');
+    body = `<div class="ex-kind">🧩 ${tr("Welches Wort fehlt?", "Which word is missing?")}</div>
+      <div class="ex-sent">${shown}</div>
+      <div class="ex-py">${answered ? escapeHtml(c.pinyin) : ""}</div>
+      <div class="ex-de">${c.de ? escapeHtml(c.de) : tr("Gesucht:", "Missing:") + " " + escapeHtml(q.w.card.de)}</div>`;
+  } else {
+    body = `<div class="ex-kind">👂 ${tr("Hör zu — was bedeutet der Satz?", "Listen — what does the sentence mean?")}</div>
+      <button class="ex-hear" id="exHear" aria-label="${tr("Nochmal anhören", "Play again")}">🔊</button>
+      <div class="ex-sent" style="font-size:1.5rem">${answered ? escapeHtml(c.hanzi) : "&nbsp;"}</div>
+      <div class="ex-py">${answered ? escapeHtml(c.pinyin) : tr("Taste A = nochmal anhören", "Key A = play again")}</div>`;
+  }
+  const right = answered && ex.picked === ri;
+  const fb = answered ? `<div class="${right ? "fb-correct" : "fb-wrong"}">${right ? "✅ " + tr("Richtig!", "Correct!") : "❌ " + tr("Richtig wäre:", "Correct was:") + " " + (q.type === "cloze" ? escapeHtml(q.w.card.hanzi) + " (" + escapeHtml(q.w.card.de) + ")" : escapeHtml(c.de))}</div>
+    <div class="actions"><button class="btn-good" id="exNext">${ex.i + 1 >= ex.qs.length ? tr("Ergebnis", "Result") : tr("Weiter →", "Next →")}</button></div>` : "";
+  exerciseView.innerHTML = head + `<div class="ex-card">${body}<div class="ex-opts">${optsHtml}</div>${fb}</div>
+    <p class="hint" style="text-align:center">${ex.i + 1} / ${ex.qs.length} · ${tr("Tasten 1–4 wählen, Enter = weiter", "Keys 1–4 choose, Enter = next")}</p>`;
+  if (q.type === "hear" && !answered && !ex.spoken) {
+    ex.spoken = true;
+    setTimeout(() => { if (ex && ex.qs[ex.i] === q && ex.picked === null) speak(c.hanzi); }, 350);
+  }
+}
+function exAnswer(i) {
+  if (!ex || ex.picked !== null || ex.i >= ex.qs.length) return;
+  const q = ex.qs[ex.i], right = i === exRightIndex(q);
+  ex.picked = i;
+  if (right) ex.ok += 1;
+  ex.results.push({ q, right });
+  const t = q.type === "cloze" ? q.w : q.s;
+  if (entry(t.deckId, t.card, "erkennen")) setResult(t.deckId, t.card, "erkennen", right ? 2 : 0); // nur Karten, die schon gelernt werden
+  renderExercise();
+}
+function renderExerciseDone(head) {
+  const wrong = ex.results.filter(r => !r.right);
+  const pct = Math.round(ex.ok / ex.qs.length * 100);
+  exerciseView.innerHTML = head + `<div class="ex-card" style="text-align:center">
+      <div style="font-size:2.4rem">${pct >= 80 ? "🎉" : pct >= 50 ? "👍" : "💪"}</div>
+      <h2>${ex.ok} / ${ex.qs.length} ${tr("richtig", "correct")}</h2>
+      ${wrong.length ? `<div style="text-align:left;margin-top:10px"><b>${tr("Nochmal anschauen:", "Take another look:")}</b>${wrong.map(r => `<div class="wl-row" data-say="${escapeHtml(r.q.s.card.hanzi)}"><div class="wl-main"><b>${escapeHtml(r.q.s.card.hanzi)}</b><br><span class="res-py">${escapeHtml(r.q.s.card.pinyin)}</span><br>${escapeHtml(r.q.s.card.de)}${r.q.type === "cloze" ? ` · <i>${escapeHtml(r.q.w.card.hanzi)} = ${escapeHtml(r.q.w.card.de)}</i>` : ""}</div></div>`).join("")}</div>` : `<p class="muted-note">${tr("Alles richtig — stark!", "All correct — great!")}</p>`}
+      <div class="actions"><button class="btn-good" id="exAgain">${tr("Neue Runde", "New round")}</button><button id="exBackDone">${tr("Zum Kapitel", "To chapter")}</button></div></div>`;
+}
+exerciseView.addEventListener("click", e => {
+  const t = e.target;
+  if (!ex) return;
+  if (t.closest("#exBack") || t.closest("#exBackDone")) { openChapter(ex.ch.id); return; }
+  if (t.closest("#exNext")) { ex.i += 1; ex.picked = null; ex.spoken = false; renderExercise(); window.scrollTo(0, 0); return; }
+  if (t.closest("#exAgain")) { openExercise(ex.ch.id); return; }
+  if (t.closest("#exHear")) { speak(ex.qs[ex.i].s.card.hanzi); return; }
+  const a = t.closest("[data-exans]");
+  if (a) { exAnswer(Number(a.dataset.exans)); return; }
+  const say = t.closest("[data-say]");
+  if (say) speak(say.dataset.say);
+});
+document.addEventListener("keydown", e => {
+  if (!ex || exerciseView.hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (/^[1-4]$/.test(e.key)) { e.preventDefault(); exAnswer(Number(e.key) - 1); }
+  else if (e.key === "a" || e.key === "A") { const q = ex.qs[ex.i]; if (q && (q.type === "hear" || ex.picked !== null)) speak(q.s.card.hanzi); }
 });
 
 function chapterQueue(ch, key) {
@@ -2594,6 +2843,7 @@ function renderSettings() {
   renderWritePreview();
   newPerDayInput.value = settings.newPerDay;
   roundSizeSelect.value = String(settings.roundSize);
+  renderCourseSelect();
   const active = new Set(settings.activeDecks);
   document.getElementById("deckChecklist").innerHTML = STUFEN.filter(s => stufeHasCards(s.id)).map(s => {
     const decks = Object.entries(DECKS).filter(([, d]) => d.stufe === s.id);
@@ -2605,6 +2855,39 @@ function renderSettings() {
     </details>`;
   }).join("");
 }
+
+// „Wo bist du im Kurs?": aktiviert alle Buch-Stapel bis zur gewählten Lektion und öffnet die Kapitel.
+// Zusatz-Kapitel und eigene Wörter bleiben, wie sie sind.
+const courseSelect = document.getElementById("courseSelect");
+const isExtraChapter = c => /-[xy]\d+$/.test(c.id);
+function renderCourseSelect() {
+  const lessonNo = c => { const m = c.id.match(/-l(\d+)$/); return m ? "L" + Number(m[1]) + " · " : c.n + ". "; };
+  courseSelect.innerHTML = `<option value="">${tr("— wählen —", "— choose —")}</option>` + CURR.map(s =>
+    `<optgroup label="${s.label} · ${s.title}">${s.chapters.filter(c => !isExtraChapter(c)).map(c => {
+      const t = c.title.length > 38 ? c.title.slice(0, 37) + "…" : c.title;
+      return `<option value="${c.id}">${lessonNo(c)}${t}</option>`;
+    }).join("")}</optgroup>`).join("");
+  courseSelect.value = chapterById(pathState.start) && !isExtraChapter(chapterById(pathState.start)) ? pathState.start : "";
+}
+function applyCourseStand(chId) {
+  const list = CURR.flatMap(s => s.chapters);
+  const i = list.findIndex(c => c.id === chId);
+  if (i < 0) return;
+  const book = c => !isExtraChapter(c);
+  const deckIds = c => (c.decks || []).concat(c.sentenceDecks || []);
+  const bookDecks = new Set(list.filter(book).flatMap(deckIds));
+  const upto = list.slice(0, i + 1).filter(book).flatMap(deckIds).filter(id => DECKS[id]);
+  const keep = settings.activeDecks.filter(id => DECKS[id] && !bookDecks.has(id)); // eigene Wörter + Zusatz-Stapel
+  settings.activeDecks = [...new Set(keep.concat(upto))];
+  list.slice(0, i + 1).forEach(c => { pathState.unlocked[c.id] = true; });
+  pathState.start = chId;
+  pathTab = null;
+  saveSettings();
+  savePath();
+  renderSettings();
+  showToast(tr("Kursstand gesetzt: „" + chapterById(chId).title + "“ — Stapel bis dahin sind aktiv.", "Course position set: “" + chapterById(chId).title + "” — decks up to there are active."));
+}
+courseSelect.onchange = () => { if (courseSelect.value) applyCourseStand(courseSelect.value); };
 
 document.querySelectorAll("[data-lang]").forEach(b => {
   b.onclick = () => {
@@ -2682,7 +2965,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v19";
+const APP_VERSION = "v24";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
@@ -2794,12 +3077,13 @@ function renderStatsPanel() {
   const totalPct = totalSeen ? Math.round(((totalSeen - totalWrong) / totalSeen) * 100) : 0;
   // schwach = zuletzt falsch (Box 1), je Fertigkeit
   const weakItems = allCards().flatMap(x => enabledSkills()
-    .filter(sk => { const e = entry(x.deckId, x.card, sk); return e && e.box === 1 && e.wrong > 0; })
+    .filter(sk => { const e = entry(x.deckId, x.card, sk); return e && ((e.box === 1 && e.wrong > 0) || isLeech(e)); })
     .map(sk => quizItem(x, sk)));
   const weakCards = [...new Map(weakItems.map(it => [cardId(it.deckId, it.card), it.card])).values()];
+  const leechIds = new Set(weakItems.filter(it => isLeech(entry(it.deckId, it.card, it.skill))).map(it => it.card.hanzi)); // 🩹 = Sorgenkind (oft vergessen)
   const weakHtml = weakCards.length
     ? `<button class="btn-good" id="practiceWeakBtn" style="margin-bottom:10px">${tr("Diese", "Practise these")} ${weakCards.length} ${tr("jetzt üben", "now")}</button>
-       <ul class="weak-list">${weakCards.slice(0, 40).map(c => `<li>${c.hanzi} <span class="pinyin-inline">${c.pinyin}</span> — ${c.de}</li>`).join("")}</ul>`
+       <ul class="weak-list">${weakCards.slice(0, 40).map(c => `<li>${leechIds.has(c.hanzi) ? "🩹 " : ""}${c.hanzi} <span class="pinyin-inline">${c.pinyin}</span> — ${c.de}</li>`).join("")}</ul>`
     : `<p class="muted-note">${tr("Aktuell keine auffälligen Problemkarten.", "No problem cards right now.")}</p>`;
   document.getElementById("statsPanel").innerHTML = `
     <div class="panel-head"><h2>${tr("Statistik", "Statistics")}</h2><button class="icon-btn" id="statsCloseBtn" title="${tr("Schließen", "Close")}">✕</button></div>
@@ -2808,7 +3092,7 @@ function renderStatsPanel() {
       <thead><tr><th>${tr("Stapel", "Deck")}</th><th>${tr("Beantwortet", "Answered")}</th><th>${tr("Richtig", "Correct")}</th><th>${tr("Falsch", "Wrong")}</th><th>%</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    <h3>${tr("Schwierige Karten (zuletzt falsch, noch nicht wieder gekonnt)", "Difficult cards (last answer wrong, not yet recovered)")}</h3>
+    <h3>${tr("Schwierige Karten (zuletzt falsch oder oft vergessen 🩹)", "Difficult cards (last answer wrong or often forgotten 🩹)")}</h3>
     ${weakHtml}
   `;
   document.getElementById("statsCloseBtn").onclick = () => { statsOverlay.hidden = true; };
@@ -3445,7 +3729,7 @@ document.getElementById("endSessionBtn").onclick = e => { e.currentTarget.blur()
 // Enter: springt je nach Zustand zum nächsten sinnvollen Schritt
 // (starten / Karte umdrehen / prüfen / weiter / fertig). Esc schließt Panels
 // bzw. beendet die Runde.
-const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "startBtn", "recStep", "doneBtn"];
+const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "exNext", "exAgain", "startBtn", "recStep", "doneBtn"];
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     if (!charOverlay.hidden) closeCharDetail();
@@ -3454,6 +3738,7 @@ document.addEventListener("keydown", e => {
     else if (!settingsOverlay.hidden) closeSettings();
     else if (!statsOverlay.hidden) statsOverlay.hidden = true;
     else if (session) finishSession(false);
+    else if (!exerciseView.hidden) openChapter(ex.ch.id);
     else if (!chapterView.hidden) openPath();
     else if (!pathView.hidden) goHome();
     return;
@@ -3471,8 +3756,10 @@ document.addEventListener("keydown", e => {
       return !!btn;
     };
     if (e.key === " ") { clickFirst(["flipBtn", "checkBtn", "nextBtn"]) || e.preventDefault(); return; }
-    if (e.key === "1") { clickFirst(["badBtn", "stillWrongBtn", "giveUpBtn"]); return; }
-    if (e.key === "2") { clickFirst(["goodBtn", "overrideBtn", "nextBtn"]); return; }
+    if (e.key === "1") { clickFirst(["againBtn", "badBtn", "stillWrongBtn", "giveUpBtn"]); return; }
+    if (e.key === "2") { clickFirst(["hardBtn"]) || clickFirst(["goodBtn", "overrideBtn", "nextBtn"]); return; }
+    if (e.key === "3") { clickFirst(["goodBtn", "overrideBtn", "nextBtn"]); return; }
+    if (e.key === "4") { clickFirst(["easyBtn"]); return; }
     if (e.key === "a" || e.key === "A") {
       const it = currentItem();
       // bei DE→CN erst nach dem Aufdecken, sonst würde es die Lösung verraten
@@ -3523,7 +3810,7 @@ const EN_STATIC = {
   "Frei üben": "Practise", "Auch Test": "Plus test",
   "Übersetzer": "Translator", "Wörter & Sätze": "Words & sentences",
   "Alle": "All", "Leicht": "Easy", "Mittel": "Medium", "Schwer": "Hard",
-  "weiter ·": "next ·", "Leertaste": "Space", "umdrehen ·": "flip ·", "nicht gewusst ·": "didn't know ·", "gewusst ·": "knew it ·",
+  "weiter ·": "next ·", "Leertaste": "Space", "umdrehen ·": "flip ·", "Nochmal · Schwer · Gut · Leicht ·": "Again · Hard · Good · Easy ·",
   "suchen ·": "search ·", "beenden": "end", "ausblenden": "hide",
   "Dein Lernstand liegt sicher in diesem Browser.": "Your progress is stored safely in this browser.",
   "🌐 Übersetzer": "🌐 Translator", "Übersetzen": "Translate", "Wortliste": "Word list",
@@ -3545,6 +3832,8 @@ const EN_STATIC = {
   "Schreibfeld": "Writing pad", "Klein": "Small", "Mittel": "Medium", "Groß": "Large", "Vorschau in echter Größe:": "Preview at actual size:",
   "Tagesziel": "Daily goal", "Neue Karten pro Tag": "New cards per day", "Karten pro Runde": "Cards per round",
   "Aktive Lektionen": "Active lessons",
+  "Wo bist du im Kurs?": "Where are you in the course?",
+  "Wähle die letzte Lektion, die im Kurs schon dran war: Alle Stapel bis dahin werden aktiv, die Kapitel öffnen sich.": "Pick the last lesson the course has covered: all decks up to there become active and the chapters open.",
   "Neue Karten kommen nur aus angehakten Lektionen. Hake an, was im Kurs schon dran war.": "New cards only come from ticked lessons. Tick what the course has covered.",
   "Mehr: Sicherung & Tastenkürzel": "More: backup & shortcuts",
   "Tastenkürzel unter der Karte (Mac)": "Keyboard shortcuts under the card (Mac)",
@@ -3682,7 +3971,7 @@ const ONB_LEVELS = [
   { icon: "🏮", title: tr("A2 begonnen", "A2 started"), hsk: "≈ HSK 2", start: chapterById("a21-l13"), from: tr("A2.1 · Buch 2", "A2.1 · Book 2") },
   { icon: "🏯", title: tr("A2 fortgeschritten", "A2 advanced"), hsk: "≈ HSK 2–3", start: onbFirst("a22"), from: "A2.2" }
 ].filter(l => l.start);
-const ONB_STEPS = ["hello", "daily", "path", "tools", "level", "goal"];
+const ONB_STEPS = ["hello", "daily", "path", "tools", "level", "skills", "goal"];
 const ONB_PER_BAND = 3, ONB_PASS = 2;
 const ONB_DECO = [["龙", 4, 6, 5], ["福", 70, 4, 4.2], ["学", 80, 38, 5.5], ["云", 6, 44, 4], ["好", 62, 70, 5], ["中", 14, 80, 4.6], ["春", 84, 84, 4]]
   .map(([c, x, y, s], i) => `<span style="left:${x}%;top:${y}%;font-size:${s}rem;animation-delay:${-i * 2.3}s">${c}</span>`).join("");
@@ -3691,7 +3980,8 @@ const onbBox = () => document.getElementById("onbBox");
 
 function openOnboarding() {
   const hasProgress = Object.keys(state.cards).length > 0;
-  onb = { step: 0, hasProgress, level: hasProgress ? -1 : 0, guess: null, quiz: null, mood: "", newPerDay: settings.newPerDay, anim: true };
+  onb = { step: 0, hasProgress, level: hasProgress ? -1 : 0, guess: null, quiz: null, mood: "", newPerDay: settings.newPerDay, anim: true,
+    skills: { write: "kaum", say: "geht" }, skillsTouched: false, markKnown: true, quizStats: null };
   settingsOverlay.hidden = true;
   onbOverlay.innerHTML = `<div class="onb-deco" aria-hidden="true">${ONB_DECO}</div><div class="onb-fx" aria-hidden="true"></div><div class="onb-box" id="onbBox"></div>`;
   onbOverlay.hidden = false;
@@ -3712,12 +4002,15 @@ function onbNextQuestion() {
   const wrong = [];
   pool.forEach(c => { if (wrong.length < 3 && c.de !== card.de && !wrong.some(w => w.de === c.de)) wrong.push(c); });
   q.card = card;
+  q.kind = q.inBand === ONB_PER_BAND - 1 && "speechSynthesis" in window ? "hear" : "read"; // jede 3. Frage einer Stufe: Hören
+  q.spoken = false;
   q.options = shuffle([card].concat(wrong)).map(c => c.de);
   q.picked = null;
   q.total += 1;
 }
 function onbStartQuiz() {
-  onb.quiz = { band: 0, inBand: 0, ok: 0, passed: 0, total: 0, used: new Set(), card: null, options: [], picked: null };
+  onb.quiz = { band: 0, inBand: 0, ok: 0, passed: 0, total: 0, used: new Set(), card: null, options: [], picked: null, kind: "read", spoken: false,
+    stats: { read: { ok: 0, n: 0 }, hear: { ok: 0, n: 0 } } };
   onb.mood = "think";
   onb.anim = true;
   onbNextQuestion();
@@ -3725,6 +4018,7 @@ function onbStartQuiz() {
 }
 function onbEndQuiz() {
   onb.guess = onb.level = onb.quiz.passed;
+  onb.quizStats = onb.quiz.stats;
   onb.quiz = null;
   onb.mood = "happy";
   onb.anim = true;
@@ -3736,6 +4030,8 @@ function onbAnswer(i) {
   q.picked = i; // -1 = „weiß ich nicht"
   const right = i >= 0 && q.options[i] === q.card.de;
   if (right) q.ok += 1;
+  q.stats[q.kind].n += 1;
+  if (right) q.stats[q.kind].ok += 1;
   q.inBand += 1;
   onb.mood = right ? "happy" : "oops";
   renderOnb();
@@ -3752,6 +4048,28 @@ function onbAnswer(i) {
   }, right ? 650 : 1300);
 }
 
+// Übungsarten nach Selbsteinschätzung (ohne Eingriff, wenn der Nutzer nichts geändert hat und seinen Stand behält)
+function onbModes() {
+  const m = new Set(settings.modes);
+  if (onb.skillsTouched || (ONB_LEVELS[onb.level] && !onb.hasProgress)) {
+    if (onb.skills.write === "kaum") m.delete("schreiben"); else m.add("schreiben");
+    if (onb.skills.say === "kaum") m.delete("de-cn"); else m.add("de-cn");
+  }
+  if (!m.size) m.add("cn-pinyin-de");
+  return ALL_MODES.filter(x => m.has(x));
+}
+// Wörter der Kapitel vor dem Startkapitel (ohne Zusatz-Kapitel), je Fertigkeit: kommen als „bekannt" in den Lernstand
+function onbKnownItems() {
+  const lv = ONB_LEVELS[onb.level];
+  if (!lv || onb.level < 1) return [];
+  const chapters = ONB_LIST.slice(0, ONB_LIST.indexOf(lv.start)).filter(c => !/-[xy]\d+$/.test(c.id));
+  const skills = [...new Set(onbModes().map(m => SKILL_OF_MODE[m]))];
+  const out = [];
+  cardsOf(chapters.flatMap(c => c.decks || [])).forEach(({ deckId, card }) => {
+    skills.filter(sk => sk !== "schreiben" || strokeChars(card)).forEach(sk => out.push({ deckId, card, sk }));
+  });
+  return out;
+}
 function onbGoalLabel(n) {
   return n <= 5 ? tr("Entspannt", "Relaxed") : n <= 10 ? "Normal" : n <= 15 ? tr("Zügig", "Brisk") : tr("Intensiv", "Intense");
 }
@@ -3766,11 +4084,14 @@ function renderOnb() {
   if (step === "quiz") {
     const q = onb.quiz;
     nav = false;
-    const say = q.picked === null ? tr("Was bedeutet das?", "What does this mean?")
+    const say = q.picked === null ? (q.kind === "hear" ? tr("Hör zu — was bedeutet das?", "Listen — what does this mean?") : tr("Was bedeutet das?", "What does this mean?"))
       : q.picked >= 0 && q.options[q.picked] === q.card.de ? tr("对！Richtig!", "对！Correct!")
       : `${escapeHtml(q.card.hanzi)} · ${escapeHtml(q.card.pinyin || "")} = <b>${escapeHtml(q.card.de)}</b>`;
+    const hearOrChar = q.kind === "hear" && q.picked === null
+      ? `<button class="onb-hear" data-onbhear="1" aria-label="${tr("Nochmal anhören", "Play again")}">🔊</button><p class="onb-note">${tr("Taste A = nochmal anhören", "Key A = play again")}</p>`
+      : `<p class="onb-q">${escapeHtml(q.card.hanzi)}</p>`;
     html = `<div class="onb-row"><div class="onb-stage">${dragon("xs", "front")}</div>${bubble(say, "left")}</div>
-      <p class="onb-q">${escapeHtml(q.card.hanzi)}</p>`
+      ${hearOrChar}`
       + q.options.map((o, i) => {
         const cls = q.picked === null ? "" : o === q.card.de ? " right" : i === q.picked ? " wrong" : "";
         return `<button class="onb-ans${cls}" data-onbans="${i}"><kbd>${i + 1}</kbd><span>${escapeHtml(o)}</span></button>`;
@@ -3816,17 +4137,28 @@ function renderOnb() {
       ? tr(`Ich schätze dich auf <b>${ONB_LEVELS[onb.guess].title} · ${ONB_LEVELS[onb.guess].hsk}</b> ein. Passt das? Du kannst es ändern.`,
         `My guess for you: <b>${ONB_LEVELS[onb.guess].title} · ${ONB_LEVELS[onb.guess].hsk}</b>. Sound right? You can change it.`)
       : tr("Wo stehst du gerade? Wähle deine Stufe — oder ich finde es mit einem Kurztest heraus.", "Where are you right now? Pick your level — or let me find out with a quick test.");
+    const qs = onb.quizStats;
+    const statsLine = onb.guess !== null && qs ? `<br><small>${tr("Lesen", "Reading")} ${qs.read.ok}/${qs.read.n}${qs.hear.n ? ` · ${tr("Hören", "Listening")} ${qs.hear.ok}/${qs.hear.n}` : ""}</small>` : "";
     const opt = (i, ico, title, sub, hsk, stairs) => `<button class="onb-opt ${onb.level === i ? "on" : ""}" data-onblevel="${i}">
       <span class="o-ico">${ico}</span><span class="o-main"><b>${title}</b><small>${sub}</small></span>
       ${stairs ? `<span class="o-stairs">${[0, 1, 2, 3, 4].map(k => `<i class="${k <= i ? "on" : ""}" style="height:${5 + k * 3.5}px"></i>`).join("")}</span>` : ""}${hsk ? `<span class="o-hsk">${hsk}</span>` : ""}</button>`;
-    html = `<div class="onb-row rev"><div class="onb-stage" style="flex-basis:34%">${dragon("xs", "front")}</div>${bubble(say, "right")}</div>`
+    html = `<div class="onb-row rev"><div class="onb-stage" style="flex-basis:34%">${dragon("xs", "front")}</div>${bubble(say + statsLine, "right")}</div>`
       + (onb.hasProgress ? opt(-1, "💾", tr("Meinen bisherigen Stand behalten", "Keep my current progress"), tr("Nichts ändern", "Change nothing"), "", false) : "")
       + ONB_LEVELS.map((l, i) => opt(i, l.icon, l.title, `${tr("Start bei", "Start at")} ${l.from}`, l.hsk, true)).join("")
       + `<button class="onb-link" data-onb="quiz">🎯 ${onb.guess !== null ? tr("Kurztest wiederholen", "Repeat quick test") : tr("Kurztest machen (ca. 2 Min.)", "Take the quick test (about 2 min)")}</button>
       <p class="onb-note">${tr("HSK-Angaben sind Richtwerte. Frühere Kapitel bleiben offen, dein Lernstand wird nie gelöscht.", "HSK levels are approximate. Earlier chapters stay open, your progress is never deleted.")}</p>`;
+  } else if (step === "skills") {
+    const seg = key => `<div class="onb-seg">${[["kaum", tr("kaum", "hardly")], ["geht", tr("geht so", "so-so")], ["gut", tr("gut", "well")]].map(([v, l]) => `<button class="${onb.skills[key] === v ? "on" : ""}" data-onbskill="${key}:${v}">${l}</button>`).join("")}</div>`;
+    html = `<div class="onb-row rev"><div class="onb-stage" style="flex-basis:34%">${dragon("sm", "coil")}</div>${bubble(tr("Zwei kurze Fragen, damit die Übungen zu dir passen:", "Two quick questions so the exercises fit you:"), "right")}</div>
+      <div class="onb-card"><h4>✍️ ${tr("Chinesische Zeichen schreiben", "Writing Chinese characters")}</h4>${seg("write")}<small class="onb-hint">${tr("Bei „kaum“ üben wir das Schreiben erst später (einschaltbar in ⚙️).", "On “hardly” we leave writing for later (switch it on in ⚙️).")}</small></div>
+      <div class="onb-card"><h4>🗣️ ${tr("Von Deutsch auf Chinesisch kommen", "Getting from German to Chinese")}</h4>${seg("say")}<small class="onb-hint">${tr("Bei „kaum“ üben wir zuerst nur das Erkennen.", "On “hardly” we practise recognising first.")}</small></div>
+      ${onb.quizStats && onb.quizStats.hear.n ? `<div class="onb-card"><h4>👂 ${tr("Hören", "Listening")}</h4><small class="onb-hint" style="margin:0">${onb.quizStats.hear.ok}/${onb.quizStats.hear.n} ${tr("beim Kurztest richtig. Die Aussprache läuft bei jeder Karte automatisch.", "right in the quick test. Pronunciation plays automatically on every card.")}</small></div>` : ""}
+      <p class="onb-note">${tr("Alles lässt sich später in ⚙️ ändern.", "You can change everything later in ⚙️.")}</p>`;
   } else {
     next = tr("Los geht's 🚀", "Let's go 🚀");
     const lv = ONB_LEVELS[onb.level];
+    const known = onbKnownItems();
+    const knownHtml = known.length ? `<button class="onb-toggle ${onb.markKnown ? "on" : ""}" data-onbknown="1"><span class="t-ico">${onb.markKnown ? "☑" : "☐"}</span><span><b>${tr("Stoff vor meinem Start als bekannt markieren", "Mark material before my start as known")}</b><small>${known.length} ${tr("Karten kommen in großen Abständen zur Kontrolle wieder — Fehler zählen als „Nochmal“.", "cards come back at long intervals as a check — mistakes count as “Again”.")}</small></span></button>` : "";
     html = `<div class="onb-stage">${dragon("md", "swirl")}</div>
       ${bubble(tr("Fast geschafft! Wie viele <b>neue Karten pro Tag</b> möchtest du? 加油！", "Almost there! How many <b>new cards per day</b> would you like? 加油！"), "top")}
       <div class="onb-stepper"><button data-onbstep="-5" aria-label="−5">−</button>
@@ -3835,6 +4167,7 @@ function renderOnb() {
       <div class="onb-card"><div class="onb-row" style="gap:12px"><span style="font-size:1.8rem">${lv ? lv.icon : "💾"}</span><div>${lv
         ? tr(`Dein Start: <b>${lv.title} · ${lv.hsk}</b><br><small>Es geht los bei ${lv.from}, Kapitel „${lv.start.title}“.</small>`, `Your start: <b>${lv.title} · ${lv.hsk}</b><br><small>You begin at ${lv.from}, chapter “${lv.start.title}”.</small>`)
         : tr("Dein bisheriger Lernstand und deine aktiven Lektionen bleiben, wie sie sind.", "Your progress and active lessons stay as they are.")}</div></div></div>
+      ${knownHtml}
       <p class="onb-note">${tr("Alles lässt sich später in ⚙️ ändern.", "You can change everything later in ⚙️.")}</p>`;
   }
 
@@ -3853,11 +4186,18 @@ function renderOnb() {
   onb.anim = false;
   onb.mood = "";
   onbOverlay.scrollTop = 0;
+  const hq = onb.quiz;
+  if (hq && hq.kind === "hear" && hq.picked === null && !hq.spoken) {  // Hörfrage: Wort automatisch abspielen
+    hq.spoken = true;
+    const c = hq.card;
+    setTimeout(() => { if (onb && onb.quiz && onb.quiz.card === c) speak(c.hanzi); }, 450);
+  }
 }
 
 function finishOnboarding(skipped) {
   if (!skipped) {
     settings.newPerDay = onb.newPerDay;
+    settings.modes = onbModes();
     const lv = ONB_LEVELS[onb.level];
     if (lv) {
       const i = ONB_LIST.indexOf(lv.start);
@@ -3870,6 +4210,17 @@ function finishOnboarding(skipped) {
       settings.activeDecks = [...new Set(own.concat(ids))];
     }
     saveSettings();
+    if (lv && onb.markKnown && onb.level > 0) {
+      // bekannter Stoff: Eintrag mit 10 Tagen Abstand, Fälligkeit über 2–21 Tage verteilt (kein Wiederholungsberg)
+      const t = today(), done = new Set();
+      onbKnownItems().forEach(({ deckId, card, sk }) => {
+        const id = cardId(deckId, card);
+        if (done.has(id + sk) || entry(deckId, card, sk)) return;
+        done.add(id + sk);
+        (state.cards[id] || (state.cards[id] = {}))[sk] = { box: 4, due: addDays(t, 2 + Math.floor(Math.random() * 20)), seen: 0, wrong: 0, last: null, ivl: 10, ease: 2.5, lapses: 0 };
+      });
+      saveState();
+    }
   }
   writeJson(ONB_KEY, { done: today(), skipped: !!skipped, level: skipped ? null : onb.level });
   onb = null;
@@ -3882,6 +4233,7 @@ function onbNext() {
   if (onb.quiz) return;
   if (onb.step >= ONB_STEPS.length - 1) { finishOnboarding(false); return; }
   onb.step += 1;
+  if (ONB_STEPS[onb.step] === "skills" && !onb.skillsTouched) onb.skills.write = onb.level >= 3 ? "geht" : "kaum"; // Vorschlag nach Stufe
   onb.anim = true;
   renderOnb();
 }
@@ -3906,6 +4258,9 @@ onbOverlay.addEventListener("click", e => {
     return;
   }
   if ((t = el("[data-onblevel]"))) { onb.level = Number(t.dataset.onblevel); renderOnb(); return; }
+  if ((t = el("[data-onbhear]"))) { if (onb.quiz) speak(onb.quiz.card.hanzi); return; }
+  if ((t = el("[data-onbskill]"))) { const [k, v] = t.dataset.onbskill.split(":"); onb.skills[k] = v; onb.skillsTouched = true; renderOnb(); return; }
+  if ((t = el("[data-onbknown]"))) { onb.markKnown = !onb.markKnown; renderOnb(); return; }
   if ((t = el("[data-onbstep]"))) { onb.newPerDay = Math.min(40, Math.max(5, onb.newPerDay + Number(t.dataset.onbstep))); renderOnb(); return; }
   if (!(t = el("[data-onb]"))) return;
   const a = t.dataset.onb;
@@ -3924,6 +4279,7 @@ document.addEventListener("keydown", e => {
   if (onb.quiz) {
     if (/^[1-4]$/.test(e.key) && Number(e.key) <= onb.quiz.options.length) { e.preventDefault(); onbAnswer(Number(e.key) - 1); }
     else if (e.key === "0" || e.key === "5") { e.preventDefault(); onbAnswer(-1); }
+    else if ((e.key === "a" || e.key === "A") && onb.quiz.kind === "hear") { e.preventDefault(); speak(onb.quiz.card.hanzi); }
     return;
   }
   if (e.key === "Enter") { e.preventDefault(); onbNext(); }

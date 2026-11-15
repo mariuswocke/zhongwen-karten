@@ -15,7 +15,8 @@ window.CURRICULUM = [
       { id: "a11-hoeflichkeit", titleEn: "Politeness & Question Words", goalEn: "You greet, say thanks and ask questions.", unitEn: "Arriving", unit: "Ankommen", icon: "🙏", title: "Höflichkeit & Fragewörter", goal: "Du begrüßt, bedankst dich und stellst Fragen.", decks: ["a11-hoeflichkeit-fragen"] },
       { id: "a11-zeit", titleEn: "Time & Calendar", goalEn: "You name weekdays, dates and the time.", unitEn: "Time & Action", unit: "Zeit & Handeln", icon: "📅", title: "Zeit & Kalender", goal: "Du nennst Wochentage, Datum und Uhrzeit.", decks: ["a11-zeit", "a11-wochentage"] },
       { id: "a11-tierkreis", titleEn: "Zodiac Animals", goalEn: "You say which year you were born in.", unitEn: "Time & Action", unit: "Zeit & Handeln", icon: "🐲", title: "Tierkreiszeichen", goal: "Du sagst, in welchem Jahr du geboren bist.", decks: ["a11-tierkreis"] },
-      { id: "a11-verben", titleEn: "Common Verbs", goalEn: "You say what you do, like and need.", unitEn: "Time & Action", unit: "Zeit & Handeln", icon: "🏃", title: "Häufige Verben", goal: "Du sagst, was du tust, magst und brauchst.", decks: ["a11-verben"] }
+      { id: "a11-verben", titleEn: "Common Verbs", goalEn: "You say what you do, like and need.", unitEn: "Time & Action", unit: "Zeit & Handeln", icon: "🏃", title: "Häufige Verben", goal: "Du sagst, was du tust, magst und brauchst.", decks: ["a11-verben"] },
+      { id: "a11-kursdialoge", titleEn: "Course Dialogues", goalEn: "You handle the standard questions and answers from class.", unitEn: "Speaking", unit: "Sprechen", icon: "🗣️", title: "Kursdialoge", goal: "Du beherrschst die Standardfragen und -antworten aus dem Unterricht.", decks: ["a11-kursnotizen-zeichen"], sentenceDecks: ["a11-kursdialoge"] }
     ]
   },
   {
@@ -29,7 +30,8 @@ window.CURRICULUM = [
       { id: "a12-kochen", titleEn: "Cooking & Table Culture", goalEn: "You know cooking methods, tableware and cutlery.", unitEn: "Food & Drink", unit: "Essen & Trinken", icon: "🥢", title: "Kochen & Tischkultur", goal: "Du kennst Zubereitungsarten, Geschirr und Besteck.", decks: ["a12-essen-zubereitung", "a12-tischgedecke"] },
       { id: "a12-restaurant", titleEn: "At the Restaurant", goalEn: "You order and pay at a restaurant.", unitEn: "Out & About", unit: "Unterwegs", icon: "🍽️", title: "Im Restaurant", goal: "Du bestellst und bezahlst im Restaurant.", decks: ["a12-restaurant-dialog"] },
       { id: "a12-geld", titleEn: "Money, Shopping & Colours", goalEn: "You ask for prices and describe colours.", unitEn: "Out & About", unit: "Unterwegs", icon: "💴", title: "Geld, Einkaufen & Farben", goal: "Du fragst nach Preisen und beschreibst Farben.", decks: ["a12-geld-einkaufen", "a12-farben"] },
-      { id: "a12-saetze", titleEn: "Whole Sentences", goalEn: "You use everything in complete sentences.", unitEn: "Speaking", unit: "Sprechen", icon: "💬", title: "Ganze Sätze", goal: "Du wendest alles in vollständigen Sätzen an.", decks: [], sentenceDecks: ["a12-saetze"] }
+      { id: "a12-saetze", titleEn: "Whole Sentences", goalEn: "You use everything in complete sentences.", unitEn: "Speaking", unit: "Sprechen", icon: "💬", title: "Ganze Sätze", goal: "Du wendest alles in vollständigen Sätzen an.", decks: [], sentenceDecks: ["a12-saetze"] },
+      { id: "a12-restaurant-plus", titleEn: "Restaurant & Menu Plus", goalEn: "You read menus, order in detail and settle the bill.", unitEn: "Deepening", unit: "Vertiefung", icon: "🍱", title: "Restaurant & Speisekarte (Vertiefung)", goal: "Du liest Speisekarten, bestellst genauer und klärst die Rechnung.", decks: ["a12-restaurant-woerter"], sentenceDecks: ["a12-restaurant-dialoge"] }
     ]
   },
   {
