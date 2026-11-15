@@ -146,6 +146,7 @@
   .ring-mid b { font-size: 1.7rem; display: block; }
   .ring-mid span { font-size: 0.7rem; opacity: .9; }
   .hero-text { flex: 1; min-width: 0; }
+  .hero-kicker { position: relative; display: inline-block; margin-bottom: 12px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.24); font-size: .72rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
   .hero-hello { font-size: 1.2rem; font-weight: 700; margin: 0 0 2px; }
   .hero-sub { font-size: 0.88rem; opacity: .95; margin: 0 0 10px; }
   .chip-row { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -617,6 +618,16 @@
   .tr-bar .pill { padding: 6px 12px; }
   .tr-go { background: var(--g-teal); color: #fff; border: none; font-weight: 800; box-shadow: 0 4px 0 #1581b4; border-radius: 14px; padding: 10px 16px; }
   .tr-ghost { font-size: 0.85rem; padding: 7px 12px; }
+  .tr-tools { display: flex; justify-content: flex-end; gap: 6px; margin: 6px 0 4px; }
+  .tr-tools .tr-ghost { padding: 5px 10px; font-size: .8rem; color: var(--muted); }
+  .tr-src { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: .85rem; color: var(--muted); }
+  .tr-src .pill { padding: 5px 12px; margin: 0; }
+  .tr-go.wide { width: 100%; margin-top: 8px; padding: 13px 16px; font-size: 1.05rem; }
+  #trHint { margin: 8px 0 4px; text-align: center; }
+  .tr-half { margin-top: 8px; padding: 10px 14px; }
+  .tr-half .big { font-size: 1.3rem; margin: 2px 0 4px; }
+  .tr-tag { display: flex; justify-content: space-between; align-items: center; }
+  .tr-tag .tr-ghost { padding: 3px 9px; }
   .hist { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
   .hist button { font-size: 0.82rem; padding: 4px 10px; border-radius: 999px; background: var(--bg); color: var(--muted); }
   .ruby-card { background: var(--bg); border-radius: 16px; padding: 12px 14px; margin: 8px 0; }
@@ -887,42 +898,39 @@
       <button class="icon-btn" id="searchCloseBtn" title="Schließen (Esc)">✕</button>
     </div>
     <div class="pill-row">
-      <button class="pill on" data-trtab="single">Übersetzen</button>
+      <button class="pill on" data-trtab="single">Einzeln</button>
       <button class="pill" data-trtab="batch">Wortliste</button>
     </div>
 
     <div id="trSingle">
-      <textarea id="searchInput" class="answer-input" rows="2" placeholder="Wort oder Satz — Deutsch, Englisch, 中文 oder Pinyin (ni3hao3) …"
+      <textarea id="searchInput" class="answer-input" rows="3" placeholder="Schriftzeichen, Pinyin, Deutsch oder Englisch …"
         autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search"></textarea>
-      <div class="tr-bar">
-        <span id="trLangPills" class="pill-row" style="margin:0;align-items:center"><span class="bt-src">中文 ↔</span>
-          <button class="pill on" data-trlang="de">Deutsch</button>
-          <button class="pill" data-trlang="en">Englisch</button>
-        </span>
-        <button class="tr-go" id="onlineBtn">🌐 Online übersetzen</button>
-        <button class="tr-ghost" id="pasteBtn" title="Aus der Zwischenablage einfügen">📋 Einfügen</button>
-        <button class="tr-ghost" id="clearBtn" title="Leeren">✕</button>
-      </div>
+      <div class="tr-tools"><button class="tr-ghost" id="pasteBtn" title="Aus der Zwischenablage einfügen">📋 Einfügen</button><button class="tr-ghost" id="clearBtn" title="Leeren">✕ Leeren</button></div>
+      <div id="trSrcRow" class="tr-src" hidden><span>Ich schreibe auf</span><button class="pill on" data-trlang="de">Deutsch</button><button class="pill" data-trlang="en">Englisch</button></div>
+      <button class="tr-go wide" id="onlineBtn">Übersetzen</button>
+      <p class="muted-note" id="trHint">Chinesisch (Zeichen oder Pinyin) wird ins Deutsche und Englische übersetzt, Deutsch oder Englisch ins Chinesische.</p>
       <div id="trHistory"></div>
       <div id="onlineResult"></div>
       <div id="searchResults"></div>
     </div>
 
     <div id="trBatch" hidden>
-      <p class="muted-note">Ein Wort oder eine Wendung pro Zeile (bis 60) — Deutsch, Englisch, 中文 oder Pinyin. Ergebnis: Zeichen, Pinyin, Bedeutung. Auswählen und alle auf einmal als Karten merken.</p>
+      <p class="muted-note">Ein Wort oder eine Wendung pro Zeile (bis 60). Ergebnis: Zeichen, Pinyin, Bedeutung — zum Merken als Karten.</p>
       <textarea id="batchInput" class="answer-input" rows="6" placeholder="Apfel&#10;Bahnhof&#10;Ich habe Hunger&#10;谢谢" spellcheck="false" autocapitalize="off"></textarea>
       <div class="tr-bar">
-        <span class="pill-row" style="margin:0;align-items:center"><span class="bt-src">中文 ↔</span>
+        <span class="pill-row" style="margin:0;align-items:center"><span class="bt-src">Sprache:</span>
           <button class="pill on" data-blang="de">Deutsch</button>
           <button class="pill" data-blang="en">Englisch</button>
         </span>
-        <button class="tr-go" id="batchGo">Übersetzen</button>
+        <button class="tr-go wide" id="batchGo">Übersetzen</button>
       </div>
       <div id="batchStatus" class="muted-note"></div>
       <div id="batchResults"></div>
     </div>
 
-    <p class="muted-note search-credit">Wörterbuch Chinesisch ↔ Englisch offline: <a href="lib/CC-CEDICT-LICENSE.txt" target="_blank" rel="noopener">CC-CEDICT</a> (MDBG), CC BY-SA 4.0<span id="dictDate"></span>. Deutsch und ganze Sätze nur über „Online übersetzen“ (<a href="https://mymemory.translated.net" target="_blank" rel="noopener">MyMemory</a>): der Text geht dabei an den Dienst — nur wenn du auf den Knopf tippst.</p>
+    <details class="more"><summary>Quellen &amp; Hinweise</summary>
+      <p class="muted-note search-credit">Wörterbuch Chinesisch ↔ Englisch offline: <a href="lib/CC-CEDICT-LICENSE.txt" target="_blank" rel="noopener">CC-CEDICT</a> (MDBG), CC BY-SA 4.0<span id="dictDate"></span>. Übersetzungen ganzer Sätze und ins Deutsche laufen über <a href="https://mymemory.translated.net" target="_blank" rel="noopener">MyMemory</a>: der Text geht dabei an den Dienst — nur wenn du auf „Übersetzen“ tippst.</p>
+    </details>
   </div>
 </div>
 
@@ -1578,28 +1586,32 @@ function renderHome() {
     const pct = doneToday / (doneToday + remaining);
     todayCard.className = "hero";
     todayCard.innerHTML = `
+      <div class="hero-kicker">📦 ${tr("Dein Tagespaket", "Your daily package")}</div>
       <div class="hero-main">
-        <div class="ring">${ringSvg(pct)}<div class="ring-mid"><div><b>${doneToday}</b><span>${tr("heute", "today")}</span></div></div></div>
+        <div class="ring">${ringSvg(pct)}<div class="ring-mid"><div><b>${doneToday}</b><span>${tr("von", "of")} ${doneToday + remaining}</span></div></div></div>
         <div class="hero-text">
           <p class="hero-hello">${greeting()}</p>
-          <p class="hero-sub">${doneToday ? tr("Weiter so — da geht noch was!", "Keep going — there's more in you!") : tr("Bereit für deine Runde?", "Ready for your round?")}</p>
+          <p class="hero-sub">${doneToday
+            ? tr(`Weiter so — noch ${remaining} Karten bis dein Tagesziel erreicht ist.`, `Keep going — ${remaining} more cards until your daily goal is done.`)
+            : tr(`Heute dran: ${ov.due.length} Wiederholungen und ${ov.fresh.length} neue Karten. Hast du alle geschafft, ist dein Tagesziel erreicht.`, `Today: ${ov.due.length} reviews and ${ov.fresh.length} new cards. Finish them all and your daily goal is done.`)}</p>
           <div class="chip-row">${streakChip}<span class="stat-chip">⏰ ${ov.due.length} ${tr("fällig", "due")}</span><span class="stat-chip">✨ ${ov.fresh.length} ${tr("neu", "new")}</span></div>
         </div>
       </div>
       <div class="hero-cta">
-        <button class="btn-hero" id="startBtn">${tr("Los geht's →", "Let's go →")}</button>
-        <div class="hint">${total} ${tr("Karten", "cards")} · ${tr("Enter startet", "Enter starts")}</div>
+        <button class="btn-hero" id="startBtn">${doneToday ? tr("Tagespaket fortsetzen →", "Continue daily package →") : tr("Tagespaket starten →", "Start daily package →")}</button>
+        <div class="hint">${remaining > total ? `${total} ${tr("Karten in dieser Runde", "cards this round")} · ${remaining} ${tr("im Tagespaket", "in the package")}` : `${total} ${tr("Karten — danach ist dein Tagesziel erreicht", "cards — then your daily goal is done")}`} · ${tr("Enter startet", "Enter starts")}</div>
       </div>`;
     document.getElementById("startBtn").onclick = () => startSession("daily");
   } else {
     const more = ov.freshAvailable > 0;
     todayCard.className = "hero hero-done";
     todayCard.innerHTML = `
+      <div class="hero-kicker">📦 ${tr("Tagespaket geschafft", "Daily package complete")} ✓</div>
       <div class="hero-main">
         <div class="ring">${ringSvg(1)}<div class="ring-mid"><div><b>✓</b><span>${tr("geschafft", "done")}</span></div></div></div>
         <div class="hero-text">
-          <p class="hero-hello">${tr("Alles erledigt!", "All done!")} 🎉</p>
-          <p class="hero-sub">${more ? tr("Magst du noch ein paar neue Wörter?", "Want a few more new words?") : tr("Keine neuen Karten mehr in den aktiven Lektionen — weitere in ⚙️ aktivieren.", "No new cards left in the active lessons — activate more in ⚙️.")}</p>
+          <p class="hero-hello">${tr("Tagesziel erreicht!", "Daily goal reached!")} 🎉</p>
+          <p class="hero-sub">${more ? tr("Dein tägliches Lernpensum ist erledigt. Magst du noch ein paar neue Wörter extra?", "Your daily study is done. Want a few extra new words?") : tr("Dein tägliches Lernpensum ist erledigt. Keine neuen Karten mehr in den aktiven Lektionen — weitere in ⚙️ aktivieren.", "Your daily study is done. No new cards left in the active lessons — activate more in ⚙️.")}</p>
           <div class="chip-row">${streakChip}<span class="stat-chip">📅 ${tr("morgen", "tomorrow")} ${ov.tomorrow}</span></div>
         </div>
       </div>
@@ -1698,7 +1710,15 @@ document.getElementById("pickSheet").addEventListener("click", e => {
     startSession(pick.kind === "test" ? "test" : "frei");
   }
 });
-pickOverlay.addEventListener("click", e => { if (e.target === pickOverlay) closePick(); });
+// Fenster schließt nur, wenn der Finger/Klick auch auf dem Hintergrund BEGONNEN hat. Sonst schließt es sich z. B. auf dem iPhone,
+// wenn beim Antippen eines Knopfs die Tastatur einklappt, das Fenster sich verschiebt und der Klick auf dem Hintergrund landet.
+function closeOnBackdrop(overlay, close) {
+  let down = false;
+  // Klicks auf die Scrollleiste des Hintergrunds (erscheint, wenn das Fenster höher wird) zählen nicht
+  overlay.addEventListener("pointerdown", e => { down = e.target === overlay && e.clientX < overlay.clientWidth && e.clientY < overlay.clientHeight; });
+  overlay.addEventListener("click", e => { if (e.target === overlay && down) close(); down = false; });
+}
+closeOnBackdrop(pickOverlay, closePick);
 
 function populateDeckSelect() {
   const prev = deckSelect.value;
@@ -2241,7 +2261,7 @@ document.getElementById("charPanel").addEventListener("click", e => {
   else if (t.dataset.open && HANZI_DATA[t.dataset.open]) showCharDetail([t.dataset.open], 0);
   else if (t.dataset.open) loadCharData(t.dataset.open, () => showCharDetail([t.dataset.open], 0), () => showToast(tr("Für diesen Bestandteil gibt es keine Strichdaten.", "No stroke data for this component.")));
 });
-charOverlay.addEventListener("click", e => { if (e.target === charOverlay) closeCharDetail(); });
+closeOnBackdrop(charOverlay, closeCharDetail);
 // Zeichen auf der Karte antippen → Details
 cardArea.addEventListener("click", e => {
   const c = e.target.closest("[data-char]");
@@ -3080,7 +3100,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v27";
+const APP_VERSION = "v28";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
@@ -3443,7 +3463,7 @@ async function runSearch() {
   lastResults = [];
   updateTrBar();
   renderHistory();
-  if (!q) { searchResults.innerHTML = `<p class="muted-note">${tr("Tipp: Auch ganze Sätze einfügen — sie werden in Wörter zerlegt.", "Tip: paste whole sentences too — they get split into words.")}</p>`; return; }
+  if (!q) { searchResults.innerHTML = ""; return; }
   let html = "";
   const own = searchOwn(q);
   if (own.length) html += `<div class="res-head">${tr("Deine Karten", "Your cards")}</div>` + own.map(ownRow).join("");
@@ -3477,7 +3497,7 @@ async function runSearch() {
     if (r.pinyin.length) html += `<div class="res-head">Pinyin</div>` + r.pinyin.map(dictRow).join("");
     if (r.english.length) html += `<div class="res-head">${tr("Englisch", "English")}</div>` + r.english.map(dictRow).join("");
   }
-  if (!html) html = `<p class="muted-note">${tr("Nichts gefunden. Deutsch findet nur deine eigenen Karten — für das Wörterbuch Englisch oder Pinyin versuchen, oder „Online übersetzen“ tippen.", "Nothing found. Try Chinese, pinyin or English for the dictionary — or tap “Translate online”.")}</p>`;
+  if (!html) html = `<p class="muted-note">${tr("Nichts gefunden. Deutsch findet nur deine eigenen Karten — für das Wörterbuch Englisch oder Pinyin versuchen, oder „Übersetzen“ tippen.", "Nothing found. Try Chinese, pinyin or English for the dictionary — or tap “Translate”.")}</p>`;
   searchResults.innerHTML = html;
 }
 
@@ -3591,6 +3611,7 @@ async function onlineTranslate(text, from, target, dict) {
 }
 const onlineErr = e => (e.message === "quota"
   ? tr("Das Tageslimit des Online-Dienstes ist erreicht — morgen wieder, oder Wörter offline nachschlagen.", "The online service's daily limit is reached — try again tomorrow, or look words up offline.")
+  : e.message === "nopinyin" ? tr("Dieses Pinyin habe ich im Wörterbuch nicht gefunden — versuch es mit Tönen (ni3 hao3) oder als Schriftzeichen.", "I could not find this pinyin in the dictionary — try tones (ni3 hao3) or characters.")
   : e.message === "empty" ? tr("Keine Übersetzung gefunden.", "No translation found.")
   : tr("Online-Dienst nicht erreichbar (Internet?).", "Online service unreachable (internet?)."));
 
@@ -3607,20 +3628,50 @@ function saveMyCard(card) {
 }
 const looksSentence = t => [...t].filter(isHan).length > 4 || /[，。？！,.?!]/.test(t);
 
+// Pinyin (mit Tönen) → Schriftzeichen aus dem Wörterbuch; "" wenn nichts Passendes gefunden wird
+function pinyinToHanzi(dict, q) {
+  const exactFor = p => (searchDict(dict, p).pinyin || []).find(e => e.k === normalizePinyin(p));
+  const whole = exactFor(q);
+  if (whole) return whole.w;
+  const parts = q.trim().split(/\s+/);
+  if (parts.length < 2) return "";
+  const out = [];
+  for (const p of parts) { const e = exactFor(p); if (!e) return ""; out.push(e.w); }
+  return out.join("");
+}
 async function showOnline() {
   const q = searchInput.value.trim();
   if (!q) return;
+  searchInput.blur(); // Tastatur zuerst einklappen lassen
   if (!onlineAllowed()) return;
-  const from = isHan(q) ? "zh" : trLang;
   onlineResult.innerHTML = `<div class="online-card"><div class="tag">${tr("Übersetze …", "Translating …")}</div></div>`;
   try {
     const dict = await loadDict();
-    const r = await onlineTranslate(q, from, trLang, dict);
+    const kind = inputKind(q);
+    if (kind === "text") {   // Deutsch/Englisch → Chinesisch
+      const r = await onlineTranslate(q, trLang, trLang, dict);
+      addHistory(q);
+      renderOnline(q, trLang, r, dict, r.text);
+      return;
+    }
+    // Chinesisch (Zeichen oder Pinyin) → Deutsch UND Englisch
+    const zh = kind === "py" ? pinyinToHanzi(dict, q) : q;
+    if (!zh) throw new Error("nopinyin");
+    const [de, en] = await Promise.allSettled([onlineTranslate(zh, "zh", "de", dict), onlineTranslate(zh, "zh", "en", dict)]);
+    if (de.status === "rejected" && en.status === "rejected") throw de.reason;
     addHistory(q);
-    renderOnline(q, from, r, dict, r.text);
+    renderChineseResult(zh, kind, de, en);
   } catch (err) {
     onlineResult.innerHTML = `<div class="online-card"><div class="tag">${onlineErr(err)}</div></div>`;
   }
+}
+function renderChineseResult(zh, kind, de, en) {
+  const card = (flag, name, res) => `<div class="online-card tr-half"><div class="tag tr-tag"><span>${flag} ${name}</span>${res.status === "fulfilled" ? `<button class="tr-ghost" data-copy="${attr(res.value.text)}" title="${tr("Kopieren", "Copy")}">📋</button>` : ""}</div>${res.status === "fulfilled"
+    ? `<div class="big">${escapeHtml(res.value.text)}</div>${res.value.alts.length ? `<div class="tr-note">${tr("Auch möglich", "Also possible")}: ${res.value.alts.slice(0, 3).map(escapeHtml).join(" · ")}</div>` : ""}`
+    : `<div class="tr-note">${onlineErr(res.reason)}</div>`}</div>`;
+  onlineState = null;
+  onlineResult.innerHTML = `${kind === "py" ? `<div class="tr-note">${tr("Erkannt als", "Recognised as")} <b>${escapeHtml(zh)}</b></div>` : ""}${card("🇩🇪", tr("Deutsch", "German"), de)}${card("🇬🇧", tr("Englisch", "English"), en)}
+    <div class="tr-note">${tr("Maschinell übersetzt (MyMemory) — bei Sätzen bitte prüfen.", "Machine-translated (MyMemory) — please double-check sentences.")}</div>`;
 }
 function renderOnline(q, from, r, dict, text) {
   const toZh = from !== "zh";
@@ -3649,11 +3700,18 @@ function renderHistory() {
   trHistory.innerHTML = !searchInput.value.trim() && h.length
     ? `<div class="res-head">${tr("Zuletzt", "Recent")}</div><div class="hist">${h.map(x => `<button data-hist="${attr(x)}">${escapeHtml(x)}</button>`).join("")}</div>` : "";
 }
+// Eingabeart: "zh" (Schriftzeichen) · "py" (Pinyin mit Tönen) · "text" (Deutsch/Englisch)
+function looksPinyin(q) {
+  const base = q.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  return hasToneInfo(q) && base.trim().split(/\s+/).every(tk => /^([a-z:'’]+[0-5]?)+$/.test(tk));
+}
+const inputKind = q => (isHan(q) ? "zh" : looksPinyin(q) ? "py" : "text");
 function updateTrBar() {
   const q = searchInput.value.trim();
   document.querySelectorAll("[data-trlang]").forEach(b => b.classList.toggle("on", b.dataset.trlang === trLang));
   document.querySelectorAll("[data-blang]").forEach(b => b.classList.toggle("on", b.dataset.blang === batchLang));
-  document.getElementById("onlineBtn").textContent = `🌐 ${tr("Online", "Online")} → ${q && isHan(q) ? langName(trLang) : "中文"}`;
+  document.getElementById("trSrcRow").hidden = !(q && inputKind(q) === "text"); // Eingabesprache nur bei Deutsch/Englisch nötig
+  document.getElementById("trHint").hidden = !!q;
 }
 
 // Wortliste
@@ -3689,7 +3747,7 @@ async function runBatch() {
   let done = 0;
   for (const r of needs) {
     if (!allowed) { r.err = "offline"; continue; }
-    status.textContent = `${tr("Online übersetzen", "Translating online")} ${++done}/${needs.length} …`;
+    status.textContent = `${tr("Übersetze", "Translating")} ${++done}/${needs.length} …`;
     try {
       const o = await onlineTranslate(r.line, isHan(r.line) ? "zh" : batchLang, batchLang, dict);
       if (isHan(r.line)) { r.de = o.text; r.how = "online"; }
@@ -3708,7 +3766,7 @@ async function runBatch() {
   batchRows = rows;
   renderBatch();
   const ok = rows.filter(r => r.hanzi).length;
-  status.textContent = `${ok} ${tr("von", "of")} ${rows.length} ${tr("übersetzt", "translated")}${rows.some(r => r.err === "offline") ? " · " + tr("Deutsch nur über „Online übersetzen“ — Erlaubnis fehlt.", "German needs online translation — permission missing.") : ""}${rows.some(r => r.err === "quota") ? " · " + onlineErr({ message: "quota" }) : ""}`;
+  status.textContent = `${ok} ${tr("von", "of")} ${rows.length} ${tr("übersetzt", "translated")}${rows.some(r => r.err === "offline") ? " · " + tr("Deutsch nur über „Übersetzen“ — Erlaubnis fehlt.", "German needs online translation — permission missing.") : ""}${rows.some(r => r.err === "quota") ? " · " + onlineErr({ message: "quota" }) : ""}`;
 }
 function renderBatch() {
   const html = batchRows.map((r, i) => {
@@ -3717,7 +3775,7 @@ function renderBatch() {
     return `<div class="bt-row ${r.hanzi ? "" : "none"}">
       <input type="checkbox" data-bi="${i}" ${r.hanzi && !saved ? "checked" : ""} ${r.hanzi && !saved ? "" : "disabled"} aria-label="${tr("Auswählen", "Select")}">
       <div class="res-main"><div class="bt-src">${escapeHtml(r.line)} ${label}</div>
-        ${r.hanzi ? `<div class="bt-hz">${escapeHtml(r.hanzi)}</div><div class="res-py">${r.pinyin || ""}</div><div class="res-def">${r.de ? escapeHtml(r.de) : `<i>${tr("Bedeutung: „Online“ tippen", "Meaning: tap “Online”")}</i>`}${r.en && !EN ? ` <span class="bt-src">(EN)</span>` : ""}</div>`
+        ${r.hanzi ? `<div class="bt-hz">${escapeHtml(r.hanzi)}</div><div class="res-py">${r.pinyin || ""}</div><div class="res-def">${r.de ? escapeHtml(r.de) : `<i>${tr("Bedeutung: „Übersetzen“ tippen", "Meaning: tap “Translate”")}</i>`}${r.en && !EN ? ` <span class="bt-src">(EN)</span>` : ""}</div>`
           : `<div class="res-def"><i>${r.err === "offline" ? tr("nicht gefunden (Online-Erlaubnis fehlt)", "not found (online permission missing)") : r.err ? onlineErr({ message: r.err }) : tr("nicht gefunden", "not found")}</i></div>`}
       </div>
       <div class="res-actions">${r.hanzi ? `<button data-say="${attr(r.hanzi)}">🔊</button>` : ""}${saved ? `<span class="bt-src">✓</span>` : ""}</div>
@@ -3819,7 +3877,7 @@ function closeSearch() {
 }
 document.getElementById("searchBtn").onclick = e => { e.currentTarget.blur(); openSearch(); };
 document.getElementById("searchCloseBtn").onclick = closeSearch;
-searchOverlay.addEventListener("click", e => { if (e.target === searchOverlay) closeSearch(); });
+closeOnBackdrop(searchOverlay, closeSearch);
 
 // ---------------------------------------------------------------
 // Bedienung
@@ -3847,6 +3905,7 @@ document.getElementById("endSessionBtn").onclick = e => { e.currentTarget.blur()
 const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "exNext", "exAgain", "mxNext", "mxCheck", "mxAgain", "mxNewBoard", "pyNext", "pyAgain", "spNext", "spMic", "spAgain", "startBtn", "recStep", "doneBtn"];
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
+    if (e.isComposing || e.keyCode === 229) return; // Esc in einer Eingabemethode (z. B. Pinyin-Tastatur) bricht nur die Eingabe ab
     if (!charOverlay.hidden) closeCharDetail();
     else if (!pickOverlay.hidden) closePick();
     else if (!searchOverlay.hidden) closeSearch();
@@ -4803,11 +4862,17 @@ const EN_STATIC = {
   "Dein Lernstand liegt sicher in diesem Browser.": "Your progress is stored safely in this browser.",
   "🌐 Übersetzer": "🌐 Translator", "Übersetzen": "Translate", "Wortliste": "Word list",
   "Deutsch": "German", "Englisch": "English",
-  "🌐 Online übersetzen": "🌐 Translate online", "📋 Einfügen": "📋 Paste",
+  "📋 Einfügen": "📋 Paste", "✕ Leeren": "✕ Clear", "Einzeln": "Single", "Sprache:": "Language:", "Ich schreibe auf": "I'm writing in",
+  "Schriftzeichen, Pinyin, Deutsch oder Englisch …": "Characters, pinyin, German or English …",
+  "Chinesisch (Zeichen oder Pinyin) wird ins Deutsche und Englische übersetzt, Deutsch oder Englisch ins Chinesische.": "Chinese (characters or pinyin) is translated into German and English; German or English into Chinese.",
+  "Quellen & Hinweise": "Sources & notes",
+  ". Übersetzungen ganzer Sätze und ins Deutsche laufen über": ". Translations of whole sentences and into German run through",
+  ": der Text geht dabei an den Dienst — nur wenn du auf „Übersetzen“ tippst.": ": the text is sent to that service — only when you tap “Translate”.",
+  "Ein Wort oder eine Wendung pro Zeile (bis 60). Ergebnis: Zeichen, Pinyin, Bedeutung — zum Merken als Karten.": "One word or phrase per line (up to 60). Result: characters, pinyin, meaning — to save as cards.",
   "Ein Wort oder eine Wendung pro Zeile (bis 60) — Deutsch, Englisch, 中文 oder Pinyin. Ergebnis: Zeichen, Pinyin, Bedeutung. Auswählen und alle auf einmal als Karten merken.":
     "One word or phrase per line (up to 60) — German, English, 中文 or pinyin. Result: characters, pinyin, meaning. Select and save them all as cards at once.",
   "Wörterbuch Chinesisch ↔ Englisch offline:": "Dictionary Chinese ↔ English offline:",
-  ". Deutsch und ganze Sätze nur über „Online übersetzen“ (": ". German and whole sentences only via “Translate online” (",
+  ". Deutsch und ganze Sätze nur über „Übersetzen“ (": ". German and whole sentences only via “Translate” (",
   "): der Text geht dabei an den Dienst — nur wenn du auf den Knopf tippst.": "): the text is sent to that service — only when you tap the button.",
   "Einstellungen": "Settings",
   "Die App lädt beim Wechsel neu, dein Lernstand bleibt. Oberfläche, Karten-Bedeutungen, Kapitel und Übersetzer wechseln mit.": "The app reloads when you switch; your progress stays. Interface, card meanings, chapters and translator switch too.",
