@@ -708,7 +708,7 @@
   <!-- Startbildschirm -->
   <div id="homeView">
     <div class="brand">
-      <div class="brand-logo">中</div>
+      <img class="brand-logo" src="icons/icon-192.png" alt="小龙">
       <div><h1>Zhōngwén Karten</h1><p class="sub">Jeden Tag ein bisschen besser</p></div>
     </div>
     <div class="hero" id="todayCard"></div>
@@ -2682,7 +2682,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v16";
+const APP_VERSION = "v17";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
