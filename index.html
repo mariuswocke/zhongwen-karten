@@ -166,7 +166,7 @@
   .hint { font-size: 0.8rem; color: var(--muted); margin-top: 10px; }
   .all-done { font-size: 1.15rem; margin: 12px 0 14px; }
 
-  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
+  .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 22px; }
   .tile {
     border: none; border-radius: 20px; padding: 14px 8px 12px; color: #fff; text-align: center; font-weight: 700;
     display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 0.95rem;
@@ -321,6 +321,77 @@
   .actions.four small { display: block; font-size: .68rem; font-weight: 600; opacity: .92; }
   .actions .btn-easy-mini { flex: 0 0 auto; max-width: none; padding: 13px 14px; font-size: .85rem; background: var(--g-teal); color: #fff; border-color: transparent; box-shadow: 0 4px 0 #1b8fb3; }
   .badge-leech { color: var(--amber); font-weight: 700; }
+  .tiles > :last-child:nth-child(odd) { grid-column: span 2; }
+  .gap-line { font-size: 1.9rem; line-height: 2.1; text-align: center; margin: 8px 0; }
+  .gap-line.pin { font-size: 1.35rem; }
+  .gap-line .tok { margin: 0 2px; }
+  .gap { min-width: 3.2em; padding: 2px 10px; margin: 0 3px; border-radius: 12px; border: 2px dashed var(--accent); background: var(--accent-soft); color: var(--accent); font-size: inherit; }
+  .gap.filled { border-style: solid; color: var(--ink); background: var(--card-bg); }
+  .gap.right { border-color: var(--good); background: var(--good-soft); } .gap.wrong { border-color: var(--bad); background: rgba(221,59,59,.12); }
+  .gap:disabled { opacity: 1; }
+  .chip-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 12px 0; }
+  .chip { display: inline-flex; flex-direction: column; align-items: center; gap: 0; position: relative; padding: 8px 14px 6px; border-radius: 14px; background: var(--card-bg); border: 2px solid var(--border); font-size: 1.3rem; color: var(--ink); box-shadow: 0 3px 0 var(--edge-neutral); }
+  .chip small { font-size: .7rem; color: var(--muted); } .chip kbd { position: absolute; top: 2px; left: 4px; font-size: .55rem; }
+  .chip.used { opacity: .3; } .chip:disabled { opacity: .35; }
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mcol { display: grid; gap: 6px; align-content: start; }
+  .mcell { position: relative; display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 6px 8px 6px 18px; border-radius: 12px; border: 2px solid var(--border); background: var(--card-bg); color: var(--ink); font-size: .92rem; line-height: 1.2; text-align: center; }
+  .mcell.big { font-size: 1.5rem; }
+  .mcell kbd { position: absolute; top: 2px; left: 4px; font-size: .55rem; }
+  .mcell span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .mcell.sel { border-color: #ff8a3d; box-shadow: 0 0 0 3px var(--accent-soft); }
+  .mcell.done { border-color: var(--good); background: var(--good-soft); opacity: .55; }
+  .mcell.bad { border-color: var(--bad); background: rgba(221,59,59,.14); animation: shake .4s; }
+  @keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+  .answer-line { min-height: 64px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; padding: 8px; margin: 10px 0; border-radius: 16px; border: 2px dashed var(--border); font-size: 1.6rem; }
+  .answer-line.right { border: 2px solid var(--good); background: var(--good-soft); } .answer-line.wrong { border: 2px solid var(--bad); }
+  .tile-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 8px 0; }
+  .otile { display: inline-flex; flex-direction: column; align-items: center; padding: 8px 14px; border-radius: 14px; background: var(--card-bg); border: 2px solid var(--border); box-shadow: 0 3px 0 var(--edge-neutral); color: var(--ink); }
+  .otile b { font-size: 1.4rem; font-weight: 500; } .otile small { font-size: .7rem; color: var(--accent); }
+  .read-line { display: flex; gap: 8px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .read-main { flex: 1; min-width: 0; } .read-hz { font-size: 1.6rem; line-height: 1.4; } .read-py { color: var(--accent); font-size: .95rem; } .read-de { color: var(--muted); font-size: .88rem; }
+  .read-ctrl { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+  .audio-btn.rec { background: var(--g-red); color: #fff; animation: pulse 1s ease-in-out infinite; }
+  .light-mini.none { background: var(--border); }
+  .self-lights { display: flex; } .self-lights button { padding: 2px 3px; border: none; background: none; font-size: .95rem; }
+  .tile.t-pink { background: var(--g-red); box-shadow: 0 5px 0 var(--edge-red); }
+  .tile.t-green { background: var(--g-green); box-shadow: 0 5px 0 var(--edge-green); }
+  .rad-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; margin: 10px 0 2px; font-size: .82rem; }
+  .rad-label { color: var(--muted); font-weight: 700; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+  .rad-chip { background: var(--accent-soft); color: var(--ink); border-radius: 999px; padding: 3px 10px; cursor: pointer; }
+  .rad-chip b { font-weight: 500; font-size: 1rem; }
+  .tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+  .tone-card { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; padding: 12px 8px; border-radius: 18px; background: var(--card-bg); border: 1px solid var(--border); box-shadow: var(--shadow); color: var(--ink); }
+  .tone-card:last-child { grid-column: span 2; }
+  .tone-n { position: absolute; top: 8px; left: 10px; font-weight: 800; color: var(--accent); }
+  .contour { width: 70px; height: 46px; color: var(--accent); }
+  .tone-py { font-size: 1.5rem; }
+  .tone-h { font-size: 1.1rem; } .tone-h small { color: var(--muted); font-size: .78rem; }
+  .tone-name { font-weight: 700; } .tone-tip { color: var(--muted); line-height: 1.3; }
+  .chip-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+  .py-chip { display: inline-flex; gap: 6px; align-items: baseline; padding: 7px 12px; border-radius: 999px; background: var(--card-bg); border: 1px solid var(--border); color: var(--ink); }
+  .py-chip b { font-size: 1.1rem; font-weight: 500; } .py-chip span { color: var(--accent); font-size: .85rem; } .py-chip small { color: var(--muted); font-size: .74rem; }
+  .py-chip.on { background: var(--brand); color: #fff; border-color: transparent; }
+  .py-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 10px 14px; margin-bottom: 8px; }
+  .py-card p { margin: 0 0 4px; font-size: .9rem; }
+  .py-list { display: grid; gap: 6px; }
+  .py-row { display: flex; gap: 12px; align-items: center; text-align: left; padding: 8px 12px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border); color: var(--ink); }
+  .py-sound { font-size: 1.3rem; min-width: 2.4em; color: var(--accent); }
+  .py-ex small { display: block; color: var(--muted); font-size: .76rem; line-height: 1.3; }
+  .py-menu { display: grid; gap: 8px; margin-bottom: 10px; }
+  .opt-tone { display: inline-flex; align-items: center; gap: 8px; } .opt-tone .contour { width: 44px; height: 28px; }
+  .sp-hz { font-size: 2.6rem; text-align: center; line-height: 1.3; }
+  .mic-btn { flex: 1 1 200px; max-width: 320px; padding: 15px 20px; font-size: 1.05rem; font-weight: 800; border-radius: 18px; color: #fff; border-color: transparent; background: var(--g-purple); box-shadow: 0 5px 0 #4a3db8; }
+  .mic-btn.busy { background: var(--g-red); box-shadow: 0 5px 0 var(--edge-red); animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .75; } }
+  .light-res { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0 6px; font-size: 1.05rem; }
+  .light-dot, .light-mini { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: #aaa; box-shadow: 0 0 0 4px rgba(0,0,0,.06); }
+  .light-mini { width: 14px; height: 14px; margin-right: 8px; flex: none; }
+  .light-res.green .light-dot, .light-mini.green { background: #17935f; } .light-res.yellow .light-dot, .light-mini.yellow { background: #f2b94f; } .light-res.red .light-dot, .light-mini.red { background: #dd3b3b; }
+  .syl-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 6px 0; }
+  .syl { padding: 4px 10px; border-radius: 999px; font-size: 1.05rem; font-weight: 600; background: var(--good-soft); color: var(--good); }
+  .syl.tone { background: rgba(242,185,79,.25); color: #b9770e; } .syl.bad, .syl.miss { background: rgba(221,59,59,.15); color: var(--bad); }
+  .light-sum { display: flex; gap: 16px; justify-content: center; font-size: 1.4rem; font-weight: 700; margin: 6px 0; }
   .ex-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); padding: 18px; }
   .ex-kind { font-size: .82rem; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
   .ex-sent { font-size: 2rem; line-height: 1.4; text-align: center; margin: 6px 0; }
@@ -336,7 +407,7 @@
   .ex-opt.right { border-color: var(--good); background: var(--good-soft); }
   .ex-opt.wrong { border-color: var(--bad); }
   .ex-hear { display: grid; place-items: center; width: 88px; height: 88px; padding: 0; margin: 4px auto 10px; border-radius: 50%; font-size: 2.3rem; background: var(--g-purple); color: #fff; border: none; box-shadow: 0 5px 0 #4a3db8; }
-  #courseSelect { min-width: 0; max-width: 60%; text-overflow: ellipsis; }
+  #courseSelect, #hubChapter { min-width: 0; max-width: 62%; text-overflow: ellipsis; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0; }
 
   /* --- Abschluss --- */
@@ -751,6 +822,8 @@
     <div class="tiles">
       <button class="tile t-teal" id="pathBtn"><span class="t-ico">🗺️</span>Lernpfad<small>Kapitel für Kapitel</small></button>
       <button class="tile t-purple" id="practiceBtn"><span class="t-ico">🎯</span>Frei üben<small>Auch Test</small></button>
+      <button class="tile t-pink" id="hubBtn"><span class="t-ico">🧩</span>Übungen<small>Lücken, Verbinden, Lesen</small></button>
+      <button class="tile t-green" id="pinyinBtn"><span class="t-ico">🗣️</span>Aussprache<small>Töne &amp; Sprechen</small></button>
       <button class="tile t-amber" id="tileSearchBtn"><span class="t-ico">🌐</span>Übersetzer<small>Wörter &amp; Sätze</small></button>
     </div>
 
@@ -765,6 +838,8 @@
   <div id="pathView" hidden></div>
   <div id="chapterView" hidden></div>
   <div id="exerciseView" hidden></div>
+  <div id="pinyinView" hidden></div>
+  <div id="hubView" hidden></div>
 
   <!-- Session -->
   <div id="sessionView" hidden>
@@ -874,6 +949,13 @@
     <label class="switch-row"><span>Antwort eintippen (automatische Prüfung)</span><input type="checkbox" id="typedCheckbox"></label>
     <label class="switch-row"><span>Nach dem Umdrehen vorlesen 🔊</span><input type="checkbox" id="audioAutoCheckbox"></label>
     <label class="switch-row"><span>Strichfolge neben Wörtern</span><input type="checkbox" id="strokesCheckbox"></label>
+    <label class="switch-row"><span>Radikale auf den Karten zeigen</span><input type="checkbox" id="radicalsCheckbox"></label>
+    <div class="setting-row"><span>Spracherkennung (Mikrofon)</span><button id="srTestBtn">Prüfen</button></div>
+    <p class="muted-note" id="srTestStatus"></p>
+
+    <h3>Strenge beim Schreiben</h3>
+    <div class="pill-row"><button class="pill" data-strict="locker">Locker</button><button class="pill" data-strict="normal">Normal</button><button class="pill" data-strict="streng">Streng</button></div>
+    <p class="muted-note">Locker erkennt Striche großzügig (auch leicht schief oder rückwärts gezeichnet) und lässt einen Fehler mehr zu.</p>
 
     <h3>Schreibfeld</h3>
     <div class="pill-row"><button class="pill" data-writesize="s">Klein</button><button class="pill" data-writesize="m">Mittel</button><button class="pill" data-writesize="l">Groß</button></div>
@@ -923,6 +1005,8 @@
 <script src="decks-a2.js"></script>
 <script src="curriculum.js"></script>
 <script src="curriculum-a2.js"></script>
+<script src="aussprache.js"></script>
+<script src="radicals.js"></script>
 <script src="trad2simp.js"></script>
 <script>
 // ---------------------------------------------------------------
@@ -1115,6 +1199,8 @@ function loadSettings() {
     keyHint: s.keyHint !== undefined ? !!s.keyHint : true,
     strokes: s.strokes !== undefined ? !!s.strokes : true,
     writeSize: ["s", "m", "l"].includes(s.writeSize) ? s.writeSize : "l",
+    writeStrict: ["locker", "normal", "streng"].includes(s.writeStrict) ? s.writeStrict : "locker",
+    showRadicals: s.showRadicals !== undefined ? !!s.showRadicals : true,
     newPerDay: Number.isFinite(s.newPerDay) ? s.newPerDay : 10,
     roundSize: Number.isFinite(s.roundSize) ? s.roundSize : 30,
     lang: s.lang === "en" ? "en" : "de",
@@ -1456,7 +1542,7 @@ const statsOverlay = document.getElementById("statsOverlay");
 const settingsOverlay = document.getElementById("settingsOverlay");
 
 function showView(view) {
-  [homeView, pathView, chapterView, exerciseView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
+  [homeView, pathView, chapterView, exerciseView, pinyinView, hubView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
   document.body.classList.toggle("in-session", view === sessionView);
   window.scrollTo(0, 0);
 }
@@ -1781,6 +1867,7 @@ function renderCard() {
       <div class="meaning">${card.de}</div>
       ${audioRow()}
       ${card.note ? `<div class="note">${card.note}</div>` : ""}
+      ${radChips(card)}
       ${exampleHtml(card)}
       <div class="actions"><button class="btn-good" id="nextBtn">${tr("Gemerkt — weiter", "Got it — next")}</button></div>
     </div>`;
@@ -1883,6 +1970,7 @@ function revealFlip(modeObj) {
   document.getElementById("flipBtn").remove();
   document.getElementById("feedback").innerHTML = `
     ${modeObj.back(card)}
+    ${radChips(card)}
     ${card.note ? `<div class="note">${card.note}</div>` : ""}
     ${currentItem().mode === "de-cn" ? audioRow() : ""}
     ${selfAssessButtons()}
@@ -1922,6 +2010,7 @@ function checkTyped(modeObj, inputs) {
   if (!self) html += modeObj.back(card);
   else if (it.mode === "cn-pinyin-de") html += `<div class="pinyin">${card.pinyin}</div>`;
   if (card.note) html += `<div class="note">${card.note}</div>`;
+  html += radChips(card);
   if (currentItem().mode === "de-cn") html += audioRow();
 
   if (wrong || tone) {
@@ -1955,6 +2044,16 @@ function writeBoxSize(n) {
 // Großes Schreib-Pad für das aktive Zeichen; die übrigen Zeichen werden klein angezeigt.
 const WRITE_MINI = 60;
 const WRITE_MAX = { s: 150, m: 250, l: 360 };
+// Strenge beim Schreiben: locker = großzügige Strich-Erkennung (Standard), streng = wie die Bibliothek ab Werk
+const WRITE_STRICT = {
+  locker: { leniency: 2, acceptBackwardsStrokes: true, markStrokeCorrectAfterMisses: 3, maxMistakes: 3 },
+  normal: { leniency: 1.5, acceptBackwardsStrokes: true, markStrokeCorrectAfterMisses: 3, maxMistakes: 2 },
+  streng: { leniency: 1, acceptBackwardsStrokes: false, markStrokeCorrectAfterMisses: false, maxMistakes: 2 }
+};
+function writerOptions() {
+  const { leniency, acceptBackwardsStrokes, markStrokeCorrectAfterMisses } = WRITE_STRICT[settings.writeStrict];
+  return { leniency, acceptBackwardsStrokes, markStrokeCorrectAfterMisses };
+}
 function writePadSize(level = settings.writeSize) {
   const avail = Math.min(document.querySelector(".wrap").clientWidth || 360, 480) - 26;
   return Math.max(120, Math.min(WRITE_MAX[level] || 360, avail, Math.floor(window.innerHeight * 0.5)));
@@ -1985,7 +2084,7 @@ function renderWriteCard(it) {
     boxes.push(box);
     return HanziWriter.create(box, ch, {
       width: size, height: size, padding: k === 0 ? 10 : 4,
-      showCharacter: false, showOutline: false, showHintAfterMisses: 2,
+      showCharacter: false, showOutline: false, showHintAfterMisses: 2, ...writerOptions(),
       strokeColor: css.getPropertyValue("--ink").trim(),
       outlineColor: css.getPropertyValue("--border").trim(),
       highlightColor: css.getPropertyValue("--amber").trim(),
@@ -2009,7 +2108,7 @@ function renderWriteCard(it) {
     writers.forEach(w => { try { w.cancelQuiz(); } catch (e) { /* schon fertig */ } });
     row.querySelectorAll(".write-box").forEach(b => b.classList.remove("active"));
     if (chars.length > 1) { const s = writeBoxSize(chars.length); writers.forEach((w, k) => resizeBox(k, s)); }
-    const knew = !gaveUp && mistakes.every(m => m <= 2);
+    const knew = !gaveUp && mistakes.every(m => m <= WRITE_STRICT[settings.writeStrict].maxMistakes);
     if (gaveUp) writers.forEach(w => w.showCharacter());
     document.getElementById("writeActions").remove();
     status.textContent = gaveUp ? "" : `${tr("Fehler pro Zeichen", "Mistakes per character")}: ${mistakes.join(" · ")}`;
@@ -2086,8 +2185,8 @@ function showCharDetail(chars, idx) {
         ${meta && meta.def ? `<div class="res-meta">EN: ${escapeHtml(meta.def)}</div>` : ""}
         <div class="facts-list">
           <div><span>${tr("Striche", "Strokes")}</span><b id="charStrokes">–</b></div>
-          ${meta && meta.r ? `<div><span>${tr("Radikal", "Radical")}</span><b class="char-link" data-open="${meta.r}">${meta.r}</b></div>` : ""}
-          ${parts.length ? `<div><span>${tr("Bestandteile", "Components")}</span><b>${parts.map(p => `<span class="char-link" data-open="${p}">${p}</span>`).join(" ")}</b></div>` : ""}
+          ${meta && meta.r ? `<div><span>${tr("Radikal", "Radical")}</span><b class="char-link" data-open="${meta.r}">${meta.r}</b> <small>${escapeHtml(radMeaning(meta.r))}</small></div>` : ""}
+          ${parts.length ? `<div><span>${tr("Bestandteile", "Components")}</span><b>${parts.map(p => `<span class="char-link" data-open="${p}">${p}</span>${radMeaning(p) ? ` <small>${escapeHtml(radMeaning(p))}</small>` : ""}`).join(" · ")}</b></div>` : ""}
         </div>
       </div>
     </div>
@@ -2105,7 +2204,7 @@ function showCharDetail(chars, idx) {
   const css = getComputedStyle(document.documentElement);
   charWriter = HanziWriter.create(document.getElementById("charBox"), ch, {
     width: size, height: size, padding: 10,
-    showOutline: true, showCharacter: false, showHintAfterMisses: 2,
+    showOutline: true, showCharacter: false, showHintAfterMisses: 2, ...writerOptions(),
     strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
     strokeColor: css.getPropertyValue("--ink").trim(),
     outlineColor: css.getPropertyValue("--border").trim(),
@@ -2540,7 +2639,9 @@ function renderChapter() {
   const exOk = buildExercises(ch).length >= 3;
   const exBtn = `<div class="steps" style="margin-top:10px"><button class="step ${exOk ? "" : "off"}" data-ex="1" ${exOk ? "" : "disabled"}>
       <div class="step-ico">🧩</div><div class="step-body"><div class="step-title">${tr("Übungen", "Exercises")}</div>
-      <div class="step-sub">${exOk ? tr("Lückentext & Hören mit ganzen Sätzen", "Fill-in-the-blank & listening with whole sentences") : tr("Noch zu wenige Sätze in diesem Kapitel", "Not enough sentences in this chapter yet")}</div></div></button></div>`;
+      <div class="step-sub">${exOk ? tr("Lückentext & Hören mit ganzen Sätzen", "Fill-in-the-blank & listening with whole sentences") : tr("Noch zu wenige Sätze in diesem Kapitel", "Not enough sentences in this chapter yet")}</div></div></button>
+    <button class="step" data-hub="1"><div class="step-ico">🎮</div><div class="step-body"><div class="step-title">${tr("Mehr Übungsarten", "More exercise types")}</div>
+      <div class="step-sub">${tr("Mehrere Lücken, Verbinden, Satz bauen, Lesen, Radikale, Aussprache", "Multi-gap, matching, sentence building, reading, radicals, pronunciation")}</div></div></button></div>`;
   chapterView.innerHTML = `
     <div class="view-head"><button class="back-btn" id="chBack">← ${tr("Lernpfad", "Path")}</button></div>
     <div class="ch-hero s-${ch.stufe}">
@@ -2575,6 +2676,8 @@ chapterView.addEventListener("click", e => {
   if (nx) { openChapter(nx.dataset.ch); return; }
   const say = e.target.closest("[data-say]");
   if (say) { speak(say.dataset.say); return; }
+  const hb = e.target.closest("[data-hub]");
+  if (hb) { openHub(chapterId); return; }
   const exb = e.target.closest("[data-ex]");
   if (exb && !exb.disabled) { openExercise(chapterId); return; }
   const stp = e.target.closest("[data-step]");
@@ -2597,6 +2700,12 @@ function exercisePools(ch) {
   if (sents.length < 8) {
     const have = new Set(sents.map(x => x.card.hanzi));
     const more = cardsOf(upto.flatMap(c => c.sentenceDecks || [])).filter(x => x.card.de && !have.has(x.card.hanzi));
+    sents = sents.concat(shuffle(more).slice(0, 40));
+  }
+  if (sents.length < 8) {   // frühe Kapitel ohne eigene Sätze: Sätze aus der ganzen Stufe (Wörter daraus müssen nicht alle schon bekannt sein)
+    const have = new Set(sents.map(x => x.card.hanzi));
+    const st = stufeOf(ch);
+    const more = cardsOf(st.chapters.flatMap(c => c.sentenceDecks || [])).filter(x => x.card.de && !have.has(x.card.hanzi));
     sents = sents.concat(shuffle(more).slice(0, 40));
   }
   return { wordsAll, mine, sents };
@@ -2644,6 +2753,7 @@ function openExercise(chId) {
   const qs = buildExercises(ch);
   if (qs.length < 3) { showToast(tr("Für dieses Kapitel gibt es noch nicht genug Sätze für Übungen.", "Not enough sentences in this chapter for exercises yet.")); return; }
   ex = { ch, qs, i: 0, ok: 0, picked: null, results: [], spoken: false };
+  mx = null;
   showView(exerciseView);
   renderExercise();
 }
@@ -2840,6 +2950,7 @@ function renderSettings() {
   audioAutoCheckbox.checked = settings.audioAuto;
   keyHintCheckbox.checked = settings.keyHint;
   strokesCheckbox.checked = settings.strokes;
+  document.getElementById("radicalsCheckbox").checked = settings.showRadicals;
   renderWritePreview();
   newPerDayInput.value = settings.newPerDay;
   roundSizeSelect.value = String(settings.roundSize);
@@ -2909,10 +3020,14 @@ typedCheckbox.onchange = () => { settings.typed = typedCheckbox.checked; saveSet
 audioAutoCheckbox.onchange = () => { settings.audioAuto = audioAutoCheckbox.checked; saveSettings(); };
 function renderWritePreview() {
   document.querySelectorAll("[data-writesize]").forEach(b => b.classList.toggle("on", b.dataset.writesize === settings.writeSize));
+  document.querySelectorAll("[data-strict]").forEach(b => b.classList.toggle("on", b.dataset.strict === settings.writeStrict));
   const box = document.getElementById("writePreview"), size = writePadSize();
   box.style.width = box.style.height = size + "px";
   box.style.fontSize = Math.round(size * 0.8) + "px";
 }
+document.querySelectorAll("[data-strict]").forEach(b => {
+  b.onclick = () => { settings.writeStrict = b.dataset.strict; saveSettings(); renderSettings(); };
+});
 document.querySelectorAll("[data-writesize]").forEach(b => {
   b.onclick = () => { settings.writeSize = b.dataset.writesize; saveSettings(); renderWritePreview(); };
 });
@@ -2965,7 +3080,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v24";
+const APP_VERSION = "v27";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
@@ -3729,7 +3844,7 @@ document.getElementById("endSessionBtn").onclick = e => { e.currentTarget.blur()
 // Enter: springt je nach Zustand zum nächsten sinnvollen Schritt
 // (starten / Karte umdrehen / prüfen / weiter / fertig). Esc schließt Panels
 // bzw. beendet die Runde.
-const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "exNext", "exAgain", "startBtn", "recStep", "doneBtn"];
+const ENTER_TARGETS = ["flipBtn", "checkBtn", "nextBtn", "stillWrongBtn", "goodBtn", "exNext", "exAgain", "mxNext", "mxCheck", "mxAgain", "mxNewBoard", "pyNext", "pyAgain", "spNext", "spMic", "spAgain", "startBtn", "recStep", "doneBtn"];
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     if (!charOverlay.hidden) closeCharDetail();
@@ -3738,7 +3853,9 @@ document.addEventListener("keydown", e => {
     else if (!settingsOverlay.hidden) closeSettings();
     else if (!statsOverlay.hidden) statsOverlay.hidden = true;
     else if (session) finishSession(false);
-    else if (!exerciseView.hidden) openChapter(ex.ch.id);
+    else if (!pinyinView.hidden) { stopListening(); if (py || sp) { py = null; sp = null; renderPinyin(); } else goHome(); }
+    else if (!hubView.hidden) goHome();
+    else if (!exerciseView.hidden) { if (mx) { readToken++; openHub(mx.ch.id); } else openChapter(ex.ch.id); }
     else if (!chapterView.hidden) openPath();
     else if (!pathView.hidden) goHome();
     return;
@@ -3781,6 +3898,877 @@ document.addEventListener("keydown", e => {
     }
   }
 });
+
+// ---------------------------------------------------------------
+// Radikale: Chip auf Karten, Bedeutung in den Zeichen-Details (Daten: radicals.js, HANZI_META)
+// ---------------------------------------------------------------
+const RAD = window.RADICALS || {};
+const RAD_COMMON = window.RADICALS_COMMON || "";
+function radMeaning(r) { const x = RAD[r]; return x ? (EN ? x[2] : x[1]).split(";")[0] : ""; }
+function radChips(card) {
+  if (!settings.showRadicals) return "";
+  const chars = [...card.hanzi].filter(isHan);
+  if (!chars.length || chars.length > 3) return "";
+  const meta = window.HANZI_META || {};
+  const parts = chars.map((ch, i) => {
+    const m = meta[ch];
+    if (!m || !m.r) return "";
+    const mean = radMeaning(m.r);
+    return `<span class="rad-chip" data-radidx="${i}"><b>${ch}</b> → ${m.r}${mean ? " " + escapeHtml(mean) : ""}</span>`;
+  }).filter(Boolean);
+  return parts.length ? `<div class="rad-row" data-radhanzi="${escapeHtml(card.hanzi)}"><span class="rad-label">${tr("Radikal", "Radical")}</span>${parts.join("")}</div>` : "";
+}
+cardArea.addEventListener("click", e => {
+  const chip = e.target.closest(".rad-chip");
+  if (!chip) return;
+  openCharDetail(chip.closest(".rad-row").dataset.radhanzi, Number(chip.dataset.radidx));
+});
+
+// ---------------------------------------------------------------
+// Spracherkennung (Browser-eigene Web Speech API) und Ampel-Auswertung
+// Grün = alle Silben samt Ton stimmen · Gelb = Laute stimmen, aber Ton/Silbe leicht daneben · Rot = nicht verstanden
+// ---------------------------------------------------------------
+const SRClass = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+let srActive = null;
+function listenOnce(timeoutMs = 9000) {
+  return new Promise(resolve => {
+    if (!SRClass) { resolve({ alts: [], error: "unsupported" }); return; }
+    const r = new SRClass();
+    srActive = r;
+    let alts = [], error = "", done = false, timer = null;
+    const finish = () => { if (done) return; done = true; clearTimeout(timer); if (srActive === r) srActive = null; resolve({ alts, error }); };
+    r.lang = "zh-CN"; r.interimResults = false; r.maxAlternatives = 5; r.continuous = false;
+    r.onresult = ev => { const res = ev.results && ev.results[0]; if (res) alts = [...res].map(a => ({ t: a.transcript || "", c: a.confidence || 0 })); };
+    r.onerror = ev => { error = ev.error || "error"; };
+    r.onend = finish;
+    timer = setTimeout(() => { try { r.stop(); } catch (e) { /* egal */ } setTimeout(finish, 1500); }, timeoutMs);
+    try { r.start(); } catch (e) { error = "start-failed"; finish(); }
+  });
+}
+function stopListening() { if (srActive) { try { srActive.abort(); } catch (e) { /* egal */ } srActive = null; } }
+
+const SP_INITIALS = ["zh", "ch", "sh", "b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "r", "z", "c", "s", "y", "w"];
+const NUM_HANZI = "〇一二三四五六七八九";
+function splitSyl(s) {
+  const tone = /[1-5]$/.test(s) ? Number(s.slice(-1)) : 5;
+  const base = s.replace(/[1-5]$/, "").replace("u:", "v");
+  const ini = SP_INITIALS.find(i => base.startsWith(i)) || "";
+  let fin = base.slice(ini.length);
+  if ("jqxy".includes(ini) && ini && fin.startsWith("u")) fin = "v" + fin.slice(1); // ju/qu/xu/yu = ü
+  return { tone, ini, fin, key: ini + fin };
+}
+// Hanzi → Silben (CC-CEDICT, längstes Wort zuerst); unbekannte Zeichen = "?"
+function pyOfHanzi(dict, str) {
+  const s = [...String(str).replace(/[0-9]/g, d => NUM_HANZI[Number(d)])].filter(isHan);
+  const out = [];
+  let i = 0;
+  while (i < s.length) {
+    let hit = null;
+    for (let L = Math.min(6, s.length - i); L >= 1 && !hit; L--) {
+      const es = dict.byWord.get(s.slice(i, i + L).join(""));
+      if (es) { const e = es.find(x => x.p.split(" ").length === L) || es[0]; hit = { L, syl: e.p.toLowerCase().split(" ") }; }
+    }
+    if (hit) { out.push(...hit.syl); i += hit.L; } else { out.push("?"); i += 1; }
+  }
+  return out;
+}
+function sylCost(a, b) {
+  if (a === b) return 0;
+  if (a === "?" || b === "?") return 1;
+  const A = splitSyl(a), B = splitSyl(b);
+  return A.key === B.key ? 0.5 : 1; // gleiche Laute, anderer Ton = 0,5
+}
+function alignSyl(tg, rc) {
+  const n = tg.length, m = rc.length;
+  const dp = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
+  for (let i = 1; i <= n; i++) dp[i][0] = i;
+  for (let j = 1; j <= m; j++) dp[0][j] = j;
+  for (let i = 1; i <= n; i++) for (let j = 1; j <= m; j++) {
+    dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + sylCost(tg[i - 1], rc[j - 1]));
+  }
+  const states = Array(n);
+  let i = n, j = m, extra = 0;
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && dp[i][j] === dp[i - 1][j - 1] + sylCost(tg[i - 1], rc[j - 1])) {
+      const c = sylCost(tg[i - 1], rc[j - 1]);
+      states[i - 1] = { s: tg[i - 1], r: rc[j - 1], st: c === 0 ? "ok" : c === 0.5 ? "tone" : "bad" };
+      i--; j--;
+    } else if (i > 0 && dp[i][j] === dp[i - 1][j] + 1) { states[i - 1] = { s: tg[i - 1], r: null, st: "miss" }; i--; }
+    else { extra++; j--; }
+  }
+  return { cost: dp[n][m], states, extra };
+}
+// alts: [{ t: erkannter Text, c: Sicherheit 0–1 (0 = unbekannt) }]
+function speechScore(dict, target, alts) {
+  const tg = pyOfHanzi(dict, target);
+  const list = (alts || []).filter(a => a && a.t);
+  if (!list.length) return { light: "red", states: tg.map(s => ({ s, r: null, st: "miss" })), heard: "", note: "silent" };
+  let best = null;
+  list.forEach((a, k) => {
+    const al = alignSyl(tg, pyOfHanzi(dict, a.t));
+    if (!best || al.cost < best.al.cost) best = { k, a, al };
+  });
+  const st = best.al.states;
+  const ok = st.filter(x => x.st === "ok").length, tone = st.filter(x => x.st === "tone").length, bad = st.filter(x => x.st === "bad" || x.st === "miss").length;
+  let light, note = "";
+  if (bad === 0 && tone === 0 && best.al.extra === 0) light = "green";
+  else if (bad === 0) light = "yellow";
+  else if (tg.length >= 3 && ok / tg.length >= 0.6 && bad <= 1) light = "yellow";
+  else light = "red";
+  if (light === "green" && best.k > 0) { light = "yellow"; note = "alt"; }
+  if (light === "green" && best.a.c > 0 && best.a.c < 0.5) { light = "yellow"; note = "unsure"; }
+  return { light, states: st, heard: list[0].t, note, extra: best.al.extra };
+}
+const LIGHT_TXT = { green: ["Gut ausgesprochen", "Well pronounced"], yellow: ["Fast — hier noch üben", "Almost — keep practising"], red: ["Noch nicht verstanden", "Not understood yet"] };
+function sylMarked(s) { return s === "?" ? "?" : numToMarks(s.replace("v", "u:")); }
+function lightHtml(res) {
+  const states = res.states.map(x => `<span class="syl ${x.st}" title="${x.r ? sylMarked(x.r) : ""}">${sylMarked(x.s)}</span>`).join("");
+  const notes = [];
+  res.states.forEach(x => {
+    if (x.st === "tone") notes.push(`${sylMarked(x.s)}: ${tr("Ton", "tone")} ${splitSyl(x.s).tone === 5 ? tr("neutral", "neutral") : splitSyl(x.s).tone} ${tr("statt", "instead of")} ${splitSyl(x.r).tone === 5 ? tr("neutral", "neutral") : splitSyl(x.r).tone}`);
+    else if (x.st === "bad") notes.push(`${sylMarked(x.s)}: ${tr("gehört als", "heard as")} ${sylMarked(x.r)}`);
+    else if (x.st === "miss") notes.push(`${sylMarked(x.s)}: ${tr("nicht gehört", "not heard")}`);
+  });
+  if (res.note === "alt") notes.push(tr("Nur als Alternative erkannt, nicht als erste Wahl.", "Only recognised as an alternative, not the top guess."));
+  if (res.note === "unsure") notes.push(tr("Erkannt, aber die Erkennung war unsicher.", "Recognised, but with low confidence."));
+  if (res.note === "silent") notes.push(tr("Nichts gehört — näher ans Mikrofon oder lauter sprechen.", "Nothing heard — speak closer to the microphone or louder."));
+  return `<div class="light-res ${res.light}"><span class="light-dot"></span><b>${EN ? LIGHT_TXT[res.light][1] : LIGHT_TXT[res.light][0]}</b></div>
+    ${res.self ? "" : `<div class="syl-row">${states}</div>`}
+    ${res.heard ? `<div class="muted-note">${tr("Verstanden:", "Heard:")} <b>${escapeHtml(res.heard)}</b></div>` : ""}
+    ${notes.length ? `<ul class="weak-list">${notes.map(n => `<li>${escapeHtml(n)}</li>`).join("")}</ul>` : ""}`;
+}
+
+// ---------------------------------------------------------------
+// Aussprache-Schule: Töne, Anlaute, Auslaute, Silben-Raster, Übungen, Nachsprechen
+// ---------------------------------------------------------------
+const AU = window.AUSSPRACHE || { tones: [], initials: [], finals: [], traps: [], toneNotes: [], sandhi: [], toneSets: [], pairs: [] };
+const pinyinView = document.getElementById("pinyinView");
+const L2 = a => (EN ? a[1] : a[0]);
+let pyTab = "tones";
+let py = null;   // laufende Hör-Übung
+let sp = null;   // laufendes Nachsprechen
+let pyInit = "b", pySyl = "";
+
+function openPinyin(tab) {
+  stopListening();
+  pyTab = tab || pyTab;
+  py = null; sp = null;
+  renderPinyin();
+  showView(pinyinView);
+}
+// Tonzeichen als einfache Striche, wie sie über dem Vokal stehen: ¯ ´ ˇ ` — gleiche Länge, gleiche Strichstärke
+const TONE_SHAPES = {
+  1: "M14 20 H46",          // ¯ flach
+  2: "M16 28 L44 12",       // ´ steigend
+  3: "M13 12 L30 28 L47 12", // ˇ Haken (V)
+  4: "M16 12 L44 28",       // ` fallend (Spiegelbild von Ton 2)
+  5: ""
+};
+function contourSvg(n) {
+  const d = TONE_SHAPES[n];
+  const body = d ? `<path d="${d}" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>` : `<circle cx="30" cy="20" r="4.5" fill="currentColor"/>`;
+  return `<svg class="contour" viewBox="0 0 60 40" aria-hidden="true">${body}</svg>`;
+}
+function renderPinyin() {
+  const tabs = [["tones", "🎵 " + tr("Töne", "Tones")], ["initials", tr("Anlaute", "Initials")], ["finals", tr("Auslaute", "Finals")], ["grid", tr("Raster", "Grid")], ["practice", "🎯 " + tr("Üben", "Practise")]];
+  pinyinView.innerHTML = `<div class="view-head"><button class="back-btn" id="pyBack">← ${tr("Start", "Home")}</button><h2>🗣️ ${tr("Aussprache", "Pronunciation")}</h2></div>
+    <div class="pill-row">${tabs.map(([k, l]) => `<button class="pill ${pyTab === k ? "on" : ""}" data-pytab="${k}">${l}</button>`).join("")}</div>
+    <div id="pyBody"></div>`;
+  ({ tones: renderPyTones, initials: () => renderPyList(AU.initials), finals: () => renderPyList(AU.finals, true), grid: renderPyGrid, practice: renderPyPractice })[pyTab]();
+}
+function renderPyTones() {
+  const nums = [["零", "líng"], ["一", "yī"], ["二", "èr"], ["三", "sān"], ["四", "sì"], ["五", "wǔ"], ["六", "liù"], ["七", "qī"], ["八", "bā"], ["九", "jiǔ"], ["十", "shí"]];
+  document.getElementById("pyBody").innerHTML = `<p class="muted-note">${tr("Tippe auf eine Karte, um sie zu hören. Chinesisch hat vier Töne und einen Neutralton — derselbe Laut bedeutet je nach Ton etwas anderes.", "Tap a card to listen. Chinese has four tones plus a neutral tone — the same sound means something different with each tone.")}</p>
+    <div class="tone-grid">${AU.tones.map(t => `<button class="tone-card" data-say="${t.h}"><span class="tone-n">${t.n === 5 ? "·" : t.n}</span>${contourSvg(t.n)}
+      <b class="tone-py">${t.py}</b><span class="tone-h">${t.h} <small>${EN ? t.en : t.de}</small></span><small class="tone-name">${L2(t.name)}</small><small class="tone-tip">${L2(t.tip)}</small></button>`).join("")}</div>
+    ${AU.toneNotes.map(n => `<p class="muted-note">💡 ${L2(n)}</p>`).join("")}
+    <h3>${tr("Zahlen hören", "Hear the numbers")}</h3>
+    <div class="chip-list">${nums.map(([h, p]) => `<button class="py-chip" data-say="${h}"><b>${h}</b> <span>${p}</span></button>`).join("")}</div>
+    <h3>${tr("Tonwechsel", "Tone changes")}</h3>
+    ${AU.sandhi.map(s => `<div class="py-card"><p>${L2(s.rule)}</p><div class="chip-list">${s.ex.map(e => `<button class="py-chip" data-say="${e[0]}"><b>${e[0]}</b> <span>${e[1]}</span> <small>${EN ? e[3] : e[2]}</small></button>`).join("")}</div></div>`).join("")}`;
+}
+function renderPyList(groups, withTraps) {
+  document.getElementById("pyBody").innerHTML = `<p class="muted-note">${tr("Tippe auf eine Zeile, um das Beispiel zu hören.", "Tap a row to hear the example.")}</p>`
+    + groups.map(g => `<h3>${L2(g.group)}</h3><div class="py-list">${g.items.map(i => `<button class="py-row" data-say="${i[1]}"><b class="py-sound">${i[0]}</b>
+      <span class="py-ex"><b>${i[1]}</b> ${i[2]} · ${EN ? i[4] : i[3]}<small>${EN ? i[6] : i[5]}</small></span></button>`).join("")}</div>`).join("")
+    + (withTraps ? `<h3>${tr("Rechtschreib-Fallen", "Spelling traps")}</h3>${AU.traps.map(t => `<p class="muted-note">⚠️ ${L2(t)}</p>`).join("")}` : "");
+}
+// Silben-Inventar aus CC-CEDICT: Silbe ohne Ton → Zeichen je Ton (bevorzugt Zeichen aus den eigenen Karten)
+let syllPromise = null;
+function syllIndex() {
+  if (syllPromise) return syllPromise;
+  syllPromise = loadDict().then(dict => {
+    const mine = new Set(allCards().flatMap(x => [...x.card.hanzi]));
+    const map = new Map();
+    dict.entries.forEach(e => {
+      if ([...e.w].length !== 1) return;
+      const m = e.p.toLowerCase().match(/^([a-z:]+)([1-4])$/);
+      if (!m) return;
+      const base = m[1].replace("u:", "ü"), tone = Number(m[2]);
+      const slot = map.get(base) || map.set(base, {}).get(base);
+      if (!slot[tone] || (mine.has(e.w) && !mine.has(slot[tone]))) slot[tone] = e.w;
+    });
+    return { map, list: [...map.keys()].sort() };
+  }).catch(err => { syllPromise = null; throw err; });
+  return syllPromise;
+}
+const iniOf = syl => SP_INITIALS.find(i => syl.startsWith(i)) || "";
+async function renderPyGrid() {
+  const body = document.getElementById("pyBody");
+  body.innerHTML = `<p class="muted-note">${tr("Wörterbuch wird geladen …", "Loading dictionary …")}</p>`;
+  let idx;
+  try { idx = await syllIndex(); } catch (e) { body.innerHTML = `<p class="muted-note">${tr("Das Wörterbuch ist gerade nicht verfügbar.", "The dictionary is not available right now.")}</p>`; return; }
+  if (pyTab !== "grid") return;
+  const inits = [...SP_INITIALS.filter(i => idx.list.some(s => iniOf(s) === i)), ""];
+  const sylls = idx.list.filter(s => iniOf(s) === pyInit);
+  const tonesHtml = pySyl && idx.map.get(pySyl) ? `<div class="py-card"><b class="py-sound">${pySyl}</b><div class="chip-list">${[1, 2, 3, 4].map(t => { const c = idx.map.get(pySyl)[t]; return c ? `<button class="py-chip" data-say="${c}"><b>${c}</b> <span>${numToMarks(pySyl.replace("ü", "u:") + t)}</span></button>` : ""; }).join("")}</div></div>` : "";
+  body.innerHTML = `<p class="muted-note">${tr("Alle Silben des Chinesischen nach Anlaut. Tippe eine Silbe an und höre sie in allen Tönen.", "Every Chinese syllable by initial. Tap a syllable and hear it in all tones.")}</p>
+    <div class="pill-row">${inits.map(i => `<button class="pill ${pyInit === i ? "on" : ""}" data-pyinit="${i}">${i || "∅"}</button>`).join("")}</div>
+    ${tonesHtml}
+    <div class="chip-list">${sylls.map(s => `<button class="py-chip ${pySyl === s ? "on" : ""}" data-pysyl="${s}">${s}</button>`).join("")}</div>`;
+}
+function renderPyPractice() {
+  document.getElementById("pyBody").innerHTML = `<p class="muted-note">${tr("Kurze Runden zum Hören und Sprechen.", "Short rounds for listening and speaking.")}</p>
+    <div class="py-menu">
+      <button class="step" data-pyrun="tone"><div class="step-ico">👂</div><div class="step-body"><div class="step-title">${tr("Welcher Ton?", "Which tone?")}</div><div class="step-sub">${tr("Silbe hören, Ton 1–4 wählen", "Hear a syllable, choose tone 1–4")}</div></div></button>
+      <button class="step" data-pyrun="pair"><div class="step-ico">🔤</div><div class="step-body"><div class="step-title">${tr("Welcher Laut?", "Which sound?")}</div><div class="step-sub">${tr("Ähnliche Laute unterscheiden (b/p, j/q/x, zh/ch/sh …)", "Tell similar sounds apart (b/p, j/q/x, zh/ch/sh …)")}</div></div></button>
+      <button class="step" data-pyrun="digits"><div class="step-ico">🔢</div><div class="step-body"><div class="step-title">${tr("Zahlen diktieren", "Number dictation")}</div><div class="step-sub">${tr("Zahl hören und eintippen", "Hear a number and type it")}</div></div></button>
+      <button class="step" data-sprun="syl"><div class="step-ico">🎤</div><div class="step-body"><div class="step-title">${tr("Nachsprechen: Silben", "Repeat: syllables")}</div><div class="step-sub">${SRClass ? tr("Mit Ampel-Auswertung", "With traffic-light feedback") : tr("Selbstbewertung mit Ampel (keine Spracherkennung hier)", "Self-rating with traffic lights (no speech recognition here)")}</div></div></button>
+      <button class="step" data-sprun="word"><div class="step-ico">🎤</div><div class="step-body"><div class="step-title">${tr("Nachsprechen: Wörter", "Repeat: words")}</div><div class="step-sub">${tr("aus deinen aktiven Lektionen", "from your active lessons")}</div></div></button>
+      <button class="step" data-sprun="sent"><div class="step-ico">🎤</div><div class="step-body"><div class="step-title">${tr("Nachsprechen: Sätze", "Repeat: sentences")}</div><div class="step-sub">${tr("kurze Sätze aus deinen aktiven Lektionen", "short sentences from your active lessons")}</div></div></button>
+    </div>
+    <p class="muted-note">${SRClass ? tr("Die Spracherkennung läuft über deinen Browser; die Aufnahme wertet der Anbieter (z. B. Apple oder Google) aus, die App speichert nichts. Sie misst, ob du verstanden wirst — nicht jede feine Abweichung.", "Speech recognition runs through your browser; the recording is processed by its vendor (e.g. Apple or Google) and the app stores nothing. It measures whether you are understood — not every subtle deviation.") : tr("In diesem Browser gibt es keine Spracherkennung. Du bewertest dich selbst mit der Ampel.", "This browser has no speech recognition. You rate yourself with the traffic light.")}</p>`;
+}
+
+// --- Hör-Übungen (Ton, Laut, Zahlen) ---
+function pyBuild(kind) {
+  if (kind === "tone") return shuffle(AU.toneSets.slice()).slice(0, 8).map(([syl, chars]) => { const cs = [...chars], t = Math.floor(Math.random() * 4); return { kind, syl, tone: t + 1, h: cs[t] }; });
+  if (kind === "pair") return shuffle(AU.pairs.slice()).slice(0, 8).map(p => {
+    const A = { py: p[0], h: p[1] }, B = { py: p[2], h: p[3] }, ask = Math.random() < 0.5 ? A : B;
+    return { kind, opts: shuffle([A, B]), target: ask };
+  });
+  return Array.from({ length: 6 }, () => { const n = 3 + Math.floor(Math.random() * 3); let s = ""; for (let i = 0; i < n; i++) s += Math.floor(Math.random() * 10); return { kind: "digits", digits: s, h: s.split("").map(d => NUM_HANZI[Number(d)]).join("") }; });
+}
+function pyStart(kind) { py = { kind, qs: pyBuild(kind), i: 0, ok: 0, picked: null, results: [], spoken: false }; renderPyRun(); }
+function pyHead(back) {
+  return `<div class="view-head"><button class="back-btn" id="pyRunBack">← ${tr("Üben", "Practise")}</button><h2>🗣️ ${back}</h2></div>`;
+}
+function renderPyRun() {
+  const total = py.qs.length;
+  const prog = `<div class="mini" style="margin:0 0 12px"><i style="width:${Math.round(py.i / total * 100)}%"></i></div>`;
+  const title = { tone: tr("Welcher Ton?", "Which tone?"), pair: tr("Welcher Laut?", "Which sound?"), digits: tr("Zahlen diktieren", "Number dictation") }[py.kind];
+  if (py.i >= total) {
+    pinyinView.innerHTML = pyHead(title) + prog + `<div class="ex-card" style="text-align:center"><div style="font-size:2.4rem">${py.ok === total ? "🎉" : py.ok >= total / 2 ? "👍" : "💪"}</div><h2>${py.ok} / ${total} ${tr("richtig", "correct")}</h2>
+      <div class="actions"><button class="btn-good" id="pyAgain">${tr("Neue Runde", "New round")}</button><button id="pyRunBack2">${tr("Zurück", "Back")}</button></div></div>`;
+    return;
+  }
+  const q = py.qs[py.i], answered = py.picked !== null;
+  let body = "", correct = -1, fb = "";
+  if (q.kind === "tone") {
+    correct = q.tone - 1;
+    body = `<div class="ex-kind">👂 ${tr("Hör zu — welcher Ton ist es?", "Listen — which tone is it?")}</div><button class="ex-hear" data-pyhear="1" aria-label="${tr("Nochmal anhören", "Play again")}">🔊</button>
+      <div class="ex-py">${answered ? `${q.h} · ${numToMarks(q.syl + q.tone)}` : tr("Taste A = nochmal anhören", "Key A = play again")}</div>
+      <div class="ex-opts">${AU.tones.slice(0, 4).map((t, i) => `<button class="ex-opt ${answered ? (i === correct ? "right" : i === py.picked ? "wrong" : "") : ""}" data-pyans="${i}" ${answered ? "disabled" : ""}><kbd>${i + 1}</kbd><span class="opt-tone">${contourSvg(t.n)} ${tr("Ton", "Tone")} ${t.n} <small>${t.mark}</small></span></button>`).join("")}</div>`;
+  } else if (q.kind === "pair") {
+    correct = q.opts.indexOf(q.target);
+    body = `<div class="ex-kind">🔤 ${tr("Hör zu — welche Silbe hörst du?", "Listen — which syllable do you hear?")}</div><button class="ex-hear" data-pyhear="1" aria-label="${tr("Nochmal anhören", "Play again")}">🔊</button>
+      <div class="ex-py">${answered ? `${q.target.h} · ${q.target.py}` : tr("Taste A = nochmal anhören", "Key A = play again")}</div>
+      <div class="ex-opts">${q.opts.map((o, i) => `<button class="ex-opt ${answered ? (i === correct ? "right" : i === py.picked ? "wrong" : "") : ""}" data-pyans="${i}" ${answered ? "disabled" : ""}><kbd>${i + 1}</kbd><span><b class="ex-hz">${o.py}</b></span></button>`).join("")}</div>`;
+  } else {
+    body = `<div class="ex-kind">🔢 ${tr("Hör zu — welche Zahl ist es?", "Listen — which number is it?")}</div><button class="ex-hear" data-pyhear="1" aria-label="${tr("Nochmal anhören", "Play again")}">🔊</button>
+      <div class="fields"><input type="text" inputmode="numeric" class="answer-input" id="pyDigits" placeholder="${tr("Ziffern eintippen", "Type the digits")}" autocomplete="off" ${answered ? "disabled" : ""} value="${answered ? escapeHtml(py.typed || "") : ""}"></div>
+      ${answered ? "" : `<div class="actions"><button id="pyCheck" class="btn-good">${tr("Prüfen", "Check")}</button></div>`}`;
+  }
+  if (answered) {
+    const right = py.right;
+    fb = `<div class="${right ? "fb-correct" : "fb-wrong"}">${right ? "✅ " + tr("Richtig!", "Correct!") : "❌ " + tr("Richtig wäre:", "Correct was:") + " " + (q.kind === "digits" ? q.digits : q.kind === "tone" ? `${tr("Ton", "Tone")} ${q.tone}` : q.target.py)}</div>
+      <div class="actions"><button class="btn-good" id="pyNext">${py.i + 1 >= total ? tr("Ergebnis", "Result") : tr("Weiter →", "Next →")}</button></div>`;
+  }
+  pinyinView.innerHTML = pyHead(title) + prog + `<div class="ex-card">${body}${fb}</div><p class="hint" style="text-align:center">${py.i + 1} / ${total} · ${tr("Tasten 1–4 wählen, Enter = weiter", "Keys 1–4 choose, Enter = next")}</p>`;
+  if (!answered && !py.spoken) { py.spoken = true; setTimeout(() => { if (py && py.qs[py.i] === q && py.picked === null) pySpeakQ(); }, 350); }
+  const inp = document.getElementById("pyDigits");
+  if (inp && !answered) { inp.focus(); inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); pyAnswer(inp.value); } }; }
+}
+function pySpeakQ() {
+  const q = py.qs[py.i];
+  speak(q.kind === "pair" ? q.target.h : q.h);
+}
+function pyAnswer(a) {
+  if (!py || py.picked !== null || py.i >= py.qs.length) return;
+  const q = py.qs[py.i];
+  let right;
+  if (q.kind === "digits") { py.typed = String(a).replace(/\D/g, ""); right = py.typed === q.digits; py.picked = 0; }
+  else { py.picked = a; right = a === (q.kind === "tone" ? q.tone - 1 : q.opts.indexOf(q.target)); }
+  py.right = right;
+  if (right) py.ok += 1;
+  py.results.push(right);
+  renderPyRun();
+}
+
+// --- Nachsprechen mit Ampel ---
+function spBuild(src) {
+  if (src === "syl") return shuffle(AU.toneSets.slice()).slice(0, 8).map(([syl, chars]) => { const cs = [...chars], t = Math.floor(Math.random() * 4); return { h: cs[t], p: numToMarks(syl + (t + 1)), de: "" }; });
+  const active = new Set(settings.activeDecks);
+  let pool = allCards().filter(x => active.has(x.deckId));
+  if (!pool.length) pool = allCards();
+  const word = x => x.card.type !== "satz" && [...x.card.hanzi].filter(isHan).length >= 2 && x.card.hanzi.length <= 4;
+  const sent = x => x.card.type === "satz" && [...x.card.hanzi].filter(isHan).length >= 4 && [...x.card.hanzi].filter(isHan).length <= 10;
+  return shuffle(pool.filter(src === "word" ? word : sent)).slice(0, src === "word" ? 8 : 6).map(x => ({ h: x.card.hanzi, p: x.card.pinyin, de: x.card.de }));
+}
+function spStart(src) { sp = { src, items: spBuild(src), i: 0, cur: null, results: [], busy: false, self: !SRClass }; renderSp(); }
+function renderSp() {
+  const title = { syl: tr("Nachsprechen: Silben", "Repeat: syllables"), word: tr("Nachsprechen: Wörter", "Repeat: words"), sent: tr("Nachsprechen: Sätze", "Repeat: sentences") }[sp.src];
+  const total = sp.items.length;
+  const prog = `<div class="mini" style="margin:0 0 12px"><i style="width:${Math.round(sp.i / total * 100)}%"></i></div>`;
+  if (!total) { pinyinView.innerHTML = pyHead(title) + `<p class="muted-note">${tr("Keine passenden Karten gefunden.", "No suitable cards found.")}</p>`; return; }
+  if (sp.i >= total) {
+    const c = { green: 0, yellow: 0, red: 0 };
+    sp.results.forEach(r => { c[r.light] += 1; });
+    const weak = sp.results.filter(r => r.light !== "green");
+    pinyinView.innerHTML = pyHead(title) + prog + `<div class="ex-card" style="text-align:center"><h2>${tr("Auswertung", "Summary")}</h2>
+      <div class="light-sum"><span class="ls green">🟢 ${c.green}</span><span class="ls yellow">🟡 ${c.yellow}</span><span class="ls red">🔴 ${c.red}</span></div>
+      ${weak.length ? `<div style="text-align:left;margin-top:10px"><b>${tr("Nochmal üben:", "Practise again:")}</b>${weak.map(r => `<div class="wl-row" data-say="${escapeHtml(r.item.h)}"><span class="light-mini ${r.light}"></span><div class="wl-main"><b>${escapeHtml(r.item.h)}</b> <span class="res-py">${escapeHtml(r.item.p)}</span>${r.item.de ? `<br>${escapeHtml(r.item.de)}` : ""}</div></div>`).join("")}</div>` : `<p class="muted-note">${tr("Alles grün — stark!", "All green — great!")}</p>`}
+      <div class="actions"><button class="btn-good" id="spAgain">${tr("Neue Runde", "New round")}</button><button id="pyRunBack2">${tr("Zurück", "Back")}</button></div></div>`;
+    return;
+  }
+  const it = sp.items[sp.i];
+  const cur = sp.cur;
+  const ctrl = cur ? `<div class="actions"><button id="spRetry">${tr("Nochmal versuchen", "Try again")}</button><button class="btn-good" id="spNext">${sp.i + 1 >= total ? tr("Auswertung", "Summary") : tr("Weiter →", "Next →")}</button></div>`
+    : sp.self ? `<p class="muted-note">${SRClass ? tr("Sprich laut nach und bewerte dich dann selbst:", "Say it out loud, then rate yourself:") : tr("Keine Spracherkennung — sprich laut nach und bewerte dich selbst:", "No speech recognition — say it out loud, then rate yourself:")}</p>
+      <div class="actions four"><button class="btn-good" data-spself="green">🟢<small>${tr("gut", "good")}</small></button><button class="btn-hard" data-spself="yellow">🟡<small>${tr("geht so", "so-so")}</small></button><button class="btn-bad" data-spself="red">🔴<small>${tr("nochmal", "again")}</small></button></div>`
+    : `<div class="actions"><button class="mic-btn ${sp.busy ? "busy" : ""}" id="spMic" ${sp.busy ? "disabled" : ""}>${sp.busy ? "● " + tr("Ich höre zu …", "Listening …") : "🎤 " + tr("Sprechen", "Speak")}</button></div>`;
+  pinyinView.innerHTML = pyHead(title) + prog + `<div class="ex-card"><div class="sp-hz">${escapeHtml(it.h)}</div><div class="ex-py">${escapeHtml(it.p)}</div>${it.de ? `<div class="ex-de">${escapeHtml(it.de)}</div>` : ""}
+    <div class="audio-row"><button class="audio-btn" data-sphear="normal" title="${tr("Anhören", "Listen")}">🔊</button><button class="audio-btn" data-sphear="slow" title="${tr("Langsam", "Slow")}">🐢</button></div>
+    ${cur ? lightHtml(cur) : ""}${ctrl}</div><p class="hint" style="text-align:center">${sp.i + 1} / ${total} · ${tr("Enter = Sprechen / weiter, A = anhören", "Enter = speak / next, A = listen")}</p>`;
+}
+async function spListen() {
+  if (!sp || sp.busy || sp.cur) return;
+  if (!readJson("cnTutorMicHint")) { writeJson("cnTutorMicHint", true); showToast(tr("Die Aufnahme wertet dein Browser-Anbieter aus (Apple/Google); die App speichert nichts.", "Your browser vendor (Apple/Google) processes the recording; the app stores nothing.")); }
+  sp.busy = true; renderSp();
+  const it = sp.items[sp.i];
+  const r = await listenOnce();
+  if (!sp) return;
+  sp.busy = false;
+  if (["not-allowed", "service-not-allowed", "unsupported", "start-failed", "audio-capture", "network", "language-not-supported"].includes(r.error)) {
+    sp.self = true;
+    showToast(tr("Die Spracherkennung ist hier nicht nutzbar (" + r.error + "). Du bewertest dich selbst.", "Speech recognition is not usable here (" + r.error + "). You rate yourself."));
+    renderSp();
+    return;
+  }
+  let dict;
+  try { dict = await loadDict(); } catch (e) { sp.self = true; renderSp(); return; }
+  if (!sp) return;
+  sp.cur = speechScore(dict, it.h, r.alts);
+  renderSp();
+}
+function spRecord() {
+  const it = sp.items[sp.i];
+  sp.results.push({ item: it, light: sp.cur.light });
+  const d = dayLog();
+  const k = { green: "spG", yellow: "spY", red: "spR" }[sp.cur.light];
+  d[k] = (d[k] || 0) + 1;
+  saveState();
+}
+pinyinView.addEventListener("click", e => {
+  const t = e.target;
+  const say = t.closest("[data-say]");
+  if (say && !t.closest("[data-pyans]")) { speak(say.dataset.say); return; }
+  if (t.closest("#pyBack")) { stopListening(); goHome(); return; }
+  if (t.closest("#pyRunBack") || t.closest("#pyRunBack2")) { stopListening(); py = null; sp = null; pyTab = "practice"; renderPinyin(); return; }
+  let b;
+  if ((b = t.closest("[data-pytab]"))) { pyTab = b.dataset.pytab; renderPinyin(); return; }
+  if ((b = t.closest("[data-pyinit]"))) { pyInit = b.dataset.pyinit; pySyl = ""; renderPyGrid(); return; }
+  if ((b = t.closest("[data-pysyl]"))) { pySyl = b.dataset.pysyl; renderPyGrid(); return; }
+  if ((b = t.closest("[data-pyrun]"))) { pyStart(b.dataset.pyrun); return; }
+  if ((b = t.closest("[data-sprun]"))) { spStart(b.dataset.sprun); return; }
+  if (t.closest("[data-pyhear]")) { if (py) pySpeakQ(); return; }
+  if ((b = t.closest("[data-pyans]"))) { pyAnswer(Number(b.dataset.pyans)); return; }
+  if (t.closest("#pyCheck")) { pyAnswer(document.getElementById("pyDigits").value); return; }
+  if (t.closest("#pyNext")) { py.i += 1; py.picked = null; py.spoken = false; renderPyRun(); return; }
+  if (t.closest("#pyAgain")) { pyStart(py.kind); return; }
+  if ((b = t.closest("[data-sphear]"))) { speak(sp.items[sp.i].h, b.dataset.sphear === "slow"); return; }
+  if (t.closest("#spMic")) { spListen(); return; }
+  if ((b = t.closest("[data-spself]"))) { sp.cur = { light: b.dataset.spself, states: [], heard: "", note: "", self: true }; renderSp(); return; }
+  if (t.closest("#spRetry")) { sp.cur = null; renderSp(); return; }
+  if (t.closest("#spNext")) { spRecord(); sp.i += 1; sp.cur = null; renderSp(); window.scrollTo(0, 0); return; }
+  if (t.closest("#spAgain")) { spStart(sp.src); return; }
+});
+document.addEventListener("keydown", e => {
+  if (pinyinView.hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (py) {
+    if (/^[1-4]$/.test(e.key) && py.kind !== "digits") { e.preventDefault(); pyAnswer(Number(e.key) - 1); }
+    else if ((e.key === "a" || e.key === "A") && !(document.activeElement && document.activeElement.id === "pyDigits")) { e.preventDefault(); pySpeakQ(); }
+  } else if (sp && (e.key === "a" || e.key === "A")) { e.preventDefault(); speak(sp.items[sp.i].h); }
+});
+// Spracherkennung prüfen (⚙️)
+async function testRecognition() {
+  const out = document.getElementById("srTestStatus");
+  if (!SRClass) { out.textContent = tr("Nicht verfügbar: Dieser Browser hat keine Spracherkennung (auf dem iPhone hilft oft Safari statt der Home-Bildschirm-App).", "Not available: this browser has no speech recognition (on iPhone Safari often works better than the home-screen app)."); return; }
+  out.textContent = tr("Sag jetzt „你好“ …", "Say “你好” now …");
+  const r = await listenOnce(7000);
+  if (r.alts.length) out.textContent = `✓ ${tr("Funktioniert — erkannt:", "Works — heard:")} ${r.alts[0].t}`;
+  else out.textContent = r.error ? `✗ ${tr("Fehler:", "Error:")} ${r.error}` : tr("Nichts gehört. Mikrofon erlaubt?", "Nothing heard. Is the microphone allowed?");
+}
+// ---------------------------------------------------------------
+// Übungs-Hub und weitere Lernmodi: Lückentext mit mehreren Lücken, Verbinden, Satz bauen,
+// Lesen & Vorlesen (mit Ampel), Radikal-Quiz. Sätze werden mit den App-Wörtern in Bausteine zerlegt.
+// ---------------------------------------------------------------
+const hubView = document.getElementById("hubView");
+const PUNCT_RE = /[，。？！、；：“”‘’…（）,.?!;:\s]/;
+let segWords = null;
+function segIndex() {
+  if (!segWords) {
+    segWords = new Map();
+    allCards().forEach(x => { if (x.card.type !== "satz" && x.card.hanzi.length <= 4 && !segWords.has(x.card.hanzi)) segWords.set(x.card.hanzi, x); });
+  }
+  return segWords;
+}
+// Satz → Bausteine (längstes bekanntes Wort zuerst); null, wenn etwas nicht zerlegbar ist
+function segmentSentence(hz) {
+  const w = segIndex(), out = [];
+  let i = 0;
+  while (i < hz.length) {
+    const c = hz[i];
+    if (PUNCT_RE.test(c)) { if (out.length) out[out.length - 1].punct = (out[out.length - 1].punct || "") + c; i++; continue; }
+    let hit = null;
+    for (let L = Math.min(4, hz.length - i); L >= 1 && !hit; L--) if (w.has(hz.slice(i, i + L))) hit = hz.slice(i, i + L);
+    if (!hit) return null;
+    const x = w.get(hit);
+    out.push({ h: hit, p: x.card.pinyin, x });
+    i += hit.length;
+  }
+  return out;
+}
+function touchWord(x, right) { if (x && entry(x.deckId, x.card, "erkennen")) setResult(x.deckId, x.card, "erkennen", right ? 2 : 0); }
+const esc = escapeHtml;
+const uniqWords = list => [...new Map(list.map(x => [x.card.hanzi, x])).values()];
+
+const XMODES = {};
+const MODE_LIST = [
+  { id: "luecke", icon: "🧩", t: ["Lückentext", "Fill in the blank"], s: ["Ein Wort im Satz ergänzen, dazu Hören", "One word in a sentence, plus listening"] },
+  { id: "luecken", icon: "🧱", t: ["Lückentext mit mehreren Lücken", "Multi-gap cloze"], s: ["2–4 Lücken füllen — mit Schriftzeichen oder Pinyin", "Fill 2–4 gaps — with characters or pinyin"] },
+  { id: "match", icon: "🔗", t: ["Verbinden", "Match up"], s: ["10 Zeichen mit 10 Pinyin-Wörtern (oder Bedeutungen) verbinden", "Match 10 characters with 10 pinyin words (or meanings)"] },
+  { id: "order", icon: "🧱", t: ["Satz bauen", "Build the sentence"], s: ["Wörter in die richtige Reihenfolge bringen", "Put the words in the right order"] },
+  { id: "read", icon: "📖", t: ["Lesen & Vorlesen", "Read aloud"], s: ["Text mit Pinyin darunter, laut lesen — mit Ampel", "Text with pinyin underneath, read aloud — with traffic light"] },
+  { id: "radical", icon: "🔠", t: ["Radikale & Aufbau", "Radicals & structure"], s: ["Radikale, Seitenformen und Bestandteile erkennen", "Spot radicals, side forms and components"] },
+  { id: "aussprache", icon: "🗣️", t: ["Aussprache", "Pronunciation"], s: ["Töne, Laute und Nachsprechen mit Ampel", "Tones, sounds and repeating with traffic light"] }
+];
+let hubCh = null;
+let mx = null; // { id, ch, qs, i, ok, results, st }
+function openHub(chId) {
+  hubCh = chId || hubCh || (currentChapter() || CURR[0].chapters[0]).id;
+  mx = null; ex = null;
+  renderHub();
+  showView(hubView);
+}
+function renderHub() {
+  segWords = null;
+  const ch = chapterById(hubCh);
+  const opts = CURR.map(s => `<optgroup label="${s.label} · ${esc(s.title)}">${s.chapters.map(c => `<option value="${c.id}" ${c.id === hubCh ? "selected" : ""}>${c.n}. ${esc(c.title.length > 38 ? c.title.slice(0, 37) + "…" : c.title)}</option>`).join("")}</optgroup>`).join("");
+  const avail = id => id === "aussprache" ? true : id === "luecke" ? buildExercises(ch).length >= 3 : XMODES[id].build(ch).length >= (XMODES[id].min || 1);
+  hubView.innerHTML = `<div class="view-head"><button class="back-btn" id="hubBack">← ${tr("Start", "Home")}</button><h2>🧩 ${tr("Übungen", "Exercises")}</h2></div>
+    <div class="setting-row"><span>${tr("Stoff aus Kapitel", "Material from chapter")}</span><select id="hubChapter">${opts}</select></div>
+    <div class="steps">${MODE_LIST.map(m => {
+      const ok = avail(m.id);
+      return `<button class="step ${ok ? "" : "off"}" data-mode="${m.id}" ${ok ? "" : "disabled"}><div class="step-ico">${m.icon}</div>
+        <div class="step-body"><div class="step-title">${L2(m.t)}</div><div class="step-sub">${ok ? L2(m.s) : tr("Dafür gibt es in diesem Kapitel zu wenig Material", "Not enough material in this chapter for this")}</div></div></button>`;
+    }).join("")}</div>`;
+}
+function openMode(id, chId) {
+  if (id === "aussprache") { openPinyin("tones"); return; }
+  const ch = chapterById(chId || hubCh);
+  if (id === "luecke") { openExercise(ch.id); return; }
+  segWords = null;
+  const m = XMODES[id];
+  const qs = m.build(ch);
+  if (qs.length < (m.min || 1)) { showToast(tr("Zu wenig Material in diesem Kapitel.", "Not enough material in this chapter.")); return; }
+  ex = null;
+  mx = { id, ch, qs, i: 0, ok: 0, results: [], st: { pinyin: true, de: false, slow: false } };
+  showView(exerciseView);
+  renderMode();
+}
+function mxHead(extra) {
+  const m = MODE_LIST.find(x => x.id === mx.id);
+  return `<div class="view-head"><button class="back-btn" id="mxBack">← ${tr("Übungen", "Exercises")}</button><h2>${m.icon} ${L2(m.t)}</h2></div>
+    <div class="mini" style="margin:0 0 12px"><i style="width:${Math.round(Math.min(mx.i, mx.qs.length) / mx.qs.length * 100)}%"></i></div>${extra || ""}`;
+}
+function renderMode() {
+  const m = XMODES[mx.id];
+  if (mx.i >= mx.qs.length) {
+    const total = mx.qs.length, pct = Math.round(mx.ok / total * 100);
+    const wrong = mx.results.filter(r => !r.right);
+    exerciseView.innerHTML = mxHead() + `<div class="ex-card" style="text-align:center"><div style="font-size:2.4rem">${pct >= 80 ? "🎉" : pct >= 50 ? "👍" : "💪"}</div><h2>${mx.ok} / ${total} ${tr("richtig", "correct")}</h2>
+      ${wrong.length ? `<div style="text-align:left;margin-top:10px"><b>${tr("Nochmal anschauen:", "Take another look:")}</b>${wrong.map(r => `<div class="wl-row" data-say="${esc(r.say || "")}"><div class="wl-main">${r.html}</div></div>`).join("")}</div>` : `<p class="muted-note">${tr("Alles richtig — stark!", "All correct — great!")}</p>`}
+      <div class="actions"><button class="btn-good" id="mxAgain">${tr("Neue Runde", "New round")}</button><button id="mxBack2">${tr("Zu den Übungen", "To exercises")}</button></div></div>`;
+    return;
+  }
+  exerciseView.innerHTML = m.render(mx.qs[mx.i]);
+  if (m.after) m.after(mx.qs[mx.i]);
+}
+function mxRecord(right, html, say) { if (right) mx.ok += 1; mx.results.push({ right, html, say }); }
+function mxNextItem() { mx.i += 1; renderMode(); window.scrollTo(0, 0); }
+
+// --- Lückentext mit mehreren Lücken ---
+XMODES.luecken = {
+  min: 3,
+  build(ch) {
+    const { wordsAll, mine, sents } = exercisePools(ch);
+    const words = uniqWords(wordsAll), out = [];
+    shuffle(sents.slice()).forEach(s => {
+      if (out.length >= 6) return;
+      const seg = segmentSentence(s.card.hanzi);
+      if (!seg || seg.length < 4) return;
+      const idx = seg.map((t, i) => i).filter(i => isHan(seg[i].h[0]));
+      const pref = idx.filter(i => mine.has(seg[i].h));
+      const pool = pref.length >= 2 ? pref : idx;
+      const blanks = shuffle(pool.slice()).slice(0, Math.min(pool.length, 2 + Math.floor(Math.random() * 3))).sort((a, b) => a - b);
+      if (blanks.length < 2 || new Set(blanks.map(i => seg[i].h)).size < blanks.length) return;
+      const used = new Set(seg.map(t => t.h));
+      const distract = shuffle(words.filter(w => !used.has(w.card.hanzi) && w.card.hanzi.length <= 4)).slice(0, 2).map(w => ({ h: w.card.hanzi, p: w.card.pinyin, x: w }));
+      out.push({ s, seg, blanks, chips: shuffle(blanks.map(i => ({ h: seg[i].h, p: seg[i].p, x: seg[i].x })).concat(distract)), variant: out.length % 2 ? "pinyin" : "hanzi", filled: blanks.map(() => null), checked: false });
+    });
+    return out;
+  },
+  render(q) {
+    const pin = q.variant === "pinyin";
+    const line = q.seg.map((t, i) => {
+      const b = q.blanks.indexOf(i), txt = pin ? t.p : t.h;
+      if (b < 0) return `<span class="tok">${esc(txt)}</span>${esc(t.punct || "")}`;
+      const f = q.filled[b];
+      const cls = q.checked ? (q.chips[f] && q.chips[f].h === t.h ? "right" : "wrong") : "";
+      return `<button class="gap ${f !== null ? "filled" : ""} ${cls}" data-gap="${b}" ${q.checked ? "disabled" : ""}>${f !== null ? esc(pin ? q.chips[f].p : q.chips[f].h) : "＿＿"}</button>${esc(t.punct || "")}`;
+    }).join(" ");
+    const chips = q.chips.map((c, ci) => `<button class="chip ${q.filled.includes(ci) ? "used" : ""}" data-chip="${ci}" ${q.filled.includes(ci) || q.checked ? "disabled" : ""}><kbd>${ci + 1}</kbd>${esc(pin ? c.p : c.h)}${pin ? "" : `<small>${esc(c.p)}</small>`}</button>`).join("");
+    const all = q.filled.every(f => f !== null);
+    const fb = q.checked ? `<div class="${q.good ? "fb-correct" : "fb-wrong"}">${q.good ? "✅ " + tr("Alles richtig!", "All correct!") : "❌ " + tr("Richtig wäre:", "Correct was:")}</div>
+      <div class="ex-sent" style="font-size:1.5rem">${esc(q.s.card.hanzi)}</div><div class="ex-py">${esc(q.s.card.pinyin)}</div>
+      <div class="actions"><button class="btn-good" id="mxNext">${mx.i + 1 >= mx.qs.length ? tr("Ergebnis", "Result") : tr("Weiter →", "Next →")}</button></div>`
+      : `<div class="actions"><button class="btn-good" id="mxCheck" ${all ? "" : "disabled"}>${tr("Prüfen", "Check")}</button></div>`;
+    return mxHead() + `<div class="ex-card"><div class="ex-kind">${pin ? tr("Setze die Pinyin-Wörter ein", "Fill in the pinyin words") : tr("Setze die Wörter ein", "Fill in the words")}</div>
+      <div class="gap-line ${pin ? "pin" : ""}">${line}</div><div class="ex-de">${esc(q.s.card.de)}</div><div class="chip-bank">${chips}</div>${fb}</div>
+      <p class="hint" style="text-align:center">${mx.i + 1} / ${mx.qs.length} · ${tr("Tasten 1–9 setzen ein, Backspace nimmt zurück, Enter = prüfen/weiter", "Keys 1–9 fill in, Backspace undoes, Enter = check/next")}</p>`;
+  },
+  click(t, q) {
+    let b;
+    if ((b = t.closest("[data-chip]")) && !q.checked) { const ci = Number(b.dataset.chip), slot = q.filled.indexOf(null); if (slot >= 0 && !q.filled.includes(ci)) { q.filled[slot] = ci; renderMode(); } return true; }
+    if ((b = t.closest("[data-gap]")) && !q.checked) { q.filled[Number(b.dataset.gap)] = null; renderMode(); return true; }
+    if (t.closest("#mxCheck")) { this.check(q); return true; }
+    return false;
+  },
+  check(q) {
+    if (q.checked || q.filled.some(f => f === null)) return;
+    q.checked = true;
+    q.good = q.blanks.every((si, b) => q.chips[q.filled[b]].h === q.seg[si].h);
+    q.blanks.forEach((si, b) => touchWord(q.seg[si].x, q.chips[q.filled[b]].h === q.seg[si].h));
+    mxRecord(q.good, `<b>${esc(q.s.card.hanzi)}</b><br><span class="res-py">${esc(q.s.card.pinyin)}</span><br>${esc(q.s.card.de)}`, q.s.card.hanzi);
+    renderMode();
+  },
+  key(e, q) {
+    if (/^[1-9]$/.test(e.key) && !q.checked) { const ci = Number(e.key) - 1; if (ci < q.chips.length && !q.filled.includes(ci)) { const slot = q.filled.indexOf(null); if (slot >= 0) { q.filled[slot] = ci; renderMode(); } } return true; }
+    if (e.key === "Backspace" && !q.checked) { for (let k = q.filled.length - 1; k >= 0; k--) if (q.filled[k] !== null) { q.filled[k] = null; break; } renderMode(); return true; }
+    if (e.key === "Enter" && !q.checked) { this.check(q); return true; }
+    return false;
+  }
+};
+
+// --- Verbinden (10 Zeichen ↔ 10 Pinyin-Wörter) ---
+XMODES.match = {
+  min: 1,
+  build(ch) {
+    const { wordsAll, mine } = exercisePools(ch);
+    const pool = uniqWords(wordsAll).filter(x => x.card.hanzi.length <= 4);
+    const pref = shuffle(pool.filter(x => mine.has(x.card.hanzi))), rest = shuffle(pool.filter(x => !mine.has(x.card.hanzi)));
+    const cand = pref.concat(rest).slice(0, 16);
+    const b = this.board(cand, "hp");
+    return b.pairs.length < 5 ? [] : [b];
+  },
+  board(cand, variant) {
+    // je Seite nur eindeutige Beschriftungen (zwei Wörter mit gleicher Bedeutung wären nicht unterscheidbar)
+    const keys = variant === "hp" ? ["card.hanzi", "card.pinyin"] : variant === "hd" ? ["card.hanzi", "card.de"] : ["card.pinyin", "card.de"];
+    const seenL = new Set(), seenR = new Set(), take = [];
+    for (const x of cand) {
+      const l = x.card[keys[0].slice(5)], r = x.card[keys[1].slice(5)];
+      if (seenL.has(l) || seenR.has(r) || take.length >= 10) continue;
+      seenL.add(l); seenR.add(r); take.push(x);
+    }
+    const pairs = take.map((x, i) => ({ id: i, h: x.card.hanzi, p: x.card.pinyin, d: x.card.de, x }));
+    return { take: cand, variant, pairs, left: shuffle(pairs.map(p => p.id)), right: shuffle(pairs.map(p => p.id)), matched: new Set(), sel: null, mistakes: 0, bad: null, dirty: new Set() };
+  },
+  sides(q) { return q.variant === "hp" ? ["h", "p"] : q.variant === "hd" ? ["h", "d"] : ["p", "d"]; },
+  render(q) {
+    const [L, R] = this.sides(q);
+    const cell = (side, id, i, keyLabel) => {
+      const p = q.pairs[id], m = q.matched.has(id), sel = q.sel && q.sel.side === side && q.sel.id === id, bad = q.bad && q.bad.includes(side + id);
+      return `<button class="mcell ${m ? "done" : ""} ${sel ? "sel" : ""} ${bad ? "bad" : ""} ${side === "L" ? (L === "h" ? "big" : "") : (R === "h" ? "big" : "")}" data-m="${side}${id}" ${m ? "disabled" : ""}><kbd>${keyLabel}</kbd><span>${esc(p[side === "L" ? L : R])}</span></button>`;
+    };
+    const done = q.matched.size === q.pairs.length;
+    const variants = [["hp", tr("Zeichen ↔ Pinyin", "Character ↔ pinyin")], ["hd", tr("Zeichen ↔ Bedeutung", "Character ↔ meaning")], ["pd", tr("Pinyin ↔ Bedeutung", "Pinyin ↔ meaning")]];
+    return mxHead(`<div class="pill-row">${variants.map(([v, l]) => `<button class="pill ${q.variant === v ? "on" : ""}" data-mvar="${v}">${l}</button>`).join("")}</div>`)
+      + `<div class="match-grid"><div class="mcol">${q.left.map((id, i) => cell("L", id, i, (i + 1) % 10)).join("")}</div><div class="mcol">${q.right.map((id, i) => cell("R", id, i, "abcdefghij"[i])).join("")}</div></div>
+      <p class="hint" style="text-align:center">${q.matched.size} / ${q.pairs.length} · ${tr("Fehler", "mistakes")}: ${q.mistakes} · ${tr("Tasten: Ziffern links, Buchstaben rechts", "Keys: digits left, letters right")}</p>`
+      + (done ? `<div class="ex-card" style="text-align:center"><h2>🎉 ${tr("Geschafft!", "Done!")}</h2><p>${q.pairs.length} ${tr("Paare", "pairs")}, ${q.mistakes} ${tr("Fehler", "mistakes")}</p><div class="actions"><button class="btn-good" id="mxNewBoard">${tr("Neues Brett", "New board")}</button><button id="mxBack2">${tr("Zu den Übungen", "To exercises")}</button></div></div>` : "");
+  },
+  pick(q, side, id) {
+    if (!q.sel || q.sel.side === side) { q.sel = { side, id }; renderMode(); return; }
+    const other = q.sel;
+    q.sel = null;
+    if (other.id === id) {
+      q.matched.add(id);
+      if (!q.dirty.has(id)) touchWord(q.pairs[id].x, true);
+      if (q.matched.size === q.pairs.length) { q.pairs.forEach(p => { if (q.dirty.has(p.id)) touchWord(p.x, false); }); }
+      renderMode();
+    } else {
+      q.mistakes += 1; q.dirty.add(id); q.dirty.add(other.id);
+      q.bad = [side + id, other.side + other.id];
+      renderMode();
+      setTimeout(() => { if (mx && mx.id === "match" && mx.qs[0] === q) { q.bad = null; renderMode(); } }, 600);
+    }
+  },
+  click(t, q) {
+    let b;
+    if ((b = t.closest("[data-mvar]"))) { mx.qs[0] = this.board(q.take, b.dataset.mvar); renderMode(); return true; }
+    if ((b = t.closest("[data-m]"))) { this.pick(q, b.dataset.m[0], Number(b.dataset.m.slice(1))); return true; }
+    if (t.closest("#mxNewBoard")) { openMode("match", mx.ch.id); return true; }
+    return false;
+  },
+  key(e, q) {
+    if (/^[0-9]$/.test(e.key)) { const i = (Number(e.key) + 9) % 10; if (q.left[i] !== undefined && !q.matched.has(q.left[i])) this.pick(q, "L", q.left[i]); return true; }
+    const r = "abcdefghij".indexOf(e.key.toLowerCase());
+    if (e.key.length === 1 && r >= 0 && q.right[r] !== undefined && !q.matched.has(q.right[r])) { this.pick(q, "R", q.right[r]); return true; }
+    return false;
+  }
+};
+
+// --- Satz bauen ---
+XMODES.order = {
+  min: 3,
+  build(ch) {
+    const { sents } = exercisePools(ch), out = [];
+    shuffle(sents.slice()).forEach(s => {
+      if (out.length >= 6) return;
+      const seg = segmentSentence(s.card.hanzi);
+      if (!seg || seg.length < 3 || seg.length > 8) return;
+      let bank = shuffle(seg.map((t, i) => i)), tries = 0;
+      while (bank.every((v, i) => v === i) && tries++ < 5) bank = shuffle(bank);
+      out.push({ s, seg, bank, placed: [], checked: false });
+    });
+    return out;
+  },
+  tile(q, i, attr) {
+    const t = q.seg[i];
+    return `<button class="otile" ${attr}><b>${esc(t.h)}</b>${mx.st.pinyin ? `<small>${esc(t.p)}</small>` : ""}</button>`;
+  },
+  render(q) {
+    const left = q.bank.filter(i => !q.placed.includes(i));
+    const lastPunct = q.seg[q.seg.length - 1].punct || "";
+    const placed = q.placed.map((i, pos) => this.tile(q, i, `data-unplace="${pos}" ${q.checked ? "disabled" : ""}`)).join("");
+    const all = left.length === 0;
+    const good = q.checked && q.placed.map(i => q.seg[i].h).join("") === q.seg.map(t => t.h).join("");
+    const fb = q.checked ? `<div class="${good ? "fb-correct" : "fb-wrong"}">${good ? "✅ " + tr("Richtig!", "Correct!") : "❌ " + tr("Richtig wäre:", "Correct was:")}</div>
+      <div class="ex-sent" style="font-size:1.5rem">${esc(q.s.card.hanzi)}</div><div class="ex-py">${esc(q.s.card.pinyin)}</div>
+      <div class="actions"><button class="btn-good" id="mxNext">${mx.i + 1 >= mx.qs.length ? tr("Ergebnis", "Result") : tr("Weiter →", "Next →")}</button></div>`
+      : `<div class="actions"><button id="mxPinyin">${mx.st.pinyin ? tr("Pinyin verbergen", "Hide pinyin") : tr("Pinyin zeigen", "Show pinyin")}</button><button class="btn-good" id="mxCheck" ${all ? "" : "disabled"}>${tr("Prüfen", "Check")}</button></div>`;
+    return mxHead() + `<div class="ex-card"><div class="ex-kind">${tr("Bringe die Wörter in die richtige Reihenfolge", "Put the words in the right order")}</div>
+      <div class="ex-de" style="margin-top:6px">${esc(q.s.card.de)}</div>
+      <div class="answer-line ${q.checked ? (good ? "right" : "wrong") : ""}">${placed || `<span class="muted-note">${tr("Tippe die Wörter unten an …", "Tap the words below …")}</span>`}${placed ? esc(lastPunct) : ""}</div>
+      <div class="tile-bank">${left.map(i => `${this.tile(q, i, `data-bank="${i}" ${q.checked ? "disabled" : ""}`)}`).join("")}</div>${fb}</div>
+      <p class="hint" style="text-align:center">${mx.i + 1} / ${mx.qs.length} · ${tr("Tasten 1–9 wählen ein Wort, Backspace nimmt zurück, Enter = prüfen/weiter", "Keys 1–9 pick a word, Backspace undoes, Enter = check/next")}</p>`;
+  },
+  check(q) {
+    if (q.checked || q.placed.length < q.seg.length) return;
+    q.checked = true;
+    const good = q.placed.map(i => q.seg[i].h).join("") === q.seg.map(t => t.h).join("");
+    q.seg.forEach(t => touchWord(t.x, good));
+    mxRecord(good, `<b>${esc(q.s.card.hanzi)}</b><br><span class="res-py">${esc(q.s.card.pinyin)}</span><br>${esc(q.s.card.de)}`, q.s.card.hanzi);
+    renderMode();
+  },
+  click(t, q) {
+    let b;
+    if ((b = t.closest("[data-bank]")) && !q.checked) { q.placed.push(Number(b.dataset.bank)); renderMode(); return true; }
+    if ((b = t.closest("[data-unplace]")) && !q.checked) { q.placed.splice(Number(b.dataset.unplace), 1); renderMode(); return true; }
+    if (t.closest("#mxPinyin")) { mx.st.pinyin = !mx.st.pinyin; renderMode(); return true; }
+    if (t.closest("#mxCheck")) { this.check(q); return true; }
+    return false;
+  },
+  key(e, q) {
+    if (/^[1-9]$/.test(e.key) && !q.checked) { const left = q.bank.filter(i => !q.placed.includes(i)); const i = left[Number(e.key) - 1]; if (i !== undefined) { q.placed.push(i); renderMode(); } return true; }
+    if (e.key === "Backspace" && !q.checked) { q.placed.pop(); renderMode(); return true; }
+    if (e.key === "Enter" && !q.checked) { this.check(q); return true; }
+    return false;
+  }
+};
+
+// --- Lesen & Vorlesen ---
+let readToken = 0;
+function speakAsync(text, slow) {
+  return new Promise(resolve => {
+    if (!("speechSynthesis" in window)) { resolve(); return; }
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "zh-CN";
+    const v = zhVoice();
+    if (v) u.voice = v;
+    u.rate = slow ? 0.45 : 0.85;
+    u.onend = u.onerror = () => resolve();
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  });
+}
+XMODES.read = {
+  min: 1,
+  build(ch) {
+    const decks = (ch.sentenceDecks || []).filter(id => DECKS[id]);
+    let lists = decks.map(id => DECKS[id].cards.filter(c => c.de).map(card => ({ deckId: id, card })));
+    if (!lists.some(l => l.length >= 3)) lists = [exercisePools(ch).sents.slice(0, 20)];
+    const out = [];
+    lists.forEach(l => { for (let i = 0; i + 3 <= l.length && out.length < 4; i += 5) out.push({ lines: l.slice(i, i + 5), lights: {}, graded: false }); });
+    return out;
+  },
+  render(q) {
+    const st = mx.st;
+    const lines = q.lines.map((x, i) => {
+      const r = q.lights[i];
+      return `<div class="read-line">
+        <div class="read-main"><div class="read-hz">${esc(x.card.hanzi)}</div>${st.pinyin ? `<div class="read-py">${esc(x.card.pinyin)}</div>` : ""}${st.de ? `<div class="read-de">${esc(x.card.de)}</div>` : ""}
+        ${r ? `<div class="read-res">${r.self ? "" : `<div class="syl-row">${r.states.map(s => `<span class="syl ${s.st}">${sylMarked(s.s)}</span>`).join("")}</div>`}</div>` : ""}</div>
+        <div class="read-ctrl"><button class="audio-btn" data-rsay="${i}" title="${tr("Anhören", "Listen")}">🔊</button>
+          ${SRClass ? `<button class="audio-btn ${q.busy === i ? "rec" : ""}" data-rmic="${i}" title="${tr("Sprechen", "Speak")}">🎤</button>` : ""}
+          <span class="light-mini ${r ? r.light : "none"}"></span>
+          ${SRClass ? "" : `<span class="self-lights"><button data-rself="${i}:green">🟢</button><button data-rself="${i}:yellow">🟡</button><button data-rself="${i}:red">🔴</button></span>`}</div></div>`;
+    }).join("");
+    const rated = Object.keys(q.lights).length;
+    return mxHead() + `<div class="ex-card"><div class="ex-kind">${tr("Lies den Text laut vor", "Read the text out loud")}</div>
+      <div class="pill-row"><button class="pill ${st.pinyin ? "on" : ""}" id="rPinyin">Pinyin</button><button class="pill ${st.de ? "on" : ""}" id="rDe">${tr("Übersetzung", "Translation")}</button><button class="pill ${st.slow ? "on" : ""}" id="rSlow">🐢 ${tr("langsam", "slow")}</button><button class="pill" id="rAll">▶ ${tr("Alles vorlesen", "Read all")}</button></div>
+      ${lines}<div class="actions"><button class="btn-good" id="mxNext">${rated ? (mx.i + 1 >= mx.qs.length ? tr("Ergebnis", "Result") : tr("Weiter →", "Next →")) : tr("Fertig (ohne Bewertung)", "Done (not rated)")}</button></div></div>
+      <p class="hint" style="text-align:center">${mx.i + 1} / ${mx.qs.length} · ${SRClass ? tr("🎤 pro Zeile: Ampel-Auswertung", "🎤 per line: traffic-light feedback") : tr("Bewerte dich pro Zeile selbst (Ampel)", "Rate yourself per line (traffic light)")}</p>`;
+  },
+  async mic(q, i) {
+    if (q.busy != null) return;
+    q.busy = i; renderMode();
+    const r = await listenOnce();
+    q.busy = null;
+    if (!mx || mx.qs[mx.i] !== q) return;
+    if (["not-allowed", "service-not-allowed", "unsupported", "start-failed", "audio-capture", "network", "language-not-supported"].includes(r.error)) {
+      showToast(tr("Die Spracherkennung ist hier nicht nutzbar (" + r.error + ").", "Speech recognition is not usable here (" + r.error + ")."));
+      renderMode(); return;
+    }
+    let dict; try { dict = await loadDict(); } catch (e) { renderMode(); return; }
+    if (!mx || mx.qs[mx.i] !== q) return;
+    q.lights[i] = speechScore(dict, q.lines[i].card.hanzi, r.alts);
+    renderMode();
+  },
+  finish(q) {
+    const res = Object.values(q.lights);
+    const grade = !res.length ? null : res.filter(r => r.light === "green").length >= res.length / 2 ? 2 : res.some(r => r.light === "red") ? 0 : 1;
+    q.lines.forEach((x, i) => { const r = q.lights[i]; if (r && entry(x.deckId, x.card, "erkennen")) setResult(x.deckId, x.card, "erkennen", r.light === "green" ? 2 : r.light === "yellow" ? 1 : 0); });
+    const d = dayLog(); res.forEach(r => { const k = { green: "spG", yellow: "spY", red: "spR" }[r.light]; d[k] = (d[k] || 0) + 1; }); saveState();
+    mxRecord(grade === null || grade >= 1, `<b>${esc(q.lines[0].card.hanzi)} …</b><br>${res.filter(r => r.light !== "green").length} ${tr("Zeilen noch üben", "lines to practise")}`, q.lines[0].card.hanzi);
+  },
+  click(t, q) {
+    let b;
+    if ((b = t.closest("[data-rsay]"))) { speak(q.lines[Number(b.dataset.rsay)].card.hanzi, mx.st.slow); return true; }
+    if ((b = t.closest("[data-rmic]"))) { this.mic(q, Number(b.dataset.rmic)); return true; }
+    if ((b = t.closest("[data-rself]"))) { const [i, l] = b.dataset.rself.split(":"); q.lights[Number(i)] = { light: l, states: [], heard: "", note: "", self: true }; renderMode(); return true; }
+    if (t.closest("#rPinyin")) { mx.st.pinyin = !mx.st.pinyin; renderMode(); return true; }
+    if (t.closest("#rDe")) { mx.st.de = !mx.st.de; renderMode(); return true; }
+    if (t.closest("#rSlow")) { mx.st.slow = !mx.st.slow; renderMode(); return true; }
+    if (t.closest("#rAll")) { const tok = ++readToken; (async () => { for (const x of q.lines) { if (tok !== readToken || !mx) return; await speakAsync(x.card.hanzi, mx.st.slow); } })(); return true; }
+    if (t.closest("#mxNext")) { this.finish(q); readToken++; mx.i += 1; renderMode(); window.scrollTo(0, 0); return true; }
+    return false;
+  },
+  key(e, q) { if (e.key === "Enter") { this.finish(q); mx.i += 1; renderMode(); return true; } return false; }
+};
+
+// --- Radikale & Aufbau ---
+const SIDE_FORMS = [["火", "灬"], ["人", "亻"], ["水", "氵"], ["心", "忄"], ["手", "扌"], ["言", "讠"], ["金", "钅"], ["食", "饣"], ["衣", "衤"], ["示", "礻"], ["刀", "刂"], ["糸", "纟"]];
+const MNEMONICS = [["木 + 木 + 木", "森", "Wald", "forest"], ["日 + 月", "明", "hell", "bright"], ["女 + 子", "好", "gut", "good"], ["人 + 言", "信", "glauben", "to believe"], ["亻 + 木", "休", "ausruhen", "to rest"], ["手 + 目", "看", "schauen", "to look"], ["口 + 木", "杏", "Aprikose", "apricot"], ["日 + 立", "音", "Klang", "sound"]];
+const radName = r => `${r} ${radMeaning(r)}`.trim();
+XMODES.radical = {
+  min: 3,
+  pool(ch) {
+    const meta = window.HANZI_META || {};
+    const own = uniqWords(exercisePools(ch).wordsAll).flatMap(x => [...x.card.hanzi]).filter(c => meta[c] && meta[c].r && RAD[meta[c].r]);
+    const set = [...new Set(own)];
+    return set.length >= 6 ? set : [...new Set(set.concat(allCards().flatMap(x => [...x.card.hanzi]).filter(c => meta[c] && meta[c].r && RAD[meta[c].r])))];
+  },
+  build(ch) {
+    const meta = window.HANZI_META || {}, chars = this.pool(ch);
+    if (chars.length < 6) return [];
+    const common = [...RAD_COMMON], allR = Object.keys(RAD);
+    const opts4 = (right, pool) => shuffle([right].concat(shuffle(pool.filter(r => r !== right)).slice(0, 3)));
+    const qs = [];
+    shuffle(chars.slice()).slice(0, 3).forEach(c => qs.push({ type: "rad", c, right: meta[c].r, opts: opts4(meta[c].r, shuffle(common.concat(allR)).slice(0, 40)) }));
+    shuffle(SIDE_FORMS.slice()).slice(0, 2).forEach(([full, side]) => qs.push({ type: "side", full, right: side, opts: opts4(side, SIDE_FORMS.map(x => x[1])) }));
+    const byRad = new Map();
+    chars.forEach(c => { const r = meta[c].r; (byRad.get(r) || byRad.set(r, []).get(r)).push(c); });
+    shuffle([...byRad.entries()].filter(([, l]) => l.length >= 3)).slice(0, 2).forEach(([r, l]) => qs.push({ type: "common", chars: shuffle(l).slice(0, 3), right: r, opts: opts4(r, shuffle(common).slice(0, 30)) }));
+    const m = shuffle(MNEMONICS.slice())[0];
+    qs.push({ type: "mnemo", m, right: m[2], opts: shuffle([m].concat(shuffle(MNEMONICS.filter(x => x !== m)).slice(0, 3))).map(x => x[2]) , rightEn: m[3], optsEn: null });
+    return shuffle(qs).slice(0, 8);
+  },
+  label(q, o) { return q.type === "mnemo" ? (EN ? MNEMONICS.find(x => x[2] === o)[3] : o) : q.type === "side" ? o : radName(o); },
+  render(q) {
+    const answered = q.picked !== undefined;
+    const title = { rad: tr("Welches Radikal steckt in diesem Zeichen?", "Which radical is in this character?"), side: tr("Welche Seitenform hat dieses Radikal?", "Which side form does this radical have?"),
+      common: tr("Welcher Baustein steckt in allen drei Zeichen?", "Which component is in all three characters?"), mnemo: tr("Was bedeutet das Zeichen aus diesen Bausteinen?", "What does the character made of these parts mean?") }[q.type];
+    const big = q.type === "rad" ? q.c : q.type === "side" ? q.full : q.type === "common" ? q.chars.join("  ") : q.m[0];
+    const note = q.type === "side" ? `<div class="ex-de">${esc(radMeaning(q.full))}</div>` : q.type === "mnemo" ? `<div class="ex-de">${tr("Das Zeichen:", "The character:")} ${answered ? `<b>${q.m[1]}</b>` : "?"}</div>` : "";
+    const optsHtml = q.opts.map((o, i) => {
+      const cls = !answered ? "" : o === q.right ? " right" : i === q.picked ? " wrong" : "";
+      return `<button class="ex-opt${cls}" data-qans="${i}" ${answered ? "disabled" : ""}><kbd>${i + 1}</kbd><span>${q.type === "side" ? `<b class="ex-hz">${o}</b>` : esc(this.label(q, o))}</span></button>`;
+    }).join("");
+    const right = answered && q.opts[q.picked] === q.right;
+    const fb = answered ? `<div class="${right ? "fb-correct" : "fb-wrong"}">${right ? "✅ " + tr("Richtig!", "Correct!") : "❌ " + tr("Richtig wäre:", "Correct was:") + " " + esc(this.label(q, q.right))}</div>
+      <div class="actions"><button class="btn-good" id="mxNext">${mx.i + 1 >= mx.qs.length ? tr("Ergebnis", "Result") : tr("Weiter →", "Next →")}</button></div>` : "";
+    return mxHead() + `<div class="ex-card"><div class="ex-kind">${title}</div><div class="ex-sent" style="font-size:2.6rem">${esc(big)}</div>${note}<div class="ex-opts">${optsHtml}</div>${fb}</div>
+      <p class="hint" style="text-align:center">${mx.i + 1} / ${mx.qs.length} · ${tr("Tasten 1–4 wählen, Enter = weiter", "Keys 1–4 choose, Enter = next")}</p>`;
+  },
+  answer(q, i) {
+    if (q.picked !== undefined) return;
+    q.picked = i;
+    const right = q.opts[i] === q.right;
+    const what = q.type === "rad" ? q.c : q.type === "side" ? q.full : q.type === "common" ? q.chars.join(" ") : q.m[1];
+    mxRecord(right, `<b>${esc(what)}</b> → ${esc(this.label(q, q.right))}`, q.type === "rad" ? q.c : "");
+    renderMode();
+  },
+  click(t, q) {
+    const b = t.closest("[data-qans]");
+    if (b) { this.answer(q, Number(b.dataset.qans)); return true; }
+    return false;
+  },
+  key(e, q) {
+    if (/^[1-4]$/.test(e.key)) { if (q.picked === undefined) this.answer(q, Number(e.key) - 1); return true; }
+    return false;
+  }
+};
+
+hubView.addEventListener("click", e => {
+  const t = e.target;
+  if (t.closest("#hubBack")) { goHome(); return; }
+  const m = t.closest("[data-mode]");
+  if (m && !m.disabled) openMode(m.dataset.mode, hubCh);
+});
+hubView.addEventListener("change", e => { if (e.target.id === "hubChapter") { hubCh = e.target.value; renderHub(); } });
+exerciseView.addEventListener("click", e => {
+  if (!mx) return;
+  const t = e.target;
+  if (t.closest("#mxBack") || t.closest("#mxBack2")) { readToken++; openHub(mx.ch.id); return; }
+  if (t.closest("#mxAgain")) { openMode(mx.id, mx.ch.id); return; }
+  const m = XMODES[mx.id];
+  if (mx.i < mx.qs.length && m.click(t, mx.qs[mx.i])) return;
+  if (t.closest("#mxNext")) { mxNextItem(); return; }
+  const say = t.closest("[data-say]");
+  if (say) speak(say.dataset.say);
+});
+document.addEventListener("keydown", e => {
+  if (!mx || exerciseView.hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  const m = XMODES[mx.id];
+  if (mx.i >= mx.qs.length) return;
+  if (m.key(e, mx.qs[mx.i])) { e.preventDefault(); return; }
+});
+document.getElementById("hubBtn").onclick = () => openHub();
+document.getElementById("radicalsCheckbox").onchange = e => { settings.showRadicals = e.target.checked; saveSettings(); };
+document.getElementById("srTestBtn").onclick = testRecognition;
+document.getElementById("pinyinBtn").onclick = () => openPinyin();
 
 // ---------------------------------------------------------------
 // Als App (nur wenn über eine Web-Adresse geöffnet, nicht per Doppelklick)
@@ -3832,6 +4820,10 @@ const EN_STATIC = {
   "Schreibfeld": "Writing pad", "Klein": "Small", "Mittel": "Medium", "Groß": "Large", "Vorschau in echter Größe:": "Preview at actual size:",
   "Tagesziel": "Daily goal", "Neue Karten pro Tag": "New cards per day", "Karten pro Runde": "Cards per round",
   "Aktive Lektionen": "Active lessons",
+  "Übungen": "Exercises", "Lücken, Verbinden, Lesen": "Gaps, matching, reading", "Aussprache": "Pronunciation", "Töne & Sprechen": "Tones & speaking", "Radikale auf den Karten zeigen": "Show radicals on cards",
+  "Spracherkennung (Mikrofon)": "Speech recognition (microphone)", "Prüfen": "Test",
+  "Strenge beim Schreiben": "Writing strictness", "Locker": "Relaxed", "Streng": "Strict",
+  "Locker erkennt Striche großzügig (auch leicht schief oder rückwärts gezeichnet) und lässt einen Fehler mehr zu.": "Relaxed accepts strokes generously (even slightly crooked or drawn backwards) and allows one more mistake.",
   "Wo bist du im Kurs?": "Where are you in the course?",
   "Wähle die letzte Lektion, die im Kurs schon dran war: Alle Stapel bis dahin werden aktiv, die Kapitel öffnen sich.": "Pick the last lesson the course has covered: all decks up to there become active and the chapters open.",
   "Neue Karten kommen nur aus angehakten Lektionen. Hake an, was im Kurs schon dran war.": "New cards only come from ticked lessons. Tick what the course has covered.",
@@ -3979,6 +4971,7 @@ let onb = null;
 const onbBox = () => document.getElementById("onbBox");
 
 function openOnboarding() {
+  writeJson(ONB_KEY, { ...(readJson(ONB_KEY) || {}), shown: today() }); // sofort merken: auch wer mittendrin schließt, sieht ihn nicht wieder
   const hasProgress = Object.keys(state.cards).length > 0;
   onb = { step: 0, hasProgress, level: hasProgress ? -1 : 0, guess: null, quiz: null, mood: "", newPerDay: settings.newPerDay, anim: true,
     skills: { write: "kaum", say: "geht" }, skillsTouched: false, markKnown: true, quizStats: null };
@@ -4222,7 +5215,7 @@ function finishOnboarding(skipped) {
       saveState();
     }
   }
-  writeJson(ONB_KEY, { done: today(), skipped: !!skipped, level: skipped ? null : onb.level });
+  writeJson(ONB_KEY, { ...(readJson(ONB_KEY) || {}), done: today(), skipped: !!skipped, level: skipped ? null : onb.level });
   onb = null;
   onbOverlay.hidden = true;
   onbOverlay.innerHTML = "";
@@ -4293,7 +5286,9 @@ document.getElementById("onbAgainBtn").onclick = openOnboarding;
 (function autoOnboarding() {
   let resume = false;
   try { resume = sessionStorage.getItem(ONB_RESUME) === "1"; sessionStorage.removeItem(ONB_RESUME); } catch (e) { /* egal */ }
-  if (resume || !readJson(ONB_KEY)) openOnboarding();
+  // nur beim allerersten Start: kein Merker und noch kein Lernstand (bestehende Nutzer sehen ihn nie automatisch)
+  const firstRun = !readJson(ONB_KEY) && Object.keys(state.cards).length === 0 && !pathState.start;
+  if (resume || firstRun) openOnboarding();
 })();
 
 </script>

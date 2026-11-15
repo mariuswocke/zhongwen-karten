@@ -1,7 +1,7 @@
 // Service Worker: hält alle App-Dateien offline vor.
 // Bei jeder neuen Version VERSION hochzählen (und APP_VERSION in index.html) —
 // dann lädt die App die neuen Dateien und räumt den alten Zwischenspeicher weg.
-const VERSION = "v24";
+const VERSION = "v27";
 const CACHE = `cn-karten-${VERSION}`;
 const FILES = [
   "./",
@@ -11,6 +11,8 @@ const FILES = [
   "./decks-a2.js",
   "./curriculum.js",
   "./curriculum-a2.js",
+  "./aussprache.js",
+  "./radicals.js",
   "./trad2simp.js",
   "./hanzi-data.js",
   "./hanzi-meta.js",
