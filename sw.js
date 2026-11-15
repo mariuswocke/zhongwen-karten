@@ -1,7 +1,7 @@
 // Service Worker: hält alle App-Dateien offline vor.
 // Bei jeder neuen Version VERSION hochzählen (und APP_VERSION in index.html) —
 // dann lädt die App die neuen Dateien und räumt den alten Zwischenspeicher weg.
-const VERSION = "v12";
+const VERSION = "v16";
 const CACHE = `cn-karten-${VERSION}`;
 const FILES = [
   "./",
@@ -17,12 +17,16 @@ const FILES = [
   "./dict.js",
   "./lib/hanzi-writer.min.js",
   "./manifest.json",
+  "./dragon/long.webp",
+  "./dragon/swirl.webp",
+  "./dragon/front.webp",
+  "./dragon/coil.webp",
   "./icons/icon-180.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
 // Große, selten geänderte Dateien: aus dem Zwischenspeicher (neu geladen bei neuer VERSION)
-const BIG = ["dict.js", "hanzi-data.js", "hanzi-meta.js", "hanzi-writer.min.js", "/icons/"];
+const BIG = ["dict.js", "hanzi-data.js", "hanzi-meta.js", "hanzi-writer.min.js", "/icons/", "/dragon/"];
 
 self.addEventListener("install", event => {
   // cache: "reload" umgeht den HTTP-Cache, sonst landen evtl. alte Dateien im neuen Speicher
