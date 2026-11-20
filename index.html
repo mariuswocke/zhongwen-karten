@@ -807,6 +807,48 @@
   .onb-foot .hint { color: rgba(255,255,255,.8); margin: 0; font-size: .75rem; }
   @media (max-height: 700px) { .onb-title { font-size: 2.8rem; } .onb-q { font-size: 2.6rem; } .dragon.big { max-width: 290px; } .onb-big b { font-size: 3.6rem; } }
   @media (prefers-reduced-motion: reduce) { .onb *, .onb-box.enter > * { animation: none !important; } }
+
+  /* HSK-Prüfung (exam.js) */
+  .tile.t-exam { background: var(--g-brand); box-shadow: 0 5px 0 var(--edge-brand); }
+  .xm-timer { font-weight: 800; font-variant-numeric: tabular-nums; padding: 5px 12px; border-radius: 999px; background: var(--card-bg); border: 1px solid var(--border); white-space: nowrap; }
+  .xm-timer.low { color: var(--bad); border-color: var(--bad); animation: pulse 1s ease-in-out infinite; }
+  .xm-part { font-size: .8rem; font-weight: 700; color: var(--muted); margin: -6px 0 10px; }
+  .xm-instr { margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--border); }
+  .xm-zh { font-size: 1.3rem; line-height: 2.3; }
+  .xm-zh.big { font-size: 1.6rem; }
+  .xm-zh.nopy { line-height: 1.6; }
+  .xm-zh rt { font-size: .5em; color: var(--accent); font-weight: 500; }
+  .xm-de { color: var(--muted); font-size: .85rem; margin-top: 2px; }
+  .xm-py { color: var(--accent); font-size: .82rem; }
+  .xm-scene { font-size: 3.4rem; text-align: center; margin: 6px 0 12px; line-height: 1.2; }
+  .xm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .xm-pic { font-size: 3rem; padding: 14px 0; border-radius: 18px; border: 2px solid var(--border); background: var(--card-bg); line-height: 1.2; }
+  .xm-tf { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .xm-tf button { padding: 14px; font-size: 1.1rem; font-weight: 800; border-radius: 16px; border: 2px solid var(--border); background: var(--card-bg); }
+  .ex-opt.sel, .xm-pic.sel, .xm-tf button.sel, .xm-slot.sel { border-color: var(--accent); background: var(--accent-soft); }
+  .ex-opt.right, .xm-pic.right { border-color: var(--good); background: var(--good-soft); }
+  .ex-opt.wrong, .xm-pic.wrong { border-color: var(--bad); }
+  .xm-slot { display: inline-block; min-width: 1.9em; padding: 2px 6px; margin: 0 2px; border-radius: 10px; border: 2px dashed var(--border); background: var(--card-bg); font-size: 1.1rem; color: var(--muted); vertical-align: middle; }
+  .xm-fill { color: var(--accent); font-weight: 800; }
+  .xm-sentline { margin: 8px 0; padding: 8px 10px; border-radius: 14px; background: var(--bg); }
+  .xm-sel { font-size: 1.1rem; padding: 4px 6px; border-radius: 10px; border: 2px solid var(--border); background: var(--card-bg); color: var(--ink); vertical-align: middle; max-width: 6em; }
+  .xm-in { display: inline-block; width: 5.2em; text-align: center; margin: 0 3px; padding: 4px 6px; font-size: 1.1rem; vertical-align: middle; }
+  .xm-essay { min-height: 190px; font-size: 1.2rem; line-height: 1.7; resize: vertical; }
+  .xm-count { margin: 6px 0 2px; font-weight: 700; color: var(--muted); }
+  .xm-count.ok { color: var(--good); }
+  .xm-checks { margin: 10px 0 0; display: grid; gap: 6px; }
+  .xm-checks label { display: flex; gap: 8px; align-items: flex-start; font-size: .9rem; }
+  .xm-res-row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 3px 10px; margin: 10px 0; }
+  .xm-res-row .xm-lbl { grid-row: 1; grid-column: 1; font-weight: 700; font-size: .92rem; }
+  .xm-res-row .xm-num { grid-row: 1; grid-column: 2; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; font-size: .88rem; }
+  .xm-res-row .mini { grid-row: 2; grid-column: 1 / -1; }
+  #examView .view-head h2 { font-size: 1.1rem; }
+  .xm-bar-bad i { background: var(--g-red); }
+  .xm-big { font-size: 2.6rem; font-weight: 800; text-align: center; line-height: 1.1; }
+  .xm-rev { margin: 8px 0; padding: 10px 12px; border-radius: 14px; background: var(--bg); font-size: .92rem; }
+  .xm-rev .ok { color: var(--good); font-weight: 700; } .xm-rev .no { color: var(--bad); font-weight: 700; }
+  details.xm-det { margin-top: 12px; } details.xm-det > summary { font-weight: 800; cursor: pointer; padding: 6px 0; }
+  @media (max-width: 600px) { .xm-pic { font-size: 2.6rem; } }
 </style>
 </head>
 <body>
@@ -835,6 +877,7 @@
       <button class="tile t-purple" id="practiceBtn"><span class="t-ico">🎯</span>Frei üben<small>Auch Test</small></button>
       <button class="tile t-pink" id="hubBtn"><span class="t-ico">🧩</span>Übungen<small>Lücken, Verbinden, Lesen</small></button>
       <button class="tile t-green" id="pinyinBtn"><span class="t-ico">🗣️</span>Aussprache<small>Töne &amp; Sprechen</small></button>
+      <button class="tile t-exam" id="examBtn"><span class="t-ico">📝</span>HSK-Prüfung<small>Simulation &amp; Auswertung</small></button>
       <button class="tile t-amber" id="tileSearchBtn"><span class="t-ico">🌐</span>Übersetzer<small>Wörter &amp; Sätze</small></button>
     </div>
 
@@ -851,6 +894,7 @@
   <div id="exerciseView" hidden></div>
   <div id="pinyinView" hidden></div>
   <div id="hubView" hidden></div>
+  <div id="examView" hidden></div>
 
   <!-- Session -->
   <div id="sessionView" hidden>
@@ -1016,6 +1060,7 @@
 <script src="aussprache.js"></script>
 <script src="radicals.js"></script>
 <script src="trad2simp.js"></script>
+<script src="exam-a21.js"></script>
 <script>
 // ---------------------------------------------------------------
 // Datum (lokale Tage als "JJJJ-MM-TT"; window.__testNow nur für Tests)
@@ -1543,6 +1588,7 @@ const doneView = document.getElementById("doneView");
 const pathView = document.getElementById("pathView");
 const chapterView = document.getElementById("chapterView");
 const exerciseView = document.getElementById("exerciseView");
+const examView = document.getElementById("examView");
 const cardArea = document.getElementById("cardArea");
 const deckSelect = document.getElementById("deckSelect");
 const levelSelect = document.getElementById("levelSelect");
@@ -1550,7 +1596,7 @@ const statsOverlay = document.getElementById("statsOverlay");
 const settingsOverlay = document.getElementById("settingsOverlay");
 
 function showView(view) {
-  [homeView, pathView, chapterView, exerciseView, pinyinView, hubView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
+  [homeView, pathView, chapterView, exerciseView, pinyinView, hubView, examView, sessionView, doneView].forEach(v => { v.hidden = v !== view; });
   document.body.classList.toggle("in-session", view === sessionView);
   window.scrollTo(0, 0);
 }
@@ -3100,7 +3146,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v28";
+const APP_VERSION = "v29";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
@@ -3913,6 +3959,7 @@ document.addEventListener("keydown", e => {
     else if (!statsOverlay.hidden) statsOverlay.hidden = true;
     else if (session) finishSession(false);
     else if (!pinyinView.hidden) { stopListening(); if (py || sp) { py = null; sp = null; renderPinyin(); } else goHome(); }
+    else if (!examView.hidden) { if (window.examEsc) window.examEsc(); else goHome(); }
     else if (!hubView.hidden) goHome();
     else if (!exerciseView.hidden) { if (mx) { readToken++; openHub(mx.ch.id); } else openChapter(ex.ch.id); }
     else if (!chapterView.hidden) openPath();
@@ -4854,6 +4901,7 @@ const EN_STATIC = {
   "Zhōngwén Karten": "Zhōngwén Cards",
   "Jeden Tag ein bisschen besser": "A little better every day",
   "Lernpfad": "Learning path", "Kapitel für Kapitel": "Chapter by chapter",
+  "HSK-Prüfung": "HSK exam", "Simulation & Auswertung": "Simulation & results",
   "Frei üben": "Practise", "Auch Test": "Plus test",
   "Übersetzer": "Translator", "Wörter & Sätze": "Words & sentences",
   "Alle": "All", "Leicht": "Easy", "Mittel": "Medium", "Schwer": "Hard",
@@ -5357,5 +5405,6 @@ document.getElementById("onbAgainBtn").onclick = openOnboarding;
 })();
 
 </script>
+<script src="exam.js"></script>
 </body>
 </html>
