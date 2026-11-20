@@ -809,7 +809,7 @@
   @media (prefers-reduced-motion: reduce) { .onb *, .onb-box.enter > * { animation: none !important; } }
 
   /* HSK-Prüfung (exam.js) */
-  .tile.t-exam { background: var(--g-brand); box-shadow: 0 5px 0 var(--edge-brand); }
+  .tile.t-exam { background: var(--brand); box-shadow: 0 5px 0 var(--edge-brand); }
   .xm-timer { font-weight: 800; font-variant-numeric: tabular-nums; padding: 5px 12px; border-radius: 999px; background: var(--card-bg); border: 1px solid var(--border); white-space: nowrap; }
   .xm-timer.low { color: var(--bad); border-color: var(--bad); animation: pulse 1s ease-in-out infinite; }
   .xm-part { font-size: .8rem; font-weight: 700; color: var(--muted); margin: -6px 0 10px; }
@@ -3146,7 +3146,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v29";
+const APP_VERSION = "v30";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
