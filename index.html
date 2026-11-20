@@ -3146,7 +3146,7 @@ function syncThemeColor() {
 new MutationObserver(syncThemeColor).observe(document.body, { subtree: true, attributes: true, attributeFilter: ["hidden"] });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncThemeColor);
 // Version dieser Seite — beim Release zusammen mit VERSION in sw.js hochzählen
-const APP_VERSION = "v30";
+const APP_VERSION = "v31";
 const UPDATE_FLAG = "cnTutorUpdatedTo";
 async function loadLatestVersion() {
   const btn = document.getElementById("updateBtn"), status = document.getElementById("versionStatus");
